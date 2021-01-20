@@ -6,6 +6,6 @@ Architectural patterns are...
 
 * [Façade Pattern](./façade-pattern/)
 * [Name-Service Pattern](./name-service-pattern/NameServicePattern.md)
-* [Observer Pattern] (./observer-patterns/ObserverPattern.md)
-* [Oracle Pattern] (./oracle-pattern/OraclePattenr.md)
-* [Proxy Pattern] (./proxy-pattern/ProxyPattern.md)
+* [Observer Pattern](./Observer Patterns/ObserverPattern.md)
+* [Oracle Pattern](./Oracle Pattern/OraclePattenr.md)
+* [Proxy Pattern](./Proxy Pattern/ProxyPattern.md)
