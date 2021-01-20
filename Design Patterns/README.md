@@ -4,7 +4,7 @@ Design patterns are...
 
 # Overview of Architectural Patterns
 
-* [Commitment Patterns](./Commitment%20Pattern/README.md#context)
+* [Commitment Pattern](./Commitment%20Pattern/README.md#context)
 * [Event-Order Pattern](./Event-Order%20Pattern/README.md.md#context)
 * [Indexed-Loop Patern](./Indexed-Loop%20Pattern/README.md.md#context)
 * [Mutex Pattern](./Mutex%20Patterns/README.md.md#context)
