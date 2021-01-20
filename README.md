@@ -2,10 +2,7 @@
 
 Test der Dateiformate
 
-![Try](Architectural Patterns/Façade Pattern/Façade Pattern - Direct Calls without Façade.png)
-
-![1.5 Try](Architectural Patterns/Façade Pattern/Façade Pattern - Direct Calls without Façade.png)
-
+![Try](Architectural%20Patterns/Façade%20Pattern/Façade%20Pattern%20-%20Direct%20Calls%20without%20Façade.png)
 
 ![ohneLeerzeichen](ArchitecturalPatterns/FaçadePattern/FaçadePattern-DirectCallswithoutFaçade.png)
 
@@ -13,5 +10,5 @@ Test der Dateiformate
 
 ![2.Try](Architectural Patterns/Façade Pattern/Façade Pattern - Direct Calls without Façade.emf)
 
-![2.Try](ArchitecturalPatterns/FaçadePattern/FaçadePattern-DirectCallswithoutFaçade.emf)
+![2.Try](Architectural%20Patterns/Façade%20Pattern/Façade%20Pattern%20-%20Direct%20Calls%20without%20Façade.emf)
 
