@@ -4,8 +4,8 @@ Architectural patterns are...
 
 # Overview of Architectural Patterns
 
-* [Façade Pattern](./façade-pattern/)
-* [Name-Service Pattern](./name-service-pattern/NameServicePattern.md)
-* [Observer Pattern](./Observer Patterns/ObserverPattern.md)
-* [Oracle Pattern](./Oracle Pattern/OraclePattenr.md)
-* [Proxy Pattern](./Proxy Pattern/ProxyPattern.md)
+* [Façade Pattern](./Façade%20Pattern/FaçadePattern.md#context)
+* [Name-Service Pattern](./Name-Service%20Pattern/NameServicePattern.md#context)
+* [Observer Pattern](./Observer%20Patterns/ObserverPattern.md#context)
+* [Oracle Pattern](./Oracle%20Pattern/OraclePattenr.md#context)
+* [Proxy Pattern](./Proxy%20Pattern/ProxyPattern.md#context)
