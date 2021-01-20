@@ -2,7 +2,7 @@
 Smart contract development for distributed ledgers is currently a major challenge for developers [[1](#references)].
 
 # Overview of Patterns
-* [Architectural Patterns](./architectural-patterns/overview.md)
+* [Architectural Patterns](./architectural%20patterns/Readme.md)
   * [XY Pattern](./architectural-patterns/XY-pattern/README.md)
 * [Design Patterns](./design-patterns/overview.md)
 
