@@ -4,9 +4,23 @@ Smart contract development for distributed ledgers is currently a major challeng
 # Overview of Patterns
 * [Architectural Patterns](./Architectural%20Patterns/README.md)
   * [Façade Pattern](./Architectural%20Patterns/Façade%20Pattern/README.md#context)
+  * [Name-Service Pattern](./Architectural%20Patterns/Name-Service%20Pattern/README.md#context)
+  * [Observer Pattern](./Architectural%20Patterns/Observer%20Patterns/README.md#context)
+  * [Oracle Pattern](./Architectural%20Patterns/Oracle%20Pattern/README.md#context)
+  * [Proxy Pattern](./Architectural%20Patterns/Proxy%20Pattern/README.md#context)
 * [Design Patterns](./Design%20Patterns/README.md)
   * [Commitment Pattern](./Design%20Patterns/Commitment%20Pattern/README.md#context)
+  * [Event-Order Pattern](./Design%20Patterns/Event-Order%20Pattern/README.md.md#context)
+  * [Indexed-Loop Patern](./Design%20Patterns/Indexed-Loop%20Pattern/README.md.md#context)
+  * [Mutex Pattern](./Design%20Patterns/Mutex%20Patterns/README.md.md#context)
+  * [Pull Pattern](./Design%20Patterns/Pull%20Pattern/README.md.md#context)
+  * [Factory Pattern](./Design%20Patterns/Factory%20Pattern/README.md.md#context)
 * [Idioms](./idioms/overview.md)
+  * [Authorization Pattern](./idioms/Authorization%20Pattern/README.md#context)
+  * [Error-Handling Pattern](./idioms/Error-Handling-%20Pattern/README.md.md#context)
+  * [External-Call Pattern](./idioms/External-Call%20Pattern/README.md.md#context)
+  * [Overflow Pattern](./idioms/Overflow%20Patterns/README.md.md#context)
+  * [Token Pattern](./idioms/Token%20Pattern/README.md.md#context)
 
 # References
 [1] A. Dearden, J. Finlay, L. Allgar, and B. Mcmanus, “Evaluating pattern languages in participatory design,” 2002, p. 664, doi: 10.1145/506486.506535.
