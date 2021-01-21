@@ -9,7 +9,7 @@ There are two roles of smart contracts: multiple Satellites and one Façade Cont
 # Example
 Wrong | Correct
 ------------- | -------------
-Content Cell 1  | Content Cell 2
+![Wrong](Façade%20Pattern%20-%20Direct%20Calls%20without%20Façade.png) | ![Correct](Façade%20Pattern%20-%20Direct%20via%20Façade.png)
 
 # Resulting Context
 
