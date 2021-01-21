@@ -8,10 +8,16 @@
 
 # Example
 
-Wrong | Correct
-------------- | -------------
-Content Cell 1  | Content Cell 2
+## Wrong
+```Solidity 
 
+
+```
+## Correct
+```Solidity 
+
+
+```
 # Resulting Context
 
 # Rationale
