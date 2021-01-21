@@ -11,10 +11,7 @@ For maintenance of the Registry Contract, an authorization mechanism should be i
 # Example
 Wrong | Correct
 ------------- | -------------
-![Wrong](Name-Service%20Pattern%20-%20Direct%20Calls%20via%20Address.png)
-
-User application (or smart contract) directly calls functions of each smart contract using the direct address of each individual smart contract. | ![Correct](Name-Service%20Pattern%20-%20Calls%20via%20Name-Service.png)
-User application (or smart contract) first calls the Registry Contract to re-trieve the current smart contract address (and/or the targeted function sig-nature).
+![Wrong](Name-Service%20Pattern%20-%20Direct%20Calls%20via%20Address.png)User application (or smart contract) directly calls functions of each smart contract using the direct address of each individual smart contract. | ![Correct](Name-Service%20Pattern%20-%20Calls%20via%20Name-Service.png)User application (or smart contract) first calls the Registry Contract to re-trieve the current smart contract address (and/or the targeted function sig-nature).
 
 # Resulting Context
 Smart contracts can retrieve the address of the latest version of a smart contract using intuitive names instead of addresses. In case a registered smart contract’s address changes, the associated entry can be centrally updated in the Registry Contract. Only the Registry Contract needs to be updated and all smart contracts relying on the Registry Contract will retrieve the address of the latest version of the smart contract. Nevertheless, the ability to update smart contract addresses decreases tamper-resistance and users of the Registry Contract must trust developers that the registered smart contracts will not be changed with malicious intention.
