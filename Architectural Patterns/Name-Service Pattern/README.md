@@ -17,8 +17,8 @@ Wrong | Correct
 Smart contracts can retrieve the address of the latest version of a smart contract using intuitive names instead of addresses. In case a registered smart contract’s address changes, the associated entry can be centrally updated in the Registry Contract. Only the Registry Contract needs to be updated and all smart contracts relying on the Registry Contract will retrieve the address of the latest version of the smart contract. Nevertheless, the ability to update smart contract addresses decreases tamper-resistance and users of the Registry Contract must trust developers that the registered smart contracts will not be changed with malicious intention.
 # Rationale
 The registration contract serves as a dictionary that translates the names of smart contracts into the assigned address of their latest version.
-# Related Patterns (Links not working)
+# Related Patterns
 * [Façade Pattern](/Architectural%20Patterns/Façade%20Pattern/README.md#context)
 * [Proxy Pattern](/Architectural%20Patterns/Proxy%20Pattern/README.md#context)
-# Exemplary Uses
+# Known Uses
 Ethereum Name Service: https://docs.ens.domains/

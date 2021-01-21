@@ -18,4 +18,4 @@ Content Cell 1  | Content Cell 2
 
 # Related Patterns
 
-# Exemplary Uses
+# Known Uses

@@ -15,10 +15,10 @@ Wrong | Correct
 Using a central Façade Contract offers a single access point for the execution of an application logic composed of the logic implemented in different Satellites and, thus, eases the execution of such composed application logic. Because of the use of different Satellites implementing logic for specific sub-tasks, developers can use those Satellites in several Façade Contracts. In addition, the Façade Contract allows to update individual Satellites by registering a novel address as long as the interfaces of the individual satellites comply with those of the original Satellites. However, the updates of smart contracts deteriorate transparency because users should first check if the used Satellites in the execution of a Façade Contract function still fulfill the intended tasks. Hence, users must trust the developers of the Satellites and the Façade Contract. Developers of the Façade Contract must implement an appropriate authorization concept to update Satellite addresses.
 # Rationale
 The orchestration of different smart contracts via a Façade Contract serving as a proxy eases the execution of multiple, interdependent smart contracts. All individual calls and error handling are outsourced to the Façade Contract.
-# Related Patterns (Links not working)
+# Related Patterns
 * [Name-Service Pattern](/Architectural%20Patterns/Name-Service%20Pattern/README.md#context)
 * [Proxy Pattern](/Architectural%20Patterns/Proxy%20Pattern/README.md#context)
-# Exemplary Uses
+# Known Uses
 LATOPreICO(lines 252, 326ff): https://etherscan.io/address/0x459F7854776ED005B6Ec63a88F834fDAB0B6993e#code
 
 Base and Satellite: https://github.com/maxwoe/solidity_patterns/tree/master/maintenance/satellite
