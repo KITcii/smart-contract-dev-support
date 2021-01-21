@@ -2,6 +2,8 @@
 
 # Problem
 
+# Forces
+
 # Solution
 
 # Example
@@ -10,8 +12,10 @@ Wrong | Correct
 ------------- | -------------
 Content Cell 1  | Content Cell 2
 
-# Resoning
-
 # Resulting Context
+
+# Rationale
+
+# Related Patterns
 
 # Exemplary Uses
