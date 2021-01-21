@@ -1,7 +1,7 @@
 # Introduction
 Smart contract development for distributed ledgers is currently a major challenge for developers [[1](#references)].
 
-# Overview of Patterns  (Not all links are working)
+# Overview of Patterns
 
 * [Architectural Patterns](Architectural%20Patterns/README.md)
   * [Façade Pattern](Architectural%20Patterns/Façade%20Pattern/README.md#context)
@@ -16,13 +16,13 @@ Smart contract development for distributed ledgers is currently a major challeng
   * [Mutex Pattern](Design%20Patterns/Mutex%20Pattern/README.md#context)
   * [Pull Pattern](Design%20Patterns/Pull%20Pattern/README.md#context)
   * [Factory Pattern](Design%20Patterns/Factory%20Pattern/README.md#context)
-* [Idioms](idioms/overview.md)
-  * [Authorization Pattern](idioms/Authorization%20Pattern/README.md#context)
-  * [Checks-Effects-Interactions Pattern](idioms/Checks-Effects-Interactions%20Pattern/README.md#context)
-  * [Error-Handling Pattern](idioms/Error-Handling-%20Pattern/README.md#context)
-  * [External-Call Pattern](idioms/External-Call%20Pattern/README.md#context)
-  * [Overflow Pattern](idioms/Overflow%20Patterns/README.md#context)
-  * [Token Pattern](idioms/Token%20Pattern/README.md#context)
+* [Idioms](Idioms/overview.md)
+  * [Authorization Pattern](Idioms/Authorization%20Pattern/README.md#context)
+  * [Checks-Effects-Interactions Pattern](Idioms/Checks-Effects-Interactions%20Pattern/README.md#context)
+  * [Error-Handling Pattern](Idioms/Error-Handling-%20Pattern/README.md#context)
+  * [External-Call Pattern](Idioms/External-Call%20Pattern/README.md#context)
+  * [Overflow Pattern](Idioms/Overflow%20Patterns/README.md#context)
+  * [Token Pattern](Idioms/Token%20Pattern/README.md#context)
 
 # References
 [1] A. Dearden, J. Finlay, L. Allgar, and B. Mcmanus, “Evaluating pattern languages in participatory design,” 2002, p. 664, doi: 10.1145/506486.506535.
