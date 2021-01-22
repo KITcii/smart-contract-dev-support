@@ -13,7 +13,7 @@ Treat any external calls as malicious and evaluate each return value from extern
 
 ## Wrong
 ```Solidity 
-pragma solidity >=0.6.10 <0.7.0;
+pragma solidity ^0.7.0;
 
 contract ExternalContract {
     function externalFunction(string memory text1, string memory text2)
@@ -48,7 +48,7 @@ CallerContract uses the call(…) command to execute externalFunc-tion(…) beca
 
 ## Correct
 ```Solidity 
-pragma solidity >=0.6.10 <0.7.0;
+pragma solidity ^0.7.0;
 
 // Definition of the interface of ExternalContract to be able to easily use the defined return values
 contract ExternalContract {
