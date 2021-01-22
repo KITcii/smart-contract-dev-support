@@ -3,26 +3,26 @@ Smart contract development for distributed ledgers is currently a major challeng
 
 # Overview of Patterns
 
-* [Architectural Patterns](Architectural%20Patterns/README.md)
+* [Architectural Patterns](Architectural%20Patterns/README.md#introduction)
   * [Façade Pattern](Architectural%20Patterns/Façade%20Pattern/README.md#context)
   * [Name-Service Pattern](Architectural%20Patterns/Name-Service%20Pattern/README.md#context)
   * [Observer Pattern](Architectural%20Patterns/Observer%20Pattern/README.md#context)
   * [Oracle Pattern](Architectural%20Patterns/Oracle%20Pattern/README.md#context)
   * [Proxy Pattern](Architectural%20Patterns/Proxy%20Pattern/README.md#context)
-* [Design Patterns](Design%20Patterns/README.md)
+* [Design Patterns](Design%20Patterns/README.md#introduction)
   * [Commitment Pattern](Design%20Patterns/Commitment%20Pattern/README.md#context)
   * [Event-Order Pattern](Design%20Patterns/Event-Order%20Pattern/README.md#context)
   * [Indexed-Loop Patern](Design%20Patterns/Indexed-Loop%20Pattern/README.md#context)
   * [Mutex Pattern](Design%20Patterns/Mutex%20Pattern/README.md#context)
   * [Pull Pattern](Design%20Patterns/Pull%20Pattern/README.md#context)
-  * [Smart-Contract-Factory Pattern](Design%20Patterns/Smart-Contract-Factory%20Pattern/README.md#context)
-* [Idioms](Idioms/Readme.md#Introduction)
+  * [Factory Pattern](Design%20Patterns/Factory%20Pattern/README.md#context)
+* [Idioms](Idioms/README.md#introduction)
   * [Authorization Pattern](Idioms/Authorization%20Pattern/README.md#context)
   * [Checks-Effects-Interactions Pattern](Idioms/Checks-Effects-Interactions%20Pattern/README.md#context)
   * [Error-Handling Pattern](Idioms/Error-Handling%20Pattern/README.md#context)
   * [External-Call Pattern](Idioms/External-Call%20Pattern/README.md#context)
   * [Overflow Pattern](Idioms/Overflow%20Pattern/README.md#context)
-  * [Token Pattern](idioms/Token%20Pattern/README.md#context)
+  * [Token Pattern](Idioms/Token%20Pattern/README.md#context)
 
 # References
 [1] A. Dearden, J. Finlay, L. Allgar, and B. Mcmanus, “Evaluating pattern languages in participatory design,” 2002, p. 664, doi: 10.1145/506486.506535.
