@@ -1,7 +1,7 @@
 # Context
 Multiple users want to interact with the same smart contract in a certain state st using their individual accounts. If the smart contract makes a transition from st to a subsequent state st+1, the execution of the smart contract may cause undesired outcomes for the respective transaction issuer. Therefore, the transactions issuers want to have a guarantee that the smart contract function is only executed in the intended state or not at all.
 # Problem
-The state of a smart contract in which a transaction triggers a smart contract function cannot be foreseen because of concurrency in transaction processing and unpredictable event ordering due to non-deterministic behavior of validating nodes. Concurrency in transaction processing may lead to unintended outcomes of smart contract execution such as transfers of unintended amounts of assets (e.g., Ether), especially in scenarios requiring conditional exe-cution of transactions.
+The state of a smart contract in which a transaction triggers a smart contract function cannot be foreseen because of concurrency in transaction processing and unpredictable event ordering due to non-deterministic behavior of validating nodes. Concurrency in transaction processing may lead to unintended outcomes of smart contract execution such as transfers of unintended amounts of assets (e.g., Ether), especially in scenarios requiring conditional execution of transactions.
 # Forces
 A smart contract function should be executed in a user-defined state s. After a transaction triggered the execution of a smart contract in s, all concurrent transactions that aim to execute the smart contract in s must be rejected.
 # Solution
@@ -50,9 +50,12 @@ The above example **does only consider the state of the smart contract a transac
 
 # Resulting Context
 Smart contract functions that implement a state value condition are only executed by transactions that carry a matching state value. Otherwise, transac-tions are rejected. A drawback is that updates for the transition counter must also be paid by users that execute the smart contract.
+
 # Rationale
 Using a variable indicating the state of a smart contract, the execution of smart contract functions in a certain state is assured. If a smart contract function should be executed in a state, in which the transition counter does not equal an intended value, the execution is aborted.
+
 # Related Patterns
+None
 
 # Known Uses
 ETOCommitment (lines 762 ff, 6735): https://etherscan.io/address/0x01a1f17808edae0b004a4f11a03620d3d804b997#code
