@@ -1,6 +1,6 @@
 pragma solidity >=0.5.0 <0.7.0;
 
-contract PullContract {
+contract PullPattern {
     mapping (address => uint256) public balances;
     
     receive() external payable {

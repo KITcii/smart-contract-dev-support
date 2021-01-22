@@ -1,6 +1,6 @@
 pragma solidity >=0.5.0 <0.7.0;
 
-contract TokenContract {
+contract TokenPattern {
     address public minter;
     mapping (address => uint) public userBalances;
     event Sent(address from, address to, uint amount);

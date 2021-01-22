@@ -1,6 +1,6 @@
 pragma solidity >=0.6.10 <0.7.0;
 
-contract TokenContract {
+contract TokenAntipattern {
     address public minter;
     
     mapping (address => uint256) public balances;
@@ -13,27 +13,27 @@ contract TokenContract {
         minter = msg.sender;
     }
 
-    function mint(address receiver, uint amount) public returns(uint256) {
+    function mint(address _receiver, uint _amount) public returns(uint256) {
         require(msg.sender == minter);
         
-        balances[receiver] += amount;
-        return balances[receiver];
+        balances[receiver] += _amount;
+        return balances[_receiver];
     }
 
-    function send(address receiver, uint amount) public returns(bool) {
+    function send(address _receiver, uint _amount) public returns(bool) {
         require(amount <= balances[msg.sender], "Insufficient balance.");
         
-        balances[msg.sender] -= amount;
-        balances[receiver] += amount;
-        emit Sent(msg.sender, receiver, amount);
+        balances[msg.sender] -= _amount;
+        balances[receiver] += _amount;
+        emit Sent(msg.sender, _receiver, _amount);
         return true;
     }
 
-    function auction(uint256 bid) public {
+    function auction(uint256 _bid) public {
         require(balances[msg.sender] >= bid, "Insufficient balance.");
         require(bid>highest_bid, "Your bid is too low.");
         
         highest_bidder=msg.sender;
-        highest_bid=bid;
+        highest_bid=_bid;
     }
 }

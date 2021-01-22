@@ -1,6 +1,6 @@
 pragma solidity >=0.5.0 <0.7.0;
 
-contract UnboundedMass {
+contract PullAntipattern {
     address payable[] clients;
     mapping (address => uint256) public balances;
     
