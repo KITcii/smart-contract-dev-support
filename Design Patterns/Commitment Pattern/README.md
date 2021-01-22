@@ -45,12 +45,12 @@ contract CommitmentPattern {
 }
 ```
 
-Note: We did not implement events for the sake of simplicity of the example. For a better integration into software applications, events should be im-plemented at the end of the commit(…) and/or reveal(…) function.
+Note: We did not implement events for the sake of simplicity of the example. For a better integration into software applications, events should be implemented at the end of the commit(…) and/or reveal(…) function.
 
 # Resulting Context
 The smart contract stores the disguised values in a tamper-resistant way and all commits are binding. The disguised values can be revealed by users afterwards. Developers should consider the case that not all users will reveal their secret values.
 # Rationale
-All transactions and their contents stored on the distributed ledger are publicly transparent. Therefore, the secret values to which the users have com-mitted themselves are already stored on the distributed ledger in a tamper-resistant manner. The challenge is to keep the data secret from potentially malicious users who might try to uncover the secret value. Therefore, we recommend adding a salt to the secret value and allowing only the issuer of the secret value to reveal it.
+All transactions and their contents stored on the distributed ledger are publicly transparent. Therefore, the secret values to which the users have committed themselves are already stored on the distributed ledger in a tamper-resistant manner. The challenge is to keep the data secret from potentially malicious users who might try to uncover the secret value. Therefore, we recommend adding a salt to the secret value and allowing only the issuer of the secret value to reveal it.
 # Related Patterns
 -
 # Known Uses
