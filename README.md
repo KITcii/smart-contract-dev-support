@@ -46,18 +46,3 @@ Smart contract development for distributed ledgers is currently a major challeng
 [10] A. Mavridou and A. Laszka, “Designing Secure Ethereum Smart Contracts: A Finite State Machine Based Approach,” arXiv:1711.09327 [cs], Nov. 2017, Accessed: Aug. 24, 2019. [Online]. Available: http://arxiv.org/abs/1711.09327.
 
 [11] Ethereum Foundation, “Common Patterns - Restricted Access.” Dec. 13, 2020, Accessed: Apr. 22, 2020. [Online]. Available: https://solid-ity.readthedocs.io/en/latest/common-patterns.html#restricting-access.
-
-# contract-patternshese challene
-
-Test der Dateiformate
-
-![Try](Architectural%20Patterns/Façade%20Pattern/Façade%20Pattern%20-%20Direct%20Calls%20without%20Façade.png)
-
-![ohneLeerzeichen](ArchitecturalPatterns/FaçadePattern/FaçadePattern-DirectCallswithoutFaçade.png)
-
-
-
-![2.Try](Architectural Patterns/Façade Pattern/Façade Pattern - Direct Calls without Façade.emf)
-
-![2.Try](Architectural%20Patterns/Façade%20Pattern/Façade%20Pattern%20-%20Direct%20Calls%20without%20Façade.)
-

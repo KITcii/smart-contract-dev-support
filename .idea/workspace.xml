@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eeb78d7b-1496-423f-8169-9c479a549be4" name="Default" comment="" />
+    <list default="true" id="eeb78d7b-1496-423f-8169-9c479a549be4" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,8 +47,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="390">
-                <caret line="26" column="12" lean-forward="true" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+              <first_editor relative-caret-position="458">
+                <caret line="47" column="209" selection-start-line="47" selection-start-column="209" selection-end-line="47" selection-end-column="209" />
               </first_editor>
               <second_editor />
             </state>
@@ -73,7 +75,6 @@
         <option value="$PROJECT_DIR$/Design Patterns/README.md" />
         <option value="$PROJECT_DIR$/Architectural Patterns/README.md" />
         <option value="$PROJECT_DIR$/Idioms/README.md" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Idioms/Guarding Pattern/CORRECT Authorization Pattern.sol" />
         <option value="$PROJECT_DIR$/Idioms/Guarding Pattern/GuardingPatternCorrect.sol" />
         <option value="$PROJECT_DIR$/Idioms/Guarding Pattern/GuardingPatternWrong.sol" />
@@ -115,6 +116,7 @@
         <option value="$PROJECT_DIR$/Design Patterns/Event-Order Pattern/README.md" />
         <option value="$PROJECT_DIR$/Design Patterns/Commitment Pattern/CommitmentPattern.sol" />
         <option value="$PROJECT_DIR$/Design Patterns/Commitment Pattern/README.md" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -310,15 +312,16 @@
       <option name="presentableId" value="Default" />
       <updated>1611309451837</updated>
       <workItem from="1611309453141" duration="7937000" />
-      <workItem from="1611322983695" duration="455000" />
+      <workItem from="1611322983695" duration="726000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8392000" />
+    <option name="totallyTimeSpent" value="8663000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -330,7 +333,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.22435898" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.23205128" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19670959" />
@@ -700,8 +703,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="390">
-            <caret line="26" column="12" lean-forward="true" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+          <first_editor relative-caret-position="458">
+            <caret line="47" column="209" selection-start-line="47" selection-start-column="209" selection-end-line="47" selection-end-column="209" />
           </first_editor>
           <second_editor />
         </state>
