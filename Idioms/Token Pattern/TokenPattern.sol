@@ -1,5 +1,7 @@
 pragma solidity >=0.5.0 <0.7.0;
 
+// Separate the logic from the actual token storage in favor of maintenance.
+
 contract TokenPattern {
     address public minter;
     mapping (address => uint) public userBalances;

@@ -1,12 +1,12 @@
-pragma solidity >=0.5.0 <0.7.0;
+pragma solidity ^0.7.0;
 
-contract WrongPayoutLoop {
+contract IndexedLoopAntipattern {
     struct Payee {
         address payable addr;
         uint256 value;
     }
     
-    Payee[]payees;
+    Payee[] payees;
 
     receive() external payable {
         Payee memory p = Payee(msg.sender, msg.value);

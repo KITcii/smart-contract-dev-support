@@ -1,4 +1,4 @@
-pragma solidity >=0.5.0 <0.7.0;
+pragma solidity ^0.7.0;
 
 contract MutexPattern {
     bool locked = false;
@@ -15,8 +15,7 @@ contract MutexPattern {
         balances[msg.sender] += msg.value;
     }
 
-    function withdraw(uint amount) public payable
-      noReentrancy returns(bool) {
+    function withdraw(uint amount) public payable noReentrancy returns(bool) {
         require(balances[msg.sender] >= amount, "No balance to withdraw.");
         
         balances[msg.sender] -= amount;

@@ -12,7 +12,7 @@ Logic and data in smart contracts should be separated into a Logic Contract and 
 ```Solidity 
 pragma solidity >=0.6.10 <0.7.0;
 
-contract TokenContract {
+contract TokenAntipattern {
     address public minter;
     
     mapping (address => uint256) public balances;
@@ -55,7 +55,7 @@ contract TokenContract {
 ```Solidity 
 pragma solidity >=0.5.0 <0.7.0;
 
-contract TokenContract {
+contract TokenPattern {
     address public minter;
     mapping (address => uint) public userBalances;
     event Sent(address from, address to, uint amount);

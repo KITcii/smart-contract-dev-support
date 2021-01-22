@@ -11,7 +11,7 @@ Developers must first update values of all variables (used in the condition) bef
 ```Solidity 
 pragma solidity >=0.6.0 <0.7.0;
 
-// This smart contract is vulnerable to reentrancy
+// This smart contract is vulnerable to reentrancy and DoS
 contract ChecksEffectsInteractionsAntipattern {
     mapping (address => uint256) public balances;
 

@@ -9,15 +9,15 @@ To avoid out-of-gas exceptions and continue an iteration over an unbounded, iter
 # Example
 ## Wrong
 ```Solidity
-pragma solidity >=0.5.0 <0.7.0;
+pragma solidity ^0.7.0;
 
-contract WrongPayoutLoop {
+contract IndexedLoopAntipattern {
     struct Payee {
         address payable addr;
         uint256 value;
     }
     
-    Payee[]payees;
+    Payee[] payees;
 
     receive() external payable {
         Payee memory p = Payee(msg.sender, msg.value);
@@ -35,12 +35,13 @@ contract WrongPayoutLoop {
         }
     }
 }
+
 ```
 ## Correct
 ```Solidity
-pragma solidity >=0.6.10 <0.7.0;
+pragma solidity ^0.7.0;
 
-contract IndexedLoop {
+contract IndexedLoopPattern {
     struct Payee {
         address payable addr;
         uint256 value;

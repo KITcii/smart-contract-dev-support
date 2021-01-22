@@ -1,6 +1,6 @@
-pragma solidity >=0.6.10 <0.7.0;
+pragma solidity ^0.7.0;
 
-contract IndexedLoop {
+contract IndexedLoopPattern {
     struct Payee {
         address payable addr;
         uint256 value;

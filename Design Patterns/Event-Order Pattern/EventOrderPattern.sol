@@ -1,6 +1,6 @@
-pragma solidity >=0.5.0 <0.7.0;
+pragma solidity ^0.7.0;
 
-contract TransitionCounter {
+contract EventOrderPattern {
     uint256 transCounter = 0;
 
     modifier transitionCounting(uint256 nextTransNum){

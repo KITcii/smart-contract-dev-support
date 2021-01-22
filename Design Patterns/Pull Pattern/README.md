@@ -9,9 +9,9 @@ Instead of implementing a loop to iterate over all elements of the iterable data
 # Example
 ## Wrong
 ```Solidity
-pragma solidity >=0.5.0 <0.7.0;
+pragma solidity ^0.7.0;
 
-contract UnboundedMass {
+contract PullAntipattern {
     address payable[] clients;
     mapping (address => uint256) public balances;
     
@@ -29,9 +29,9 @@ contract UnboundedMass {
 ```
 ## Correct
 ```Solidity
-pragma solidity >=0.5.0 <0.7.0;
+pragma solidity ^0.7.0;
 
-contract PullContract {
+contract PullPattern {
     mapping (address => uint256) public balances;
     
     receive() external payable {
@@ -46,6 +46,7 @@ contract PullContract {
         msg.sender.call{value: amount}("");
     }
 }
+
 ```
 # Resulting Context
 Unbounded mass operations are avoided and the invoking smart contract or user retains control over the associated gas costs. The smart contract does only execute those functions relevant for a certain element of the iterable data structure.

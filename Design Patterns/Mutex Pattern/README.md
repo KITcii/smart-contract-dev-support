@@ -11,9 +11,9 @@ Implement a mutex variable that prevents concurrent access to a variable and to 
 # Example
 ## Wrong
 ```Solidity 
-pragma solidity >=0.5.0 <0.7.0;
+pragma solidity ^0.7.0;
 
-contract Reentrance {
+contract MutexAntipattern {
     mapping(address => uint256) public balances;
     
     receive() external payable {
@@ -28,12 +28,13 @@ contract Reentrance {
         msg.sender.call{value: amount}("");
     }
 }
+
 ```
 ## Correct
 ```Solidity 
-pragma solidity >=0.5.0 <0.7.0;
+pragma solidity ^0.7.0;
 
-contract Mutex {
+contract MutexPattern {
     bool locked = false;
     mapping(address => uint256) public balances;
     
@@ -48,8 +49,7 @@ contract Mutex {
         balances[msg.sender] += msg.value;
     }
 
-    function withdraw(uint amount) public payable
-      noReentrancy returns(bool) {
+    function withdraw(uint amount) public payable noReentrancy returns(bool) {
         require(balances[msg.sender] >= amount, "No balance to withdraw.");
         
         balances[msg.sender] -= amount;
