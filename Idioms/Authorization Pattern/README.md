@@ -1,5 +1,5 @@
 # Context
-A smart contract has sensible logic implemented and should not be executable by only certain accounts in defined contexts.
+A smart contract has sensible logic implemented and should only be executable by certain accounts in defined contexts.
 
 # Problem
 Smart contract interfaces are directly exposed to and callable by all users of the distributed ledgers.
