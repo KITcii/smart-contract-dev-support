@@ -13,7 +13,7 @@ Smart contract development for distributed ledgers is currently a major challeng
   * [Commitment Pattern](Design%20Patterns/Commitment%20Pattern/README.md#context)
   * [Event-Order Pattern](Design%20Patterns/Event-Order%20Pattern/README.md#context)
   * [Factory Pattern](Design%20Patterns/Factory%20Pattern/README.md#context)
-  * [Indexed-Loop Patern](Design%20Patterns/Indexed-Loop%20Pattern/README.md#context)
+  * [Indexed-Loop Pattern](Design%20Patterns/Indexed-Loop%20Pattern/README.md#context)
   * [Mutex Pattern](Design%20Patterns/Mutex%20Pattern/README.md#context)
   * [Pull Pattern](Design%20Patterns/Pull%20Pattern/README.md#context)
 * [Idioms](Idioms/README.md#introduction)
