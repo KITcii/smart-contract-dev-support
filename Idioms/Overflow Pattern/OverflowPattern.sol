@@ -1,5 +1,6 @@
 pragma solidity ^0.6.0;
 
+// We integrate only the part of the SafeMath8 library relevant for this pattern
 library SafeMath8 {
     // Customized SafeMath for uint8
     function add(uint8 a, uint8 b) internal pure
@@ -10,7 +11,7 @@ library SafeMath8 {
     }
 }
 
-contract NoOverflow {
+contract OverflowPattern {
     using SafeMath8 for uint8;
        
     function runLoop() public {
@@ -18,3 +19,4 @@ contract NoOverflow {
             // Your code
         }
     }
+}
