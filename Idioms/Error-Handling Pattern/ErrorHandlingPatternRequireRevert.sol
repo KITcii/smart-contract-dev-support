@@ -1,7 +1,6 @@
 pragma solidity 0.6.10;
 
-contract Sharer {
-
+contract ErrorHandlingPatternRequireRevert {
     function sendAssets(address payable addr)
        public payable returns (bool) {
         require (!addr.call{value: (msg.value / 2)}(""),

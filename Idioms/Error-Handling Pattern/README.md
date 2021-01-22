@@ -14,8 +14,7 @@ Implementing checks of return values (e.g., of call(…) or delegatecall(…) fu
 ```Solidity 
 pragma solidity 0.6.10;
 
-contract Sharer {
-
+contract ErrorHandlingPatternRequireRevert {
     function sendAssets(address payable addr)
        public payable returns (bool) {
         require (!addr.call{value: (msg.value / 2)}(""),
@@ -40,30 +39,35 @@ contract Sharer {
 ## External call with try/catch:
 ```Solidity 
 pragma solidity ^0.6.1;
-import "./CharitySplitter.sol";
 
-contract CharitySplitterFactory {
-    mapping (address => CharitySplitter) public charitySplitters;
+contract ChildContract {
+    address private owner;
+
+    public ChildContract(address _owner) {
+        owner = _owner;
+    }
+}
+
+contract ErrorHandlingPatternTryCatch {
+    mapping (address => ChildContract) public childContracts;
     uint public errorCount;
     
     event ErrorHandled(string reason);
 
-    function createCharitySplitter(address _charityOwner) public {
-        try new CharitySplitter(_charityOwner)
-            returns (CharitySplitter newCharitySplitter) { 
-                charitySplitters[msg.sender] = newCharitySplitter;
+    function createCharitySplitter(address _childOwner) public {
+        try new ChildContract(_childOwner)
+            returns (ChildContract newChildContract) {
+                charitySplitters[msg.sender] = newChildContract;
         } catch Error(string memory reason) {
             errorCount++;
-            CharitySplitter newCharitySplitter = new CharitySplitter(msg.sender);
-            charitySplitters[msg.sender] = newCharitySplitter;
-            // Emitting the error in event
+            ChildContract newChildContract = new ChildContract(msg.sender);
+            childContracts[msg.sender] = newChildContract;
+            // Emit the error event
             emit ErrorHandled(reason);
         } catch {
             errorCount++;
         }
     }
-    
-    // Your code
 }
 ```
 

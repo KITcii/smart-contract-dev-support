@@ -1,6 +1,6 @@
 pragma solidity >=0.5.0 <0.7.0;
 
-contract NoAuthorizationCheck {
+contract GuardingAntipattern {
     address public owner = msg.sender;
 
     function changeOwner(address newOwner) public

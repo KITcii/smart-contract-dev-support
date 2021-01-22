@@ -50,8 +50,7 @@ CallerContract uses the call(…) command to execute externalFunc-tion(…) beca
 ```Solidity 
 pragma solidity >=0.6.10 <0.7.0;
 
-// To define the interface of the actually used ExternalContract
-// to be able to easily use the defined return values
+// Definition of the interface of ExternalContract to be able to easily use the defined return values
 contract ExternalContract {
     function externalFunction(string memory text1, string memory text2)
        public pure returns (bool) {
@@ -59,7 +58,7 @@ contract ExternalContract {
     }
 }
 
-contract CallerContract {
+contract ExternalCallPattern {
     event Response(string text);
 
     function doSomething(address externalAddress, string memory text1,

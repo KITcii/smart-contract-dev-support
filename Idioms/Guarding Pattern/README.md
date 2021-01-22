@@ -16,7 +16,7 @@ Developers should implement authorization checks (e.g., modifiers in solidity) f
 ```Solidity 
 pragma solidity >=0.5.0 <0.7.0;
 
-contract NoAuthorizationCheck {
+contract GuardingAntipattern {
     address public owner = msg.sender;
 
     function changeOwner(address newOwner) public
@@ -31,9 +31,10 @@ contract NoAuthorizationCheck {
 ```Solidity 
 pragma solidity >=0.5.0 <0.7.0;
 
-contract AuthorizationCheck {
+contract GuardingPattern {
     address public owner = msg.sender;
 
+    // Use a modifier to define your guarding conditions
     modifier onlyBy(address account){
         require(msg.sender == account, "Not authorized!");
         _;
@@ -44,6 +45,7 @@ contract AuthorizationCheck {
         owner = newOwner;
     }
 }
+
 ```
 
 # Resulting Context

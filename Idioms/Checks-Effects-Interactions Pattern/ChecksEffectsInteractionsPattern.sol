@@ -1,6 +1,6 @@
 pragma solidity >=0.6.0 <0.7.0;
 
-contract ChecksEffectsInteraction {
+contract ChecksEffectsInteractionsPattern {
     mapping (address => uint256) public balances;
 
     function withdraw(uint amount) public{
