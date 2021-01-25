@@ -1,6 +1,6 @@
 # Introduction
 
-Architectural patterns are...
+Architectural patterns describe “[…] a fun-damental structural organization or scheme for software systems and provide a set of predefined subsystems, specify their respon-sibilities, and include rules and guidelines for organizing the re-lationships between them” [1, p. 12]
 
 # Overview of Architectural Patterns
 
@@ -9,3 +9,6 @@ Architectural patterns are...
 * [Observer Pattern](Observer%20Pattern/README.md#context)
 * [Oracle Pattern](Oracle%20Pattern/README.md#context)
 * [Proxy Pattern](Proxy%20Pattern/README.md#context)
+
+# References
+[1] F. Buschmann, Ed., Pattern-oriented software architecture: a system of pat-terns. Chichester ; New York: Wiley, 1996.
