@@ -2,7 +2,7 @@
 
 Architectural patterns describe “[…] a fun-damental structural organization or scheme for software systems and provide a set of predefined subsystems, specify their respon-sibilities, and include rules and guidelines for organizing the re-lationships between them” [1, p. 12]
 
-# Overview of Architectural Patterns
+## Overview of Architectural Patterns
 
 * [Façade Pattern](Façade%20Pattern/README.md#context)
 * [Name-Service Pattern](Name-Service%20Pattern/README.md#context)
