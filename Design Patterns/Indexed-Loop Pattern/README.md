@@ -1,9 +1,12 @@
 # Context
-Unbounded mass operations occur when developers use iteratable data structures (e.g., lists or collections) to store an unlimited number of elements (e.g., accounts) and cycle over the whole data structure to execute operations. Each iteration consumes gas, which is why the amount of required gas for the overall function execution increases with each added element
+Unbounded mass operations occur when developers use iteratable data structures (e.g., lists or collections) to store an unlimited number of elements (e.g., accounts) and cycle over the whole data structure to execute operations. Each iteration consumes computational resources. In Ethereum, for example, the amount of required gas for the overall function execution increases with each added element and may run into out-of-gas conditions.
+
 # Problem
-Out-of-gas exceptions can interrupt iterations over an unbounded iterable data structure (referred to as unbounded mass operations). Such mass oper-ations usually start from the first element of an array and run until all gas is consumed, which may lead to denial of service because certain elements at the end of the array will never be processed.
+In Ethereum-like platforms, out-of-gas exceptions can interrupt iterations over an unbounded data structure (i.e., unbounded mass operations). Such mass operations usually start from the first element of an array and run until all gas is consumed, which may lead to denial of service because certain elements at the end of the array will never be processed.
+
 # Forces
 In case of an exception thrown during the iteration over an unbounded data structure (e.g., due to an out-of-gas exception or a timeout), the iteration should be interrupted and be continuable with the next call.
+
 # Solution
 To avoid out-of-gas exceptions and continue an iteration over an unbounded, iterable data structure, developers should implement a mechanism to check if sufficient gas is available for the next iteration and an index variable that stores the index of the last element of the iteratable data structure that was successfully processed. When resuming the iteration over the unbounded data structure through another call of the smart contract function, the loop continues at the value stored in the index variable. If a procedure to be executed within the loop fails multiple times for a certain index, this failure should be marked to prevent denial of service and proceed with subsequent elements of the iterable data structure.
 # Example
