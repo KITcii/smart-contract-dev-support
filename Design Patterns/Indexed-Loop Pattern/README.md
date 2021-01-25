@@ -71,6 +71,8 @@ contract IndexedLoopPattern {
 
             uint256 val = payees[nextPayeeIndex].value;
             payees[nextPayeeIndex].value = 0;
+            
+            // Avoid transferring assets from within a loop because of untrustful xternal calls
             payees[nextPayeeIndex].addr.send(val);
             totalGasConsumed = totalGasConsumed + gasPerIteration;
             nextPayeeIndex++;
