@@ -2,7 +2,7 @@
 
 Design patterns provide “[…] a scheme for refining the subsystems or components of a software system, or the relationships between them” [24, p. 13]
 
-# Overview of Architectural Patterns
+## Overview of Architectural Patterns
 
 * [Commitment Pattern](Commitment%20Pattern/README.md#context)
 * [Event-Order Pattern](Event-Order%20Pattern/README.md#context)
