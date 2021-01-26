@@ -1,6 +1,6 @@
 # Introduction
 
-Idioms are patterns on the lowest level of abstraction and “describe[s] how to implement particular aspects of components or the relationships between them using the features of the given language” [24, p. 14].
+Idioms are patterns on the lowest level of abstraction and “describe[s] how to implement particular aspects of components or the relationships between them using the features of the given language” [1, p. 14].
 
 ## Overview of Architectural Patterns
 
