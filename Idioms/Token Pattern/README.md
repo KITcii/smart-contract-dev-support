@@ -1,14 +1,19 @@
-# Context
+# Token Pattern
+## Context
 Tamper-resistance of distributed ledgers impedes maintenance of smart contracts, which is critical, if flawed smart contracts manage assets. To replace the old smart contract with a new one, data (e.g., user balances) kept by the old smart contract must be transferred to the new one, which can cause serious security issues and even loss of assets.
-# Problem
-It is costly and risky to update smart contracts that keep tokens and/or data related to users’ balances.
-# Forces
-The smart contract should be easy to maintain with low risk and low cost.
-# Solution
-Logic and data in smart contracts should be separated into a Logic Contract and a Token Contract. The Token Contract provides data on the liquidity of accounts and keeps the tokens. If code functionality needs to be changed, only the Logic Contract is updated. The Token Contract can remain unchanged. When a new version of the Logic Contract is deployed, the deprecated Logic Contract must be destroyed.
-# Example
 
-## Wrong
+## Problem
+It is costly and risky to update smart contracts that keep tokens and/or data related to users’ balances.
+
+## Forces
+The smart contract should be easy to maintain with low risk and low cost.
+
+## Solution
+Logic and data in smart contracts should be separated into a Logic Contract and a Token Contract. The Token Contract provides data on the liquidity of accounts and keeps the tokens. If code functionality needs to be changed, only the Logic Contract is updated. The Token Contract can remain unchanged. When a new version of the Logic Contract is deployed, the deprecated Logic Contract must be destroyed.
+
+## Example
+
+### Wrong
 ```Solidity 
 pragma solidity >=0.6.10 <0.7.0;
 
@@ -51,7 +56,7 @@ contract TokenAntipattern {
 }
 
 ```
-## Correct
+### Correct
 ```Solidity 
 pragma solidity >=0.5.0 <0.7.0;
 
@@ -97,11 +102,15 @@ contract LogicContract {
     }
 ```
 _Note:_ Due to space constraints we did not use modifiers in the examples. Please better use modifiers for authorization checks to improve comprehensibility of the code. In addition, the code example does only illustrate the separation from logic and the token management. The LogicContract implements no mechanisms to lock assets so that the bidders cannot spend their assets for after their bidding and may become unable to pay.
-# Resulting Context
+
+## Resulting Context
 Developers can maintain logic expressed in smart contract code to manage data or assets without the risk of losing them. The data are always kept by the same smart contract. To prevent single users from acquiring lots of tokens in an early stage of the sale, an Anti-Early-Whale mechanism should be implemented (e.g., a timer for assets distribution and a pause mechanism to temporarily stop assets).
-# Rationale
-A new smart contract that manages the tokens (e.g., token transfers) can be deployed to the distributed ledger and access the Token Contract according to the Token Contract’s authorization scheme. By doing so, not fees for token transfers from the Token Contract to another have to be paid during an update and maintenance-related functionality for such transfers does not have to be implemented
-# Related Patterns
+
+## Rationale
+A new smart contract that manages the tokens (e.g., token transfers) can be deployed to the distributed ledger and access the Token Contract according to the Token Contract’s authorization scheme. By doing so, not fees for token transfers from the Token Contract to another have to be paid during an update and maintenance-related functionality for such transfers does not have to be implemented.
+
+## Related Patterns
 Façade Pattern, Proxy Pattern
-# Known Uses
+
+## Known Uses
 LATOPreICO(lines 252, 326ff): https://etherscan.io/address/0xDa2Cf810c5718135247628689D84F94c61B41d6A#code
