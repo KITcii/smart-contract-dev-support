@@ -1,6 +1,6 @@
 # Introduction
 
-Design patterns provide “[…] a scheme for refining the subsystems or components of a software system, or the relationships between them” [24, p. 13]
+Design patterns provide “[…] a scheme for refining the subsystems or components of a software system, or the relationships between them” [1, p. 13]
 
 ## Overview of Architectural Patterns
 
