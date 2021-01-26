@@ -4,12 +4,12 @@ Idioms are patterns on the lowest level of abstraction and “describe[s] how to
 
 ## Overview of Architectural Patterns
 
-* [Checks-Effects-Interactions Pattern](Checks-Effects-Interactions%20Pattern/README.md#context)
-* [Error-Handling Pattern](Error-Handling%20Pattern/README.md#context)
-* [External-Call Pattern](External-Call%20Pattern/README.md#context)
-* [Guarding Pattern](Guarding%20Pattern/README.md#context)
-* [Overflow Pattern](Overflow%20Pattern/README.md#context)
-* [Token Pattern](Token%20Pattern/README.md#context)
+* [Checks-Effects-Interactions Pattern](Checks-Effects-Interactions%20Pattern/README.md)
+* [Error-Handling Pattern](Error-Handling%20Pattern/README.md)
+* [External-Call Pattern](External-Call%20Pattern/README.md)
+* [Guarding Pattern](Guarding%20Pattern/README.md)
+* [Overflow Pattern](Overflow%20Pattern/README.md)
+* [Token Pattern](Token%20Pattern/README.md)
 
 # References
 
