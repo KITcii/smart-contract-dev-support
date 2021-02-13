@@ -50,7 +50,7 @@ contract ChecksEffectsInteractionsPattern {
 
 ```
 ## Resulting Context
-The Checks-Effects-Interactions Pattern prevents unintended program flow (e.g., due to reentrancy) because all values of variables relevant for a condi-tion are updated as soon as possible. Thus, malicious actions that take advantage of unintended program flow (e.g., in reentrancy attacks) can be avoided.
+The Checks-Effects-Interactions Pattern prevents unintended program flow (e.g., due to reentrancy) because all values of variables relevant for a condition are updated as soon as possible. Thus, malicious actions that take advantage of unintended program flow (e.g., in reentrancy attacks) can be avoided.
 ## Rationale
 Smart contracts follow the concept of state machines and make a transition from a state st to st+1 after certain variable values changed. Each function invocation is put on the call stack and needs to be processed before the smart contract terminates and the state transitions conclude. Unintended program flows are caused by the validation of conditions before the variable values relevant for the condition are updated. To prevent such unintended program flow, an appropriate order of operations in smart contracts regarding state transitions is crucial. With appropriate error handling updates of the internal value in a smart contract are rolled back if the smart contract has failed.
 ## Related Patterns
