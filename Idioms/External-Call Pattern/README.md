@@ -46,7 +46,7 @@ contract CallerContract {
     }
 }
 ```
-CallerContract uses the call(…) command to execute externalFunc-tion(…) because ExternalContract is not known. Call returns a tupel that indicates if the function execution was successful (variable success) and data. The variable data must be parsed in additional functions to retrieve the return value of externalFunction(…).
+CallerContract uses the call(…) command to execute externalFunction(…) because ExternalContract is not known. Call returns a tupel that indicates if the function execution was successful (variable success) and data. The variable data must be parsed in additional functions to retrieve the return value of externalFunction(…).
 
 ### Correct
 ```Solidity 
@@ -77,7 +77,7 @@ contract ExternalCallPattern {
     }
 }
 ```
-CallerContract directly calls externalFunction(…) of ExternalCon-tract, whose interfaces are known to CallerContract because of the definition of ExternalContract in the same file. In the case an exception is thrown during the execution of externalFunction(…), all state changes are reverted. Otherwise, externalFunction(…) returns its Boolean return value.
+CallerContract directly calls externalFunction(…) of ExternalContract, whose interfaces are known to CallerContract because of the definition of ExternalContract in the same file. In the case an exception is thrown during the execution of externalFunction(…), all state changes are reverted. Otherwise, externalFunction(…) returns its Boolean return value.
 
 ## Resulting Context
 When importing external smart contracts, vulnerabilities of these external smart contracts can be handled by appropriate error handling also under consideration of the returned values. In the case an exception is thrown, all state changes are reverted automatically. However, the smart contract deployment becomes more expensive because a kind of copy of the external smart contract is included in the file of the custom smart contract to define the interface of the external smart contract.
