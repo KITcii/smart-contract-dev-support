@@ -1,29 +1,38 @@
 pragma solidity ^0.7.0;
 
-contract IndexedLoopAntipattern {
+contract IndexedLoopPattern {
     struct Payee {
         address payable addr;
         uint256 value;
     }
-    
+
     Payee[] payees;
+    uint256 nextPayeeIndex;
 
     receive() external payable {
         Payee memory p = Payee(msg.sender, msg.value);
         payees.push(p);
     }
-    
-    function payout() public {
-        uint256 i = 0;
-        //If call fails at reciever i because of an gas related issue
+
+    function payout() public payable {
+        uint256 totalGasConsumed = 0;
+        // Amount of gas required for each iteration
+        uint256 gasPerIteration = 42000;
+        // Minimum amount of gas required to execute the code after the loop
+        uint256 gasForPostLoopExecution = 1650;
+        uint256 gasRequired = gasPerIteration + gasForPostLoopExecution;
+
+        while(nextPayeeIndex < payees.length && gasleft() >= gasRequired
+            && totalGasConsumed + gasRequired < block.gaslimit) {
+
+            uint256 val = payees[nextPayeeIndex].value;
+            payees[nextPayeeIndex].value = 0;
+            payees[nextPayeeIndex].addr.send(val);
+            totalGasConsumed = totalGasConsumed + gasPerIteration;
+            nextPayeeIndex++;
+        }
         
-        while(i < payees.length) {
-            // The require statement will block the loop if an asset transfer always fails
-            (bool success, ) = payees[i].addr.call{value:payees[i].value}("");
-            require(success, "An error occured.");
-            payees[i].value = 0;
-            i++;
-        }    
-            
+        if(nextPayeeIndex == payees.length)
+             nextPayeeIndex = 0;
     }
 }
