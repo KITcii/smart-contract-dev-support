@@ -59,7 +59,7 @@ The smart contract stores the disguised values in a tamper-resistant way and all
 All transactions and their contents stored on the distributed ledger are publicly transparent. Therefore, the secret values to which the users have committed themselves are already stored on the distributed ledger in a tamper-resistant manner. The challenge is to keep the data secret from potentially malicious users who might try to uncover the secret value. Therefore, we recommend adding a salt to the secret value and allowing only the issuer of the secret value to reveal it.
 
 ## Related Patterns
--
+\-
 
 ## Known Uses
-Registrar (lines 344ff): https://etherscan.io/address/0x6090A6e47849629b7245Dfa1Ca21D94cd15878Ef#code
+* [Registrar](https://etherscan.io/address/0x6090A6e47849629b7245Dfa1Ca21D94cd15878Ef#code) (lines 344ff)
