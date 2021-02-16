@@ -73,9 +73,9 @@ All state modifications are carried out if the flag is set true. Otherwise, func
 By implementing the Mutex Pattern, a smart contract function cannot be executed if the function execution enters a certain point protected by a mutex variable until the function execution passed another point, where the mutex variable is unlocked again. In case an attacker aims to reenter the smart contract function, the execution will be aborted. By doing so, the smart contract function is protected from reentrancy.
 
 ## Related Patterns
-Checks-Effects-Interactions Pattern
+* [Checks-Effects-Interactions Pattern](/Idioms/Checks-Effects-Interactions%20Pattern/README.md#context)
 
 ## Known Uses
-CrowdsourceMinter (lines 60ff): https://etherscan.io/address/0xDa2Cf810c5718135247628689D84F94c61B41d6A#code
+* [CrowdsourceMinter](https://etherscan.io/address/0xDa2Cf810c5718135247628689D84F94c61B41d6A#code) (lines 60ff)
 
-VentanaToken (lines 115ff): https://etherscan.io/address/0x30CefBcb5C26A5B19a019092Ab8d09F8739c904F#code
+* [VentanaToken](https://etherscan.io/address/0x30CefBcb5C26A5B19a019092Ab8d09F8739c904F#code) (lines 115ff)
