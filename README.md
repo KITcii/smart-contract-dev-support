@@ -60,5 +60,5 @@ As software development (especially in the area of smart contract development) i
 
 
 # References
-[1] F. Buschmann, Ed., Pattern-oriented software architecture: a system of patterns. Chichester; New York: Wiley, 1996.
+[1] F. Buschmann, Ed., Pattern-oriented software architecture: a system of patterns. Chichester; New York: Wiley, 1996.  
 [2] Appleton, Brad. Patterns and software: Essential concepts and terminology. 1997.
