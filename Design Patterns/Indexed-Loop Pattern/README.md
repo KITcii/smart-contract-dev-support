@@ -93,7 +93,7 @@ The individual gas costs for _gasPerIteration_ and _gasForPostLoop_ have been ma
 Before iterations over an unbounded data structure will exceed the available amount of gas, the iteration is aborted can be resumed in a subsequent invocation of the same function at the index stored in an index variable. To completely iterate over the data structure as intended, more than one call of the function might be necessary. Due to additional operations (e.g., updating the index variable), the use of the Indexed-Loop Pattern increases gas cost for deployment and execution. Furthermore, the user who triggers the iteration must pay all gas themselves.
 
 ## Rationale
-By implementing an index variable that points to the last successfully processed element of the iterable data structure, the effects of an out-of-gas exceptions can be mitigated because operations that exceed the gas limit can be continued by the next function call
+By implementing an index variable that points to the last successfully processed element of the iterable data structure, the effects of an out-of-gas exceptions can be mitigated because operations that exceed the gas limit can be continued by the next function call.
 
 ## Related Patterns
 Pull Pattern
