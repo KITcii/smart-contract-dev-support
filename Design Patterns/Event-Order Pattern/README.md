@@ -1,7 +1,7 @@
 # Event-Order Pattern
 
 ## Context
-Multiple users want to interact with the same smart contract in a certain state st using their individual accounts. If the smart contract makes a transition from s<sub>t</sub> to a subsequent state st+1, the execution of the smart contract may cause undesired outcomes for the respective transaction issuer. Therefore, the transactions issuers want to have a guarantee that the smart contract function is only executed in the intended state or not at all.
+Multiple users want to interact with the same smart contract in a certain state s<sub>t</sub> using their individual accounts. If the smart contract makes a transition from s<sub>t</sub> to a subsequent state s<sub>t+1</sub>, the execution of the smart contract may cause undesired outcomes for the respective transaction issuer. Therefore, the transactions issuers want to have a guarantee that the smart contract function is only executed in the intended state or not at all.
 
 ## Problem
 The state of a smart contract in which a transaction triggers a smart contract function cannot be foreseen because of concurrency in transaction processing and unpredictable event ordering due to non-deterministic behavior of validating nodes. Concurrency in transaction processing may lead to unintended outcomes of smart contract execution such as transfers of unintended amounts of assets (e.g., Ether), especially in scenarios requiring conditional execution of transactions.
@@ -51,7 +51,7 @@ contract EventOrder is TransitionCounter {
     }
 }
 ```
-The above example **does only consider the state of the smart contract a transaction should be processed in**, regardless of the issuer of the individual transaction issuers. To allow for condi-tional executions like A aims to execute subsequent transactions _tx1_ in smart contract state _s0_ and _tx2_ in _s1_, while B aims to also execute the smart contract with txB,1 in s0), the modifier needs to be extended to consider _msg.sender._
+The above example **does only consider the state of the smart contract a transaction should be processed in**, regardless of the issuer of the individual transaction issuers. To allow for condi-tional executions like A aims to execute subsequent transactions _t<sub>x1</sub>_ in smart contract state _s0_ and _tx2_ in _s1_, while B aims to also execute the smart contract with txB,1 in s0), the modifier needs to be extended to consider _msg.sender._
 
 
 ## Resulting Context
