@@ -51,7 +51,7 @@ contract EventOrder is TransitionCounter {
     }
 }
 ```
-The above example **does only consider the state of the smart contract a transaction should be processed in**, regardless of the issuer of the individual transaction issuers. To allow for condi-tional executions like A aims to execute subsequent transactions _t<sub>x1</sub>_ in smart contract state _s<sub>0</sub>_ and _t<sub>x2</sub>_ in _s<sub>1</sub>_, while B aims to also execute the smart contract with _t<sub>xB</sub>_,1 in _s<sub>0</sub>_), the modifier needs to be extended to consider _msg.sender._
+The above example **does only consider the state of the smart contract a transaction should be processed in**, regardless of the issuer of the individual transaction issuers. To allow for condi-tional executions like A aims to execute subsequent transactions _tx<sub>1</sub>_ in smart contract state _s<sub>0</sub>_ and _tx<sub>2</sub>_ in _s<sub>1</sub>_, while B aims to also execute the smart contract with _tx<sub>B,1</sub>_ in _s<sub>0</sub>_), the modifier needs to be extended to consider _msg.sender._
 
 
 ## Resulting Context
