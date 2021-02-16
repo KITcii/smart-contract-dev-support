@@ -96,7 +96,7 @@ Before iterations over an unbounded data structure will exceed the available amo
 By implementing an index variable that points to the last successfully processed element of the iterable data structure, the effects of an out-of-gas exceptions can be mitigated because operations that exceed the gas limit can be continued by the next function call.
 
 ## Related Patterns
-Pull Pattern
+* [Pull Pattern](/Design%20Patterns/Pull%20Pattern/README.md#context)
 
 ## Known Uses
-FoMo3Dlong(lines 565 ff): https://etherscan.io/address/0xa62142888aba8370742be823c1782d17a0389da1
+* [FoMo3Dlong](https://etherscan.io/address/0xa62142888aba8370742be823c1782d17a0389da1) (lines 565 ff)
