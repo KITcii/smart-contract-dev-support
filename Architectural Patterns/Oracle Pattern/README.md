@@ -9,7 +9,7 @@ A Relay Contract should be implemented that manages the data supply for other sm
 
 This solution should be enhanced by an incentive mechanism (e.g., rewarding Oracles with coins) to increase Oracle providers’ willingness to share their data and computational resources. A mechanism to discourage malicious behavior (e.g., sibyl attacks) should be put in place, such as a collateral to be deposited in the Relay Contract when registering the Oracle.
 # Example
-![Oracle](Oracle%20Pattern%20-%20On-Ledger%20Voting%20Oracle.png)
+![Oracle](Oracle%20Pattern%20-%20On-Ledger%20Voting%20Oracle.png)  
 Data feeds register their addresses with the Relay Contract and listen on a certain event triggered by the Relay Contract. The Relay Contract re-ceives a request for external data from a User Contract and a callback function to be invoked after the data is retrieved. The User Contract spec-ifies its request with arguments passed to the Relay Contract in an appro-priate format. The Relay Contract interprets the arguments and triggers the associated event queryData(…). Through the event, the Relay Con-tract passes the arguments specifying the query to all Oracles that listen to the queryData(…) event. The Oracles pass their responses for the re-quest to the Relay Contract. The Relay Contract appends all responses of Registered Oracles to a list. To increase data reliability, the Relay Contract compares the Oracles’ responses and decides for a certain response, for example, the most often response. Next, the Relay Contract calls the callback(…) defined in the request(…)of the User Contract. Finally, the Relay Smart Contract empties the list of responses.
 
 # Resulting Context
