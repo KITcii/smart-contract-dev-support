@@ -22,8 +22,8 @@ Developers of the software project can easily notify all Caller Contracts about 
 The Observer Contract iterates over the set of Caller Contracts that are subscribed to address updates related to a certain Target Contract and executes the individual Caller Contract’s update function. The update functions of all Caller Contracts offer a uniform interface to facilitate the update procedure.
 
 # Related Patterns
-* Authorization Pattern
-* Indexed-Loop Pattern
+* [Authorization Pattern](/Architectural%20Patterns/Authorization%20Pattern/README.md#context)
+* [Indexed-Loop Pattern](/Architectural%20Patterns/Indexed-Loop%20Pattern/README.md#context)
 
 # Known Uses
-/-
+\-
