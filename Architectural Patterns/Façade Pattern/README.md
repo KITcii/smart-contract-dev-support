@@ -19,5 +19,5 @@ The orchestration of different smart contracts via a Façade Contract serving as
 * [Name-Service Pattern](/Architectural%20Patterns/Name-Service%20Pattern/README.md#context)
 * [Proxy Pattern](/Architectural%20Patterns/Proxy%20Pattern/README.md#context)
 # Known Uses
-* [LATOPreICO:](https://etherscan.io/address/0x459F7854776ED005B6Ec63a88F834fDAB0B6993e#code) (lines 252, 326ff) 
+* [LATOPreICO](https://etherscan.io/address/0x459F7854776ED005B6Ec63a88F834fDAB0B6993e#code) (lines 252, 326ff) 
 * [Base and Satellite](https://github.com/maxwoe/solidity_patterns/tree/master/maintenance/satellite)
