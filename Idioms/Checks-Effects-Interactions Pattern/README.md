@@ -1,9 +1,9 @@
 # Checks-Effects-Interactions Pattern
 
 ## Context
-Unintended program flow can occur whenever a condition (e.g., if(…)) cannot be met. This may be the case if a break condition and the variables relevant in this condition are not updated before further code is executed (e.g., external calls as in in the example below). Late updates of variable values used in conditions can lead to uncontrollable program flow, especially, if the smart contract function makes calls to external smart contracts, which cannot be controlled. This loss of control regarding program flow can even be exploited by attackers to steel assets managed by a smart contract (e.g., in the The DAO attack).
+Unintended program flow can occur whenever a condition (e.g., if(…)) cannot be met. This may be the case if a break condition and the variables relevant in this condition are not updated before further code is executed (e.g., external calls as in in the example below). Late updates of variable values used in conditions can lead to uncontrollable program flow, especially, if the smart contract function makes calls to external smart contracts, which cannot be controlled. This loss of control regarding program flow can even be exploited by attackers to steel assets managed by a smart contract (e.g., in The DAO attack).
 ## Problem
-A condition in a smart contract (e.g., if(…)) cannot be validated as false because the values of the variables used in the condition are updated too late, which leads to unintended program flow. For example, late updates of such variables could lead to numerous unintended recursions during the execution of smart contract functions (referred to as reentrancy) because a condition cannot be validated as false to interrupt execution.
+A condition in a smart contract (e.g., if(…)) cannot be validated as false because the values of the variables used in the condition are updated too late, which leads to unintended program flow. For example, late updates of such variables could lead to numerous unintended recursions during the execution of smart contract functions (referred to as reentrancy) because a condition cannot be validated as false to interrupt execution. 
 ## Forces
 Reentrancy should not be fully prevented but should be aborted after a certain condition is met. No additional instructions should be implemented in the smart contract.
 ## Solution
