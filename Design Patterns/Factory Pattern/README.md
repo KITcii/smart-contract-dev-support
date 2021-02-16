@@ -3,7 +3,7 @@
 A DLT application requires multiple instances of the same smart contract to be deployed in a secure way.
 
 ## Problem
-The manual re-deployment of similar smart contracts (e.g., smart contracts used for asset representation) from a Template Contract is inefficient because, for example, human engagement is required. In addition, users must trust that the Template Contract used to create new smart contracts is not manip-ulated if it is kept off-ledger.
+The manual re-deployment of similar smart contracts (e.g., smart contracts used for asset representation) from a Template Contract is inefficient because, for example, human engagement is required. In addition, users must trust that the Template Contract used to create new smart contracts is not manipulated if it is kept off-ledger.
 
 ## Forces
 The creation of new smart contracts should be automatically and reliably managed on the distributed ledger in a transparent manner. The creation of new smart contracts should be traceable.
