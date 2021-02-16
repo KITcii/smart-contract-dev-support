@@ -77,5 +77,4 @@ By implementing the Mutex Pattern, a smart contract function cannot be executed 
 
 ## Known Uses
 * [CrowdsourceMinter](https://etherscan.io/address/0xDa2Cf810c5718135247628689D84F94c61B41d6A#code) (lines 60ff)
-
 * [VentanaToken](https://etherscan.io/address/0x30CefBcb5C26A5B19a019092Ab8d09F8739c904F#code) (lines 115ff)
