@@ -13,4 +13,4 @@ Idioms are patterns on the lowest level of abstraction and “describe[s] how to
 
 # References
 
-[1] F. Buschmann, Ed., Pattern-oriented software architecture: a system of pat-terns. Chichester ; New York: Wiley, 1996.
+[1] F. Buschmann, Ed., Pattern-oriented software architecture: a system of patterns. Chichester; New York: Wiley, 1996.
