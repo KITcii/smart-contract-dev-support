@@ -66,7 +66,7 @@ Developers can maintain logic expressed in smart contract code to manage data or
 A new smart contract that manages the tokens (e.g., token transfers) can be deployed to the distributed ledger and access the Token Contract according to the Token Contract’s authorization scheme. By doing so, not fees for token transfers from the Token Contract to another have to be paid during an update and maintenance-related functionality for such transfers does not have to be implemented.
 
 ## Related Patterns
-[Façade Pattern](../../Architectural%20Patterns/Façade%20Pattern/README.md), [Proxy Pattern](../../Architectural%20Patterns/Proxy%20Pattern/README.md)
+\-
 
 ## Known Uses
 [LATOPreICO](https://etherscan.io/address/0xDa2Cf810c5718135247628689D84F94c61B41d6A#code) (lines 252, 326ff)
