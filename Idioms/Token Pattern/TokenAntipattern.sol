@@ -2,7 +2,6 @@ pragma solidity ^0.7.0;
 
 contract TokenAntipattern {
     address public minter;
-    
     mapping (address => uint256) public balances;
     uint256 highest_bid = 0;
     address highest_bidder;
