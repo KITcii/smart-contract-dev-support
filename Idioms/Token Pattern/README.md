@@ -15,7 +15,7 @@ Logic and data in smart contracts should be separated into a Logic Contract and 
 
 ### Wrong
 ```Solidity 
-pragma solidity >=0.6.10 <0.7.0;
+pragma solidity ^0.7.0;
 
 contract TokenAntipattern {
     address public minter;
@@ -58,7 +58,7 @@ contract TokenAntipattern {
 ```
 ### Correct
 ```Solidity 
-pragma solidity >=0.5.0 <0.7.0;
+pragma solidity ^0.7.0;
 
 contract TokenPattern {
     address public minter;
