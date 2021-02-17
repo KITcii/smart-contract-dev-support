@@ -1,4 +1,4 @@
-pragma solidity >=0.6.10 <0.7.0;
+pragma solidity ^0.7.0;
 
 contract CallerContract {
     event Response(bool success, bytes data);
