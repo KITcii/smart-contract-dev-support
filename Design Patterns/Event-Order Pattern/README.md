@@ -64,4 +64,4 @@ Using a variable indicating the state of a smart contract, the execution of smar
 \-
 
 ## Known Uses
-* [ETOCommitment](https://etherscan.io/address/0x01a1f17808edae0b004a4f11a03620d3d804b997#code) (lines 762 ff, 6735)
+[ETOCommitment](https://etherscan.io/address/0x01a1f17808edae0b004a4f11a03620d3d804b997#code) (lines 762 ff, 6735)
