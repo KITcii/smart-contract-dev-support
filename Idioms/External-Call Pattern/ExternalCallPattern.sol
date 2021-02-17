@@ -1,4 +1,4 @@
-pragma solidity >=0.6.10 <0.7.0;
+pragma solidity ^0.7.0;
 
 // Definition of the interface of ExternalContract to be able to easily use the defined return values
 contract ExternalContract {
