@@ -90,5 +90,5 @@ Error handling in smart contracts is not handled uniformly, which is why individ
 
 ## Known Uses
 [EthereumLottery](https://etherscan.io/address/0x40658db197bddeA6a51Cb576Fe975Ca488AB3693#code)(lines 261, 291ff), 
-[E93](https://etherscan.io/address/0xdd2ee38f9993c0bc1c1b5b9798bc4deff66cac4a#code)(lines 1061, 1095ff)
-MinereumLuckDraw (lines 165ff, 158ff) : https://etherscan.io/address/0xc0cfe587c9f1fedd6d0aa8532fd759a65d6e7568#code
+[E93](https://etherscan.io/address/0xdd2ee38f9993c0bc1c1b5b9798bc4deff66cac4a#code)(lines 1061, 1095ff), 
+[MinereumLuckDraw](https://etherscan.io/address/0xc0cfe587c9f1fedd6d0aa8532fd759a65d6e7568#code)(lines 165ff, 158ff)
