@@ -23,7 +23,7 @@ pragma solidity 0.6.10;
 contract ErrorHandlingPatternRequireRevert {
     function sendAssets(address payable addr)
        public payable returns (bool) {
-        require (!addr.call{value: (msg.value / 2)}(""),
+        require (addr.call{value: (msg.value / 2)}(""),
                    "Asset transfer failed.");
         return true;
     }
