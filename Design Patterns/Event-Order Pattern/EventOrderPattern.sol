@@ -12,7 +12,6 @@ contract EventOrderPattern {
 }
 
 contract EventOrder is TransitionCounter {
-
     function a(uint nextTransNum) public transitionCounting(nextTransNum) {
         // Code to be executed in a certain state
     }
