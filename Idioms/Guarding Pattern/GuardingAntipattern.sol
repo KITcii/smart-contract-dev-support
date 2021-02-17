@@ -1,4 +1,4 @@
-pragma solidity ^0.7.0;
+pragma solidity 0.7.0;
 
 contract GuardingAntipattern {
     address public owner = msg.sender;
