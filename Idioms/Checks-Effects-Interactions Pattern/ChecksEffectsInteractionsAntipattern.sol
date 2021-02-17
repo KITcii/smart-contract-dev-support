@@ -7,12 +7,12 @@ contract ChecksEffectsInteractionsAntipattern {
 
     function withdraw(uint amount) public{
         // Checks
-        if(balances[msg.sender] >= amount){
+        if(balances[msg.sender] >= _amount){
             // Interactions
-            (bool success,) = msg.sender.call{value: amount}("");
+            (bool success,) = msg.sender.call{value: _amount}("");
             require(success);
             // Effects
-            balances[msg.sender] -= amount;
+            balances[msg.sender] -= _amount;
         }
     }
 }
