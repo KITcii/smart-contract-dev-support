@@ -7,7 +7,7 @@ contract IndexedLoopAntipattern {
     }
     
     Payee[] payees;
-
+        
     receive() external payable {
         Payee memory p = Payee(msg.sender, msg.value);
         payees.push(p);
@@ -24,7 +24,6 @@ contract IndexedLoopAntipattern {
             require(success, "An error occured.");
             payees[i].value = 0;
             i++;
-        }    
-            
+        } 
     }
 }

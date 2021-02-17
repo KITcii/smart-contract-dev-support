@@ -15,14 +15,14 @@ Developers should implement authorization checks (e.g., modifiers in solidity) f
 
 ### Wrong
 ```Solidity 
-pragma solidity >=0.5.0 <0.7.0;
+pragma solidity 0.7.0;
 
 contract GuardingAntipattern {
     address public owner = msg.sender;
 
-    function changeOwner(address newOwner) public
+    function changeOwner(address _newOwner) public
         returns(bool){
-        owner = newOwner;
+        owner = _newOwner;
         return true;    
     }
 }
@@ -30,7 +30,7 @@ contract GuardingAntipattern {
 
 ### Correct
 ```Solidity 
-pragma solidity >=0.5.0 <0.7.0;
+pragma solidity 0.7.0;
 
 contract GuardingPattern {
     address public owner = msg.sender;
@@ -46,7 +46,6 @@ contract GuardingPattern {
         owner = newOwner;
     }
 }
-
 ```
 
 ## Resulting Context
@@ -56,7 +55,7 @@ All smart contract functions that handle sensitive logic, check the validity of 
 A lack of authorization checks endangers funds kept in a smart contract because malicious smart contract function calls (e.g., certain accounts or certain smart contract execution contexts) can be successful. Using modifiers allows for an intuitive and reusable way of implementing certain procedures, such as authorization checks, that should be executed when calling a smart contract function.
 
 ## Related Patterns
-None
+\-
 
 ## Known Uses
-EthereumLottery (lines 65ff): https://etherscan.io/address/0x40658db197bddeA6a51Cb576Fe975Ca488AB3693#code
+[EthereumLottery](https://etherscan.io/address/0x40658db197bddeA6a51Cb576Fe975Ca488AB3693#code) (lines 65ff)

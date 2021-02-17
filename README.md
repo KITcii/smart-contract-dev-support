@@ -1,9 +1,9 @@
-# Introduction
-Developing smart contracts for distributed ledgers is currently a major challenge for developers because of the peculiarities of smart contracts, such as the requirement of concurrency between transactions attached to the distributed ledger, the requirement of determinism in the execution of smart contracts, the openness that allows arbitrary nodes to read transaction data in the DLT network and execute any smart contract stored in the distributed ledger, and the tamper-resistance that prevents developers from fixing bugs as in traditional software development.
+# Smart Contract Development Support
+This repository contains software design patterns to tackle frequent challenges in smart contract development. Each directory of a software design pattern includes a README.md file with a [pattern description](#structure-of-the-software-design-patterns) and code examples. Feel free to use the code example for your individual purposes.
 
-As software development (especially in the area of smart contract development) is moving very fast, we encourage you to support us in maintaining this repository. With this in mind, we welcome open questions and comments on the identified challenges and corresponding solutions in the form of issues or in the discussion section.
+We encourage you to support us in maintaining this repository and welcome your questions and comments on the software design patterns. To comment the software design patterns, please open an [issue](https://github.com/KITcii/smart-contract-dev-support/issues) or post your comment into the [discussion section](https://github.com/KITcii/smart-contract-dev-support/discussions).
 
-## Overview of Patterns
+## Overview of Software Design Patterns
 
 * [Architectural Patterns](Architectural%20Patterns/README.md)
   * [Façade Pattern](Architectural%20Patterns/Façade%20Pattern/README.md)
@@ -27,7 +27,7 @@ As software development (especially in the area of smart contract development) i
   * [Overflow Pattern](Idioms/Overflow%20Pattern/README.md)
   * [Token Pattern](Idioms/Token%20Pattern/README.md)
 
-# Structure of the Patterns
+# Structure of Software Design Patterns
 
 To make smart contract developers aware of the peculiarities of smart contracts and how to deal with these peculiarities, we present several software design patterns. The software design patterns comprise three levels of abstractions:
 
@@ -41,9 +41,9 @@ Each pattern is comprised of components to describe the pattern in a consistent 
 
 - _Name:_ the pattern in one word "[…] to use a single word or short phrase to refer to the pattern, and the knowledge and structure it describes" [2, p. 5]. 
 
-- _Problem:_ "[…] its intent: the goals and objectives it wants to reach within the given context and forces. Often the forces oppose these objectives as well as each other" [2, p. 5].
-
 - _Context:_ "the preconditions under which the problem and its solution seem to recur, and for which the solution is desirable. This tells us the pattern's applicability" [2, p. 5].
+
+- _Problem:_ "[…] the goals and objectives [the developer] wants to reach within the given context and forces. Often the forces oppose these objectives as well as each other" [2, p. 5].
 
 - _Forces:_ "[…] the relevant forces and constraints and how they interact/conflict with one another and with goals we wish to achieve […]. Forces reveal the intricacies of a problem and define the kinds of trade-offs that must be considered in the presence of the tension or dissonance they create" [2, p. 5].
 
@@ -57,7 +57,7 @@ Each pattern is comprised of components to describe the pattern in a consistent 
 
 - _Related Patterns:_ "the static and dynamic relationships between this pattern and others within the same pattern language or system" [2, p. 6].
 
-- _Known Uses_ are "[…] known occurrences of the pattern and its application within existing systems" [2, p. 6].
+- _Known Uses:_ "[…] known occurrences of the pattern and its application within existing systems" [2, p. 6].
 
 # References
 [1] F. Buschmann, Ed., Pattern-oriented software architecture: a system of patterns. Chichester; New York: Wiley, 1996.  

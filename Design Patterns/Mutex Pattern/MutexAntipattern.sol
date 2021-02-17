@@ -7,11 +7,10 @@ contract MutexAntipattern {
         balances[msg.sender] += msg.value;
     }
 
-    function withdraw(uint amount) external {
-        require(balances[msg.sender] >= amount
-            "No balance to withdraw.");
+    function withdraw(uint _amount) external {
+        require(balances[msg.sender] >= _amount, "No balance to withdraw.");
         
-        balances[msg.sender] -= amount;
-        msg.sender.call{value: amount}("");
+        balances[msg.sender] -= _amount;
+        msg.sender.call{value: _amount}("");
     }
 }
