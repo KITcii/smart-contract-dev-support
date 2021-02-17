@@ -1,9 +1,9 @@
 # Overflow Pattern
 ## Context
-Overflow can occur when the value range of an integer variable is exceeded. For example, if a variable is declared with the keyword var and a small value (e.g., 0) at compile time, the Solc compiler converts the variable type to the smallest suitable integer type (uint8).
+A variable is either declared with a data type that is too small for the later used value range or with the keyword `var` and a small value (e.g., `0`). At compile time, the Solc compiler converts the variable type to the smallest suitable integer type (`uint8`). 
 
 ## Problem
-The inappropriate use of data types can cause overflow of the respective unsigned integer variables, which may cause wrong calculations or infinite loops. Overflow of (unsigned) integer variables describes the case that the value assigned to a variable exceeds the maximum value of the declared data type (e.g., 255 for uint8). As a result, the EVM starts from 0 again and adds up the rest of the value to be assigned. The EVM jumps back to its maximum value according to its declared data type and decrements the carriable value by the corresponding negative value to be assigned (e.g., for uint8 variables the finally assigned value for -3 would be 252). If a variable is in-/decremented as a counter in a loop, overflow can occur leading to infinite loops.
+The inappropriate use of data types can cause overflow of the respective unsigned integer variables, which may cause wrong calculations or infinite loops. Overflow of (unsigned) integer variables describes the case that the value assigned to a variable exceeds the maximum value of the declared data type (e.g., 255 for `uint8`). As a result, the EVM starts from 0 again and adds up the rest of the value to be assigned. The EVM jumps back to its maximum value according to its declared data type and decrements the carriable value by the corresponding negative value to be assigned (e.g., for `uint8` variables the finally assigned value for -3 would be 252). If a variable is in-/decremented as a counter in a loop, overflow can occur leading to infinite loops.
 
 ## Forces
 The function execution should be aborted in the case of an overflow and the executing user must be notified through an appropriate error message.
