@@ -27,7 +27,7 @@ As software development is moving very fast, we encourage you to support us in m
   * [Overflow Pattern](Idioms/Overflow%20Pattern/README.md)
   * [Token Pattern](Idioms/Token%20Pattern/README.md)
 
-# Structure of the Patterns
+# Structure of the Software Design Patterns
 
 To make smart contract developers aware of the peculiarities of smart contracts and how to deal with these peculiarities, we present several software design patterns. The software design patterns comprise three levels of abstractions:
 
