@@ -15,7 +15,7 @@ Logic and data in smart contracts should be separated into a Logic Contract and 
 
 ### Wrong
 ```Solidity 
-pragma solidity ^0.7.0;
+pragma solidity 0.7.0;
 
 contract TokenAntipattern {
     address public minter;
@@ -58,17 +58,13 @@ contract TokenAntipattern {
 ```
 ### Correct
 ```Solidity 
-pragma solidity ^0.7.0;
+pragma solidity 0.7.0;
 
 contract TokenPattern {
     address public minter;
     mapping (address => uint) public userBalances;
     event Sent(address from, address to, uint amount);
-
-    constructor() public {
-        minter = msg.sender;
-    }
-
+    //...
     function mint(address receiver, uint amount) public returns(uint256) {
         // Equals function mint(…) of the wrong example lines 17-20
     }
@@ -83,11 +79,7 @@ contract LogicContract {
     TokenContract t;
     address public highest_bidder;
     uint256 highest_bid;
-
-    constructor() public {
-        owner = msg.sender;
-    }
-    
+    //...
     function changeToken (address _address) public {
         require(msg.sender == owner);
         t = TokenContract(_address);
