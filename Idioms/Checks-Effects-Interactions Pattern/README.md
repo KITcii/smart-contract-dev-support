@@ -1,9 +1,9 @@
 # Checks-Effects-Interactions Pattern
 
 ## Context
-One smart contract should interact with another smart contract if a condition (e.g., if(A > B)) is validated as true. If the interaction was successfull, the variables used in the condition are updated. For example, an Ethereum smart contract offers CII tokens for Ether and should transfer Ether to an address if that address owns more than 0 CII tokens in the smart contract. After the successfull transfer of Ether, the CII token balance of the target address is updated.
+One smart contract should interact with another smart contract if a condition (e.g., `if(A > B)`) is validated as true. If the interaction was successfull, the variables used in the condition are updated. For example, an Ethereum smart contract offers CII tokens for Ether and should transfer Ether to an address if that address owns more than 0 CII tokens in the smart contract. After the successfull transfer of Ether, the CII token balance of the target address is updated.
 ## Problem
-A condition in a smart contract (e.g., if(…)) cannot be validated as false because the values of the variables used in the condition are updated too late, which leads to unintended program flow. For example, late updates of such variables could lead to numerous unintended recursions during the execution of smart contract functions (referred to as reentrancy) because a condition cannot be validated as false to interrupt execution. 
+A condition in a smart contract (e.g., `if(…)`) cannot be validated as false because the values of the variables used in the condition are updated too late, which leads to unintended program flow. For example, late updates of such variables could lead to numerous unintended recursions during the execution of smart contract functions (referred to as reentrancy) because a condition cannot be validated as false to interrupt execution. 
 ## Forces
 Reentrancy should not be fully prevented but should be aborted after a certain condition is met. No additional instructions should be implemented in the smart contract.
 ## Solution
