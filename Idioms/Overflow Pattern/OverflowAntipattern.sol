@@ -1,4 +1,4 @@
-pragma solidity ^0.7.0;
+pragma solidity 0.7.0;
 
 contract OverflowAntipattern {
     uint256 counter = 0;
