@@ -16,7 +16,7 @@ During the subsequent reveal phase, all users send their original values and the
 ## Example
 
 ```Solidity
-pragma solidity ^0.7.0;
+pragma solidity 0.7.0;
 
 contract CommitmentPattern {
     struct UserCommit { 
