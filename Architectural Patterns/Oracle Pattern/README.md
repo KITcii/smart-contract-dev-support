@@ -19,4 +19,4 @@ The oracle pattern enables developers to increase flexibility of using smart con
 # Related Patterns
 \-
 # Known Uses
-* [DOS Network](https://drive.google.com/file/d/1Ea1z8hBaf3VkrR3nXG5jQHoXgHnN_3sx/view)
+[DOS Network](https://drive.google.com/file/d/1Ea1z8hBaf3VkrR3nXG5jQHoXgHnN_3sx/view)
