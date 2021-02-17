@@ -7,7 +7,7 @@ A condition in a smart contract (e.g., `if(…)`) cannot be validated as false b
 ## Forces
 Reentrancy should not be fully prevented but should be aborted after a certain condition is met. No additional instructions should be implemented in the smart contract.
 ## Solution
-Developers must first update values of all variables (used in the condition) before proceeding with the execution of smart contract code.
+Developers must first update values of all variables used in the condition (e.g., `withdraw(...)`) before proceeding with the execution of smart contract code.
 ## Example
 ### Wrong
 ```Solidity 
