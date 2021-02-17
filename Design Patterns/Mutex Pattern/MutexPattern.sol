@@ -15,11 +15,11 @@ contract MutexPattern {
         balances[msg.sender] += msg.value;
     }
 
-    function withdraw(uint amount) public payable noReentrancy returns(bool) {
+    function withdraw(uint _amount) public payable noReentrancy returns(bool) {
         require(balances[msg.sender] >= amount, "No balance to withdraw.");
         
-        balances[msg.sender] -= amount;
-        (bool success, ) = msg.sender.call{value: amount}("");
+        balances[msg.sender] -= _amount;
+        (bool success, ) = msg.sender.call{value: _amount}("");
         require(success);
 
         return true;
