@@ -38,11 +38,7 @@ pragma solidity ^0.7.0;
 
 contract PullPattern {
     mapping (address => uint256) public balances;
-    
-    receive() external payable {
-        balances[msg.sender] = msg.value;
-    }
-
+    //...
     function payout() public {
         require(balances[msg.sender] > 0, "No balance available.");
 
@@ -51,7 +47,6 @@ contract PullPattern {
         msg.sender.call{value: amount}("");
     }
 }
-
 ```
 ## Resulting Context
 Unbounded mass operations are avoided and the invoking smart contract or user retains control over the associated gas costs. The smart contract does only execute those functions relevant for a certain element of the iterable data structure.
