@@ -19,5 +19,5 @@ contract ErrorHandlingPatternRequireRevert {
                 }
             }      
             return true;
-        }
+     }
 }
