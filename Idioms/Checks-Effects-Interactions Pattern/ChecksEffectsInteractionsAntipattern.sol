@@ -1,6 +1,4 @@
-pragma solidity >=0.6.0 <0.7.0;
-
-// This smart contract is vulnerable to reentrancy
+pragma solidity ^0.7.0;
 
 contract ChecksEffectsInteractionsAntipattern {
     mapping (address => uint256) public balances;
