@@ -1,7 +1,7 @@
 # Introduction
 Developing smart contracts for distributed ledgers is currently a major challenge for developers because of the peculiarities of smart contracts, such as concurrency between transactions to be appended to the distributed ledger, the requirement of determinism in the execution of smart contracts, the openness that allows arbitrary nodes to read transaction data in the DLT network and execute any smart contract stored in the distributed ledger, and the tamper-resistance that prevents developers from fixing bugs as in traditional software development.
 
-As software development (especially in the area of smart contract development) is moving very fast, we encourage you to support us in maintaining this repository. With this in mind, we welcome open questions and comments on the identified challenges and corresponding solutions in the form of issues or in the discussion section.
+As software development is moving very fast, we encourage you to support us in maintaining this repository. With this in mind, we welcome your questions and comments on the identified challenges and corresponding solutions in the form of issues in the discussion section.
 
 ## Overview of Patterns
 
