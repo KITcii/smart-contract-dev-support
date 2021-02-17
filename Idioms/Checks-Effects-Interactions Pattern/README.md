@@ -54,6 +54,6 @@ The Checks-Effects-Interactions Pattern prevents unintended program flow (e.g., 
 ## Rationale
 Smart contracts follow the concept of state machines and make a transition from a state st to st+1 after certain variable values changed. Each function invocation is put on the call stack and needs to be processed before the smart contract terminates and the state transitions conclude. Unintended program flows are caused by the validation of conditions before the variable values relevant for the condition are updated. To prevent such unintended program flow, an appropriate order of operations in smart contracts regarding state transitions is crucial. With appropriate error handling updates of the internal value in a smart contract are rolled back if the smart contract has failed.
 ## Related Patterns
-[Mutex Pattern](../../Design%20Patterns/Mutex%20Pattern/README.md)
+[Mutex Pattern](../../Design%20Patterns/Mutex%20Pattern/README.md), [External-Call Pattern](/Idioms/External-Call%20Pattern/README.md#context), [Pull Pattern](../../Design%20Patterns/Pull%20Pattern/README.md)
 ## Known Uses
 [ItemRegistry](https://etherscan.io/address/0x17df117bb806a622d841bd5166a23b5d8746232f/#code) (lines 181ff)
