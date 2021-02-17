@@ -15,7 +15,7 @@ contract ExternalCallPattern {
       string memory _text2) public {
 
         // Check if a smart contract is available at the given address to avoid, for example, asset loss when sending asset
-        require(isContract(_externalAddress, "No smart contract available at given address!");
+        require(isContract(_externalAddress), "No smart contract available at given address!");
 
 
         // Instantiate ExternalContract to make direct calls with revert(…) in case of failures in the function execution
