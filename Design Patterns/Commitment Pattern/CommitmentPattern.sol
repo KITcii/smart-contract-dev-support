@@ -6,7 +6,6 @@ contract CommitmentPattern {
         bytes32 secretSalt; 
         string plainValue; 
         string plainSalt;
-
     }
 
     mapping(address => UserCommit) public userCommits;
