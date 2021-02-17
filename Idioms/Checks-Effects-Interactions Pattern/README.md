@@ -17,14 +17,14 @@ pragma solidity >=0.6.0 <0.7.0;
 contract ChecksEffectsInteractionsAntipattern {
     mapping (address => uint256) public balances;
 
-    function withdraw(uint amount) public{
+    function withdraw(uint _amount) public{
         // Checks
-        if(balances[msg.sender] >= amount){
+        if(balances[msg.sender] >= _amount){
             // Interactions
-            (bool success,) = msg.sender.call{value: amount}("");
+            (bool success,) = msg.sender.call{value: _amount}("");
             require(success);
             // Effects
-            balances[msg.sender] -= amount;
+            balances[msg.sender] -= _amount;
         }
     }
 }
@@ -36,13 +36,13 @@ pragma solidity >=0.6.0 <0.7.0;
 contract ChecksEffectsInteractionsPattern {
     mapping (address => uint256) public balances;
 
-    function withdraw(uint amount) public{
+    function withdraw(uint _amount) public{
         // Checks
-        if(balances[msg.sender] >= amount){
+        if(balances[msg.sender] >= _amount){
             // Effects
-            balances[msg.sender] -= amount;
+            balances[msg.sender] -= _amount;
             // Interaction
-            (bool success,) = msg.sender.call{value: amount}("");
+            (bool success,) = msg.sender.call{value: _amount}("");
             require(success);
         }
     }
