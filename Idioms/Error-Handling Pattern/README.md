@@ -21,26 +21,26 @@ Implementing checks of return values (e.g., of call(…) or delegatecall(…) fu
 pragma solidity 0.6.10;
 
 contract ErrorHandlingPatternRequireRevert {
-    function sendAssets(address payable addr)
-       public payable returns (bool) {
-        require (!addr.call{value: (msg.value / 2)}(""),
-                   "Asset transfer failed.");
-        return true;
+    function sendAssets(address payable _addr)
+        public payable returns (bool) {
+            (bool success, ) = _addr.call{value: (msg.value / 2)}("");
+            require (success, "Asset transfer failed.");
+            return true;
     }
 
-    function sendAssetsMoreComplex(address payable addr)
-       public payable returns (bool) {
-        if(block.difficulty < 1000) {
-            if(!addr.call{value: (msg.value / 2)}("")) {
-                revert("Asset transfer failed.");
-            } else {
-                return true;
-            }
-        }      
-        return true;
-    }
+    function sendAssetsMoreComplex(address payable _addr)
+        public payable returns (bool) {
+            if(block.difficulty < 1000) {
+                (bool success, ) = _addr.call{value: (msg.value / 2)}("");
+                if(!success) {
+                    revert("Asset transfer failed.");
+                } else {
+                    return true;
+                }
+            }      
+            return true;
+     }
 }
-
 ```
 ### External call with try/catch:
 ```Solidity 
@@ -76,7 +76,7 @@ contract ErrorHandlingPatternTryCatch {
     }
 }
 ```
-
+Note that with try/catch, only exceptions happening inside the external call itself are caught.
 Based on: https://blog.ethereum.org/2020/01/29/solidity-0.6-try-catch/
 
 ## Resulting Context
@@ -86,9 +86,9 @@ Appropriate error handling increases robustness and ensures the functioning of t
 Error handling in smart contracts is not handled uniformly, which is why individual error handling must be implemented und consideration of the call chain.
 
 ## Related Patterns
-\-
+[External-Call Pattern](/Idioms/External-Call%20Pattern/README.md#context)
 
 ## Known Uses
-[EthereumLottery](https://etherscan.io/address/0x40658db197bddeA6a51Cb576Fe975Ca488AB3693#code)(lines 261, 291ff), 
-[E93](https://etherscan.io/address/0xdd2ee38f9993c0bc1c1b5b9798bc4deff66cac4a#code)(lines 1061, 1095ff)
-MinereumLuckDraw (lines 165ff, 158ff) : https://etherscan.io/address/0xc0cfe587c9f1fedd6d0aa8532fd759a65d6e7568#code
+[EthereumLottery](https://etherscan.io/address/0x40658db197bddeA6a51Cb576Fe975Ca488AB3693#code) (lines 261, 291ff), 
+[E93](https://etherscan.io/address/0xdd2ee38f9993c0bc1c1b5b9798bc4deff66cac4a#code) (lines 1061, 1095ff), 
+[MinereumLuckDraw](https://etherscan.io/address/0xc0cfe587c9f1fedd6d0aa8532fd759a65d6e7568#code) (lines 165ff, 158ff)

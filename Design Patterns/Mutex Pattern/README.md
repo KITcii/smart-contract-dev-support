@@ -21,17 +21,12 @@ pragma solidity ^0.7.0;
 
 contract MutexAntipattern {
     mapping(address => uint256) public balances;
-    
-    receive() external payable {
-        balances[msg.sender] += msg.value;
-    }
-
-    function withdraw(uint amount) external {
-        require(balances[msg.sender] >= amount
-            "No balance to withdraw.");
+    //...
+    function withdraw(uint _amount) external {
+        require(balances[msg.sender] >= _amount, "No balance to withdraw.");
         
-        balances[msg.sender] -= amount;
-        msg.sender.call{value: amount}("");
+        balances[msg.sender] -= _amount;
+        msg.sender.call{value: _amount}("");
     }
 }
 
@@ -50,16 +45,12 @@ contract MutexPattern {
         _;
         locked = false;
     }
-    
-    receive() external payable {
-        balances[msg.sender] += msg.value;
-    }
-
-    function withdraw(uint amount) public payable noReentrancy returns(bool) {
-        require(balances[msg.sender] >= amount, "No balance to withdraw.");
+    //...
+    function withdraw(uint _amount) public payable noReentrancy returns(bool) {
+        require(balances[msg.sender] >= _amount, "No balance to withdraw.");
         
-        balances[msg.sender] -= amount;
-        bool success, ) = msg.sender.call{value: amount}("");
+        balances[msg.sender] -= _amount;
+        bool success, ) = msg.sender.call{value: _amount}("");
         require(success);
 
         return true;
@@ -73,8 +64,7 @@ All state modifications are carried out if the flag is set true. Otherwise, func
 By implementing the Mutex Pattern, a smart contract function cannot be executed if the function execution enters a certain point protected by a mutex variable until the function execution passed another point, where the mutex variable is unlocked again. In case an attacker aims to reenter the smart contract function, the execution will be aborted. By doing so, the smart contract function is protected from reentrancy.
 
 ## Related Patterns
-* [Checks-Effects-Interactions Pattern](/Idioms/Checks-Effects-Interactions%20Pattern/README.md#context)
+[Checks-Effects-Interactions Pattern](/Idioms/Checks-Effects-Interactions%20Pattern/README.md#context)
 
 ## Known Uses
-* [CrowdsourceMinter](https://etherscan.io/address/0xDa2Cf810c5718135247628689D84F94c61B41d6A#code) (lines 60ff)
-* [VentanaToken](https://etherscan.io/address/0x30CefBcb5C26A5B19a019092Ab8d09F8739c904F#code) (lines 115ff)
+[CrowdsourceMinter](https://etherscan.io/address/0xDa2Cf810c5718135247628689D84F94c61B41d6A#code) (lines 60ff), [VentanaToken](https://etherscan.io/address/0x30CefBcb5C26A5B19a019092Ab8d09F8739c904F#code) (lines 115ff)

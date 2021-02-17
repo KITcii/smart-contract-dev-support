@@ -16,7 +16,7 @@ During the subsequent reveal phase, all users send their original values and the
 ## Example
 
 ```Solidity
-pragma solidity ^0.7.0;
+pragma solidity 0.7.0;
 
 contract CommitmentPattern {
     struct UserCommit { 
@@ -24,7 +24,6 @@ contract CommitmentPattern {
         bytes32 secretSalt; 
         string plainValue; 
         string plainSalt;
-
     }
 
     mapping(address => UserCommit) public userCommits;
@@ -39,13 +38,13 @@ contract CommitmentPattern {
         userCommits[msg.sender] = uC;
     }
 
-    function reveal(string memory plainSalt, string memory plainValue) public { 
+    function reveal(string memory _plainSalt, string memory _plainValue) public { 
         require(userCommits[msg.sender].secretCommit != "", "You did not commit to a value"); 
-        require(userCommits[msg.sender].secretSalt == keccak256(abi.encode(plainSalt)), "Your salt does not match the original one."); 
-        require(userCommits[msg.sender].secretCommit == keccak256(abi.encodePacked(plainSalt, plainValue)), "Invalid values.");
+        require(userCommits[msg.sender].secretSalt == keccak256(abi.encode(_plainSalt)), "Your salt does not match the original one."); 
+        require(userCommits[msg.sender].secretCommit == keccak256(abi.encodePacked(_plainSalt, _plainValue)), "Invalid values.");
 
-        userCommits[msg.sender].plainSalt = plainSalt;
-        userCommits[msg.sender].plainValue = plainValue;
+        userCommits[msg.sender].plainSalt = _plainSalt;
+        userCommits[msg.sender].plainValue = _plainValue;
     }
 }
 ```
@@ -62,4 +61,4 @@ All transactions and their contents stored on the distributed ledger are publicl
 \-
 
 ## Known Uses
-* [Registrar](https://etherscan.io/address/0x6090A6e47849629b7245Dfa1Ca21D94cd15878Ef#code) (lines 344ff)
+[Registrar](https://etherscan.io/address/0x6090A6e47849629b7245Dfa1Ca21D94cd15878Ef#code) (lines 344ff)

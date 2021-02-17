@@ -1,25 +1,23 @@
 pragma solidity 0.6.10;
 
 contract ErrorHandlingPatternRequireRevert {
-    function sendAssets(address payable addr)
+    function sendAssets(address payable _addr)
         public payable returns (bool) {
-            (bool success, ) = addr.call{value: (msg.value / 2)}("");
-            //hier stand ein Negationszeichen, falsch??
+            (bool success, ) = _addr.call{value: (msg.value / 2)}("");
             require (success, "Asset transfer failed.");
             return true;
     }
 
-    function sendAssetsMoreComplex(address payable addr)
+    function sendAssetsMoreComplex(address payable _addr)
         public payable returns (bool) {
             if(block.difficulty < 1000) {
-                (bool success, ) = addr.call{value: (msg.value / 2)}("");
+                (bool success, ) = _addr.call{value: (msg.value / 2)}("");
                 if(!success) {
                     revert("Asset transfer failed.");
-            } else {
-                return true;
-            }
-            
+                } else {
+                    return true;
+                }
             }      
             return true;
-        }
+     }
 }

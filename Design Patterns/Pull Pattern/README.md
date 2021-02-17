@@ -19,12 +19,7 @@ pragma solidity ^0.7.0;
 contract PullAntipattern {
     address payable[] clients;
     mapping (address => uint256) public balances;
-    
-    receive() external payable {
-        balances[msg.sender] = msg.value;
-        clients.push(msg.sender);
-    }
-
+    //...
     function payout() public {
         for (uint256 i = 0; i < clients.length; i++) {
             clients[i]. call{value: balances[clients[i]]}("");
@@ -38,11 +33,7 @@ pragma solidity ^0.7.0;
 
 contract PullPattern {
     mapping (address => uint256) public balances;
-    
-    receive() external payable {
-        balances[msg.sender] = msg.value;
-    }
-
+    //...
     function payout() public {
         require(balances[msg.sender] > 0, "No balance available.");
 
@@ -51,7 +42,6 @@ contract PullPattern {
         msg.sender.call{value: amount}("");
     }
 }
-
 ```
 ## Resulting Context
 Unbounded mass operations are avoided and the invoking smart contract or user retains control over the associated gas costs. The smart contract does only execute those functions relevant for a certain element of the iterable data structure.
@@ -60,9 +50,7 @@ Unbounded mass operations are avoided and the invoking smart contract or user re
 By abandoning unbounded iteratable data structures, it is possible to avoid unbounded mass operations and, thus, unintended abortion of the operations (e.g., through an out-of-gas exceptions). Using the Pull Pattern, direct retrieval of required data (e.g., from a mapping in Solidity) is possible and no helper data structures for the iteration are required (e.g., an array that stores all keys of a HashMap).
 
 ## Related Patterns
-* [Indexed-Loop Pattern](/Design%20Patterns/Indexed-Loop%20Pattern/README.md#context)
-* [Checks-Effects-Interactions Pattern](/Idioms/Checks-Effects-Interactions%20Pattern/README.md#context)
-* [Mutex Pattern](/Design%20Patterns/Mutex%20Pattern/README.md#context)
+[Indexed-Loop Pattern](/Design%20Patterns/Indexed-Loop%20Pattern/README.md#context), [Checks-Effects-Interactions Pattern](/Idioms/Checks-Effects-Interactions%20Pattern/README.md#context), [Mutex Pattern](/Design%20Patterns/Mutex%20Pattern/README.md#context)
 
 ## Known Uses
-* [CryptoPunksMarket](https://etherscan.io/address/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB#code) (lines 190ff)
+[CryptoPunksMarket](https://etherscan.io/address/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB#code) (lines 190ff)
