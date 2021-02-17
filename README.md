@@ -41,9 +41,9 @@ Each pattern is comprised of components to describe the pattern in a consistent 
 
 - _Name:_ the pattern in one word "[…] to use a single word or short phrase to refer to the pattern, and the knowledge and structure it describes" [2, p. 5]. 
 
-- _Problem:_ "[…] the goals and objectives [the developer] wants to reach within the given context and forces. Often the forces oppose these objectives as well as each other" [2, p. 5].
-
 - _Context:_ "the preconditions under which the problem and its solution seem to recur, and for which the solution is desirable. This tells us the pattern's applicability" [2, p. 5].
+
+- _Problem:_ "[…] the goals and objectives [the developer] wants to reach within the given context and forces. Often the forces oppose these objectives as well as each other" [2, p. 5].
 
 - _Forces:_ "[…] the relevant forces and constraints and how they interact/conflict with one another and with goals we wish to achieve […]. Forces reveal the intricacies of a problem and define the kinds of trade-offs that must be considered in the presence of the tension or dissonance they create" [2, p. 5].
 
