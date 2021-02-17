@@ -16,8 +16,6 @@ Using a central Façade Contract offers a single access point for the execution 
 # Rationale
 The orchestration of different smart contracts via a Façade Contract serving as a proxy eases the execution of multiple, interdependent smart contracts. All individual calls and error handling are outsourced to the Façade Contract.
 # Related Patterns
-* [Name-Service Pattern](/Architectural%20Patterns/Name-Service%20Pattern/README.md#context)
-* [Proxy Pattern](/Architectural%20Patterns/Proxy%20Pattern/README.md#context)
+[Name-Service Pattern](/Architectural%20Patterns/Name-Service%20Pattern/README.md#context), [Proxy Pattern](/Architectural%20Patterns/Proxy%20Pattern/README.md#context)
 # Known Uses
-* [LATOPreICO](https://etherscan.io/address/0x459F7854776ED005B6Ec63a88F834fDAB0B6993e#code) (lines 252, 326ff) 
-* [Base and Satellite](https://github.com/maxwoe/solidity_patterns/tree/master/maintenance/satellite)
+[LATOPreICO](https://etherscan.io/address/0x459F7854776ED005B6Ec63a88F834fDAB0B6993e#code) (lines 252, 326ff), [Base and Satellite](https://github.com/maxwoe/solidity_patterns/tree/master/maintenance/satellite)
