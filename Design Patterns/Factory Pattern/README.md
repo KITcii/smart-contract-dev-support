@@ -24,7 +24,7 @@ Token are created and issued by a Factory Smart Contract. In the above example, 
 By creating and issuing Child Contracts from a Factory Smart Contract, the Child Contract creation can be managed in a centralized but reliable way. As a return value for successful creation of Child Contracts, the address of the Child Contract token is returned, which can be appended to an array to keep track of issued tokens.
 
 ## Related Patterns
-* [Token Pattern](/Idioms/Token%20Pattern/README.md#context)
+[Token Pattern](/Idioms/Token%20Pattern/README.md#context)
 
 ## Known Uses
-* [CharitySplitter](https://blog.ethereum.org/2020/01/29/solidity-0.6-try-catch/)
+[CharitySplitter](https://blog.ethereum.org/2020/01/29/solidity-0.6-try-catch/)
