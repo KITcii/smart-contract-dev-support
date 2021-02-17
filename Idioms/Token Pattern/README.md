@@ -58,7 +58,6 @@ contract LogicContract {
         //...
     }
 ```
-_Note:_ Due to space constraints we did not use modifiers in the examples. Please better use modifiers for authorization checks to improve comprehensibility of the code. In addition, the code example does only illustrate the separation from logic and the token management. The LogicContract implements no mechanisms to lock assets so that the bidders cannot spend their assets for after their bidding and may become unable to pay.
 
 ## Resulting Context
 Developers can maintain logic expressed in smart contract code to manage data or assets without the risk of losing them. The data are always kept by the same smart contract. To prevent single users from acquiring lots of tokens in an early stage of the sale, an Anti-Early-Whale mechanism should be implemented (e.g., a timer for assets distribution and a pause mechanism to temporarily stop assets).
