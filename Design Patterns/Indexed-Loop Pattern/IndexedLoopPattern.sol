@@ -27,7 +27,7 @@ contract IndexedLoopPattern {
 
             uint256 val = payees[nextPayeeIndex].value;
             payees[nextPayeeIndex].value = 0;
-            payees[nextPayeeIndex].addr.send(val);
+            payees[nextPayeeIndex].addr.transfer(val);
             totalGasConsumed = totalGasConsumed + gasPerIteration;
             nextPayeeIndex++;
         }
