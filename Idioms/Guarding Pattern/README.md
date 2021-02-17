@@ -9,7 +9,7 @@ Smart contract interfaces are directly exposed to and callable by all users of t
 A function should be executable by only certain accounts and the authorization checks should be performed prior to the function execution. Required authorization checks must be implemented efficiently.
 
 ## Solution
-Developers should implement authorization checks (e.g., modifiers in solidity) for callable functions, especially for those functions that should transfer assets. In Solidity, the use of a modifier is recommended to implement procedures (e.g., authorization checks) that are executed prior to the execution of the actual function called. Modifiers implement “_;” to indicate at which position the actual function code should be executed. Modifiers can be implemented in multiple functions.
+Developers should implement authorization checks (e.g., `modifiers` in Solidity) for callable functions, especially for those functions that should transfer assets. In Solidity, the use of a modifier is recommended to implement procedures (e.g., authorization checks) that are executed prior to the execution of the actual function called. Modifiers implement `_;` to indicate at which position the actual function code should be executed. Modifiers can be implemented in multiple functions.
 
 ## Example
 
