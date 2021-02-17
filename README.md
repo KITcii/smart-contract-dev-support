@@ -57,7 +57,7 @@ Each pattern is comprised of components to describe the pattern in a consistent 
 
 - _Related Patterns:_ "the static and dynamic relationships between this pattern and others within the same pattern language or system" [2, p. 6].
 
-- _Known Uses_ are "[…] known occurrences of the pattern and its application within existing systems" [2, p. 6].
+- _Known Uses:_ "[…] known occurrences of the pattern and its application within existing systems" [2, p. 6].
 
 # References
 [1] F. Buschmann, Ed., Pattern-oriented software architecture: a system of patterns. Chichester; New York: Wiley, 1996.  
