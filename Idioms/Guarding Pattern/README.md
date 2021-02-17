@@ -15,14 +15,14 @@ Developers should implement authorization checks (e.g., modifiers in solidity) f
 
 ### Wrong
 ```Solidity 
-pragma solidity >=0.5.0 <0.7.0;
+pragma solidity 0.7.0;
 
 contract GuardingAntipattern {
     address public owner = msg.sender;
 
-    function changeOwner(address newOwner) public
+    function changeOwner(address _newOwner) public
         returns(bool){
-        owner = newOwner;
+        owner = _newOwner;
         return true;    
     }
 }
@@ -30,7 +30,7 @@ contract GuardingAntipattern {
 
 ### Correct
 ```Solidity 
-pragma solidity >=0.5.0 <0.7.0;
+pragma solidity 0.7.0;
 
 contract GuardingPattern {
     address public owner = msg.sender;
@@ -46,7 +46,6 @@ contract GuardingPattern {
         owner = newOwner;
     }
 }
-
 ```
 
 ## Resulting Context
