@@ -86,7 +86,7 @@ When importing external smart contracts, vulnerabilities of these external smart
 The Solc compiler does not check whether called non-primitive data types are compatible with the interface of the smart contract called. No exception is thrown in case the called smart contract executes another function than intended, for example, the fallback function of a smart contract if the signature of the function to be executed does not exist. The External-Call Pattern mitigates these challenges by excluding the use of external smart contracts or treating all external contracts as malicious.
 
 ## Related Patterns
-Checks-Effects-Interactions Pattern, Error-Handling Pattern, Mutex Pattern
+[Checks-Effects-Interactions Pattern](../Checks-Effects-Interactions%20Pattern/README.md), [Error-Handling Pattern](../Error-Handling%20Pattern/README.md), [Mutex Pattern](../Mutex%20Pattern/README.md), [Overflow Pattern](../Overflow%20Pattern/README.md)
 
 ## Known Uses
-Kitty Core (lines 1598,1691): https://etherscan.io/address/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d#code
+[Kitty Core](https://etherscan.io/address/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d#code) (lines 1598,1691)
