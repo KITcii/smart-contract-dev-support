@@ -1,4 +1,4 @@
-pragma solidity ^0.7.0;
+pragma solidity 0.7.0;
 
 contract ChecksEffectsInteractionsAntipattern {
     mapping (address => uint256) public balances;
