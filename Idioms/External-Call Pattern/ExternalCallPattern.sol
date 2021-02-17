@@ -2,9 +2,9 @@ pragma solidity ^0.7.0;
 
 // Definition of the interface of ExternalContract for easier integration into ExternalCallPattern
 contract ExternalContract {
-    function externalFunction(string memory text1, string memory text2)
+    function externalFunction(string memory _text1, string memory _text2)
        public pure returns (bool) {
-        return keccak256(bytes(text1)) == keccak256(bytes(text2));
+        return keccak256(bytes(_text1)) == keccak256(bytes(_text2));
     }
 }
 
@@ -26,8 +26,8 @@ contract ExternalCallPattern {
 
 
         // Instantiate ExternalContract to make direct calls with revert(…) in case of failures in the function execution
-        ExternalContract c = ExternalContract(externalAddress);
-        bool equal = c.externalFunction(text1, text2);    
+        ExternalContract c = ExternalContract(_externalAddress);
+        bool equal = c.externalFunction(_text1, _text2);    
    
         // Check return value of c.externalFunction(…)
         require(equal, "Texts are NOT equal.");
