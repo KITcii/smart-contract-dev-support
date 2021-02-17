@@ -33,8 +33,7 @@ contract IndexedLoopAntipattern {
     function payout() public {
         uint256 i = 0;
         while(i < payees.length) {
-            // The require statement will block the loop
-            // if an asset transfer always fails
+            // The require statement will block the loop if an asset transfer always fails
             require(payees[i].addr.{value:payees[i].value}(),
                        "An error occured.");
             i++;
@@ -56,10 +55,7 @@ contract IndexedLoopPattern {
     Payee[] payees;
     uint256 nextPayeeIndex;
 
-    receive() external payable {
-        Payee memory p = Payee(msg.sender, msg.value);
-        payees.push(p);
-    }
+    //...
 
     function payout() public payable {
         uint256 totalGasConsumed = 0;
@@ -74,18 +70,17 @@ contract IndexedLoopPattern {
 
             uint256 val = payees[nextPayeeIndex].value;
             payees[nextPayeeIndex].value = 0;
-            
-            // Avoid transferring assets from within a loop because of untrustful xternal calls
+            // Avoid transferring assets from within a loop because of untrustful external calls
             payees[nextPayeeIndex].addr.send(val);
             totalGasConsumed = totalGasConsumed + gasPerIteration;
             nextPayeeIndex++;
         }
         
-        if(nextPayeeIndex == payees.length)
+        if(nextPayeeIndex == payees.length) {
              nextPayeeIndex = 0;
+        }
     }
 }
-
 ```
 The individual gas costs for _gasPerIteration_ and _gasForPostLoop_ have been manually calculated. The Indexed-Loop Pattern implemented in the above example assumes that all asset transfers succeed and **does not protect from wallet griefing**. To protect from wallet griefing, mechanisms to keep track of failed transactions and the corresponding recipient accounts must be implemented to adjust the index accordingly and prevent denial of service. For such checks, the return value of the asset transfer function in line 24 must be considered.
 
