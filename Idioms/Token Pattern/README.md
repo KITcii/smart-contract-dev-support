@@ -18,40 +18,17 @@ Logic and data in smart contracts should be separated into a Logic Contract and 
 pragma solidity 0.7.0;
 
 contract TokenAntipattern {
-    address public minter;
-    
-    mapping (address => uint256) public balances;
-    uint256 highest_bid = 0;
-    address highest_bidder;
-
-    event Sent(address from, address to, uint amount);
-
-    constructor() public {
-        minter = msg.sender;
-    }
-
+        //...
     function mint(address receiver, uint amount) public returns(uint256) {
-        require(msg.sender == minter);
-        
-        balances[receiver] += amount;
-        return balances[receiver];
+        //...
     }
 
     function send(address receiver, uint amount) public returns(bool) {
-        require(amount <= balances[msg.sender], "Insufficient balance.");
-        
-        balances[msg.sender] -= amount;
-        balances[receiver] += amount;
-        emit Sent(msg.sender, receiver, amount);
-        return true;
+        //...
     }
 
     function auction(uint256 bid) public {
-        require(balances[msg.sender] >= bid, "Insufficient balance.");
-        require(bid>highest_bid, "Your bid is too low.");
-        
-        highest_bidder = msg.sender;
-        highest_bid = bid;
+        //...
     }
 }
 
@@ -61,9 +38,6 @@ contract TokenAntipattern {
 pragma solidity 0.7.0;
 
 contract TokenPattern {
-    address public minter;
-    mapping (address => uint) public userBalances;
-    event Sent(address from, address to, uint amount);
     //...
     function mint(address receiver, uint amount) public returns(uint256) {
         // Equals function mint(…) of the wrong example lines 17-20
@@ -75,22 +49,13 @@ contract TokenPattern {
 }
 
 contract LogicContract {
-    address owner;
-    TokenContract t;
-    address public highest_bidder;
-    uint256 highest_bid;
     //...
     function changeToken (address _address) public {
-        require(msg.sender == owner);
-        t = TokenContract(_address);
+        //...
     }
 
     function auction(uint256 bid) public {
-        require(t.userBalances(msg.sender) >= bid, "Insufficient balance.");
-        require(bid>highest_bid, "Your bid is too low.");
-        
-        highest_bidder = msg.sender;
-        highest_bid = bid;
+        //...
     }
 ```
 _Note:_ Due to space constraints we did not use modifiers in the examples. Please better use modifiers for authorization checks to improve comprehensibility of the code. In addition, the code example does only illustrate the separation from logic and the token management. The LogicContract implements no mechanisms to lock assets so that the bidders cannot spend their assets for after their bidding and may become unable to pay.
