@@ -11,7 +11,7 @@ Developers must first update values of all variables (used in the condition) bef
 ## Example
 ### Wrong
 ```Solidity 
-pragma solidity >=0.6.0 <0.7.0;
+pragma solidity 0.7.0;
 
 // This smart contract is vulnerable to reentrancy and DoS
 contract ChecksEffectsInteractionsAntipattern {
@@ -31,7 +31,7 @@ contract ChecksEffectsInteractionsAntipattern {
 ```
 ### Correct
 ```Solidity 
-pragma solidity >=0.6.0 <0.7.0;
+pragma solidity 0.7.0;
 
 contract ChecksEffectsInteractionsPattern {
     mapping (address => uint256) public balances;
