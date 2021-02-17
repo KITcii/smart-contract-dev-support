@@ -19,7 +19,7 @@ contract MutexPattern {
         require(balances[msg.sender] >= amount, "No balance to withdraw.");
         
         balances[msg.sender] -= amount;
-        bool success, ) = msg.sender.call{value: amount}("");
+        (bool success, ) = msg.sender.call{value: amount}("");
         require(success);
 
         return true;
