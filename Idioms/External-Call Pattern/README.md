@@ -15,7 +15,7 @@ Treat any external calls as malicious and evaluate each return value from extern
 
 ### Wrong
 ```Solidity 
-pragma solidity ^0.7.0;
+pragma solidity 0.7.0;
 
 contract ExternalContract {
     function externalFunction(string memory _text1, string memory _text2)
