@@ -1,6 +1,6 @@
 pragma solidity ^0.7.0;
 
-// Definition of the interface of ExternalContract to be able to easily use the defined return values
+// Definition of the interface of ExternalContract for easier integration into ExternalCallPattern
 contract ExternalContract {
     function externalFunction(string memory text1, string memory text2)
        public pure returns (bool) {
