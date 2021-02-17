@@ -18,9 +18,9 @@ Treat any external calls as malicious and evaluate each return value from extern
 pragma solidity ^0.7.0;
 
 contract ExternalContract {
-    function externalFunction(string memory text1, string memory text2)
+    function externalFunction(string memory _text1, string memory _text2)
        public pure returns (bool) {
-        return keccak256(bytes(text1)) == keccak256(bytes(text2));
+        return keccak256(bytes(_text1)) == keccak256(bytes(_text2));
     }
 }
 ```
@@ -31,7 +31,7 @@ contract CallerContract {
     event Response(bool success, bytes data);
 
     function doSomething(address _externalAddress, string memory _text) public {
-        (bool success, bytes memory data) = externalAddress.call(
+        (bool success, bytes memory data) = _externalAddress.call(
             abi.encodeWithSignature("externalFunction(string)", _text)
         );
 
