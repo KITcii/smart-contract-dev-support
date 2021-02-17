@@ -19,7 +19,7 @@ Smart contracts can retrieve the address of the latest version of a smart contra
 ## Rationale
 The registration contract serves as a dictionary that translates the names of smart contracts into the assigned address of their latest version.
 ## Related Patterns
-* [Façade Pattern](/Architectural%20Patterns/Façade%20Pattern/README.md#context)
-* [Proxy Pattern](/Architectural%20Patterns/Proxy%20Pattern/README.md#context)
+[Façade Pattern](/Architectural%20Patterns/Façade%20Pattern/README.md#context)
+[Proxy Pattern](/Architectural%20Patterns/Proxy%20Pattern/README.md#context)
 ## Known Uses
-* [Ethereum Name Service](https://docs.ens.domains/)
+[Ethereum Name Service](https://docs.ens.domains/)
