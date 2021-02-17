@@ -15,7 +15,7 @@ When assigning a value to an integer variable, the value range of the variableâ€
 
 ### Wrong
 ```Solidity 
-pragma solidity ^0.6.0;
+pragma solidity 0.6.0;
 
 contract OverflowAntipattern {
     function runLoop() public {
@@ -28,7 +28,7 @@ contract OverflowAntipattern {
 ```
 ### Correct
 ```Solidity 
-pragma solidity ^0.6.0;
+pragma solidity 0.6.0;
 
 // We integrate only the part of the SafeMath8 library relevant for this pattern 
 library SafeMath8 {
