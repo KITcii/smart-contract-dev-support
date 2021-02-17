@@ -11,10 +11,4 @@ contract CallerContract {
         // Check if function has been executed successfully
         emit Response(success, data);
     }
-
-    function isContract(address addr) view internal returns (bool) {
-        uint size;
-        assembly { size := extcodesize(addr) }
-        return (size > 0);
-    }
 }
