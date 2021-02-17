@@ -96,7 +96,7 @@ The Solc compiler does not check whether called non-primitive data types are com
 ## Related Patterns
 
 
-[Checks-Effects-Interactions Pattern](../Checks-Effects-Interactions%20Pattern/README.md), [Error-Handling Pattern](../Error-Handling%20Pattern/README.md), [Mutex Pattern](../Mutex%20Pattern/README.md), [Overflow Pattern](../Overflow%20Pattern/README.md)
+[Checks-Effects-Interactions Pattern](../Checks-Effects-Interactions%20Pattern/README.md), [Error-Handling Pattern](../Error-Handling%20Pattern/README.md), [Mutex Pattern](../../Mutex%20Pattern/README.md), [Overflow Pattern](../Overflow%20Pattern/README.md)
 
 ## Known Uses
 [Kitty Core](https://etherscan.io/address/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d#code) (lines 1598,1691)
