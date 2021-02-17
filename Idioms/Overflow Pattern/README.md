@@ -58,4 +58,4 @@ Smart contracts are not considered safe because of implicit data type inferences
 ## Related Patterns
 [External-Call Pattern](../External-Call%20Pattern/README.md)
 ## Known Uses
-[BecToken](https://etherscan.io/address/0xc5d105e63711398af9bbff092d4b6769c82f793d#code)(lines 53ff)
+[BecToken](https://etherscan.io/address/0xc5d105e63711398af9bbff092d4b6769c82f793d#code) (lines 53ff)
