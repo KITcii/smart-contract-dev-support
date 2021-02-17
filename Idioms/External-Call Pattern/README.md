@@ -25,7 +25,7 @@ contract ExternalContract {
 }
 ```
 ```Solidity 
-pragma solidity ^0.7.0;
+pragma solidity 0.7.0;
 
 contract CallerContract {
     event Response(bool success, bytes data);
@@ -50,7 +50,7 @@ CallerContract uses the call(…) command to execute externalFunction(…) becau
 
 ### Correct
 ```Solidity 
-pragma solidity ^0.7.0;
+pragma solidity 0.7.0;
 
 // Definition of the interface of ExternalContract for easier integration into ExternalCallPattern
 contract ExternalContract {
