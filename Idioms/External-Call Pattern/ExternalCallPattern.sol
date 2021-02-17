@@ -1,4 +1,4 @@
-pragma solidity ^0.7.0;
+pragma solidity 0.7.0;
 
 // Definition of the interface of ExternalContract for easier integration into ExternalCallPattern
 contract ExternalContract {
