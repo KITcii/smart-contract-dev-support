@@ -16,7 +16,7 @@ contract IndexedLoopPattern {
 
     function payout() public payable {
         uint256 totalGasConsumed = 0;
-        // Amount of gas required for each iteration
+        // Estimated amount of gas required for each iteration (must not be smaller than the actually consumed gas)
         uint256 gasPerIteration = 42000;
         // Minimum amount of gas required to execute the code after the loop
         uint256 gasForPostLoopExecution = 1650;
@@ -27,12 +27,14 @@ contract IndexedLoopPattern {
 
             uint256 val = payees[nextPayeeIndex].value;
             payees[nextPayeeIndex].value = 0;
-            payees[nextPayeeIndex].addr.transfer(val);
+            // Avoid transferring assets from within a loop because of untrustful external calls
+            payees[nextPayeeIndex].addr.send(val);
             totalGasConsumed = totalGasConsumed + gasPerIteration;
             nextPayeeIndex++;
         }
         
-        if(nextPayeeIndex == payees.length)
+        if(nextPayeeIndex == payees.length) {
              nextPayeeIndex = 0;
+        }
     }
 }
