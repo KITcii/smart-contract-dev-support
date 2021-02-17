@@ -56,6 +56,6 @@ Each time a value is assigned to a variable, the value range of the data type of
 ## Rationale
 Smart contracts are not considered safe because of implicit data type inferences by the Solc compiler in presence of the keyword var and its cyclic behavior when exceeding the maximum values of the declared data type. The OpenZeppelin SafeMath library checks arithmetic operations (e.g., incrementing or decrementing variables) to prevent overflow.
 ## Related Patterns
-External-Call Pattern
+[External-Call Pattern](../External-Call%20Pattern/README.md)
 ## Known Uses
-BecToken (lines 53ff): https://etherscan.io/address/0xc5d105e63711398af9bbff092d4b6769c82f793d#code
+[BecToken](https://etherscan.io/address/0xc5d105e63711398af9bbff092d4b6769c82f793d#code)(lines 53ff)
