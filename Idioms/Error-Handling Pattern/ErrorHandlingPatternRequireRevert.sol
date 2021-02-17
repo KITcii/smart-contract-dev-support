@@ -4,7 +4,6 @@ contract ErrorHandlingPatternRequireRevert {
     function sendAssets(address payable addr)
         public payable returns (bool) {
             (bool success, ) = addr.call{value: (msg.value / 2)}("");
-            //hier stand ein Negationszeichen, falsch??
             require (success, "Asset transfer failed.");
             return true;
     }
@@ -15,10 +14,9 @@ contract ErrorHandlingPatternRequireRevert {
                 (bool success, ) = addr.call{value: (msg.value / 2)}("");
                 if(!success) {
                     revert("Asset transfer failed.");
-            } else {
-                return true;
-            }
-            
+                } else {
+                    return true;
+                }
             }      
             return true;
         }
