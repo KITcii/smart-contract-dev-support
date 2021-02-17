@@ -78,7 +78,7 @@ contract ErrorHandlingPatternTryCatch {
     }
 }
 ```
-
+Note that with try/catch, only exceptions happening inside the external call itself are caught.
 Based on: https://blog.ethereum.org/2020/01/29/solidity-0.6-try-catch/
 
 ## Resulting Context
