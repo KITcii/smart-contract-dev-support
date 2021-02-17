@@ -89,4 +89,4 @@ The Solc compiler does not check whether called non-primitive data types are com
 Checks-Effects-Interactions Pattern, Error-Handling Pattern, Mutex Pattern
 
 ## Known Uses
-Kitty Core (lines 1598,1691): https://etherscan.io/address/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d#code
+[Kitty Core](https://etherscan.io/address/0x06012c8cf97BEaD5deAe237070F9587f8E7A266d#code) (lines 1598,1691)
