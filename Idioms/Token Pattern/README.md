@@ -50,8 +50,8 @@ contract TokenAntipattern {
         require(balances[msg.sender] >= bid, "Insufficient balance.");
         require(bid>highest_bid, "Your bid is too low.");
         
-        highest_bidder=msg.sender;
-        highest_bid=bid;
+        highest_bidder = msg.sender;
+        highest_bid = bid;
     }
 }
 
@@ -97,8 +97,8 @@ contract LogicContract {
         require(t.userBalances(msg.sender) >= bid, "Insufficient balance.");
         require(bid>highest_bid, "Your bid is too low.");
         
-        highest_bidder=msg.sender;
-        highest_bid=bid;
+        highest_bidder = msg.sender;
+        highest_bid = bid;
     }
 ```
 _Note:_ Due to space constraints we did not use modifiers in the examples. Please better use modifiers for authorization checks to improve comprehensibility of the code. In addition, the code example does only illustrate the separation from logic and the token management. The LogicContract implements no mechanisms to lock assets so that the bidders cannot spend their assets for after their bidding and may become unable to pay.
