@@ -20,12 +20,12 @@ contract CommitmentPattern {
         userCommits[msg.sender] = uC;
     }
 
-    function reveal(string memory plainSalt, string memory plainValue) public { 
+    function reveal(string memory _plainSalt, string memory _plainValue) public { 
         require(userCommits[msg.sender].secretCommit != "", "You did not commit to a value"); 
-        require(userCommits[msg.sender].secretSalt == keccak256(abi.encode(plainSalt)), "Your salt does not match the original one."); 
-        require(userCommits[msg.sender].secretCommit == keccak256(abi.encodePacked(plainSalt, plainValue)), "Invalid values.");
+        require(userCommits[msg.sender].secretSalt == keccak256(abi.encode(_plainSalt)), "Your salt does not match the original one."); 
+        require(userCommits[msg.sender].secretCommit == keccak256(abi.encodePacked(_plainSalt, _plainValue)), "Invalid values.");
 
-        userCommits[msg.sender].plainSalt = plainSalt;
-        userCommits[msg.sender].plainValue = plainValue;
+        userCommits[msg.sender].plainSalt = _plainSalt;
+        userCommits[msg.sender].plainValue = _plainValue;
     }
 }
