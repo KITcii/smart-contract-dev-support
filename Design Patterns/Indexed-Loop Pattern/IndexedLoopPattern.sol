@@ -9,11 +9,6 @@ contract IndexedLoopPattern {
     Payee[] payees;
     uint256 nextPayeeIndex;
 
-    receive() external payable {
-        Payee memory p = Payee(msg.sender, msg.value);
-        payees.push(p);
-    }
-
     function payout() public payable {
         uint256 totalGasConsumed = 0;
         // Amount of gas required for each iteration
@@ -34,5 +29,10 @@ contract IndexedLoopPattern {
         
         if(nextPayeeIndex == payees.length)
              nextPayeeIndex = 0;
+    }
+    
+    receive() external payable {
+        Payee memory p = Payee(msg.sender, msg.value);
+        payees.push(p);
     }
 }
