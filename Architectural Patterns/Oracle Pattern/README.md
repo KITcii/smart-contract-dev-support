@@ -1,4 +1,4 @@
-# Architectural Patterns
+# Oracle Patterns
 ## Context
 To retrieve external data, smart contracts need to interact with external IT services outside the distributed ledger to retrieve real-world data.
 ## Problem
