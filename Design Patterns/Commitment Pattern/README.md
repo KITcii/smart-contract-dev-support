@@ -62,4 +62,4 @@ All transactions and their contents stored on the distributed ledger are publicl
 \-
 
 ## Known Uses
-* [Registrar](https://etherscan.io/address/0x6090A6e47849629b7245Dfa1Ca21D94cd15878Ef#code) (lines 344ff)
+[Registrar](https://etherscan.io/address/0x6090A6e47849629b7245Dfa1Ca21D94cd15878Ef#code) (lines 344ff)
