@@ -11,8 +11,15 @@ contract ExternalContract {
 contract ExternalCallPattern {
     event Response(string text);
 
+    modifier isContract(address _externalAddress) view internal returns (bool) {
+        uint size;
+        assembly { size := extcodesize(_externalAddress) }
+        require (size > 0);
+        _;
+    }
+
     function doSomething(address _externalAddress, string memory _text1,
-      string memory _text2) public {
+      string memory _text2) public isContract(_externalAddress) {
 
         // Check if a smart contract is available at the given address to avoid, for example, asset loss when sending asset
         require(isContract(_externalAddress), "No smart contract available at given address!");
@@ -25,12 +32,5 @@ contract ExternalCallPattern {
         // Check return value of c.externalFunction(…)
         require(equal, "Texts are NOT equal.");
         emit Response("Texts are equal.");
-    }
-
-    // Check if a smart contract exists on the given address
-    function isContract(address _externalAddress) view internal returns (bool) {
-        uint size;
-        assembly { size := extcodesize(_externalAddress) }
-        return (size > 0);
     }
 }
