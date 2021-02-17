@@ -113,4 +113,4 @@ A new smart contract that manages the tokens (e.g., token transfers) can be depl
 Façade Pattern, Proxy Pattern
 
 ## Known Uses
-LATOPreICO(lines 252, 326ff): https://etherscan.io/address/0xDa2Cf810c5718135247628689D84F94c61B41d6A#code
+[LATOPreICO](https://etherscan.io/address/0xDa2Cf810c5718135247628689D84F94c61B41d6A#code) (lines 252, 326ff)
