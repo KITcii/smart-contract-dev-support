@@ -59,4 +59,4 @@ A lack of authorization checks endangers funds kept in a smart contract because 
 \-
 
 ## Known Uses
-[EthereumLottery](https://etherscan.io/address/0x40658db197bddeA6a51Cb576Fe975Ca488AB3693#code)(lines 65ff)
+[EthereumLottery](https://etherscan.io/address/0x40658db197bddeA6a51Cb576Fe975Ca488AB3693#code) (lines 65ff)
