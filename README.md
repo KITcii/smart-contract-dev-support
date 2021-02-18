@@ -35,7 +35,7 @@ To make smart contract developers aware of the peculiarities of smart contracts 
 
 - _Design patterns_ provide “[…] a scheme for refining the subsystems or components of a software system, or the relationships between them” [1, p. 13] to solve a general design problem within a certain context.
 
-- _Idioms are patterns_ on the lowest level of abstraction and “describe[s] how to implement particular aspects of components or the relationships between them using the features of the given language” [1, p. 14].
+- _Idioms_ are patterns on the lowest level of abstraction and “describe[s] how to implement particular aspects of components or the relationships between them using the features of the given language” [1, p. 14].
 
 Each pattern is comprised of components to describe the pattern in a consistent and comprehensive manner. In this repository, we follow the _canonical form_ comprisong the following elements: 
 
