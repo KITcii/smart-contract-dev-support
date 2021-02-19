@@ -86,7 +86,7 @@ Appropriate error handling increases robustness and ensures the functioning of t
 Error handling in smart contracts is not handled uniformly, which is why individual error handling must be implemented und consideration of the call chain.
 
 ## Related Patterns
-[External-Call Pattern](../../Design%20Patterns/External-Call%20Pattern/README.md)
+[External-Call Pattern](../../Idioms/External-Call%20Pattern/README.md)
 
 ## Known Uses
 [EthereumLottery](https://etherscan.io/address/0x40658db197bddeA6a51Cb576Fe975Ca488AB3693#code) (lines 261, 291ff), 
