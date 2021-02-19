@@ -3,10 +3,10 @@
 Tamper-resistance of distributed ledgers impedes maintenance of smart contracts, which is critical, if flawed smart contracts manage assets. To replace the old smart contract with a new one, data (e.g., user balances) kept by the old smart contract must be transferred to the new one, which can cause serious security issues and even loss of assets.
 
 ## Problem
-It is costly and risky to update smart contracts that keep tokens and/or data related to users’ balances.
+It is costly and risky to update smart contracts that keep tokens and/or data related to users’ balances. The objective of the Token Pattern is to minimize the need to update smart contracts that keep tokens and, thus, avoid the risks and costs (e.g. fees for token transfer) connected with it, while still allowing updates to the logic of smart contracts.
 
 ## Forces
-The smart contract should be easy to maintain with low risk and low cost.
+The forces involved in the Token Pattern are maintainability of smart contracts on the one hand and comprehensibility and readibility on the other hand. The application of the Token Pattern improves maintainability by enabling an update of the logic of the smart contract without the risks and costs associated with the update of a smart contract keeping tokens. At the same time this comes at the cost of comprehensibility and readibility of the contract as the code is spread out over seperate contracts.
 
 ## Solution
 Logic and data in smart contracts should be separated into a Logic Contract and a Token Contract. The Token Contract provides data on the liquidity of accounts and keeps the tokens. If code functionality needs to be changed, only the Logic Contract is updated. The Token Contract can remain unchanged. When a new version of the Logic Contract is deployed, the deprecated Logic Contract must be destroyed.
@@ -60,10 +60,10 @@ contract LogicContract {
 ```
 
 ## Resulting Context
-Developers can maintain logic expressed in smart contract code to manage data or assets without the risk of losing them. The data are always kept by the same smart contract. To prevent single users from acquiring lots of tokens in an early stage of the sale, an Anti-Early-Whale mechanism should be implemented (e.g., a timer for assets distribution and a pause mechanism to temporarily stop assets).
+Developers can maintain logic expressed in smart contract code to manage data or assets without the risk of losing them. The data are always kept by the same smart contract. 
 
 ## Rationale
-A new smart contract that manages the tokens (e.g., token transfers) can be deployed to the distributed ledger and access the Token Contract according to the Token Contract’s authorization scheme. By doing so, not fees for token transfers from the Token Contract to another have to be paid during an update and maintenance-related functionality for such transfers does not have to be implemented.
+A new smart contract that manages the tokens (e.g., token transfers) can be deployed to the distributed ledger and access the Token Contract according to the Token Contract’s authorization scheme. By doing so, no fees for token transfers from the Token Contract to another have to be paid during an update and maintenance-related functionality for such transfers does not have to be implemented.
 
 ## Related Patterns
 [Factory Pattern](../../Design%20Patterns/Factory%20Pattern/README.md)
