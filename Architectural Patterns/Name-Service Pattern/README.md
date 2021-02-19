@@ -1,8 +1,8 @@
 # Name-Service Pattern
 ## Context
-DLT applications and/or smart contracts call functions of other smart contracts, whose addresses may change over time because of maintenance and associated re-deployment. Consequently, the smart contract address must also be changed in all DLT applications and smart contracts that interact with these re-deployed smart contracts.
+DLT applications or smart contracts call functions of other smart contracts, whose addresses may change over time because of maintenance and associated re-deployment. Consequently, the smart contract address must also be changed in all DLT applications and smart contracts that interact with these re-deployed smart contracts.
 ## Problem
-It is challenging to find and always use the latest version of a smart contract in the presence of updates and changing smart contract addresses. In addition, smart contract addresses are hard to remember and not intuitive for developers, which decreases the intuitive interaction with smart contracts on the code level.
+It is challenging to find and always use the latest version of a smart contract in the presence of updates and changing smart contract addresses. In addition, smart contract addresses are hard to remember and not intuitive for developers which decreases the intuitive interaction with smart contracts on the code level.
 ## Forces
 The latest version of a smart contract should be easily retrievable. Furthermore, the interaction with a smart contract should become intuitive by not using smart contract addresses and function names.
 ## Solution
