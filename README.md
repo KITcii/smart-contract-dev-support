@@ -61,4 +61,4 @@ Each pattern is comprised of components to describe the pattern in a consistent 
 
 # References
 [1] F. Buschmann, Ed., Pattern-oriented software architecture: a system of patterns. Chichester; New York: Wiley, 1996.  
-[2] Appleton, Brad. Patterns and software: Essential concepts and terminology. 1997.
+[2] B. Appleton, “Patterns and Software: Essential Concepts and Terminology.” 2000, Accessed: Aug. 02, 2019. [Online]. Available: http://www.enteract.com/~bradapp/docs/patterns-intro.html.
