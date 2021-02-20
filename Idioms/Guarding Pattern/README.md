@@ -1,12 +1,12 @@
 # Guarding Pattern
 ## Context
-A smart contract has sensible logic implemented and should only be executable by certain accounts in defined contexts.
+The Guarding Pattern is applicable if the smart contract has sensible logic implemented and should only be executable by certain accounts in defined contexts. 
 
 ## Problem
-Smart contract interfaces are directly exposed to and callable by all users of the distributed ledgers.
+The objective of the Guarding Pattern is to ensure a function is only executable by certain accounts and the authorization checks should be performed prior to the function execution. The problem that arises is that smart contract interfaces are directly exposed to and callable by all users of the distributed ledgers. 
 
 ## Forces
-A function should be executable by only certain accounts and the authorization checks should be performed prior to the function execution. Required authorization checks must be implemented efficiently.
+The forces involved in the Guarding Pattern are code efficiency on the one hand as the implementation of authorization checks requires additional computational resources and semantic soundness, on the other hand as executability can be regulated as intended by the author of the smart contract. 
 
 ## Solution
 Developers should implement authorization checks (e.g., `modifiers` in Solidity) for callable functions, especially for those functions that should transfer assets. In Solidity, the use of a modifier is recommended to implement procedures (e.g., authorization checks) that are executed prior to the execution of the actual function called. Modifiers implement `_;` to indicate at which position the actual function code should be executed. Modifiers can be implemented in multiple functions.
