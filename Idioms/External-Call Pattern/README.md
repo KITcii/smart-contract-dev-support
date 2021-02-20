@@ -1,13 +1,13 @@
 # External-Call Pattern
 
 ## Context
-To decrease storage consumption of distributed ledgers or make development more convenient, already deployed smart contracts or libraries can be integrated or simply called from smart contracts.
+The External-Call Pattern is applicable whenever calls to external smart contracts are made.
 
 ## Problem
-In Solidity, several primitives to call smart contract functions (e.g., `call(...)`, `delegatecall(...)`, `send(...)`, `transfer` or direct function calls) may cause unintended side effects (e.g., by invoking the fallback function of the recipient). Values returned by invoked functions of the external smart contract should be accessible and an appropriate error handling should be possible.
+The objective of the External-Call Pattern is to handle calls to external smart contracts intendedly with option to appropriately handle failed calls and prevent unintended side effects. Values returned by invoked functions of the external smart contract should be accessible and an appropriate error handling should be possible. The problem is that in Solidity, several primitives to call smart contract functions (e.g., `call(...)`, `delegatecall(...)`, `send(...)`, `transfer` or direct function calls) may cause unintended side effects such as invoking the fallback function of the recipient. 
 
 ## Forces
-The forces involved in the External-Call Pattern are extensibility and reusability of smart contract code but code from external smart contracts should also be executable intendedly with the option to appropriately handle failed calls. To avoid unintended side effects and increase implementation soundness the External-Call Pattern can be applied at the cost of code efficiency.  
+The forces involved in the External-Call Pattern are extensibility and reusability of smart contract code by calling on existing code in external smart contracts. At the same time code from external smart contracts should be executable intendedly with the option to appropriately handle failed calls. To handle failed calls and avoid unintended side effects and, thus, increase implementation soundness the External-Call Pattern can be applied at the cost of code efficiency.  
 
 ## Solution
 Treat any external calls as malicious and evaluate each return value from external function calls regarding its intended outcome. Treating a smart contract as malicious includes the consideration of undesired side effects caused by such external smart contract (e.g., reentrancy). Furthermore, appropriate error handling should be implemented for the case that an exception is thrown during the execution of the external function. For example, if you cannot use direct calls to a smart contract but only `<address>.call(abi.encodeWithSignature("foo(…)",…)`, you should be aware that `call(…)` does only revert state changes after the `call(…)` command and implement a corresponding `require(…)` or `revert(…)` command. To ease error handling, isolate each external function call through individual transactions.
