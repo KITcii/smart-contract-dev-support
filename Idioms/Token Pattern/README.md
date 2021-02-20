@@ -1,9 +1,9 @@
 # Token Pattern
 ## Context
-Tamper-resistance of distributed ledgers impedes maintenance of smart contracts, which is critical, if flawed smart contracts manage assets. To replace the old smart contract with a new one, data (e.g., user balances) kept by the old smart contract must be transferred to the new one, which can cause serious security issues and even loss of assets.
+The Token Pattern can be applied when creating smart contracts that keep tokens or handle data related to users' balances.
 
 ## Problem
-It is costly and risky to update smart contracts that keep tokens and/or data related to users’ balances. The objective of the Token Pattern is to minimize the need to update smart contracts that keep tokens and, thus, avoid the risks and costs (e.g. fees for token transfer) connected with it, while still allowing updates to the logic of smart contracts.
+The objective of the Token Pattern is to enable updates to the logic of smart contracts that keep tokens and, thus, enabling maintainability of those smart contracts. At the same time the risks and costs usually connected with the update of smart contracts that keep tokens should be avoided. These include the payment of fees related with token transfer to a new updated smart contract or the risk of losing assets or data related to users' balances. 
 
 ## Forces
 The forces involved in the Token Pattern are maintainability of smart contracts on the one hand and comprehensibility and readibility on the other hand. The application of the Token Pattern improves maintainability by enabling an update of the logic of the smart contract without the risks and costs associated with the update of a smart contract keeping tokens. At the same time this comes at the cost of comprehensibility and readibility of the contract as the code is spread out over seperate contracts.
