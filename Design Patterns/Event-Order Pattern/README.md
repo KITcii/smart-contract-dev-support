@@ -1,7 +1,9 @@
 # Event-Order Pattern
 
 ## Context
-Multiple users want to interact with the same smart contract in a certain state _s<sub>t</sub>_ using their individual accounts. If the smart contract makes a transition from _s<sub>t</sub>_ to a subsequent state _s<sub>t+1</sub>_, the execution of the smart contract may cause undesired outcomes for the respective transaction issuer. Therefore, the transactions issuers want to have a guarantee that the smart contract function is only executed in the intended state or not at all.
+Multiple users interact with a same smart contract in a state _s<sub>t</sub>_ using their individual accounts. If the smart contract makes a transition from _s<sub>t</sub>_ to a subsequent state _s<sub>t+1</sub>_, the execution of the smart contract may cause undesired outcomes for following transaction issuers. Thus, transactions issuers want to have a guarantee that the smart contract function is only executed in the intended state or not at all.
+
+``Applies to: [X] EOSIO    [X] Ethereum    [X] Hyperledger Fabric``
 
 ## Problem
 The state of a smart contract in which a transaction triggers a smart contract function cannot be foreseen because of concurrency in transaction processing and unpredictable event ordering due to non-deterministic behavior of validating nodes. Concurrency in transaction processing may lead to unintended outcomes of smart contract execution such as transfers of unintended amounts of assets (e.g., Ether), especially in scenarios requiring conditional execution of transactions.
