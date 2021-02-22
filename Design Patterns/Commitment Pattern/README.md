@@ -2,6 +2,8 @@
 ## Context
 Entities (e.g., persons or other contracts) must commit to a value, but must not know what values other entities have committed to until the values of all entities are to be revealed.
 
+``Applies to: [X] EOSIO    [X] Ethereum    [X] Hyperledger Fabric``
+
 ## Problem
 The values to which entities have committed may not be visible to other entities, although all smart contract interactions are visible to all entities.
 
