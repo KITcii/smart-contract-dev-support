@@ -2,6 +2,7 @@
 ## Context
 Within a software project, smart contracts (Caller Contracts) invoke functions from another smart contract (Target Contract). The address of the Target Contract changes over time due to maintenance and the associated redeployment of the Target Contract.
 
+``Applies to: [X] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 ## Problem
 Caller Contracts must update the address of the Target Contract to interact with its latest version. The developers of the Caller Contracts may not be known and, thus, cannot be immediately informed about the update.
 
