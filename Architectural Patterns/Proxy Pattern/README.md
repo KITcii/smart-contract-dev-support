@@ -1,6 +1,8 @@
 # Proxy Pattern
 ## Context
-When deploying a new smart contract, the smart contract gets a unique address assigned. To update a deployed smart contract, it must be redeployed. Functions of the smart contract are called by other applications (e.g., by another smart contract or user interface). The address of the smart contract changes due to the required redeployment of the smart contract after maintenance. After redeployment, the smart contract address must also be updated in all applications that are now to interact with the redeployed smart contract.
+When deploying a smart contract, the smart contract gets a unique address assigned. Once deployed update smart contracts cannot be changed and must be redeployed. The address of the smart contract changes due to the required redeployment of the smart contract after maintenance. After redeployment, the smart contract address must also be updated in all applications that are now to interact with the redeployed smart contract.
+
+``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
 ## Problem
 Because of the public visibility of smart contract code and the integratability of smart contracts in arbitrary frontends, the need to update a smart contract address can hardly be communicated to all developers responsible for applications using the smart contract. Thus, several applications can still interact with a deprecated (and even destructed) smart contract version. Moreover, updating smart contract addresses in applications can flaw (e.g., by inserting the wrong address).
