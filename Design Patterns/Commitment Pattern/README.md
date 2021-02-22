@@ -1,9 +1,9 @@
 # Commitment Pattern
 ## Context
-Values stored in a smart contract must not be visible to other users until a certain point in time but must be binding for the issuer of the respective values.
+Entities (e.g., persons or other contracts) must commit to a value, but must not know what values other entities have committed to until the values of all entities are to be revealed.
 
 ## Problem
-Users should be able to commit to a certain value but keep it secret from others and disclose the committed value later.
+The values to which entities have committed may not be visible to other entities, although all smart contract interactions are visible to all entities.
 
 ## Forces
 The values to which users have committed themselves must be kept secret until the individual users want to reveal their values. In addition, these values must be binding for respective users and changes of the values after the commitment must be at least recognizable or prevented. The secret values should be impossible or at least very hard to guess for attackers.
