@@ -1,10 +1,10 @@
 # Name-Service Pattern
 ## Context
-Functions of a smart contract are executed by other applications (e.g., by another smart contract or user interface). The address of the smart contract changes due to the required redeployment of the smart contract after maintenance. After redeployment, the smart contract address must also be updated in all applications that are now to interact with the redeployed smart contract.
+Developers of applications like other smart contracts or user interfaces interact with smart contracts via their addresses. The developers aim to reuse smart contract code of other developers.
 ## Problem
-It is challenging to find and always use the latest version of a smart contract in the presence of updates and changing smart contract addresses. In addition, smart contract addresses are hard to remember and not intuitive for developers which decreases the intuitive interaction with smart contracts on the code level.
+Smart contract addresses are difficult to remember, which limits intuitive interaction with smart contracts at the code level. It is also difficult for developers to find (the latest version of) already deployed smart contracts for integration into their own applications.
 ## Forces
-The latest version of a smart contract should be easily retrievable. Furthermore, the interaction with a smart contract should become intuitive by not using smart contract addresses and function names.
+The latest version of a smart contract should be easily discoverable for any developer using an intuitive name. Furthermore, the interaction with a smart contract should become intuitive by not using smart contract addresses and function names.
 ## Solution
 Register individual smart contracts with a Registry Contract that is publicly known. The registration associates a desired (but unambiguous) name to the smart contract address. To retrieve the latest version of a smart contract, the smart contract’s associated name should be passed as a parameter to a lookUpAddress(string name) function in the Registry Contract.
 
