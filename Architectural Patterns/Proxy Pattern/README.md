@@ -1,10 +1,13 @@
 # Proxy Pattern
 ## Context
-When deploying a new smart contract, the smart contract gets a unique address assigned. If a smart contract becomes deprecated and is updated, all DLT applications and smart contracts that call functions of the deprecated smart contract must accordingly update the address of the deprecated smart contract with the new address, which causes computational overhead and faults. For example, if a smart contract has not been updated, a denial of service may occur for this smart contract.
+When deploying a new smart contract, the smart contract gets a unique address assigned. To update a deployed smart contract, it must be redeployed. Functions of the smart contract are called by other applications (e.g., by another smart contract or user interface). The address of the smart contract changes due to the required redeployment of the smart contract after maintenance. After redeployment, the smart contract address must also be updated in all applications that are now to interact with the redeployed smart contract.
+
 ## Problem
-Due to the tamper-resistance of distributed ledgers, maintenance of smart contracts requires mechanisms to deploy an updated version of a smart contract with the same interface. Instead of updating the address of the smart contract in all other smart contracts and/or DLT applications, the updated smart contract must still be executable the old address.
+Because of the public visibility of smart contract code and the integratability of smart contracts in arbitrary frontends, the need to update a smart contract address can hardly be communicated to all developers responsible for applications using the smart contract. Thus, several applications can still interact with a deprecated (and even destructed) smart contract version. Moreover, updating smart contract addresses in applications can flaw (e.g., by inserting the wrong address).
+
 ## Forces
-Maintainability of a smart contract should be given without the need to change its address in DLT applications or smart contracts that call the smart contract.
+The maintainability of a smart contract should be given without having to change its address in applications that call the smart contract. At the same time, the cost of executing smart contracts should not increase. No additional vulnerabilities should be caused by the solution.
+
 ## Solution
 Deploy a Proxy Contract, which points to the latest version of the actual smart contract to be executed (referred to as Target Contract). All DLT applications (including other smart contracts) that interact with the Target Contract call the Proxy Contract instead of the Target Contract. The Proxy Contract stores the address of the latest version of the Target Contract and calls the intended function of the Target Contract. After the function of the Target Smart Contract has been executed, the Proxy Contract forwards the return of the Target Contract. To call the function of the Target Contract, the Proxy Contract implements identical function interfaces like the Target Contract (i.e., regarding function identifiers and parameters).
 ## Example
