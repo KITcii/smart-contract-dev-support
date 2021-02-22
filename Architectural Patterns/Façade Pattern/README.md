@@ -1,6 +1,6 @@
 # Façade Pattern
 ## Context
-Developers divide the application logic into different modules to achieve separation of concerns and better maintainability. Such modules can be implemented as separate smart contracts with individual addresses, whose functions must be called individually.
+To achieve separation of concerns and better maintainability, developers have divided an application logic into different modules. These modules are implemented as separate smart contracts with individual addresses. To use the full application logic, the individual smart contract functions must be called individually.
 ## Problem
 The manual but secure interaction with multiple (potentially interacting) smart contracts to execute a specific, superordinate application logic is a challenge because various side effects, interdependencies, and potentially resulting vulnerabilities must be considered. This interaction becomes even more difficult when certain smart contracts are reused because of maintenance and their addresses change.
 ## Forces
