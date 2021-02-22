@@ -2,7 +2,7 @@
 ## Context
 To achieve separation of concerns and better maintainability, developers have divided an application logic into different modules. These modules are implemented as separate smart contracts with individual addresses, forming a smart contract system. To use the entire application logic, functions of the individual smart contracts  must be called manually.
 
-``Applies to: [X] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
+``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 ## Problem
 Securely interacting with a smart contract system to execute an application logic is challenging due to dependencies between individual smart contracts in the system and potential side effects or vulnerabilities. Interaction with the smart contract system becomes even more challenging when certain smart contracts are redeployed due to maintenance and their address changes. Users of the smart contract system must manually orchestrate interaction with individual smart contracts in the system. Manually orchestrating interaction with a smart contract system is prone to errors and defects and can even lead to a temporary denial of service (e.g., when a destructed smart contract is invoked).
 ## Forces
