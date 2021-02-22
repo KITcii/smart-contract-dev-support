@@ -1,6 +1,6 @@
 # Name-Service Pattern
 ## Context
-DLT applications or smart contracts call functions of other smart contracts, whose addresses may change over time because of maintenance and associated re-deployment. Consequently, the smart contract address must also be changed in all DLT applications and smart contracts that interact with these re-deployed smart contracts.
+Functions of a smart contract are executed by other applications (e.g., by another smart contract or user interface). The address of the smart contract changes due to the required redeployment of the smart contract after maintenance. After redeployment, the smart contract address must also be updated in all applications that are now to interact with the redeployed smart contract.
 ## Problem
 It is challenging to find and always use the latest version of a smart contract in the presence of updates and changing smart contract addresses. In addition, smart contract addresses are hard to remember and not intuitive for developers which decreases the intuitive interaction with smart contracts on the code level.
 ## Forces
@@ -8,7 +8,7 @@ The latest version of a smart contract should be easily retrievable. Furthermore
 ## Solution
 Register individual smart contracts with a Registry Contract that is publicly known. The registration associates a desired (but unambiguous) name to the smart contract address. To retrieve the latest version of a smart contract, the smart contract’s associated name should be passed as a parameter to a lookUpAddress(string name) function in the Registry Contract.
 
-For maintenance of the Registry Contract, an authorization mechanism should be implemented, for example, that accounts are only authorized to update smart contracts they registered themselves. It is required to implement mechanisms that prevent duplicate or forbidden names and ambiguities.
+An authorization mechanism is implemented for the maintenance of the Registry Contract so that accounts are only authorized to update smart contract entries that they have registered themselves. Moreover, the Registry Contract prevents users from registering duplicate smart contracts, duplicate names forbidden names, and ambiguous names.
 ## Example
 Wrong | Correct
 ------------- | -------------
