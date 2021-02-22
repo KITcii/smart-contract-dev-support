@@ -1,6 +1,8 @@
 # Factory Pattern
 ## Context
-A DLT application requires multiple instances of the same smart contract to be deployed in a secure way.
+An application requires multiple instances of a smart contract to be deployed to the distributed ledger.
+
+``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
 ## Problem
 The manual re-deployment of similar smart contracts (e.g., smart contracts used for asset representation) from a Template Contract is inefficient because, for example, human engagement is required. In addition, users must trust that the Template Contract used to create new smart contracts is not manipulated if it is kept off-ledger.
