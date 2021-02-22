@@ -2,7 +2,7 @@
 ## Context
 To retrieve external data, smart contracts need to interact with external IT services outside the distributed ledger to retrieve real-world data.
 
-``Applies to: [X] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
+``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 ## Problem
 Smart contracts are restricted to the use of data stored on the distributed ledger, which may not be sufficient for several applications that, for example, require real-world data (e.g., for calculations or the validation of conditions).
 ## Forces
