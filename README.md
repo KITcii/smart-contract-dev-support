@@ -1,5 +1,5 @@
 # Smart Contract Development Support
-This repository contains software design patterns to tackle frequent challenges in smart contract development. Each directory of a software design pattern includes a `README.md` file with a [pattern description](#structure-of-the-software-design-patterns) and code examples. Feel free to use the code examples for your individual purposes.
+This repository contains software design patterns to address common challenges in the development of smart contracts, which we have identified in close collaboration with [EnBW Energie Baden-Württemberg AG](https://www.enbw.com/). Each directory of a software design pattern includes a `README.md` file with a [pattern description](#structure-of-the-software-design-patterns) and code examples. Feel free to use the code examples for your individual purposes.
 
 We encourage you to support us in maintaining this repository and welcome your questions and comments on the software design patterns. To comment the software design patterns, please open an [issue](https://github.com/KITcii/smart-contract-dev-support/issues) for specific feedback on a software design pattern or post your general comments into the [discussion section](https://github.com/KITcii/smart-contract-dev-support/discussions).
 
