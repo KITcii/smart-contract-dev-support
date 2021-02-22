@@ -1,10 +1,12 @@
 # Indexed-Loop Pattern
 
 ## Context
-Unbounded mass operations occur when developers use iteratable data structures (e.g., lists or collections) to store an unlimited number of elements (e.g., accounts) and cycle over the whole data structure to execute operations. Each iteration consumes computational resources. In Ethereum, for example, the amount of required gas for the overall function execution increases with each added element and may run into out-of-gas conditions.
+A function should iterate over an unbounded data structure (e.g., an array or a list) causing an unbounded mass operation. Unbounded mass operations occur when developers use iteratable data structures to store an unlimited number of elements (e.g., accounts) and cycle over the whole data structure to execute operations (e.g., asset transfers). Each iteration consumes computational resources (e.g., gas in Ethereum or time in EOSIO).
+
+``Applies to: [X] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
 ## Problem
-In Ethereum-like platforms, out-of-gas exceptions can interrupt iterations over an unbounded data structure (i.e., unbounded mass operations). Such mass operations usually start from the first element of an array and run until all gas is consumed, which may lead to denial of service because certain elements at the end of the array will never be processed.
+Consuming all available computational resources for smart contract execution can interrupt iterations over an unlimited data structure (i.e., unlimited bulk operations), e.g., out-of-gas exceptions in Ethereum-like platforms or exceeding the threshold for smart contract execution time in EOSIO. Exceeding the available computational resources can lead to denial of service, because some elements are never processed at the end of the unbounded data structure.
 
 ## Forces
 In case of an exception thrown during the iteration over an unbounded data structure (e.g., due to an out-of-gas exception or a timeout), the iteration should be interrupted and be continuable with the next call.
