@@ -3,6 +3,8 @@
 ## Context
 The External-Call Pattern is applicable whenever calls to external smart contracts are made.
 
+``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
+
 ## Problem
 The objective of the External-Call Pattern is to handle calls to external smart contracts intendedly with option to appropriately handle failed calls and prevent unintended side effects. Values returned by invoked functions of the external smart contract should be accessible and an appropriate error handling should be possible. The problem is that in Solidity, several primitives to call smart contract functions (e.g., `call(...)`, `delegatecall(...)`, `send(...)`, `transfer` or direct function calls) may cause unintended side effects such as invoking the fallback function of the recipient. 
 
