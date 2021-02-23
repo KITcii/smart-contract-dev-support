@@ -1,6 +1,8 @@
 # Guarding Pattern
 ## Context
-The Guarding Pattern is applicable if the smart contract has sensible logic implemented and should only be executable by certain accounts in defined contexts. 
+The Guarding Pattern applies to smart contracts that should only be executable by particular accounts in defined contexts. 
+
+``Applies to: [X] EOSIO    [X] Ethereum    [X] Hyperledger Fabric``
 
 ## Problem
 The objective of the Guarding Pattern is to ensure a function is only executable by certain accounts and the authorization checks should be performed prior to the function execution. The problem that arises is that smart contract interfaces are directly exposed to and callable by all users of the distributed ledgers. 
