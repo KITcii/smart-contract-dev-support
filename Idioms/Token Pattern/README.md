@@ -1,7 +1,8 @@
 # Token Pattern
 ## Context
-The Token Pattern can be applied when creating smart contracts that keep tokens or handle data related to users' balances.
+The Token Pattern can be applied when creating smart contracts that keep tokens or handle data related to accounts' balances.
 
+``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 ## Problem
 The objective of the Token Pattern is to enable updates to the logic of smart contracts that keep tokens and, thus, enabling maintainability of those smart contracts. At the same time the risks and costs usually connected with the update of smart contracts that keep tokens should be avoided. These include the payment of fees related with token transfer to a new updated smart contract or the risk of losing assets or data related to users' balances. 
 
