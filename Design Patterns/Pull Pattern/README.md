@@ -1,12 +1,12 @@
 # Pull Pattern
 ## Context
-Unlimited mass operations can occur when a developer uses an iteratable data structure (such as a list) to store an unlimited number of elements (such as accounts) that are iterated to perform certain operations (such as transferring assets to accounts maintained in the iteratable data structure).
+The Pull Pattern is applicable when handeling unbounded iterable data structures (such as lists) to store an unlimited number of elements (e.g., accounts for payments). These data structures may be iterated to perform certain opterations (such as transferring assets to accounts maintained in the iterable data structure).
 
 ## Problem
-When iterating over an unbounded data structure where user accounts are maintained (e.g., for payments), the smart contract execution may be aborted because of too many iterations. Such abortion of the iteration can lead to denial of service, which renders the smart contract function ineffective. Individual users must pay for the execution of all procedures within the loop in distributed ledger implementing a cost model (e.g., Ethereum). Such cost may cause an issue regarding the fair distribution of costs.
+The objective of the Pull Pattern is to avoid the risks connected to unbounded data structures such as denial of service attacks and to redistribute the costs more fairly. One risk connected to the Pull Pattern is abortion of smart contract execution caused by too many iterations. Such abortion of the iteration can lead to denial of service, which renders the smart contract ineffective. Moreover, individual users must pay for the execution of all procedures within the loop in distributed ledgers implementing a cost model (e.g., Ethereum). Such cost may cause an issue regarding the fair distribution of costs. Users should execute the smart contract function by themselves (e.g., to receive payments) and cost for smart contract execution (e.g., in gas) should be borne by the executing users themselves.
 
 ## Forces
-Users must execute the smart contract function by themselves (e.g., to receive payments) and cost for smart contract execution (e.g., in gas) should be borne by the executing users themselves. Furthermore, the risk for denial of service of the smart contract should be decreased by reducing the complexity of the smart contract function. Vulnerabilities for reentrancy should be prevented. 
+One force involved in the Pull Pattern is the reduction of complexity which in turn results in prevention of risks such as denial of service.
 
 ## Solution
 Instead of implementing a loop to iterate over all elements of the iterable data structure (e.g., to transfer assets to the accounts stored in the iterable data structure), implement a method that allows users to execute the function via a pull mechanism with no iterations. This pull mechanism only executes the function for one element of the iterable data structure. This function must be protected against reentrancy (e.g., by using the Checks-Effects-Interactions Pattern or the Mutex Pattern).
