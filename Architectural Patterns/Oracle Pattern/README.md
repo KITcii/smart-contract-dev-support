@@ -1,12 +1,14 @@
 # Oracle Patterns
 ## Context
-To retrieve external data, smart contracts need to interact with external IT services outside the distributed ledger to retrieve real-world data.
+The Oracle Pattern is applicable whenever external data or real-world data is required by a smart contract.
 
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 ## Problem
-Smart contracts are restricted to the use of data stored on the distributed ledger, which may not be sufficient for several applications that, for example, require real-world data (e.g., for calculations or the validation of conditions).
+The objective of the Oracle Pattern is to enable external data access for smart contracts. This is a problem as smart contracts are usually restricted to the use of data stored on the distributed ledger, which may not be sufficient for several applications that, for example, require real-world data (e.g., for calculations or the validation of conditions).
+
 ## Forces
-Regarding the data provision, high availability and reliability of external IT services must be given. For the smart contract execution, cost (setup and operational) and performance of the smart contract execution are important to be considered when integrating external IT services in a smart contract. Storage consumption on the distributed ledger should be low and only required data should be stored
+One force to be considered when applying the Oracle Pattern is resource efficiency as for smart contract execution, cost (setup and operational) and performance of the smart contract execution are important to be considered when integrating external IT services in a smart contract. Storage consumption on the distributed ledger should be low and only required data should be stored. At the same time trade-offs in resource efficiency need to be made in order to enable real-world data access for a smart contract.
+
 ## Solution
 A Relay Contract should be implemented that manages the data supply for other smart contracts requiring external data (referred to as User Contract) and communicates to the external IT services (referred to as Oracles). To improve data reliability, the Oracles must first register with the Relay Contract before participating in the data provision. When a User Contract requires external data, the User Contract initiates a request on the Relay Contract. This request includes all query parameters and a callback function to be invoked after the data has been retrieved. The Relay Contract triggers an event passing the query parameters. The Oracles that have been notified by the event, produce the desired data output (if possible) and send a transaction carrying the requested data to the Relay Contract. After a certain time, the Relay Contract compares the received results of all Oracles and calls the callback function of the User Contract.
 
