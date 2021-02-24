@@ -63,7 +63,7 @@ Smart contract functions that implement a state value condition are only execute
 Using a variable indicating the state of a smart contract, the execution of smart contract functions in a certain state is assured. If a smart contract function should be executed in a state, in which the transition counter does not equal an intended value, the execution is aborted.
 
 ## Related Patterns
-[Mutex Pattern](/Design%20Patterns/Mutex%20Pattern/README.md#context), 
+[Mutex Pattern](/Design%20Patterns/Mutex%20Pattern/README.md#context)
 
 ## Known Uses
 [ETOCommitment](https://etherscan.io/address/0x01a1f17808edae0b004a4f11a03620d3d804b997#code) (lines 762 ff, 6735)
