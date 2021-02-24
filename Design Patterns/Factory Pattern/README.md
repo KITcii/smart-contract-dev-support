@@ -1,14 +1,14 @@
 # Factory Pattern
 ## Context
-An application requires multiple instances of a smart contract to be deployed to the distributed ledger.
+The Factory Pattern is applicable if an application requires multiple instances of a smart contract to be deployed to the distributed ledger.
 
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
 ## Problem
-The manual re-deployment of similar smart contracts (e.g., smart contracts used for asset representation) from a Template Contract is inefficient because, for example, human engagement is required. In addition, users must trust that the Template Contract used to create new smart contracts is not manipulated if it is kept off-ledger.
+The objective of the Factory Pattern is to avoid risks connected with the re-deployment of similar smart contracts. The manual re-deployment of similar smart contracts (e.g., smart contracts used for asset representation) from a Template Contract is inefficient because, for example, human engagement is required. In addition, users must trust that the Template Contract used to create new smart contracts is not manipulated if it is kept off-ledger. The creation of new smart contracts should be automatically and reliably managed on the distributed ledger in a transparent manner. The creation of new smart contracts should be traceable.
 
 ## Forces
-The creation of new smart contracts should be automatically and reliably managed on the distributed ledger in a transparent manner. The creation of new smart contracts should be traceable.
+The forces involved in the Factory Pattern is resource efficiency on the one hand and implementation soundness and manual effort on the other hand. Resource efficiency will be reduced as the automation of re-deployment of similar smart contracts requires additional smart contracts that enable the automatic re-deployment. At the cost of reducing resource efficiency the implementation soundness of the deployed smart contract will be improved through preventing the possibility of off-ledger manipulation and the reduction of human engagement and manual effort.
 
 ## Solution
 Instantiate two smart contracts: Factory and Template Contract. The Template Contract serves as a blueprint for smart contracts to be deployed by the Factory. The Factory has a function implemented that can be called by users to deploy a Child Contract as an instance of Template Contract. In this function, conditions can be defined, which must be met by users to let the Factory deploy a Child Contract. If a user meets these conditions, the Factory deploys a new instance of the Child Contract. Optionally, the Factory can also implement list of addresses of deployed Child Contract to better trace them.
