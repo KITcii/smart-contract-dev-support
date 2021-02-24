@@ -1,15 +1,15 @@
 # Event-Order Pattern
 
 ## Context
-Multiple users interact with a same smart contract in a state _s<sub>t</sub>_ using their individual accounts. If the smart contract makes a transition from _s<sub>t</sub>_ to a subsequent state _s<sub>t+1</sub>_, the execution of the smart contract may cause undesired outcomes for following transaction issuers. Thus, transactions issuers want to have a guarantee that the smart contract function is only executed in the intended state or not at all.
+The Event-Order Pattern is applicable when multiple users interact with a same smart contract in a state _s<sub>t</sub>_ using their individual accounts. 
 
 ``Applies to: [X] EOSIO    [X] Ethereum    [X] Hyperledger Fabric``
 
 ## Problem
-The state of a smart contract in which a transaction triggers a smart contract function cannot be foreseen because of concurrency in transaction processing and unpredictable event ordering due to non-deterministic behavior of validating nodes. Concurrency in transaction processing may lead to unintended outcomes of smart contract execution such as transfers of unintended amounts of assets (e.g., Ether), especially in scenarios requiring conditional execution of transactions.
+The objective of the Event-Order Pattern is to avoid undesired outcomes due to execution of the smart contract taking place in an unintended state. This problem occurs as the state of a smart contract in which a transaction triggers a smart contract function cannot be foreseen because of concurrency in transaction processing and unpredictable event ordering due to non-deterministic behavior of validating nodes. Concurrency in transaction processing may lead to unintended outcomes of smart contract execution such as transfers of unintended amounts of assets (e.g., Ether), especially in scenarios requiring conditional execution of transactions. Thus, transactions issuers want to have a guarantee that the smart contract function is only executed in the intended state or not at all.
 
 ## Forces
-A smart contract function should be executed in a user-defined state _s_. After a transaction triggered the execution of a smart contract in _s_, all concurrent transactions that aim to execute the smart contract in _s_ must be rejected.
+The forces involved in the Event-Order Pattern are determinism and code efficiency. Due to the non-determinist behavior of validating nodes to achieve certainty that the transaction will be carried out in the intended state _s_ or not at all requires the implementation of additional mechanisms. Thus, the cost of implementing additional code when applying the Event-Order Pattern has to be taken into account. 
 
 ## Solution
 Developers can implement a state value that indicates the current state of the smart contract (a transition number in the following example). In each function call, a target state value is expected as an argument. If the state value included in the transaction equals the current state value of the smart contract, the function is executed. Otherwise, the transaction is rejected and the function is not executed. After the smart contract state changed, the smart contract’s state value changes accordingly.
