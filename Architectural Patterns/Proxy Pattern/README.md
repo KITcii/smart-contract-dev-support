@@ -1,17 +1,18 @@
 # Proxy Pattern
 ## Context
-When deploying a smart contract, the smart contract gets a unique address assigned. Once deployed update smart contracts cannot be changed and must be redeployed. The address of the smart contract changes due to the required redeployment of the smart contract after maintenance. After redeployment, the smart contract address must also be updated in all applications that are now to interact with the redeployed smart contract.
+The Proxy Pattern can be applied in the context of updating an already deployed smart contract.
 
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
 ## Problem
-Because of the public visibility of smart contract code and the integratability of smart contracts in arbitrary frontends, the need to update a smart contract address can hardly be communicated to all developers responsible for applications using the smart contract. Thus, several applications can still interact with a deprecated (and even destructed) smart contract version. Moreover, updating smart contract addresses in applications can flaw (e.g., by inserting the wrong address).
+The objective of the Proxy Pattern is to circumvent problems associated with the update of already deployed smart contracts. When deploying a smart contract, the smart contract gets a unique address assigned. Once deployed update smart contracts cannot be changed and must be redeployed. The address of the smart contract changes due to the required redeployment of the smart contract after maintenance. After redeployment, the smart contract address must also be updated in all applications that are now to interact with the redeployed smart contract. Because of the public visibility of smart contract code and the integratability of smart contracts in arbitrary frontends, the need to update a smart contract address can hardly be communicated to all developers responsible for applications using the smart contract. Thus, several applications may still interact with a deprecated (and even destructed) smart contract version. Moreover, updating smart contract addresses in applications can flaw (e.g., by inserting the wrong address).
 
 ## Forces
-The maintainability of a smart contract should be given without having to change its address in applications that call the smart contract. At the same time, the cost of executing smart contracts should not increase. No additional vulnerabilities should be caused by the solution.
+The application of the Proxy Patterns improves maintainability of smart contracts as the problems associated with the update and redeployment of existing smart contracts are circumvented. At the same time, the cost of executing smart contracts should not increase.
 
 ## Solution
 Deploy a Proxy Contract, which points to the latest version of the actual smart contract to be executed (referred to as Target Contract). All DLT applications (including other smart contracts) that interact with the Target Contract call the Proxy Contract instead of the Target Contract. The Proxy Contract stores the address of the latest version of the Target Contract and calls the intended function of the Target Contract. After the function of the Target Smart Contract has been executed, the Proxy Contract forwards the return of the Target Contract. To call the function of the Target Contract, the Proxy Contract implements identical function interfaces like the Target Contract (i.e., regarding function identifiers and parameters).
+
 ## Example
 
 Wrong | Correct
