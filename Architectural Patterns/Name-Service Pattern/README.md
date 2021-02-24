@@ -1,10 +1,13 @@
 # Name-Service Pattern
 ## Context
-Developers of applications like other smart contracts or user interfaces interact with smart contracts via their addresses. The developers aim to reuse smart contract code of other developers.
+The Name-Service Pattern is applicable in the context of calling on other smart contracts via their addresses.
+
 ## Problem
-Smart contract addresses are difficult to remember, which limits intuitive interaction with smart contracts at the code level. It is also difficult for developers to find (the latest version of) already deployed smart contracts for integration into their own applications.
+The objective of the Name-Service Pattern is to simplify the reuse of other smart contracts through assign names to smart contracts. This solves a problem as smart contract addresses are difficult to remember, which limits intuitive interaction with smart contracts at the code level. It is also difficult for developers to find (the latest version of) already deployed smart contracts for integration into their own applications. The goal for the Name-Service Pattern is to enable easy discovery of the latest version of a smart contract for any developer using an intuitive name. Furthermore, the interaction with a smart contract should become intuitive by not using smart contract addresses and function names.
+
 ## Forces
-The latest version of a smart contract should be easily discoverable for any developer using an intuitive name. Furthermore, the interaction with a smart contract should become intuitive by not using smart contract addresses and function names.
+The Name-Service Pattern contributes to the improvement of readibility and comprehensibility of smart contract code but comes at the cost of resource efficiency connected with the set up of a Register Contract.
+
 ## Solution
 Register individual smart contracts with a Registry Contract that is publicly known. The registration associates a desired (but unambiguous) name to the smart contract address. To retrieve the latest version of a smart contract, the smart contract’s associated name should be passed as a parameter to a lookUpAddress(string name) function in the Registry Contract.
 
