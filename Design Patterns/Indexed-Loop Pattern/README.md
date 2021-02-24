@@ -1,15 +1,15 @@
 # Indexed-Loop Pattern
 
 ## Context
-A function should iterate over an unbounded data structure (e.g., an array or a list) causing an unbounded mass operation. Unbounded mass operations occur when developers use iteratable data structures to store an unlimited number of elements (e.g., accounts) and cycle over the whole data structure to execute operations (e.g., asset transfers). Each iteration consumes computational resources (e.g., gas in Ethereum or time in EOSIO).
+The Indexed-Loop Pattern can be applied whenever an unbounded data structure (e.g., an array or a list) is used in a smart contract. 
 
 ``Applies to: [X] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
 ## Problem
-Consuming all available computational resources for smart contract execution can interrupt iterations over an unlimited data structure (i.e., unlimited bulk operations), e.g., out-of-gas exceptions in Ethereum-like platforms or exceeding the threshold for smart contract execution time in EOSIO. Exceeding the available computational resources can lead to denial of service, because some elements are never processed at the end of the unbounded data structure.
+The objective of the Indexed-Loop Pattern is to prevent the abortion of smart contract execution and denial of service attacks. The problem is that the consumation of all available computational resources for smart contract execution can interrupt iterations over an unlimited data structure (i.e., unlimited bulk operations). Resulting in e.g., out-of-gas exceptions in Ethereum-like platforms or exceeding the threshold for smart contract execution time in EOSIO. Exceeding the available computational resources can lead to denial of service, because some elements are never processed at the end of the unbounded data structure. In case of an exception thrown during the iteration over an unbounded data structure (e.g., due to an out-of-gas exception or a timeout), the iteration should be interrupted and be continuable with the next call.
 
 ## Forces
-In case of an exception thrown during the iteration over an unbounded data structure (e.g., due to an out-of-gas exception or a timeout), the iteration should be interrupted and be continuable with the next call.
+The forces involved in the Indexed-Loop Pattern are implementation soundness and code efficiency. Implementation soundness can be improved by the application of the Indexed-Loop Pattern as risks associated with unbounded data structures are mitigated and undesirable outcomes such as the abortion of execution of a smart contract are prevented. At the same time code efficiency is reduced as an additional mechanism to check for sufficient gas for the next iteration needs to be implemented.
 
 ## Solution
 To avoid out-of-gas exceptions and continue an iteration over an unbounded, iterable data structure, developers should implement a mechanism to check if sufficient gas is available for the next iteration and an index variable that stores the index of the last element of the iteratable data structure that was successfully processed. When resuming the iteration over the unbounded data structure through another call of the smart contract function, the loop continues at the value stored in the index variable. If a procedure to be executed within the loop fails multiple times for a certain index, this failure should be marked to prevent denial of service and proceed with subsequent elements of the iterable data structure.
