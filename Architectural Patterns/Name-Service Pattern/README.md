@@ -8,8 +8,6 @@ The objective of the Name-Service Pattern is to enable easy discovery of the lat
 ## Forces
 The forces involved in the Name-Service Pattern are readability, code discoverability, semantic soundness and resource efficiency. The application of the Name-Service Pattern improves comprehensibility particulary readibility by providing more intuitive names for interaction with other smart contracts than their adresses. Code discoverability is also increased as the latest version of a smart contract can be found in the Registry Contract. Thus, semantic soundness is increased as calls to deprecated or destroyed smart contracts are prevented. These improvements come at the cost of resource efficiency as the application of the Name-Service Pattern requires the deployment of an additional smart contract, the Registry Contract.
 
-contributes to the improvement of readibility and comprehensibility of smart contract code but comes at the cost of resource efficiency connected with the set up of a Register Contract.
-
 ## Solution
 Register individual smart contracts with a Registry Contract that is publicly known. The registration associates a desired (but unambiguous) name to the smart contract address. To retrieve the latest version of a smart contract, the smart contract’s associated name should be passed as a parameter to a lookUpAddress(string name) function in the Registry Contract.
 
