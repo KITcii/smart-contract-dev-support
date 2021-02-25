@@ -1,14 +1,18 @@
 # Façade Pattern
 ## Context
-To achieve separation of concerns and better maintainability, developers have divided an application logic into different modules. These modules are implemented as separate smart contracts with individual addresses, forming a smart contract system. To use the entire application logic, functions of the individual smart contracts  must be called manually.
+The Façade Pattern is applicable when working with smart contract systems. A smart contract system consists of several separate smart contracts with individual addresses that interact with one another. Smart contract systems are used to achieve separation of concerns by dividing the application logic into different modules on separate smart contracts. To use the entire application logic, functions of the individual smart contracts must be called manually.
 
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
+
 ## Problem
-Securely interacting with a smart contract system to execute an application logic is challenging due to dependencies between individual smart contracts in the system and potential side effects or vulnerabilities. Interaction with the smart contract system becomes even more challenging when certain smart contracts are redeployed due to maintenance and their address changes. Users of the smart contract system must manually orchestrate interaction with individual smart contracts in the system. Manually orchestrating interaction with a smart contract system is prone to errors and defects and can even lead to a temporary denial of service (e.g., when a destructed smart contract is invoked).
+The objective of the Façade Pattern is to simplify and improve security while interacting with a smart contract system to execute the application logic. Securely interacting with a smart contract system is challenging due to dependencies between individual smart contracts in the system and potential side effects or vulnerabilities. Interaction with the smart contract system becomes even more challenging when smart contracts are redeployed due to maintenance and their address changes. The interactions within the smart contract system must be manually orchestrated. Manually orchestrating interaction with a smart contract system is prone to errors and defects and can even lead to a temporary denial of service (e.g., when a destructed smart contract is invoked).
+
 ## Forces
-The interaction with several smart contracts should be easy for developers, also during maintenance and when changing associated smart contract addresses. It should not be the DLT application developers’ task to individually handle challenges regarding the interaction of smart contracts on the client side of their application. It should be possible to (at least partially) revert failed function executions in smart contracts.
+The forces involved in the Façade Pattern are maintainability particulary code updatability and resource efficiency. Maintainability is improved by offering a single point of entry through the Façade Contract while coming at the cost of resource efficiency through the additional deployment of a Façade Contract.
+
 ## Solution
 There are two roles smart contracts can take: Satellite or Façade Contract. Satellites are smart contracts that represent a module in the smart contract system. The Façade Contract serves as an entry point to interact with the Satellites. Each Satellite’s address is registered with the Façade Contract. With only one call to the Façade Contract, a sequence of calls to functions of the individual Satellites can be executed. To execute a certain logic expressed in a sequence of smart contract calls, the Façade Contract loads the instance(s) of the required Satellites using the registered smart contract addresses and calls targeted functions in a defined order. All interactions with Satellites and potential errors are handled by the Façade Contract.
+
 ## Example
 Wrong | Correct
 ------------ | -------------
