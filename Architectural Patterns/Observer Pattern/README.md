@@ -1,13 +1,13 @@
 # Architectural Patterns
 ## Context
-Within a software project, smart contracts (Caller Contracts) invoke functions from another smart contract (Target Contract). The address of the Target Contract changes over time due to maintenance and the associated redeployment of the Target Contract.
+The Observer Pattern is applicable whenever smart contracts are updated (a new contract with the desired changes is appended to the distributed ledger with a new address) whose functions are invoked by other smart contracts. Involving a Caller Contract (the smart contract invoking the function) and a Target Contract (the smart contract whose function is invoked).
 
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 ## Problem
-Caller Contracts must update the address of the Target Contract to interact with its latest version. The developers of the Caller Contracts may not be known and, thus, cannot be immediately informed about the update.
+The objective of the Observer Pattern is to simplify and automate the address update of Target Contracts. The Caller Contracts that make use of the Target Contract should be efficiently updated by developers after the Target Contract's redeployment. In this context, efficiency refers to both time and cost (e.g., gas cost in Ethereum). Moreover, new Caller Contracts should be easy to add and remove from the update procedure. The problem related to the address update of Target Contracts arises as the address of the Target Contract changes over time due to maintenance and the associated redeployment of the Target Contract. The Caller Contracts must then update the address of the Target Contract to interact with its latest version. The developers of the Caller Contracts may not be known and, thus, cannot be immediately informed about the update. 
 
 ## Forces
-Developers should efficiently update all Caller Contracts that make use of the Target Contract after the Target Contract's redeplyment. In this context, efficiency refers to both time and cost (e.g., gas cost in Ethereum). Moreover, new Caller Contracts should be easy to add and remove from the update procedure.
+The application of the Observer Pattern improves maintainability particulary code updatability of Target Contracts and implementation soundness of Caller Contracts as calls to deprecated or destroyed smart contracts and the risks associated with it are prevented. This comes at the cost of code efficiency as an Observer Contract needs to be deployed as part of the Observer Pattern.
 
 ## Solution
 Implement an Observer Contract and subscribe all Caller Contracts to the Observer Pattern using their addresses. Whenever a Target Contract was updated, the responsible developer should call the Observer Contract’s update function associated with the updated Target Contract and pass the address of the newly deployed Target Contract. Next, the Observer Contract iterates over all Caller Contract addresses that are subscribed to receive the new address of the updated Target Contract and executes the individual Caller Contracts’ update functions. The individual update functions of the Caller Contracts should comply with a standardized interface to facilitate the update procedure of the Observer Contract. Observer Contracts can implement individual update functions for various Target Contracts.
