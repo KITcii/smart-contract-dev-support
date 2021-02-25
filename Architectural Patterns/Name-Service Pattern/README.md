@@ -1,17 +1,20 @@
 # Name-Service Pattern
 ## Context
-The Name-Service Pattern is applicable in the context of calling on other smart contracts via their addresses.
+The Name-Service Pattern is applicable when invoking functions on other smart contracts via their smart contract addresses.
 
 ## Problem
-The objective of the Name-Service Pattern is to simplify the reuse of other smart contracts through assign names to smart contracts. This solves a problem as smart contract addresses are difficult to remember, which limits intuitive interaction with smart contracts at the code level. It is also difficult for developers to find (the latest version of) already deployed smart contracts for integration into their own applications. The goal for the Name-Service Pattern is to enable easy discovery of the latest version of a smart contract for any developer using an intuitive name. Furthermore, the interaction with a smart contract should become intuitive by not using smart contract addresses and function names.
+The objective of the Name-Service Pattern is to enable easy discovery of the latest version of a smart contract for any developer using an intuitive name. Furthermore, the interaction with a smart contract should become intuitive by not using smart contract addresses and function names. Smart contract addresses are difficult to remember, which limits intuitive interaction with smart contracts at the code level. It is also difficult for developers to find (the latest version of) already deployed smart contracts for integration into their own applications. 
 
 ## Forces
-The Name-Service Pattern contributes to the improvement of readibility and comprehensibility of smart contract code but comes at the cost of resource efficiency connected with the set up of a Register Contract.
+The forces involved in the Name-Service Pattern are readability, code discoverability, semantic soundness and resource efficiency. The application of the Name-Service Pattern improves comprehensibility particulary readibility by providing more intuitive names for interaction with other smart contracts than their adresses. Code discoverability is also increased as the latest version of a smart contract can be found in the Registry Contract. Thus, semantic soundness is increased as calls to deprecated or destroyed smart contracts are prevented. These improvements come at the cost of resource efficiency as the application of the Name-Service Pattern requires the deployment of an additional smart contract, the Registry Contract.
+
+contributes to the improvement of readibility and comprehensibility of smart contract code but comes at the cost of resource efficiency connected with the set up of a Register Contract.
 
 ## Solution
 Register individual smart contracts with a Registry Contract that is publicly known. The registration associates a desired (but unambiguous) name to the smart contract address. To retrieve the latest version of a smart contract, the smart contract’s associated name should be passed as a parameter to a lookUpAddress(string name) function in the Registry Contract.
 
 An authorization mechanism is implemented for the maintenance of the Registry Contract so that accounts are only authorized to update smart contract entries that they have registered themselves. Moreover, the Registry Contract prevents users from registering duplicate smart contracts, duplicate names forbidden names, and ambiguous names.
+
 ## Example
 Wrong | Correct
 ------------- | -------------
