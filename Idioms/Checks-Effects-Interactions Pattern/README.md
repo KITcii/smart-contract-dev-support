@@ -7,7 +7,8 @@ The Checks-Effects-Interactions Pattern is applicable when smart contracts inter
 ## Problem
 The objective of the Checks-Effects-Interactions Pattern is to prevent reentrancy attacks from being successfull. Reentrancy should not be fully prevented but should be aborted after a certain condition is met. No additional instructions should be implemented in the smart contract. The problem is if a condition in a smart contract (e.g., `if(…)`) the values of the variables used in the condition are updated too late, it may lead to unintended program flow. For example, late updates of such variables could lead to numerous unintended recursions during the execution of smart contract functions (referred to as reentrancy) because a condition cannot be validated as false to interrupt execution. 
 ## Forces
-The forces involved in the Checks-Effects-Interactions Pattern are implementation soundness on the one hand as reentrancy attacks can be mitigated and comprehensibility and readability of smart contract code, on the other hand as all effects are updated before interactions with other smart contracts are programmed.
+The main force involved in the Checks-Effects-Interactions Pattern is implementation soundness particulary semantic soundness as the application of the Checks-Effects-Interactions Pattern prevents unintended program flow in smart contracts caused by reentrancy attacks.
+
 ## Solution
 Developers must first update values of all variables used in the condition (e.g., `withdraw(...)`) before proceeding with the execution of smart contract code.
 ## Example
