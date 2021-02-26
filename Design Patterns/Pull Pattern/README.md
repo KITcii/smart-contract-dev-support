@@ -2,6 +2,7 @@
 ## Context
 The Pull Pattern is applicable when handeling unbounded iterable data structures (such as lists) to store an unlimited number of elements (e.g., accounts for payments). These data structures may be iterated to perform certain opterations (such as transferring assets to accounts maintained in the iterable data structure).
 
+``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 ## Problem
 The objective of the Pull Pattern is to avoid the risks connected to unbounded data structures such as denial of service attacks and to redistribute the costs more fairly. One risk connected to the Pull Pattern is abortion of smart contract execution caused by too many iterations. Such abortion of the iteration can lead to denial of service, which renders the smart contract ineffective. Moreover, individual users must pay for the execution of all procedures within the loop in distributed ledgers implementing a cost model (e.g., Ethereum). Such cost may cause an issue regarding the fair distribution of costs. Users should execute the smart contract function by themselves (e.g., to receive payments) and cost for smart contract execution (e.g., in gas) should be borne by the executing users themselves.
 
