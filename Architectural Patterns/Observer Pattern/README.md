@@ -1,4 +1,4 @@
-# Architectural Patterns
+# Observer Pattern
 ## Context
 The Observer Pattern is applicable whenever smart contracts are updated whose functions are invoked by other smart contracts. The Observer Pattern involves a Caller Contract (the smart contract invoking the function) and a Target Contract (the smart contract whose function is invoked).
 
