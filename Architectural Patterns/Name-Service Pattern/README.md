@@ -1,7 +1,7 @@
 # Name-Service Pattern
 ## Context
 The Name-Service Pattern is applicable when invoking functions on other smart contracts via their smart contract addresses.
-
+``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 ## Problem
 The objective of the Name-Service Pattern is to enable easy discovery of the latest version of a smart contract for any developer using an intuitive name. Furthermore, the interaction with a smart contract should become intuitive by not using smart contract addresses and function names. Smart contract addresses are difficult to remember, which limits intuitive interaction with smart contracts at the code level. It is also difficult for developers to find (the latest version of) already deployed smart contracts for integration into their own applications. 
 
