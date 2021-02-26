@@ -1,4 +1,4 @@
-# Oracle Patterns
+# Oracle Pattern
 ## Context
 The Oracle Pattern is applicable whenever external data or real-world data is required by a smart contract.
 
