@@ -9,7 +9,7 @@ We encourage you to support us in maintaining this repository and welcome your q
 [Architectural Patterns](Architectural%20Patterns/README.md) | Usage | EOSIO | Ethereum | Hyperledger Fabric
 -------- | -------- | :-: | :-: | :-:
 [Façade Pattern](Architectural%20Patterns/Façade%20Pattern/README.md) | Enable secure orchestration of smart contract systems | |&#x2611; |
-[Name-Service Pattern](Architectural%20Patterns/Name-Service%20Pattern/README.md) | Create registry for smart contracts to assign intuitive names to smart contracts  | Missing | Missing  | Missing
+[Name-Service Pattern](Architectural%20Patterns/Name-Service%20Pattern/README.md) | Create registry for smart contracts to assign intuitive names to smart contracts  | | &#x2611;  |
 [Observer Pattern](Architectural%20Patterns/Observer%20Pattern/README.md) |Automate communication of address changes due to updates in smart contracts  | |&#x2611;  |
 [Observer Pattern](Architectural%20Patterns/Observer%20Pattern/README.md) |Enable access to external data for smart contracts | |&#x2611;  |
 [Proxy Pattern](Architectural%20Patterns/Proxy%20Pattern/README.md) |Enable code updatability of smart contract | |&#x2611;  |
@@ -21,8 +21,8 @@ We encourage you to support us in maintaining this repository and welcome your q
 [Event-Order Pattern](Design%20Patterns/Event-Order%20Pattern/README.md) | Ensure a transaction is only executed in a certain smart contract state |&#x2611; |&#x2611; |&#x2611;
 [Factory Pattern](Design%20Patterns/Factory%20Pattern/README.md#context) |Enable automatic redeployment of similar smart contracts  | |&#x2611;  |
 [Indexed-Loop Pattern](Design%20Patterns/Indexed-Loop%20Pattern/README.md) |Ensure an unbounded data structure can be interrupted and continued with the next call |&#x2611;  |&#x2611;  |
-[Mutex Pattern](Design%20Patterns/Mutex%20Pattern/README.md) |Prevent reentrancy attacks | Missing | Missing  | Missing
-[Pull Pattern](Design%20Patterns/Pull%20Pattern/README.md) |Prevent abortion of execution caused by unbounded data structure and ensure fair distribution of costs| Missing | Missing  | Missing
+[Mutex Pattern](Design%20Patterns/Mutex%20Pattern/README.md) |Prevent reentrancy attacks | | &#x2611;  |
+[Pull Pattern](Design%20Patterns/Pull%20Pattern/README.md) |Prevent abortion of execution caused by unbounded data structure and ensure fair distribution of costs|  | &#x2611;  |
 
 ### Idioms
 [Idioms](Idioms/README.md#introduction) | Usage | EOSIO | Ethereum | Hyperledger Fabric
