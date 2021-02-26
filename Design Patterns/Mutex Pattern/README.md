@@ -5,6 +5,8 @@ The Mutex Pattern can be applied to prevent reentrancy attacks when a smart cont
 
 There are three types of reentrancy and the Mutex Pattern applies to all of them. First, in _cross-function reentrancy_, a smart contract function is invoked and reentered through another function, while the smart contract is still in an inconsistent state. Second, _delegated reentrancy_ occurs when a smart contract imports other smart contracts (e.g., as a smart contract library) and makes delegate calls to function of the imported smart contract, while state-updates of these smart contracts are not synchronized appropriately. Third, _create-based reentrancy_ can occur if one smart contract calls the constructor of another smart contract and updates its state afterwards. The constructor can invoke external functions such as the original smart contract and, thus, reenter the original function.
 
+``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
+
 ## Problem
 The objective of the Mutex Pattern is to prevent reentrancy attacks as unintended reentrancy can allow for theft of assets managed by the smart contract. The intended program flow of the smart contract should be assured. Especially, the smart contract functions should be protected from unintended side effects of, for example, calls-to-the-unknown and resulting reentrancy.
 
