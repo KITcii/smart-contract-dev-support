@@ -11,7 +11,7 @@ We encourage you to support us in maintaining this repository and welcome your q
 [Façade Pattern](Architectural%20Patterns/Façade%20Pattern/README.md) | Enable secure orchestration of smart contract systems | |&#x2611; |
 [Name-Service Pattern](Architectural%20Patterns/Name-Service%20Pattern/README.md) | Create registry for smart contracts to assign intuitive names to smart contracts  | | &#x2611;  |
 [Observer Pattern](Architectural%20Patterns/Observer%20Pattern/README.md) |Automate communication of address changes due to updates in smart contracts  | |&#x2611;  |
-[Observer Pattern](Architectural%20Patterns/Observer%20Pattern/README.md) |Enable access to external data for smart contracts | |&#x2611;  |
+[Oracle Pattern](Architectural%20Patterns/Oracle%20Pattern/README.md) |Enable access to external data for smart contracts | |&#x2611;  |
 [Proxy Pattern](Architectural%20Patterns/Proxy%20Pattern/README.md) |Enable code updatability of smart contract | |&#x2611;  |
 
 ### Design Patterns
