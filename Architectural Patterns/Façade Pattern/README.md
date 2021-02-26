@@ -2,7 +2,7 @@
 ## Context
 The Façade Pattern is applicable when working with smart contract systems. A smart contract system consists of several separate smart contracts with individual addresses that interact with one another. Smart contract systems are used to achieve separation of concerns by dividing the application logic into different modules on separate smart contracts. To use the entire application logic, functions of the individual smart contracts must be called manually.
 
-``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
+``Applies to: [X] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
 ## Problem
 The objective of the Façade Pattern is to simplify and improve security while interacting with a smart contract system to execute the application logic. Securely interacting with a smart contract system is challenging due to dependencies between individual smart contracts in the system and potential side effects or vulnerabilities. Interaction with the smart contract system becomes even more challenging when smart contracts are redeployed due to maintenance and their address changes. Moreover, the interactions within the smart contract system must be manually orchestrated. Manually orchestrating interaction with a smart contract system is prone to errors and defects and can even lead to a temporary denial of service (e.g., when a destructed smart contract is invoked).
