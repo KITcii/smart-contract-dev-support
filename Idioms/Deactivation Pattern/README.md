@@ -15,6 +15,15 @@ Instead of using the ``self-desctruct(...)`` operation developers should instead
 
 ## Example
 ### Wrong
+```Solidity 
+pragma solidity 0.7.0;
+
+contract DeactivationPattern {
+    function close() public onlyOwner { 
+      selfdestruct(owner); 
+    }
+}
+```
 
 ### Correct
 
