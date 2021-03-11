@@ -10,5 +10,4 @@ contract ChecksEffectsInteractionsPattern {
     function anyFunction() checkActive public {
       //code to be reverted by deactivation 
     }
-    
 }
