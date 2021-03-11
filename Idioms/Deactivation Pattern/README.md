@@ -26,6 +26,21 @@ contract DeactivationPattern {
 ```
 
 ### Correct
+```Solidity 
+pragma solidity 0.7.0;
+
+contract ChecksEffectsInteractionsPattern {
+    bool _activated = true; 
+    
+    modifier checkActive(){
+      require (_activated);
+    }
+    
+    function anyFunction() checkActive public {
+      //code to be reverted by deactivation 
+    }
+}
+```
 
 ## Resulting Context
 The application of the Deactivation Pattern ensures that the contract cannot be used while mitigating the risk associated with using the ``self-desctruct(...)`` operation to remove the smart contract. 
