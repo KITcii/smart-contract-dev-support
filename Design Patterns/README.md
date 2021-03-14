@@ -10,6 +10,7 @@ Design patterns provide “[…] a scheme for refining the subsystems or compone
 * [Indexed-Loop Pattern](Indexed-Loop%20Pattern/README.md)
 * [Mutex Pattern](Mutex%20Pattern/README.md)
 * [Pull Pattern](Pull%20Pattern/README.md)
+* [Replay-Protection Pattern](Replay-Protection%20Pattern/README.md)
 
 # References
 
