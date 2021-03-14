@@ -1,7 +1,7 @@
 # Replay-Protection Pattern
 
 ## Context
-The Replay-Protection Pattern can be applied whenever the payload of a transaction can be replayed for repeated function execution, for example, after a hardfork of a distributed ledger.
+The Replay-Protection Pattern is applicable whenever the payload of a transaction can be replayed for repeated function execution, for example, after a hardfork of a distributed ledger.
 
 ``Applies to: [X] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
