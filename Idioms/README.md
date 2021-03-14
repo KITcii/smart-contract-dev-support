@@ -5,6 +5,7 @@ Idioms are patterns on the lowest level of abstraction and “describe[s] how to
 ## Overview of Architectural Patterns
 
 * [Checks-Effects-Interactions Pattern](Checks-Effects-Interactions%20Pattern/README.md)
+* [Deactivation Pattern] (Deactivation%20Pattern/README.md)
 * [Error-Handling Pattern](Error-Handling%20Pattern/README.md)
 * [External-Call Pattern](External-Call%20Pattern/README.md)
 * [Guarding Pattern](Guarding%20Pattern/README.md)
