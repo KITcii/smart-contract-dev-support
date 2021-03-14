@@ -23,6 +23,7 @@ We encourage you to support us in maintaining this repository and welcome your q
 [Indexed-Loop Pattern](Design%20Patterns/Indexed-Loop%20Pattern/README.md) |Ensure an unbounded data structure can be interrupted and continued with the next call |&#x2611;  |&#x2611;  |
 [Mutex Pattern](Design%20Patterns/Mutex%20Pattern/README.md) |Prevent reentrancy attacks | | &#x2611;  |
 [Pull Pattern](Design%20Patterns/Pull%20Pattern/README.md) |Prevent abortion of execution caused by unbounded data structure and ensure fair distribution of costs|  | &#x2611;  |
+[Replay-Protection Pattern](Idioms/Replay-Protection%Pattern/README.md)|Prevent variable overflow caused by unappropriate data type use | |&#x2611; |
 
 ### Idioms
 [Idioms](Idioms/README.md#introduction) | Usage | EOSIO | Ethereum | Hyperledger Fabric
