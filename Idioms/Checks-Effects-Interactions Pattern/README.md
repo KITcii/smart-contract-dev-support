@@ -59,4 +59,4 @@ Smart contracts follow the concept of state machines and make a transition from 
 ## Related Patterns
 [External-Call](../../Idioms/External-Call%20Pattern/README.md), [Mutex Pattern](../../Design%20Patterns/Mutex%20Pattern/README.md), [Pull Pattern](../../Design%20Patterns/Pull%20Pattern/README.md)
 ## Known Uses
-[ItemRegistry](https://etherscan.io/address/0x17df117bb806a622d841bd5166a23b5d8746232f/#code) (lines 181ff)
+[ItemRegistry](https://etherscan.io/address/0x17df117bb806a622d841bd5166a23b5d8746232f/#code) (lines 181ff), [Simple Open Auction](https://github.com/vyperlang/vyper/blob/v0.2.11/examples/auctions/simple_open_auction.vy) (lines 75ff)
