@@ -18,7 +18,7 @@ We encourage you to support us in maintaining this repository and welcome your q
 [Design Patterns](Design%20Patterns/README.md) | Usage | EOSIO | Ethereum | Hyperledger Fabric
 -------- | -------- | :-: | :-: | :-:
 [Commitment Pattern](Design%20Patterns/Commitment%20Pattern/README.md) |Allow for binding commitment of values, which may remain secret until all values are to be revealed |&#x2611; |&#x2611; |&#x2611;
-[Event-Order Pattern](Design%20Patterns/Event-Order%20Pattern/README.md) | Ensure a transaction is only executed in a certain smart contract state |&#x2611; |&#x2611; |&#x2611;
+[Event-Ordering Pattern](Design%20Patterns/Event-Order%20Pattern/README.md) | Ensure a transaction is only executed in a certain smart contract state |&#x2611; |&#x2611; |&#x2611;
 [Factory Pattern](Design%20Patterns/Factory%20Pattern/README.md#context) |Enable automatic redeployment of similar smart contracts  | |&#x2611;  |
 [Indexed-Loop Pattern](Design%20Patterns/Indexed-Loop%20Pattern/README.md) |Ensure an unbounded data structure can be interrupted and continued with the next call |&#x2611;  |&#x2611;  |
 [Mutex Pattern](Design%20Patterns/Mutex%20Pattern/README.md) |Prevent reentrancy attacks | | &#x2611;  |
