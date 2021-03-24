@@ -1,4 +1,4 @@
-# Event-Order Pattern
+# Event-Ordering Pattern
 
 ## Context
 The Event-Order Pattern is applicable when multiple users interact with a same smart contract in a state _s<sub>t</sub>_ using their individual accounts. 
@@ -6,7 +6,7 @@ The Event-Order Pattern is applicable when multiple users interact with a same s
 ``Applies to: [X] EOSIO    [X] Ethereum    [X] Hyperledger Fabric``
 
 ## Problem
-The objective of the Event-Order Pattern is to avoid undesired outcomes due to execution of the smart contract taking place in an unintended state. This problem occurs as the state of a smart contract in which a transaction triggers a smart contract function cannot be foreseen because of concurrency in transaction processing and unpredictable event ordering due to non-deterministic behavior of validating nodes. Concurrency in transaction processing may lead to unintended outcomes of smart contract execution such as transfers of unintended amounts of assets (e.g., Ether), especially in scenarios requiring conditional execution of transactions. Thus, transactions issuers want to have a guarantee that the smart contract function is only executed in the intended state or not at all.
+The objective of the Event-Ordering Pattern is to avoid undesired outcomes due to execution of the smart contract taking place in an unintended state. This problem occurs as the state of a smart contract in which a transaction triggers a smart contract function cannot be foreseen because of concurrency in transaction processing and unpredictable event ordering due to non-deterministic behavior of validating nodes. Concurrency in transaction processing may lead to unintended outcomes of smart contract execution such as transfers of unintended amounts of assets (e.g., Ether), especially in scenarios requiring conditional execution of transactions. Thus, transactions issuers want to have a guarantee that the smart contract function is only executed in the intended state or not at all.
 
 ## Forces
 The forces involved in the Event-Order Pattern are determinism particulary transaction-order dependence and code efficiency particulary required interactions. Due to the non-determinist behavior of validating nodes to achieve certainty that the transaction will be carried out in the intended state _s_ or not at all requires the implementation of additional mechanisms. These mechanisms ensure that the intended transaction-order is adhered to. This is realized at the cost of deploying additional smart contract code, which increases the required interactions between smart contracts. 
