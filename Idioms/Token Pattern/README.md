@@ -58,6 +58,7 @@ contract LogicContract {
     function auction(uint256 bid) public {
         //...
     }
+}
 ```
 
 ## Resulting Context
