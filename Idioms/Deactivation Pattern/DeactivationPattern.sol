@@ -1,6 +1,6 @@
 pragma solidity 0.7.0;
 
-contract ChecksEffectsInteractionsPattern {
+contract DeactivationPattern {
     bool _activated = true; 
     
     modifier checkActive(){
