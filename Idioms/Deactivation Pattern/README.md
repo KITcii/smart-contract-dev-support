@@ -18,7 +18,7 @@ Instead of using the ``selfdestruct(...)`` operation developers should instead d
 ```Solidity 
 pragma solidity 0.7.0;
 
-contract DeactivationPattern {
+contract DeactivationAntipattern {
     function close() public onlyOwner { 
       selfdestruct(owner); 
     }
@@ -29,7 +29,7 @@ contract DeactivationPattern {
 ```Solidity 
 pragma solidity 0.7.0;
 
-contract ChecksEffectsInteractionsPattern {
+contract DeactivationPattern {
     bool _activated = true; 
     
     modifier checkActive(){
