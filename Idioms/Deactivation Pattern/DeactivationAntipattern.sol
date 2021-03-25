@@ -1,6 +1,6 @@
 pragma solidity 0.7.0;
 
-contract DeactivationPattern {
+contract DeactivationAntipattern {
     function close() public onlyOwner { 
       selfdestruct(owner); 
     }
