@@ -18,14 +18,14 @@ The Identity-Service Pattern is based on the concept of decentralized identity m
 
 
 ## Resulting Context
-
+Pseudonyms used on public distributed ledgers can be linked to their identity or statements about their identity, this may introduce challenges related to the privacy and condfidentiality of the real-world identities that have been linked.
 
 ## Rationale
-
+DIDs are stored on distributed ledgers and link to an DID document containing a statement about an real-world identity. The validity of the information is then assessed on basis of the aggregation of all verifiable claims issued. 
 
 ## Related Patterns
 \-
 
 ## Known Uses
-
+\-
 
