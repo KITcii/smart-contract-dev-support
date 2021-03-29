@@ -14,7 +14,7 @@ The forces involved in the Identity-Service Pattern are accountability, liabilit
 The Identity-Service Pattern is based on the concept of decentralized identity management systems using decentralized document identifiers (DIDs) that are stored on the distributed ledger. The DID points to a DID document that includes a statement about a DID subject (e.g., the age of an individual). The statement can be attested by verifiable claims issued by other users consisting of a claim and an attestation. The claim includes information about the validity of the statement whereas the attestation includes meta data and the digital signature of the user that issued the verifiable claim. Based on the verifiable claims the validity of a DID document and by extension the authenticity of the identity can be assumed.
 
 ## Example
-![Identity-Service](Identity-Service%20Pattern.png)
+![Identity-Service](IdentityService%20Pattern.png)
 
 
 ## Resulting Context
