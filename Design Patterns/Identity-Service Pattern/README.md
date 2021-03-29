@@ -11,9 +11,10 @@ The objective of the Identity-Service Pattern is to enable decentralized identit
 The forces involved in the Identity-Service Pattern are accountability, liability, transparency and privacy. The Identity-Service Pattern enables the attestation of claims regarding the identity of a real-world entity (e.g., the age or address of an individual), this fosters transparency if certain prerequisites are required to proceed with a transaction. Furthermore, accountability and liability is enabled through linking the pseudonyms on the public distributed ledgers to their correspoding real-world entities. As drawback the privacy of the real-world entity is reduced.
 
 ## Solution
-
+The Identity-Service Pattern is based on the concept of decentralized identity management systems using decentralized document identifiers (DIDs) that are stored on the distributed ledger. The DID points to a DID document that includes a statement about a DID subject (e.g., the age of an individual). The statement can be attested by verifiable claims issued by other users consisting of a claim and an attestation. The claim includes information about the validity of the statement whereas the attestation includes meta data and the digital signature of the user that issued the verifiable claim. Based on the verifiable claims the validity of a DID document and by extension the authenticity of the identity can be assumed.
 
 ## Example
+
 
 
 ## Resulting Context
