@@ -16,10 +16,9 @@ contract ReplayProtectionPattern{
         
         // Check signature
         address signer = ECDSA.recover(
-            keccak256(abi.encodePacked(_from, _to, _amount, address(this), _executionNonce)),
-            _signature
+            keccak256(abi.encodePacked(_from, _to, _amount, address(this), _executionNonce)), _signature
         );
-        require(signer == owner, "Invalid signature!");
+        require(signer == owner, "invalid signature / wrong signer / wrong nonce.");
         
         // Increment the stored nonce
         executionNonce = _executionNonce + 1;
@@ -31,7 +30,7 @@ contract ReplayProtectionPattern{
     }
 
     function transferTokens(address _from, address _to, uint256 _amount, uint256 _executionNonce, bytes calldata _signature)
-        external replayProtection(_executionNonce, _signature) {
+        external replayProtection(_from, _to, _amount, _executionNonce, _signature) {
         require(balances[_from] > _amount, "Not enough funds available!");
         require(msg.sender == owner, "You are not the owner!");
         balances[_from] = balances[_from] - _amount;
