@@ -56,10 +56,7 @@ pragma solidity 0.7.0;
 
 // Definition of the interface of ExternalContract for easier integration into ExternalCallPattern
 contract ExternalContract {
-    function externalFunction(string memory _text1, string memory _text2)
-       public pure returns (bool) {
-        return keccak256(bytes(_text1)) == keccak256(bytes(_text2));
-    }
+    function externalFunction(string memory _text1, string memory _text2) public pure returns (bool);
 }
 
 contract ExternalCallPattern {
