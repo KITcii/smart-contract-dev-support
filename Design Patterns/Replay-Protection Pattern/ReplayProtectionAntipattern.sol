@@ -1,6 +1,6 @@
 pragma solidity 0.7.0;
 
-contract ReplayProtectionPattern{
+contract ReplayProtectionAntipattern{
     mapping(address => uint256) private balances;
     
     address owner;
