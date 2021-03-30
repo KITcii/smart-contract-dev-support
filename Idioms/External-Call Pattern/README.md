@@ -20,9 +20,11 @@ Treat any external calls as malicious and evaluate each return value from extern
 pragma solidity 0.7.0;
 
 contract ExternalContract {
-    function externalFunction(string memory _text1, string memory _text2)
+    string text = "EXAMPLE";
+
+    function externalFunction(string memory _text)
        public pure returns (bool) {
-        return keccak256(bytes(_text1)) == keccak256(bytes(_text2));
+        return keccak256(bytes(text)) == keccak256(bytes(_text));
     }
 }
 ```
@@ -33,6 +35,8 @@ contract CallerContract {
     event Response(bool success, bytes data);
 
     function doSomething(address _externalAddress, string memory _text) public {
+        require(isContract(_externalAddress), "The target address is not a smart contract!");
+        
         (bool success, bytes memory data) = _externalAddress.call(
             abi.encodeWithSignature("externalFunction(string)", _text)
         );
@@ -62,6 +66,7 @@ contract ExternalContract {
 contract ExternalCallPattern {
     event Response(string text);
 
+    // Check if a smart contract is available at the given address to avoid, for example, asset loss when sending asset
     modifier isContract(address _externalAddress) view internal returns (bool) {
         uint size;
         assembly { size := extcodesize(_externalAddress) }
@@ -69,11 +74,8 @@ contract ExternalCallPattern {
         _;
     }
 
-    function doSomething(address _externalAddress, string memory _text1,
-      string memory _text2) public isContract(_externalAddress) {
-        // Check if a smart contract is available at the given address to avoid, for example, asset loss when sending asset
-        require(isContract(_externalAddress), "No smart contract available at given address!");
-
+    function doSomething(address _externalAddress, string memory _text1, string memory _text2)
+        public isContract(_externalAddress) {
         // Instantiate ExternalContract to make direct calls with revert(…) in case of failures in the function execution
         ExternalContract c = ExternalContract(_externalAddress);
         bool equal = c.externalFunction(_text1, _text2);    
