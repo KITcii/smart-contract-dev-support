@@ -24,7 +24,7 @@ Pseudonyms used on public distributed ledgers can be linked to their identity or
 DIDs are stored on distributed ledgers and link to an DID document containing a statement about an real-world identity. The validity of the information is then assessed on basis of the aggregation of all verifiable claims issued. 
 
 ## Related Patterns
-\-
+[Factory Pattern](../../Design%20Patterns/Factory%20Pattern/README.md)
 
 ## Known Uses
 \-
