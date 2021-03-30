@@ -1,7 +1,6 @@
 pragma solidity 0.7.0;
 
 contract ReplayProtectionPattern{
-    uint256 private executionNonce = 0;
     mapping(address => uint256) private balances;
     
     address owner;
@@ -10,7 +9,7 @@ contract ReplayProtectionPattern{
         owner = msg.sender;
     }
 
-    function transferTokens(address _from, address _to, uint256 _amount, uint256 _executionNonce) external {
+    function transferTokens(address _from, address _to, uint256 _amount) external {
         require(balances[_from] > _amount, "Not enough funds available!");
         require(msg.sender == owner, "You are not the owner!");
         balances[_from] = balances[_from] - _amount;
