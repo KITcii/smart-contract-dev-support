@@ -16,9 +16,10 @@ contract ReplayProtectionPattern{
         
         // Check signature
         address signer = ECDSA.recover(
-            keccak256(abi.encodePacked(_from, _to, _amount, address(this), _executionNonce)), _signature
+            keccak256(abi.encodePacked(_from, _to, _amount, address(this), _executionNonce)),
+            _signature
         );
-        require(signer == owner, "invalid signature / wrong signer / wrong nonce.");
+        require(signer == owner, "Invalid signature!");
         
         // Increment the stored nonce
         executionNonce = _executionNonce + 1;
