@@ -1,18 +1,24 @@
 pragma solidity 0.7.0;
 
+import "./ECDSA.sol";
+
 contract ReplayProtectionPattern{
     uint256 private executionNonce = 0;
     mapping(address => uint256) private balances;
     
     address owner;
     
-    modifier replayProtection(uint256 _executionNonce, bytes calldata _signature) {
+    modifier replayProtection(address _from, address _to,
+        uint256 _amount, uint256 _executionNonce, bytes calldata _signature) {
         // Limit the number of execution nonces that can be skipped
         require(_executionNonce >= executionNonce && _executionNonce <= executionNonce + 1e9,
             "Invalid execution nonce!");
         
         // Check signature
-        // TODO
+        address signer = ECDSA.recover(
+            keccak256(abi.encodePacked(_from, _to, _amount, address(this), _executionNonce)), _signature
+        );
+        require(signer == owner, "invalid signature / wrong signer / wrong nonce.");
         
         // Increment the stored nonce
         executionNonce = _executionNonce + 1;
