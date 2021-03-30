@@ -6,8 +6,8 @@ contract ReplayProtectionPattern{
     
     address owner;
     
-    modifier replayProtection(address _from, address _to,
-        uint256 _amount, uint256 _executionNonce, bytes calldata _signature) {
+    modifier replayProtection(address _from, address _to, uint256 _amount,
+        uint256 _executionNonce) {
         // Limit the number of execution nonces that can be skipped
         require(_executionNonce >= executionNonce && _executionNonce <= executionNonce + 1e9,
             "Invalid execution nonce!");
@@ -21,8 +21,8 @@ contract ReplayProtectionPattern{
         owner = msg.sender;
     }
 
-    function transferTokens(address _from, address _to, uint256 _amount, uint256 _executionNonce, bytes calldata _signature)
-        external replayProtection(_from, _to, _amount, _executionNonce, _signature) {
+    function transferTokens(address _from, address _to, uint256 _amount, uint256 _executionNonce)
+        external replayProtection(_from, _to, _amount, _executionNonce) {
         require(balances[_from] > _amount, "Not enough funds available!");
         require(msg.sender == owner, "You are not the owner!");
         balances[_from] = balances[_from] - _amount;
