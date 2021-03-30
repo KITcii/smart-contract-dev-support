@@ -19,11 +19,15 @@ contract ReplayProtectionPattern{
         // Execute the function
         transferTokens(msg.sender, _to, _value);
     }
-    
+
     function transferTokens(address _from, address _to, uint256 _amount) private {
         require(balances[_from] > _amount, "Not enough funds available!");
         balances[_from] = balances[_from] - _amount;
         balances[_to] = balances[_to] + _amount;
+    }
+
+    function buyTokens() external payable {
+        balances[msg.sender] = balances[msg.sender] + msg.value;
     }
     
     function withdrawTokens() private {
@@ -31,9 +35,5 @@ contract ReplayProtectionPattern{
         uint256 amount = balances[msg.sender];
         balances[msg.sender] = 0;
         msg.sender.transfer(amount);
-    }
-    
-    function receiveFunds() external payable {
-        balances[msg.sender] = balances[msg.sender] + msg.value;
     }
 }
