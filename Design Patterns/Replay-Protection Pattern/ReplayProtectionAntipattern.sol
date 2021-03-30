@@ -10,7 +10,7 @@ contract ReplayProtectionPattern{
         owner = msg.sender;
     }
 
-    function transferTokens(address _from, address _to, uint256 _amount, uint256 _executionNonce) {
+    function transferTokens(address _from, address _to, uint256 _amount, uint256 _executionNonce) external {
         require(balances[_from] > _amount, "Not enough funds available!");
         require(msg.sender == owner, "You are not the owner!");
         balances[_from] = balances[_from] - _amount;
