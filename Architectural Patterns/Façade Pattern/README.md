@@ -1,6 +1,6 @@
 # Façade Pattern
 ## Context
-The Façade Pattern is applicable when working with smart contract systems. A smart contract system consists of several separate smart contracts with individual addresses that interact with one another. Smart contract systems are used to achieve separation of concerns by dividing the applica-tion logic into different smart contracts. To use the entire application logic, functions of the individual smart contracts are called manually.!
+The Façade Pattern is applicable when working with smart contract systems. A smart contract system consists of several separate smart contracts with individual addresses that interact with one another. Smart contract systems are used to achieve separation of concerns by dividing the applica-tion logic into different smart contracts. To use the entire application logic, functions of the individual smart contracts are called manually.
 
 ``Applies to: [X] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
