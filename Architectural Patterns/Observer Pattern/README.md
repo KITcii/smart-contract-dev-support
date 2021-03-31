@@ -1,6 +1,6 @@
 # Observer Pattern
 ## Context
-The Observer Pattern is applicable whenever smart contracts are updated whose functions are invoked by other smart contracts. The Observer Pattern involves a Caller Contract (the smart contract invoking the function) and a Target Contract (the smart contract whose function is invoked).
+The Observer pattern is applicable to Ethereum smart contracts that are invoked by other contracts and updated by redeployment in the future. When a smart contract is deployed in an updated version, the contract has a new address. All calling contracts must update the address to reference the latest version of the smart contract.
 
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
