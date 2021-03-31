@@ -1,10 +1,10 @@
 # Oracle Pattern
 ## Context
-The Oracle Pattern is applicable whenever external data or real-world data is required by a smart contract.
+The Oracle Pattern is applicable whenever a smart contract must interact with oracles. Oracles are information systems external the distributed ledger (e.g., Beacon services for random number generation).
 
 ``Applies to: [X] EOSIO    [X] Ethereum    [X] Hyperledger Fabric``
 ## Problem
-The objective of the Oracle Pattern is to enable external data access for smart contracts. This is a problem as smart contracts are usually restricted to the use of data stored on the distributed ledger, which may not be sufficient for applications that require real-world data (e.g., for calculations or the validation of conditions).
+Smart contracts are usually restricted to the use of data inherent to the distributed ledger, which may not be sufficient for applications that require real-world data (e.g., for calculations or the validation of conditions). The objective of the Oracle Pattern is to enable the interaction with oracles from smart contracts.
 
 ## Forces
 The forces involved in the Oracle Pattern are interoperability with external IT services and resource efficiency. The application of the Oracle Pattern enables interoperability with external systems by allowing access to external data. This comes at the cost of resource efficiency as the Oracle Pattern requires the deployment and execution of additional smart contract code. 
