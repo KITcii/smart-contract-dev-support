@@ -20,7 +20,7 @@ Data feeds register their addresses with the Relay Contract and listen on a cert
 The Relay Contract returns requested data to the User Contract. However, Oracles must update the Relay Contract, which becomes costly over time, which is why the developers of a User Contract using the Relay Contract should agree on a payment structure to incentivize Oracles to honestly deliver data. In addition, finding consensus in a smart contract increases costs compared to finding consensus on queried data external from the distributed ledger. However, having most components on the distributed ledger increases availability and reliability of the data retrieval. It should be noted that the Oracle Pattern introduces a Single Point of Failure, because the smart contract is dependent on the external data provided by the oracle. Moreover, a compromised oracle could pass on false information and lead to unintended execution of the smart contract. To avoid this an authentification through digital signatures could be considered.
 
 # Rationale
-The oracle pattern enables developers to increase flexibility of using smart contracts. Since no states are changed when a smart contract retrieves data from the Relay Contract, this approach only causes costs when updating the Relay Contract with new data.
+The Oracle Pattern enables developers to increase flexibility of using smart contracts. Since no states are changed when a smart contract retrieves data from the Relay Contract, this approach only causes costs when updating the Relay Contract with new data.
 
 # Related Patterns
 \-
