@@ -7,7 +7,7 @@ The Overflow Pattern is applicable when handling numeric data types in smart con
 Overflow and underflow can cause wrong calculations or infinite loops. The aim of the Overflow/Underflow Pattern is to avoid overflow and underflow. If overflow occurs, the function execution should be aborted, and an appropriate error message must notify the entity that initiated the execution of the function. 
 
 ## Forces
-The forces involved are implementation soundness particulary appropriate variable use, code efficiency and readibility. The overflow patterns improves implementation soundness by avoiding the occurence of overflows and the related consequences, but comes at the cost of being less efficient and slightly less readable through the usage of libraries (e.g. OpenZeppelin SafeMath).
+The forces involved are implementation soundness particularly appropriate variable use, code efficiency and readability. The Overflow Pattern im-proves implementation soundness by avoiding the occurrence of overflows and the related consequences but comes at the cost of being less efficient and slightly less readable through the usage of libraries (e.g., OpenZeppelin SafeMath).
 
 ## Solution
 When assigning a value to an integer variable, the value range of the variable’s data type must be considered to avoid unintended side effects. To facilitate checks when assigning a value to a variable, libraries such as OpenZeppelin SafeMath for Solidity should be used. Furthermore, developers should avoid var type inference and specify the data type explicitly to make the smart contract code better to comprehend. Using the OpenZeppelin SafeMath library, all operations are reverted in case of an overflow because an except is thrown because of a failed ``assert(…)``.
