@@ -1,6 +1,6 @@
 # Proxy Pattern
 ## Context
-The proxy pattern can be applied when an Ethereum smart contract is invoked by other systems, including front-ends and smart contracts, and the smart contract is replaced by a newer version in the future.
+The proxy pattern can be applied when an Ethereum smart contract is planned to be invoked by other systems, including front-ends and smart contracts, and the smart contract should be replaceable by a newer version in the future.
 
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
