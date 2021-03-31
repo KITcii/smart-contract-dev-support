@@ -1,6 +1,7 @@
 # Name-Service Pattern
 ## Context
 The Name-Service Pattern can be used to look up deployed smart contracts by their corresponding name.
+
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
 ## Problem
