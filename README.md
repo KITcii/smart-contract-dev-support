@@ -34,7 +34,7 @@ We encourage you to support us in maintaining this repository and welcome your q
 [Error-Handling Pattern](Idioms/Error-Handling%20Pattern/README.md) | Handle errors in smart contracts appropriately | |&#x2611; |
 [External-Call Pattern](Idioms/External-Call%20Pattern/README.md) | Handle failed external calls and prevent unintended side effects | |&#x2611;  |
 [Guarding Pattern](Idioms/Guarding%20Pattern/README.md) |Restrict authorization to execute smart contract functions to particular accounts in defined contexts |&#x2611;  |&#x2611;  | &#x2611;
-[Overflow Pattern](Idioms/Overflow%20Pattern/README.md)|Prevent variable overflow caused by unappropriate data type use | |&#x2611; |
+[Overflow/Underflow Pattern](Idioms/Overflow%20Pattern/README.md)|Prevent variable overflow and underflow caused by unappropriate data type use | |&#x2611; |
 [Token Pattern](Idioms/Token%20Pattern/README.md) |Mitigate the risks related to the update of smart contracts keeping tokens | |&#x2611; |
 
 # Structure of Software Design Patterns
