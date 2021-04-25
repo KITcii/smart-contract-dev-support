@@ -1,0 +1,536 @@
+{
+  "contractName": "DeactivationPattern",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "anyFunction",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"anyFunction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/niklas/Documents/HIWI AIFB/smart-contract-dev-support/contracts/DeactivationPattern.sol\":\"DeactivationPattern\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/niklas/Documents/HIWI AIFB/smart-contract-dev-support/contracts/DeactivationPattern.sol\":{\"keccak256\":\"0x81eed588ccd6d8bf80ea7d2489cf8f8edcea6752a165bb64054ae25ba40ac138\",\"urls\":[\"bzz-raw://78fd41558bc8582a8a516b82dd1a7283c931b4842315106b8ce307dc7856bc5f\",\"dweb:/ipfs/QmWnvx9AHLvWaR62hNnHbojKmkyzJe9UTLD7h7ApxGeCjL\"]}},\"version\":1}",
+  "bytecode": "0x608060405260016000806101000a81548160ff021916908315150217905550348015602957600080fd5b506083806100386000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80630e21a23f14602d575b600080fd5b60336035565b005b60008054906101000a900460ff16604b57600080fd5b56fea264697066735822122006ad0d21e754494054c6ffeb06306666bcfa416fca506719fceaa9de1ad4125d64736f6c63430007000033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c80630e21a23f14602d575b600080fd5b60336035565b005b60008054906101000a900460ff16604b57600080fd5b56fea264697066735822122006ad0d21e754494054c6ffeb06306666bcfa416fca506719fceaa9de1ad4125d64736f6c63430007000033",
+  "immutableReferences": {},
+  "sourceMap": "24:241:4:-:0;;;77:4;59:22;;;;;;;;;;;;;;;;;;;;24:241;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "24:241:4:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;169:94;;;:::i;:::-;;;132:10;;;;;;;;;;123:20;;;;;;169:94::o",
+  "source": "pragma solidity 0.7.0;\n\ncontract DeactivationPattern {\n    bool _activated = true; \n    \n    modifier checkActive(){\n      require (_activated);\n      _;\n    }\n    \n    function anyFunction() checkActive public {\n      //code to be reverted by deactivation \n    }\n}\n",
+  "sourcePath": "/home/niklas/Documents/HIWI AIFB/smart-contract-dev-support/contracts/DeactivationPattern.sol",
+  "ast": {
+    "absolutePath": "/home/niklas/Documents/HIWI AIFB/smart-contract-dev-support/contracts/DeactivationPattern.sol",
+    "exportedSymbols": {
+      "DeactivationPattern": [
+        244
+      ]
+    },
+    "id": 245,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 226,
+        "literals": [
+          "solidity",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:22:4"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 244,
+        "linearizedBaseContracts": [
+          244
+        ],
+        "name": "DeactivationPattern",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 229,
+            "mutability": "mutable",
+            "name": "_activated",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 244,
+            "src": "59:22:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 227,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "59:4:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "74727565",
+              "id": 228,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "bool",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "77:4:4",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              },
+              "value": "true"
+            },
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 236,
+              "nodeType": "Block",
+              "src": "115:44:4",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 232,
+                        "name": "_activated",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 229,
+                        "src": "132:10:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 231,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "123:7:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 233,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "123:20:4",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 234,
+                  "nodeType": "ExpressionStatement",
+                  "src": "123:20:4"
+                },
+                {
+                  "id": 235,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "151:1:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 237,
+            "name": "checkActive",
+            "nodeType": "ModifierDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 230,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "113:2:4"
+            },
+            "src": "93:66:4",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 242,
+              "nodeType": "Block",
+              "src": "211:52:4",
+              "statements": []
+            },
+            "documentation": null,
+            "functionSelector": "0e21a23f",
+            "id": 243,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 240,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 239,
+                  "name": "checkActive",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 237,
+                  "src": "192:11:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "192:11:4"
+              }
+            ],
+            "name": "anyFunction",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 238,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "189:2:4"
+            },
+            "returnParameters": {
+              "id": 241,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "211:0:4"
+            },
+            "scope": 244,
+            "src": "169:94:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 245,
+        "src": "24:241:4"
+      }
+    ],
+    "src": "0:266:4"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/home/niklas/Documents/HIWI AIFB/smart-contract-dev-support/contracts/DeactivationPattern.sol",
+      "exportedSymbols": {
+        "DeactivationPattern": [
+          244
+        ]
+      },
+      "license": null
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "0.7",
+            ".0"
+          ]
+        },
+        "id": 226,
+        "name": "PragmaDirective",
+        "src": "0:22:4"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            244
+          ],
+          "name": "DeactivationPattern",
+          "scope": 245
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "_activated",
+              "overrides": null,
+              "scope": 244,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bool",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bool",
+                  "type": "bool"
+                },
+                "id": 227,
+                "name": "ElementaryTypeName",
+                "src": "59:4:4"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "74727565",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "bool",
+                  "type": "bool",
+                  "value": "true"
+                },
+                "id": 228,
+                "name": "Literal",
+                "src": "77:4:4"
+              }
+            ],
+            "id": 229,
+            "name": "VariableDeclaration",
+            "src": "59:22:4"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "name": "checkActive",
+              "overrides": null,
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 230,
+                "name": "ParameterList",
+                "src": "113:2:4"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                -18,
+                                -18
+                              ],
+                              "referencedDeclaration": -18,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 231,
+                            "name": "Identifier",
+                            "src": "123:7:4"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 229,
+                              "type": "bool",
+                              "value": "_activated"
+                            },
+                            "id": 232,
+                            "name": "Identifier",
+                            "src": "132:10:4"
+                          }
+                        ],
+                        "id": 233,
+                        "name": "FunctionCall",
+                        "src": "123:20:4"
+                      }
+                    ],
+                    "id": 234,
+                    "name": "ExpressionStatement",
+                    "src": "123:20:4"
+                  },
+                  {
+                    "id": 235,
+                    "name": "PlaceholderStatement",
+                    "src": "151:1:4"
+                  }
+                ],
+                "id": 236,
+                "name": "Block",
+                "src": "115:44:4"
+              }
+            ],
+            "id": 237,
+            "name": "ModifierDefinition",
+            "src": "93:66:4"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "0e21a23f",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "anyFunction",
+              "overrides": null,
+              "scope": 244,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 238,
+                "name": "ParameterList",
+                "src": "189:2:4"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 241,
+                "name": "ParameterList",
+                "src": "211:0:4"
+              },
+              {
+                "attributes": {
+                  "arguments": null
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 237,
+                      "type": "modifier ()",
+                      "value": "checkActive"
+                    },
+                    "id": 239,
+                    "name": "Identifier",
+                    "src": "192:11:4"
+                  }
+                ],
+                "id": 240,
+                "name": "ModifierInvocation",
+                "src": "192:11:4"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 242,
+                "name": "Block",
+                "src": "211:52:4"
+              }
+            ],
+            "id": 243,
+            "name": "FunctionDefinition",
+            "src": "169:94:4"
+          }
+        ],
+        "id": 244,
+        "name": "ContractDefinition",
+        "src": "24:241:4"
+      }
+    ],
+    "id": 245,
+    "name": "SourceUnit",
+    "src": "0:266:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.0+commit.9e61f92b.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-04-25T15:19:58.888Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

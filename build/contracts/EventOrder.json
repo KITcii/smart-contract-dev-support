@@ -1,0 +1,978 @@
+{
+  "contractName": "EventOrder",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_nextTransNum",
+          "type": "uint256"
+        }
+      ],
+      "name": "a",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_nextTransNum\",\"type\":\"uint256\"}],\"name\":\"a\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/niklas/Documents/HIWI AIFB/smart-contract-dev-support/contracts/EventOrderPattern.sol\":\"EventOrder\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/niklas/Documents/HIWI AIFB/smart-contract-dev-support/contracts/EventOrderPattern.sol\":{\"keccak256\":\"0xf58792f44050fb4ac2106008a38609a3b81e64e198478ae9aa13fc77d5dccdd6\",\"urls\":[\"bzz-raw://dd6e25d8b12df857399093aa121ed9e640b13a6d3891df1f55a7c5546486ab22\",\"dweb:/ipfs/QmeGEyFosMrarMNxCKiV5B1mTwhMkKfMDTFV3hu9abBRSq\"]}},\"version\":1}",
+  "bytecode": "0x60806040526000805534801561001457600080fd5b5061013e806100246000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c8063f0fdf83414610030575b600080fd5b61005c6004803603602081101561004657600080fd5b810190808035906020019092919050505061005e565b005b8080600054146100b9576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603b8152602001806100ce603b913960400191505060405180910390fd5b60016000808282540192505081905550505056fe43757272656e7420736d61727420636f6e747261637420737461746520646f6573206e6f74206d617463682074617267657465642073746174652ea2646970667358221220470eabafe8f3430edaa480d9529d60cd3dcb18ff0fe1a5bf587e284474e34a1a64736f6c63430007000033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c8063f0fdf83414610030575b600080fd5b61005c6004803603602081101561004657600080fd5b810190808035906020019092919050505061005e565b005b8080600054146100b9576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603b8152602001806100ce603b913960400191505060405180910390fd5b60016000808282540192505081905550505056fe43757272656e7420736d61727420636f6e747261637420737461746520646f6573206e6f74206d617463682074617267657465642073746174652ea2646970667358221220470eabafe8f3430edaa480d9529d60cd3dcb18ff0fe1a5bf587e284474e34a1a64736f6c63430007000033",
+  "immutableReferences": {},
+  "sourceMap": "318:179:6:-:0;;;81:1;58:24;;318:179;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "318:179:6:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;366:129;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;423:13;174;158:12;;:29;150:117;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;294:1;278:12;;:17;;;;;;;;;;;366:129;;:::o",
+  "source": "pragma solidity ^0.7.0;\n\ncontract EventOrderPattern {\n    uint256 transCounter = 0;\n\n    modifier transitionCounting(uint256 _nextTransNum){\n         require(transCounter == _nextTransNum,\n                \"Current smart contract state does not match targeted state.\");\n         transCounter += 1;\n         _;\n    }\n}\n\ncontract EventOrder is EventOrderPattern {\n\n    function a(uint _nextTransNum) public transitionCounting(_nextTransNum) {\n        // Code to be executed in a certain state\n    }\n}\n",
+  "sourcePath": "/home/niklas/Documents/HIWI AIFB/smart-contract-dev-support/contracts/EventOrderPattern.sol",
+  "ast": {
+    "absolutePath": "/home/niklas/Documents/HIWI AIFB/smart-contract-dev-support/contracts/EventOrderPattern.sol",
+    "exportedSymbols": {
+      "EventOrder": [
+        377
+      ],
+      "EventOrderPattern": [
+        365
+      ]
+    },
+    "id": 378,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 344,
+        "literals": [
+          "solidity",
+          "^",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:6"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 365,
+        "linearizedBaseContracts": [
+          365
+        ],
+        "name": "EventOrderPattern",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 347,
+            "mutability": "mutable",
+            "name": "transCounter",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 365,
+            "src": "58:24:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 345,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "58:7:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "30",
+              "id": 346,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "81:1:6",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_0_by_1",
+                "typeString": "int_const 0"
+              },
+              "value": "0"
+            },
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 363,
+              "nodeType": "Block",
+              "src": "139:175:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 354,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 352,
+                          "name": "transCounter",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 347,
+                          "src": "158:12:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 353,
+                          "name": "_nextTransNum",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 349,
+                          "src": "174:13:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "158:29:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "43757272656e7420736d61727420636f6e747261637420737461746520646f6573206e6f74206d617463682074617267657465642073746174652e",
+                        "id": 355,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "205:61:6",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_36a78be09c281d4d1be48208b1f0b455e2cc7bf3e011a682419cc60170f146ff",
+                          "typeString": "literal_string \"Current smart contract state does not match targeted state.\""
+                        },
+                        "value": "Current smart contract state does not match targeted state."
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_36a78be09c281d4d1be48208b1f0b455e2cc7bf3e011a682419cc60170f146ff",
+                          "typeString": "literal_string \"Current smart contract state does not match targeted state.\""
+                        }
+                      ],
+                      "id": 351,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "150:7:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 356,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "150:117:6",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 357,
+                  "nodeType": "ExpressionStatement",
+                  "src": "150:117:6"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 360,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 358,
+                      "name": "transCounter",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 347,
+                      "src": "278:12:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "+=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "31",
+                      "id": 359,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "294:1:6",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1_by_1",
+                        "typeString": "int_const 1"
+                      },
+                      "value": "1"
+                    },
+                    "src": "278:17:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 361,
+                  "nodeType": "ExpressionStatement",
+                  "src": "278:17:6"
+                },
+                {
+                  "id": 362,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "306:1:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 364,
+            "name": "transitionCounting",
+            "nodeType": "ModifierDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 350,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 349,
+                  "mutability": "mutable",
+                  "name": "_nextTransNum",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 364,
+                  "src": "117:21:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 348,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "117:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "116:23:6"
+            },
+            "src": "89:225:6",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 378,
+        "src": "25:291:6"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 366,
+              "name": "EventOrderPattern",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 365,
+              "src": "341:17:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_EventOrderPattern_$365",
+                "typeString": "contract EventOrderPattern"
+              }
+            },
+            "id": 367,
+            "nodeType": "InheritanceSpecifier",
+            "src": "341:17:6"
+          }
+        ],
+        "contractDependencies": [
+          365
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 377,
+        "linearizedBaseContracts": [
+          377,
+          365
+        ],
+        "name": "EventOrder",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 375,
+              "nodeType": "Block",
+              "src": "438:57:6",
+              "statements": []
+            },
+            "documentation": null,
+            "functionSelector": "f0fdf834",
+            "id": 376,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 372,
+                    "name": "_nextTransNum",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 369,
+                    "src": "423:13:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 373,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 371,
+                  "name": "transitionCounting",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 364,
+                  "src": "404:18:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_uint256_$",
+                    "typeString": "modifier (uint256)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "404:33:6"
+              }
+            ],
+            "name": "a",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 370,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 369,
+                  "mutability": "mutable",
+                  "name": "_nextTransNum",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 376,
+                  "src": "377:18:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 368,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "377:4:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "376:20:6"
+            },
+            "returnParameters": {
+              "id": 374,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "438:0:6"
+            },
+            "scope": 377,
+            "src": "366:129:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 378,
+        "src": "318:179:6"
+      }
+    ],
+    "src": "0:498:6"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/home/niklas/Documents/HIWI AIFB/smart-contract-dev-support/contracts/EventOrderPattern.sol",
+      "exportedSymbols": {
+        "EventOrder": [
+          377
+        ],
+        "EventOrderPattern": [
+          365
+        ]
+      },
+      "license": null
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.7",
+            ".0"
+          ]
+        },
+        "id": 344,
+        "name": "PragmaDirective",
+        "src": "0:23:6"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            365
+          ],
+          "name": "EventOrderPattern",
+          "scope": 378
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "transCounter",
+              "overrides": null,
+              "scope": 365,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 345,
+                "name": "ElementaryTypeName",
+                "src": "58:7:6"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "30",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "number",
+                  "type": "int_const 0",
+                  "value": "0"
+                },
+                "id": 346,
+                "name": "Literal",
+                "src": "81:1:6"
+              }
+            ],
+            "id": 347,
+            "name": "VariableDeclaration",
+            "src": "58:24:6"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "name": "transitionCounting",
+              "overrides": null,
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_nextTransNum",
+                      "overrides": null,
+                      "scope": 364,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 348,
+                        "name": "ElementaryTypeName",
+                        "src": "117:7:6"
+                      }
+                    ],
+                    "id": 349,
+                    "name": "VariableDeclaration",
+                    "src": "117:21:6"
+                  }
+                ],
+                "id": 350,
+                "name": "ParameterList",
+                "src": "116:23:6"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_36a78be09c281d4d1be48208b1f0b455e2cc7bf3e011a682419cc60170f146ff",
+                                  "typeString": "literal_string \"Current smart contract state does not match targeted state.\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                -18,
+                                -18
+                              ],
+                              "referencedDeclaration": -18,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 351,
+                            "name": "Identifier",
+                            "src": "150:7:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 347,
+                                  "type": "uint256",
+                                  "value": "transCounter"
+                                },
+                                "id": 352,
+                                "name": "Identifier",
+                                "src": "158:12:6"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 349,
+                                  "type": "uint256",
+                                  "value": "_nextTransNum"
+                                },
+                                "id": 353,
+                                "name": "Identifier",
+                                "src": "174:13:6"
+                              }
+                            ],
+                            "id": 354,
+                            "name": "BinaryOperation",
+                            "src": "158:29:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "43757272656e7420736d61727420636f6e747261637420737461746520646f6573206e6f74206d617463682074617267657465642073746174652e",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"Current smart contract state does not match targeted state.\"",
+                              "value": "Current smart contract state does not match targeted state."
+                            },
+                            "id": 355,
+                            "name": "Literal",
+                            "src": "205:61:6"
+                          }
+                        ],
+                        "id": 356,
+                        "name": "FunctionCall",
+                        "src": "150:117:6"
+                      }
+                    ],
+                    "id": 357,
+                    "name": "ExpressionStatement",
+                    "src": "150:117:6"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "+=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 347,
+                              "type": "uint256",
+                              "value": "transCounter"
+                            },
+                            "id": 358,
+                            "name": "Identifier",
+                            "src": "278:12:6"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "31",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 1",
+                              "value": "1"
+                            },
+                            "id": 359,
+                            "name": "Literal",
+                            "src": "294:1:6"
+                          }
+                        ],
+                        "id": 360,
+                        "name": "Assignment",
+                        "src": "278:17:6"
+                      }
+                    ],
+                    "id": 361,
+                    "name": "ExpressionStatement",
+                    "src": "278:17:6"
+                  },
+                  {
+                    "id": 362,
+                    "name": "PlaceholderStatement",
+                    "src": "306:1:6"
+                  }
+                ],
+                "id": 363,
+                "name": "Block",
+                "src": "139:175:6"
+              }
+            ],
+            "id": 364,
+            "name": "ModifierDefinition",
+            "src": "89:225:6"
+          }
+        ],
+        "id": 365,
+        "name": "ContractDefinition",
+        "src": "25:291:6"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "contractDependencies": [
+            365
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            377,
+            365
+          ],
+          "name": "EventOrder",
+          "scope": 378
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "EventOrderPattern",
+                  "referencedDeclaration": 365,
+                  "type": "contract EventOrderPattern"
+                },
+                "id": 366,
+                "name": "UserDefinedTypeName",
+                "src": "341:17:6"
+              }
+            ],
+            "id": 367,
+            "name": "InheritanceSpecifier",
+            "src": "341:17:6"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "f0fdf834",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "a",
+              "overrides": null,
+              "scope": 377,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_nextTransNum",
+                      "overrides": null,
+                      "scope": 376,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 368,
+                        "name": "ElementaryTypeName",
+                        "src": "377:4:6"
+                      }
+                    ],
+                    "id": 369,
+                    "name": "VariableDeclaration",
+                    "src": "377:18:6"
+                  }
+                ],
+                "id": 370,
+                "name": "ParameterList",
+                "src": "376:20:6"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 374,
+                "name": "ParameterList",
+                "src": "438:0:6"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 364,
+                      "type": "modifier (uint256)",
+                      "value": "transitionCounting"
+                    },
+                    "id": 371,
+                    "name": "Identifier",
+                    "src": "404:18:6"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 369,
+                      "type": "uint256",
+                      "value": "_nextTransNum"
+                    },
+                    "id": 372,
+                    "name": "Identifier",
+                    "src": "423:13:6"
+                  }
+                ],
+                "id": 373,
+                "name": "ModifierInvocation",
+                "src": "404:33:6"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 375,
+                "name": "Block",
+                "src": "438:57:6"
+              }
+            ],
+            "id": 376,
+            "name": "FunctionDefinition",
+            "src": "366:129:6"
+          }
+        ],
+        "id": 377,
+        "name": "ContractDefinition",
+        "src": "318:179:6"
+      }
+    ],
+    "id": 378,
+    "name": "SourceUnit",
+    "src": "0:498:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.0+commit.9e61f92b.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-04-25T15:19:58.889Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
