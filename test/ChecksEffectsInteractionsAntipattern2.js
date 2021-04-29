@@ -24,4 +24,9 @@ contract('ChecksEffectsInteractionsAntipattern', async (accounts) => {
         assert.equal(balance_ether, 1);
     })
 
+    it('Should be safe from Reentrancy', async () => {
+
+
+    })    
+
 })

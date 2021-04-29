@@ -1,10 +1,10 @@
-const Victim = artifacts.require('./ChecksEffectsInteractionsPattern.sol')
-const Attacker = artifacts.require('./Attacker2.sol')
+const Victim2 = artifacts.require('./ChecksEffectsInteractionsPattern.sol')
+const Attacker2 = artifacts.require('./Attacker2.sol')
 
 module.exports = function(deployer) {
   deployer
-    .deploy(Victim)
+    .deploy(Victim2)
     .then(() =>
-      deployer.deploy(Attacker, Victim.address)
+      deployer.deploy(Attacker2, Victim.address)
     )
 }
