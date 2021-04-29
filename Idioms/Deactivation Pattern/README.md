@@ -23,8 +23,6 @@ contract DeactivationAntipattern {
       selfdestruct(msg.sender); 
     }
 }
-    }
-}
 ```
 
 ### Correct
