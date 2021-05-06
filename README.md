@@ -30,7 +30,7 @@ We encourage you to support us in maintaining this repository and welcome your q
 [Idioms](Idioms/README.md#introduction) | Usage | EOSIO | Ethereum | Hyperledger Fabric
 -------- | -------- | :-: | :-: | :-:
 [Checks-Effects-Interactions Pattern](Idioms/Checks-Effects-Interactions%20Pattern/README.md) |Prevent a reentrancy attack within the same function of the smart contract | |&#x2611; |
-[Deactivation Pattern](Idioms/Deactivation%20Pattern/README.md) | Disable a smart contract instead of disabling it so that all function calls result in a revert and no assets sent to the contract are lost | |&#x2611; |
+[Deactivation Pattern](Idioms/Deactivation%20Pattern/README.md) | Disable a smart contract instead of destructing it so that all function calls result in a revert and no assets sent to the contract are lost | |&#x2611; |
 [Error-Handling Pattern](Idioms/Error-Handling%20Pattern/README.md) | Handle errors in smart contracts appropriately | |&#x2611; |
 [External-Call Pattern](Idioms/External-Call%20Pattern/README.md) | Handle failed external calls and prevent unintended side effects | |&#x2611;  |
 [Guarding Pattern](Idioms/Guarding%20Pattern/README.md) |Restrict authorization to execute smart contract functions to particular accounts in defined contexts |&#x2611;  |&#x2611;  | &#x2611;
