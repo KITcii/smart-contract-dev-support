@@ -12,7 +12,9 @@ contract ChecksEffectsInteractionsAntipattern {
         _amount = 1 ether; 
         
         // Checks
-        if(balances[msg.sender] >= _amount){
+
+        //poor checks
+        if(balances[msg.sender] >= _amount){ 
             // Interactions
             (bool success,) = msg.sender.call{value: _amount}("");
             require(success);

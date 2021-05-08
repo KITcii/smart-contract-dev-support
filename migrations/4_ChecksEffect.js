@@ -5,6 +5,6 @@ module.exports = function(deployer) {
   deployer
     .deploy(Victim2)
     .then(() =>
-      deployer.deploy(Attacker2, Victim.address)
+      deployer.deploy(Attacker2, Victim2.address)
     )
 }
