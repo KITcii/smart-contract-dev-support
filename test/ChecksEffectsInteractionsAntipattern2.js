@@ -18,8 +18,8 @@ contract('ChecksEffectsInteractionsAntipattern', async (accounts) => {
     })
 
     it('TestContract balance should has 11 ETH after deposit', async () => {
-        let one_eth = web3.utils.toWei("11", "ether");
-        await web3.eth.sendTransaction({from: accounts[1], to: victim.address, value: one_eth});
+        let eleven_eth = web3.utils.toWei("11", "ether");
+        await web3.eth.sendTransaction({from: accounts[1], to: victim.address, value: eleven_eth});
         let balance_wei = await web3.eth.getBalance(victim.address);
         let balance_ether = web3.utils.fromWei(balance_wei, "ether");
         assert.equal(balance_ether, 11);
@@ -27,6 +27,9 @@ contract('ChecksEffectsInteractionsAntipattern', async (accounts) => {
 
     it('Should be safe from Reentrancy', async () => {
         attacker = await attacker_contract.new(victim.address);
+        let one_eth = web3.utils.toWei("1", "ether");
+        await web3.eth.sendTransaction({from: accounts[1], to: attacker.address, value: one_eth});
+
         console.log(await web3.eth.getBalance(victim.address));
         console.log(await web3.eth.getBalance(attacker.address));
         await attacker.set_balance();
