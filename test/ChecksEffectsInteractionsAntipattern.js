@@ -6,7 +6,7 @@ contract("ChecksEffectsInteractionsAntipattern", (accounts) => {
     before(async () => {
         const contractInstance = await ChecksEffectsInteractionsAntipattern.new({from: alice});
         //const contractInstance = await ChecksEffectsInteractionsAntipattern.new("0x0000000000000000000000000000000000000000", 900, alice, {from: accounts[alice]});
-	        console.log(`Successfully deployed IdentityContract for Market Authority with address: ${contractInstance.address}`);
+	        console.log(`Successfully deployed ChecksEffectsInteractionsAntipattern for Market Authority with address: ${contractInstance.address}`);
     });
 
     it("should be able to do something", async () => {
