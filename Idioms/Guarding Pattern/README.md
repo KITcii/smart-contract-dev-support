@@ -5,7 +5,7 @@ The Guarding Pattern applies to smart contracts that should only be executable b
 ``Applies to: [X] EOSIO    [X] Ethereum    [X] Hyperledger Fabric``
 
 ## Problem
-The aim of the Guarding Pattern is to ensure a function is only executable by particular accounts and the authorization checks should be performed prior to the function execution. The problem that arises is that smart contract interfaces are directly exposed to and callable by all users of the distrib-uted ledgers. 
+The aim of the Guarding Pattern is to ensure a function is only executable by particular accounts and the authorization checks should be performed prior to the function execution. The problem that arises is that smart contract interfaces are directly exposed to and callable by all users of the distributed ledgers. 
 
 ## Forces
 The forces involved in the Guarding Pattern are regulated executability particularly execution restriction, semantic soundness and resource efficiency. Execution restrictions are enabled by implementing authorization checks. This also increases semantic soundness as only the intended accounts can invoke smart contract interfaces. Implementing authorization checks requires additional computational resources, thus, reducing resource efficiency.

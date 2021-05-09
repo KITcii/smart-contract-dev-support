@@ -1,13 +1,13 @@
 # Checks-Effects-Interactions Pattern
 
 ## Context
-The Checks-Effects-Interactions Pattern is applicable when smart contracts interact with other smart contracts to prevent reentrancy attacks. Reentrancy attacks can occur when a smart conntract makes function calls in an inconsistent state. An inconsistent state is characterized by inconsistent values in a smart contract. For example, assets of an account are transferred from a smart contract to another address but the variables that keep track of that account's balance are updated after the transfer.
+The Checks-Effects-Interactions Pattern is applicable when smart contracts interact with other smart contracts to prevent reentrancy attacks. Reentrancy attacks can occur when a smart contract makes function calls in an inconsistent state. An inconsistent state is characterized by inconsistent values in a smart contract. For example, assets of an account are transferred from a smart contract to another address but the variables that keep track of that account's balance are updated after the transfer.
 
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 ## Problem
-The objective of the Checks-Effects-Interactions Pattern is to prevent reentrancy attacks from being successfull. Reentrancy should not be fully prevented but should be aborted after a certain condition is met. No additional instructions should be implemented in the smart contract. The problem is if a condition in a smart contract (e.g., `if(…)`) the values of the variables used in the condition are updated too late, it may lead to unintended program flow. For example, late updates of such variables could lead to numerous unintended recursions during the execution of smart contract functions (referred to as reentrancy) because a condition cannot be validated as false to interrupt execution. 
+The objective of the Checks-Effects-Interactions Pattern is to prevent reentrancy attacks from being successful. Reentrancy should not be fully prevented but should be aborted after a certain condition is met. No additional instructions should be implemented in the smart contract. The problem is if a condition in a smart contract (e.g., `if(…)`) the values of the variables used in the condition are updated too late, it may lead to unintended program flow. For example, late updates of such variables could lead to numerous unintended recursions during the execution of smart contract functions (referred to as reentrancy) because a condition cannot be validated as false to interrupt execution. 
 ## Forces
-The main force involved in the Checks-Effects-Interactions Pattern is implementation soundness particulary semantic soundness as the application of the Checks-Effects-Interactions Pattern prevents unintended program flow in smart contracts caused by reentrancy attacks.
+The main force involved in the Checks-Effects-Interactions Pattern is implementation soundness particularly semantic soundness as the application of the Checks-Effects-Interactions Pattern prevents unintended program flow in smart contracts caused by reentrancy attacks.
 
 ## Solution
 Developers must first update values of all variables used in the condition (e.g., `withdraw(...)`) before proceeding with the execution of smart contract code.

@@ -19,8 +19,8 @@ Instead of using the ``selfdestruct(...)`` operation developers should instead d
 pragma solidity 0.7.0;
 
 contract DeactivationAntipattern {
-    function close() public onlyOwner { 
-      selfdestruct(owner); 
+    function close() public { 
+      selfdestruct(msg.sender); 
     }
 }
 ```
