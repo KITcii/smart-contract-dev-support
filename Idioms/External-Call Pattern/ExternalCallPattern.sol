@@ -11,15 +11,15 @@ contract ExternalContract {
 contract ExternalCallPattern {
     event Response(string text);
 
-    modifier isContract(address _externalAddress) view internal returns (bool) {
+    function isContract(address _externalAddress) view internal returns (bool) {
         uint size;
         assembly { size := extcodesize(_externalAddress) }
         require (size > 0);
-        _;
+        return true;
     }
 
     function doSomething(address _externalAddress, string memory _text1,
-      string memory _text2) public isContract(_externalAddress) {
+      string memory _text2) public {
         // Check if a smart contract is available at the given address to avoid, for example, asset loss when sending asset
         require(isContract(_externalAddress), "No smart contract available at given address!");
 
