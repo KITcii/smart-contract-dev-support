@@ -3,6 +3,19 @@ This repository contains software design patterns to address common challenges i
 
 We encourage you to support us in maintaining this repository and welcome your questions and comments on the software design patterns. To comment the software design patterns, please open an [issue](https://github.com/KITcii/smart-contract-dev-support/issues) for specific feedback on a software design pattern or post your general comments into the [discussion section](https://github.com/KITcii/smart-contract-dev-support/discussions).
 
+## Quickstart Test Setup
+We have created a few tests for our patterns.
+### Setup
+Install Truffle and Ganache
+
+Launch Ganache:
+
+    npx ganache-cli -l 1000000000
+    
+Start Truffle Test:
+
+    truffle test     
+
 ## Overview of Software Design Patterns
 
 ### Architectural Patterns
