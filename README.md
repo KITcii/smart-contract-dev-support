@@ -12,7 +12,8 @@ Launch Ganache:
 
     npx ganache-cli -l 1000000000
     
-Start Truffle Test.
+Start Truffle Test:
+
     truffle test     
 
 ## Overview of Software Design Patterns
