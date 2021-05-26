@@ -1,27 +1,43 @@
-const ChecksEffectsInteractionsAntipattern = artifacts.require("ChecksEffectsInteractionsAntipattern");
+const tc = artifacts.require("ChecksEffectsInteractionsAntipattern");
+const attacker_contract = artifacts.require('Attacker.sol');
 
-contract("ChecksEffectsInteractionsAntipattern", (accounts) => {
-    let [alice, bob] = accounts;
-    let contractInstance;
+contract('ChecksEffectsInteractionsAntipattern', async (accounts) => {
+
+    let victim;
+
+    // Runs before all tests in this block.
+    // Read about .new() VS .deployed() here:
+    // https://twitter.com/zulhhandyplast/status/1026181801239171072
     before(async () => {
-        const contractInstance = await ChecksEffectsInteractionsAntipattern.new({from: alice});
-        //const contractInstance = await ChecksEffectsInteractionsAntipattern.new("0x0000000000000000000000000000000000000000", 900, alice, {from: accounts[alice]});
-	        console.log(`Successfully deployed ChecksEffectsInteractionsAntipattern for Market Authority with address: ${contractInstance.address}`);
-    });
-
-    it("should be able to do something", async () => {
-       //let result = await contractInstance.receive.value(10)({from: alice});
-       //value optional test call
-    //    const contractInstance = await ChecksEffectsInteractionsAntipattern.new({from: alice});
-    //    let result = await web3.eth.sendTransaction({from: alice, to: contractInstance.address, value: 10000});
-
-    //    assert.equal(result.receipt.status, true);
-
-       //instance.sendTransaction({...}).then(function(result) {
-        // Same transaction result object as above.
-       // });
-
+        victim = await tc.new();
     })
 
+    it('TestContract balance should starts with 0 ETH', async () => {
+        let balance = await web3.eth.getBalance(victim.address);
+        assert.equal(balance, 0);
+    })
+
+    it('TestContract balance should has 11 ETH after deposit', async () => {
+        let eleven_eth = web3.utils.toWei("11", "ether");
+        await web3.eth.sendTransaction({from: accounts[1], to: victim.address, value: eleven_eth});
+        let balance_wei = await web3.eth.getBalance(victim.address);
+        let balance_ether = web3.utils.fromWei(balance_wei, "ether");
+        assert.equal(balance_ether, 11);
+    })
+
+    it('Should be safe from Reentrancy', async () => {
+        attacker = await attacker_contract.new(victim.address);
+        let one_eth = web3.utils.toWei("1", "ether");
+        await web3.eth.sendTransaction({from: accounts[1], to: attacker.address, value: one_eth});
+
+        console.log(await web3.eth.getBalance(victim.address));
+        console.log(await web3.eth.getBalance(attacker.address));
+        await attacker.set_balance();
+        result = await attacker.attack();
+        //console.log(result)
+        console.log(await web3.eth.getBalance(victim.address));
+        console.log(await web3.eth.getBalance(attacker.address));
+        assert.equal(one_eth, await web3.eth.getBalance(attacker.address));
+    })    
 
 })

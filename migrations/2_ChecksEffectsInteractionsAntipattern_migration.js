@@ -1,5 +1,5 @@
-const Victim = artifacts.require('./ChecksEffectsInteractionsAntipattern.sol')
-const Attacker = artifacts.require('./Attacker.sol')
+const Victim = artifacts.require('ChecksEffectsInteractionsAntipattern.sol')
+const Attacker = artifacts.require('Attacker.sol')
 
 module.exports = function(deployer) {
   deployer
