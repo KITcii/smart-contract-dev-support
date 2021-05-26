@@ -1,1 +1,0 @@
-npx ganache-cli -l 1000000000
