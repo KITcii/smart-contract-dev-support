@@ -14,6 +14,6 @@ contract OverflowAntipattern {
            }
        }
         
-       emit loopCompleted (counter);
+       emit LoopCompleted (counter);
     }
 }

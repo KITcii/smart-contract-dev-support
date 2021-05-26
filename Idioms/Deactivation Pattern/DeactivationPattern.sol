@@ -5,6 +5,7 @@ contract DeactivationPattern {
     
     modifier checkActive(){
       require (_activated);
+      _;
     }
     
     function anyFunction() checkActive public {
