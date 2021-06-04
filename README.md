@@ -3,8 +3,8 @@ This repository contains software design patterns to address common challenges i
 
 We encourage you to support us in maintaining this repository and welcome your questions and comments on the software design patterns. To comment the software design patterns, please open an [issue](https://github.com/KITcii/smart-contract-dev-support/issues) for specific feedback on a software design pattern or post your general comments into the [discussion section](https://github.com/KITcii/smart-contract-dev-support/discussions).
 
-## project structure
-We have created a few tests for our patterns.
+## Project Structure
+The theoretical pattern descriptions can be found in the [pattern directory](patterns/). Or just follow the links from the tables below. For practical examples and demonstrations take a look at our [project-examples](project-examples/). 
    
 
 ## Overview of Software Design Patterns
