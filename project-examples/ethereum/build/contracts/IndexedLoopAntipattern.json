@@ -1,0 +1,2136 @@
+{
+  "contractName": "IndexedLoopAntipattern",
+  "abi": [
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    },
+    {
+      "inputs": [],
+      "name": "payout",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"payout\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Design Patterns/Indexed-Loop Pattern/IndexedLoopAntipattern.sol\":\"IndexedLoopAntipattern\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Design Patterns/Indexed-Loop Pattern/IndexedLoopAntipattern.sol\":{\"keccak256\":\"0xc0e37ec586886b307e4b2f735c378ff8e914e0990686c446e3823259e7b4fe79\",\"urls\":[\"bzz-raw://607750ffdcb9a6ea95f80e7b295b5a7176254b28a167400776a67cefcc1d0d1a\",\"dweb:/ipfs/Qma4o4pZDZjchKfFAzTr5pKeo3tYAFSYDTkjd1Dr8x4Usk\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506102db806100206000396000f3fe6080604052600436106100225760003560e01c806363bd1d4a146100e3576100de565b366100de5761002f610275565b60405180604001604052803373ffffffffffffffffffffffffffffffffffffffff168152602001348152509050600081908060018154018082558091505060019003906000526020600020906002020160009091909190915060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060208201518160010155505050005b600080fd5b3480156100ef57600080fd5b506100f86100fa565b005b60005b60008054905081101561027257600080828154811061011857fe5b906000526020600020906002020160000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166000838154811061016d57fe5b90600052602060002090600202016001015460405180600001905060006040518083038185875af1925050503d80600081146101c5576040519150601f19603f3d011682016040523d82523d6000602084013e6101ca565b606091505b5050905080610241576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260118152602001807f416e206572726f72206f6363757265642e00000000000000000000000000000081525060200191505060405180910390fd5b600080838154811061024f57fe5b9060005260206000209060020201600101819055508180600101925050506100fd565b50565b6040518060400160405280600073ffffffffffffffffffffffffffffffffffffffff16815260200160008152509056fea26469706673582212205e2f6a0ebce03fb74a5eca8ed4df71c5a611e04e535943012de50652cea9d8ef64736f6c63430007000033",
+  "deployedBytecode": "0x6080604052600436106100225760003560e01c806363bd1d4a146100e3576100de565b366100de5761002f610275565b60405180604001604052803373ffffffffffffffffffffffffffffffffffffffff168152602001348152509050600081908060018154018082558091505060019003906000526020600020906002020160009091909190915060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060208201518160010155505050005b600080fd5b3480156100ef57600080fd5b506100f86100fa565b005b60005b60008054905081101561027257600080828154811061011857fe5b906000526020600020906002020160000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166000838154811061016d57fe5b90600052602060002090600202016001015460405180600001905060006040518083038185875af1925050503d80600081146101c5576040519150601f19603f3d011682016040523d82523d6000602084013e6101ca565b606091505b5050905080610241576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260118152602001807f416e206572726f72206f6363757265642e00000000000000000000000000000081525060200191505060405180910390fd5b600080838154811061024f57fe5b9060005260206000209060020201600101819055508180600101925050506100fd565b50565b6040518060400160405280600073ffffffffffffffffffffffffffffffffffffffff16815260200160008152509056fea26469706673582212205e2f6a0ebce03fb74a5eca8ed4df71c5a611e04e535943012de50652cea9d8ef64736f6c63430007000033",
+  "immutableReferences": {},
+  "sourceMap": "25:802:2:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "25:802:2:-:0;;;;;;;;;;;;;;;;;;;;;;;212:14;;:::i;:::-;229:28;;;;;;;;235:10;229:28;;;;;;247:9;229:28;;;212:45;;267:6;279:1;267:14;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;175:113;25:802;;;;;298:527;;;;;;;;;;;;;:::i;:::-;;;333:9;511:307;521:6;:13;;;;517:1;:17;511:307;;;642:12;660:6;667:1;660:9;;;;;;;;;;;;;;;;;;:14;;;;;;;;;;;;:19;;686:6;693:1;686:9;;;;;;;;;;;;;;;;;;:15;;;660:46;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;641:65;;;728:7;720:37;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;789:1;771:6;778:1;771:9;;;;;;;;;;;;;;;;;;:15;;:19;;;;804:3;;;;;;;511:307;;;;298:527;:::o;-1:-1:-1:-;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.7.0;\n\ncontract IndexedLoopAntipattern {\n    struct Payee {\n        address payable addr;\n        uint256 value;\n    }\n    \n    Payee[] payees;\n        \n    receive() external payable {\n        Payee memory p = Payee(msg.sender, msg.value);\n        payees.push(p);\n    }\n    \n    function payout() public {\n        uint256 i = 0;\n        //If call fails after i iterations due to a gas related issue, there is no way to resume the\n        //loop if calling the function again\n        \n        while(i < payees.length) {\n            // The require statement will block the loop if an asset transfer always fails\n            (bool success, ) = payees[i].addr.call{value:payees[i].value}(\"\");\n            require(success, \"An error occured.\");\n            payees[i].value = 0;\n            i++;\n        } \n    }\n}\n",
+  "sourcePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Design Patterns/Indexed-Loop Pattern/IndexedLoopAntipattern.sol",
+  "ast": {
+    "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Design Patterns/Indexed-Loop Pattern/IndexedLoopAntipattern.sol",
+    "exportedSymbols": {
+      "IndexedLoopAntipattern": [
+        237
+      ]
+    },
+    "id": 238,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 165,
+        "literals": [
+          "solidity",
+          "^",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 237,
+        "linearizedBaseContracts": [
+          237
+        ],
+        "name": "IndexedLoopAntipattern",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IndexedLoopAntipattern.Payee",
+            "id": 170,
+            "members": [
+              {
+                "constant": false,
+                "id": 167,
+                "mutability": "mutable",
+                "name": "addr",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 170,
+                "src": "86:20:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address_payable",
+                  "typeString": "address payable"
+                },
+                "typeName": {
+                  "id": 166,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "86:15:2",
+                  "stateMutability": "payable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 169,
+                "mutability": "mutable",
+                "name": "value",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 170,
+                "src": "116:13:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 168,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "116:7:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Payee",
+            "nodeType": "StructDefinition",
+            "scope": 237,
+            "src": "63:73:2",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 173,
+            "mutability": "mutable",
+            "name": "payees",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 237,
+            "src": "146:14:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_Payee_$170_storage_$dyn_storage",
+              "typeString": "struct IndexedLoopAntipattern.Payee[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 171,
+                "name": "Payee",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 170,
+                "src": "146:5:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Payee_$170_storage_ptr",
+                  "typeString": "struct IndexedLoopAntipattern.Payee"
+                }
+              },
+              "id": 172,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "146:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_Payee_$170_storage_$dyn_storage_ptr",
+                "typeString": "struct IndexedLoopAntipattern.Payee[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 191,
+              "nodeType": "Block",
+              "src": "202:86:2",
+              "statements": [
+                {
+                  "assignments": [
+                    177
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 177,
+                      "mutability": "mutable",
+                      "name": "p",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 191,
+                      "src": "212:14:2",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Payee_$170_memory_ptr",
+                        "typeString": "struct IndexedLoopAntipattern.Payee"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 176,
+                        "name": "Payee",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 170,
+                        "src": "212:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Payee_$170_storage_ptr",
+                          "typeString": "struct IndexedLoopAntipattern.Payee"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 184,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 179,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -15,
+                          "src": "235:3:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 180,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "235:10:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 181,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -15,
+                          "src": "247:3:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 182,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "value",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "247:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 178,
+                      "name": "Payee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 170,
+                      "src": "229:5:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_Payee_$170_storage_ptr_$",
+                        "typeString": "type(struct IndexedLoopAntipattern.Payee storage pointer)"
+                      }
+                    },
+                    "id": 183,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "229:28:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Payee_$170_memory_ptr",
+                      "typeString": "struct IndexedLoopAntipattern.Payee memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "212:45:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 188,
+                        "name": "p",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 177,
+                        "src": "279:1:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Payee_$170_memory_ptr",
+                          "typeString": "struct IndexedLoopAntipattern.Payee memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Payee_$170_memory_ptr",
+                          "typeString": "struct IndexedLoopAntipattern.Payee memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 185,
+                        "name": "payees",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 173,
+                        "src": "267:6:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Payee_$170_storage_$dyn_storage",
+                          "typeString": "struct IndexedLoopAntipattern.Payee storage ref[] storage ref"
+                        }
+                      },
+                      "id": 187,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "267:11:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Payee_$170_storage_$returns$__$",
+                        "typeString": "function (struct IndexedLoopAntipattern.Payee storage ref)"
+                      }
+                    },
+                    "id": 189,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "267:14:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 190,
+                  "nodeType": "ExpressionStatement",
+                  "src": "267:14:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 192,
+            "implemented": true,
+            "kind": "receive",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 174,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "182:2:2"
+            },
+            "returnParameters": {
+              "id": 175,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "202:0:2"
+            },
+            "scope": 237,
+            "src": "175:113:2",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 235,
+              "nodeType": "Block",
+              "src": "323:502:2",
+              "statements": [
+                {
+                  "assignments": [
+                    196
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 196,
+                      "mutability": "mutable",
+                      "name": "i",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 235,
+                      "src": "333:9:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 195,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "333:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 198,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "hexValue": "30",
+                    "id": 197,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "345:1:2",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_0_by_1",
+                      "typeString": "int_const 0"
+                    },
+                    "value": "0"
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "333:13:2"
+                },
+                {
+                  "body": {
+                    "id": 233,
+                    "nodeType": "Block",
+                    "src": "536:282:2",
+                    "statements": [
+                      {
+                        "assignments": [
+                          204,
+                          null
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 204,
+                            "mutability": "mutable",
+                            "name": "success",
+                            "nodeType": "VariableDeclaration",
+                            "overrides": null,
+                            "scope": 233,
+                            "src": "642:12:2",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bool",
+                              "typeString": "bool"
+                            },
+                            "typeName": {
+                              "id": 203,
+                              "name": "bool",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "642:4:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              }
+                            },
+                            "value": null,
+                            "visibility": "internal"
+                          },
+                          null
+                        ],
+                        "id": 217,
+                        "initialValue": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "hexValue": "",
+                              "id": 215,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "string",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "703:2:2",
+                              "subdenomination": null,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_stringliteral_c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+                                "typeString": "literal_string \"\""
+                              },
+                              "value": ""
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_stringliteral_c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+                                "typeString": "literal_string \"\""
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_stringliteral_c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+                                  "typeString": "literal_string \"\""
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": null,
+                                "expression": {
+                                  "argumentTypes": null,
+                                  "baseExpression": {
+                                    "argumentTypes": null,
+                                    "id": 205,
+                                    "name": "payees",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 173,
+                                    "src": "660:6:2",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_array$_t_struct$_Payee_$170_storage_$dyn_storage",
+                                      "typeString": "struct IndexedLoopAntipattern.Payee storage ref[] storage ref"
+                                    }
+                                  },
+                                  "id": 207,
+                                  "indexExpression": {
+                                    "argumentTypes": null,
+                                    "id": 206,
+                                    "name": "i",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 196,
+                                    "src": "667:1:2",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "nodeType": "IndexAccess",
+                                  "src": "660:9:2",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_struct$_Payee_$170_storage",
+                                    "typeString": "struct IndexedLoopAntipattern.Payee storage ref"
+                                  }
+                                },
+                                "id": 208,
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberName": "addr",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 167,
+                                "src": "660:14:2",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                }
+                              },
+                              "id": 209,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "call",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": null,
+                              "src": "660:19:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_function_barecall_payable$_t_bytes_memory_ptr_$returns$_t_bool_$_t_bytes_memory_ptr_$",
+                                "typeString": "function (bytes memory) payable returns (bool,bytes memory)"
+                              }
+                            },
+                            "id": 214,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "names": [
+                              "value"
+                            ],
+                            "nodeType": "FunctionCallOptions",
+                            "options": [
+                              {
+                                "argumentTypes": null,
+                                "expression": {
+                                  "argumentTypes": null,
+                                  "baseExpression": {
+                                    "argumentTypes": null,
+                                    "id": 210,
+                                    "name": "payees",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 173,
+                                    "src": "686:6:2",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_array$_t_struct$_Payee_$170_storage_$dyn_storage",
+                                      "typeString": "struct IndexedLoopAntipattern.Payee storage ref[] storage ref"
+                                    }
+                                  },
+                                  "id": 212,
+                                  "indexExpression": {
+                                    "argumentTypes": null,
+                                    "id": 211,
+                                    "name": "i",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 196,
+                                    "src": "693:1:2",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "nodeType": "IndexAccess",
+                                  "src": "686:9:2",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_struct$_Payee_$170_storage",
+                                    "typeString": "struct IndexedLoopAntipattern.Payee storage ref"
+                                  }
+                                },
+                                "id": 213,
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberName": "value",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 169,
+                                "src": "686:15:2",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              }
+                            ],
+                            "src": "660:42:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_barecall_payable$_t_bytes_memory_ptr_$returns$_t_bool_$_t_bytes_memory_ptr_$value",
+                              "typeString": "function (bytes memory) payable returns (bool,bytes memory)"
+                            }
+                          },
+                          "id": 216,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "660:46:2",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$_t_bool_$_t_bytes_memory_ptr_$",
+                            "typeString": "tuple(bool,bytes memory)"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "641:65:2"
+                      },
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "id": 219,
+                              "name": "success",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 204,
+                              "src": "728:7:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              }
+                            },
+                            {
+                              "argumentTypes": null,
+                              "hexValue": "416e206572726f72206f6363757265642e",
+                              "id": 220,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "string",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "737:19:2",
+                              "subdenomination": null,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_stringliteral_046659cb1c0da52833182bba3580ca188c3faac49e341ddbd7d0c62fb2a19ed1",
+                                "typeString": "literal_string \"An error occured.\""
+                              },
+                              "value": "An error occured."
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              },
+                              {
+                                "typeIdentifier": "t_stringliteral_046659cb1c0da52833182bba3580ca188c3faac49e341ddbd7d0c62fb2a19ed1",
+                                "typeString": "literal_string \"An error occured.\""
+                              }
+                            ],
+                            "id": 218,
+                            "name": "require",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [
+                              -18,
+                              -18
+                            ],
+                            "referencedDeclaration": -18,
+                            "src": "720:7:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                              "typeString": "function (bool,string memory) pure"
+                            }
+                          },
+                          "id": 221,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "720:37:2",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 222,
+                        "nodeType": "ExpressionStatement",
+                        "src": "720:37:2"
+                      },
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 228,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 223,
+                                "name": "payees",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 173,
+                                "src": "771:6:2",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_array$_t_struct$_Payee_$170_storage_$dyn_storage",
+                                  "typeString": "struct IndexedLoopAntipattern.Payee storage ref[] storage ref"
+                                }
+                              },
+                              "id": 225,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "id": 224,
+                                "name": "i",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 196,
+                                "src": "778:1:2",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "771:9:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Payee_$170_storage",
+                                "typeString": "struct IndexedLoopAntipattern.Payee storage ref"
+                              }
+                            },
+                            "id": 226,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "memberName": "value",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 169,
+                            "src": "771:15:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 227,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "789:1:2",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "src": "771:19:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 229,
+                        "nodeType": "ExpressionStatement",
+                        "src": "771:19:2"
+                      },
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 231,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "UnaryOperation",
+                          "operator": "++",
+                          "prefix": false,
+                          "src": "804:3:2",
+                          "subExpression": {
+                            "argumentTypes": null,
+                            "id": 230,
+                            "name": "i",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 196,
+                            "src": "804:1:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 232,
+                        "nodeType": "ExpressionStatement",
+                        "src": "804:3:2"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 202,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 199,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 196,
+                      "src": "517:1:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 200,
+                        "name": "payees",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 173,
+                        "src": "521:6:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Payee_$170_storage_$dyn_storage",
+                          "typeString": "struct IndexedLoopAntipattern.Payee storage ref[] storage ref"
+                        }
+                      },
+                      "id": 201,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "length",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "521:13:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "517:17:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 234,
+                  "nodeType": "WhileStatement",
+                  "src": "511:307:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "63bd1d4a",
+            "id": 236,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "payout",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 193,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "313:2:2"
+            },
+            "returnParameters": {
+              "id": 194,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "323:0:2"
+            },
+            "scope": 237,
+            "src": "298:527:2",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 238,
+        "src": "25:802:2"
+      }
+    ],
+    "src": "0:828:2"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Design Patterns/Indexed-Loop Pattern/IndexedLoopAntipattern.sol",
+      "exportedSymbols": {
+        "IndexedLoopAntipattern": [
+          237
+        ]
+      },
+      "license": null
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.7",
+            ".0"
+          ]
+        },
+        "id": 165,
+        "name": "PragmaDirective",
+        "src": "0:23:2"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            237
+          ],
+          "name": "IndexedLoopAntipattern",
+          "scope": 238
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "IndexedLoopAntipattern.Payee",
+              "name": "Payee",
+              "scope": 237,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "addr",
+                  "overrides": null,
+                  "scope": 170,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address payable",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "payable",
+                      "type": "address payable"
+                    },
+                    "id": 166,
+                    "name": "ElementaryTypeName",
+                    "src": "86:15:2"
+                  }
+                ],
+                "id": 167,
+                "name": "VariableDeclaration",
+                "src": "86:20:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "value",
+                  "overrides": null,
+                  "scope": 170,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 168,
+                    "name": "ElementaryTypeName",
+                    "src": "116:7:2"
+                  }
+                ],
+                "id": 169,
+                "name": "VariableDeclaration",
+                "src": "116:13:2"
+              }
+            ],
+            "id": 170,
+            "name": "StructDefinition",
+            "src": "63:73:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "payees",
+              "overrides": null,
+              "scope": 237,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct IndexedLoopAntipattern.Payee[]",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "struct IndexedLoopAntipattern.Payee[]"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Payee",
+                      "referencedDeclaration": 170,
+                      "type": "struct IndexedLoopAntipattern.Payee"
+                    },
+                    "id": 171,
+                    "name": "UserDefinedTypeName",
+                    "src": "146:5:2"
+                  }
+                ],
+                "id": 172,
+                "name": "ArrayTypeName",
+                "src": "146:7:2"
+              }
+            ],
+            "id": 173,
+            "name": "VariableDeclaration",
+            "src": "146:14:2"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "receive",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "overrides": null,
+              "scope": 237,
+              "stateMutability": "payable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 174,
+                "name": "ParameterList",
+                "src": "182:2:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 175,
+                "name": "ParameterList",
+                "src": "202:0:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        177
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "mutability": "mutable",
+                          "name": "p",
+                          "overrides": null,
+                          "scope": 191,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "struct IndexedLoopAntipattern.Payee",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "Payee",
+                              "referencedDeclaration": 170,
+                              "type": "struct IndexedLoopAntipattern.Payee"
+                            },
+                            "id": 176,
+                            "name": "UserDefinedTypeName",
+                            "src": "212:5:2"
+                          }
+                        ],
+                        "id": 177,
+                        "name": "VariableDeclaration",
+                        "src": "212:14:2"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": true,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "struct IndexedLoopAntipattern.Payee memory",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 170,
+                              "type": "type(struct IndexedLoopAntipattern.Payee storage pointer)",
+                              "value": "Payee"
+                            },
+                            "id": 178,
+                            "name": "Identifier",
+                            "src": "229:5:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address payable"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": -15,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 179,
+                                "name": "Identifier",
+                                "src": "235:3:2"
+                              }
+                            ],
+                            "id": 180,
+                            "name": "MemberAccess",
+                            "src": "235:10:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "value",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": -15,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 181,
+                                "name": "Identifier",
+                                "src": "247:3:2"
+                              }
+                            ],
+                            "id": 182,
+                            "name": "MemberAccess",
+                            "src": "247:9:2"
+                          }
+                        ],
+                        "id": 183,
+                        "name": "FunctionCall",
+                        "src": "229:28:2"
+                      }
+                    ],
+                    "id": 184,
+                    "name": "VariableDeclarationStatement",
+                    "src": "212:45:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_struct$_Payee_$170_memory_ptr",
+                                  "typeString": "struct IndexedLoopAntipattern.Payee memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (struct IndexedLoopAntipattern.Payee storage ref)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 173,
+                                  "type": "struct IndexedLoopAntipattern.Payee storage ref[] storage ref",
+                                  "value": "payees"
+                                },
+                                "id": 185,
+                                "name": "Identifier",
+                                "src": "267:6:2"
+                              }
+                            ],
+                            "id": 187,
+                            "name": "MemberAccess",
+                            "src": "267:11:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 177,
+                              "type": "struct IndexedLoopAntipattern.Payee memory",
+                              "value": "p"
+                            },
+                            "id": 188,
+                            "name": "Identifier",
+                            "src": "279:1:2"
+                          }
+                        ],
+                        "id": 189,
+                        "name": "FunctionCall",
+                        "src": "267:14:2"
+                      }
+                    ],
+                    "id": 190,
+                    "name": "ExpressionStatement",
+                    "src": "267:14:2"
+                  }
+                ],
+                "id": 191,
+                "name": "Block",
+                "src": "202:86:2"
+              }
+            ],
+            "id": 192,
+            "name": "FunctionDefinition",
+            "src": "175:113:2"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "63bd1d4a",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "payout",
+              "overrides": null,
+              "scope": 237,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 193,
+                "name": "ParameterList",
+                "src": "313:2:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 194,
+                "name": "ParameterList",
+                "src": "323:0:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        196
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "mutability": "mutable",
+                          "name": "i",
+                          "overrides": null,
+                          "scope": 235,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint256",
+                              "type": "uint256"
+                            },
+                            "id": 195,
+                            "name": "ElementaryTypeName",
+                            "src": "333:7:2"
+                          }
+                        ],
+                        "id": 196,
+                        "name": "VariableDeclaration",
+                        "src": "333:9:2"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "30",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "number",
+                          "type": "int_const 0",
+                          "value": "0"
+                        },
+                        "id": 197,
+                        "name": "Literal",
+                        "src": "345:1:2"
+                      }
+                    ],
+                    "id": 198,
+                    "name": "VariableDeclarationStatement",
+                    "src": "333:13:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "<",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 196,
+                              "type": "uint256",
+                              "value": "i"
+                            },
+                            "id": 199,
+                            "name": "Identifier",
+                            "src": "517:1:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "length",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 173,
+                                  "type": "struct IndexedLoopAntipattern.Payee storage ref[] storage ref",
+                                  "value": "payees"
+                                },
+                                "id": 200,
+                                "name": "Identifier",
+                                "src": "521:6:2"
+                              }
+                            ],
+                            "id": 201,
+                            "name": "MemberAccess",
+                            "src": "521:13:2"
+                          }
+                        ],
+                        "id": 202,
+                        "name": "BinaryOperation",
+                        "src": "517:17:2"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "assignments": [
+                                204,
+                                null
+                              ]
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "constant": false,
+                                  "mutability": "mutable",
+                                  "name": "success",
+                                  "overrides": null,
+                                  "scope": 233,
+                                  "stateVariable": false,
+                                  "storageLocation": "default",
+                                  "type": "bool",
+                                  "value": null,
+                                  "visibility": "internal"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "name": "bool",
+                                      "type": "bool"
+                                    },
+                                    "id": 203,
+                                    "name": "ElementaryTypeName",
+                                    "src": "642:4:2"
+                                  }
+                                ],
+                                "id": 204,
+                                "name": "VariableDeclaration",
+                                "src": "642:12:2"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "tryCall": false,
+                                  "type": "tuple(bool,bytes memory)",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_stringliteral_c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+                                          "typeString": "literal_string \"\""
+                                        }
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "names": [
+                                        "value"
+                                      ],
+                                      "type": "function (bytes memory) payable returns (bool,bytes memory)"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": [
+                                            {
+                                              "typeIdentifier": "t_stringliteral_c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+                                              "typeString": "literal_string \"\""
+                                            }
+                                          ],
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "member_name": "call",
+                                          "referencedDeclaration": null,
+                                          "type": "function (bytes memory) payable returns (bool,bytes memory)"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "isConstant": false,
+                                              "isLValue": true,
+                                              "isPure": false,
+                                              "lValueRequested": false,
+                                              "member_name": "addr",
+                                              "referencedDeclaration": 167,
+                                              "type": "address payable"
+                                            },
+                                            "children": [
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": null,
+                                                  "isConstant": false,
+                                                  "isLValue": true,
+                                                  "isPure": false,
+                                                  "lValueRequested": false,
+                                                  "type": "struct IndexedLoopAntipattern.Payee storage ref"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "attributes": {
+                                                      "argumentTypes": null,
+                                                      "overloadedDeclarations": [
+                                                        null
+                                                      ],
+                                                      "referencedDeclaration": 173,
+                                                      "type": "struct IndexedLoopAntipattern.Payee storage ref[] storage ref",
+                                                      "value": "payees"
+                                                    },
+                                                    "id": 205,
+                                                    "name": "Identifier",
+                                                    "src": "660:6:2"
+                                                  },
+                                                  {
+                                                    "attributes": {
+                                                      "argumentTypes": null,
+                                                      "overloadedDeclarations": [
+                                                        null
+                                                      ],
+                                                      "referencedDeclaration": 196,
+                                                      "type": "uint256",
+                                                      "value": "i"
+                                                    },
+                                                    "id": 206,
+                                                    "name": "Identifier",
+                                                    "src": "667:1:2"
+                                                  }
+                                                ],
+                                                "id": 207,
+                                                "name": "IndexAccess",
+                                                "src": "660:9:2"
+                                              }
+                                            ],
+                                            "id": 208,
+                                            "name": "MemberAccess",
+                                            "src": "660:14:2"
+                                          }
+                                        ],
+                                        "id": 209,
+                                        "name": "MemberAccess",
+                                        "src": "660:19:2"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": true,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "member_name": "value",
+                                          "referencedDeclaration": 169,
+                                          "type": "uint256"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "isConstant": false,
+                                              "isLValue": true,
+                                              "isPure": false,
+                                              "lValueRequested": false,
+                                              "type": "struct IndexedLoopAntipattern.Payee storage ref"
+                                            },
+                                            "children": [
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": null,
+                                                  "overloadedDeclarations": [
+                                                    null
+                                                  ],
+                                                  "referencedDeclaration": 173,
+                                                  "type": "struct IndexedLoopAntipattern.Payee storage ref[] storage ref",
+                                                  "value": "payees"
+                                                },
+                                                "id": 210,
+                                                "name": "Identifier",
+                                                "src": "686:6:2"
+                                              },
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": null,
+                                                  "overloadedDeclarations": [
+                                                    null
+                                                  ],
+                                                  "referencedDeclaration": 196,
+                                                  "type": "uint256",
+                                                  "value": "i"
+                                                },
+                                                "id": 211,
+                                                "name": "Identifier",
+                                                "src": "693:1:2"
+                                              }
+                                            ],
+                                            "id": 212,
+                                            "name": "IndexAccess",
+                                            "src": "686:9:2"
+                                          }
+                                        ],
+                                        "id": 213,
+                                        "name": "MemberAccess",
+                                        "src": "686:15:2"
+                                      }
+                                    ],
+                                    "id": 214,
+                                    "name": "FunctionCallOptions",
+                                    "src": "660:42:2"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "hexvalue": "",
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "subdenomination": null,
+                                      "token": "string",
+                                      "type": "literal_string \"\"",
+                                      "value": ""
+                                    },
+                                    "id": 215,
+                                    "name": "Literal",
+                                    "src": "703:2:2"
+                                  }
+                                ],
+                                "id": 216,
+                                "name": "FunctionCall",
+                                "src": "660:46:2"
+                              }
+                            ],
+                            "id": 217,
+                            "name": "VariableDeclarationStatement",
+                            "src": "641:65:2"
+                          },
+                          {
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "tryCall": false,
+                                  "type": "tuple()",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_bool",
+                                          "typeString": "bool"
+                                        },
+                                        {
+                                          "typeIdentifier": "t_stringliteral_046659cb1c0da52833182bba3580ca188c3faac49e341ddbd7d0c62fb2a19ed1",
+                                          "typeString": "literal_string \"An error occured.\""
+                                        }
+                                      ],
+                                      "overloadedDeclarations": [
+                                        -18,
+                                        -18
+                                      ],
+                                      "referencedDeclaration": -18,
+                                      "type": "function (bool,string memory) pure",
+                                      "value": "require"
+                                    },
+                                    "id": 218,
+                                    "name": "Identifier",
+                                    "src": "720:7:2"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 204,
+                                      "type": "bool",
+                                      "value": "success"
+                                    },
+                                    "id": 219,
+                                    "name": "Identifier",
+                                    "src": "728:7:2"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "hexvalue": "416e206572726f72206f6363757265642e",
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "subdenomination": null,
+                                      "token": "string",
+                                      "type": "literal_string \"An error occured.\"",
+                                      "value": "An error occured."
+                                    },
+                                    "id": 220,
+                                    "name": "Literal",
+                                    "src": "737:19:2"
+                                  }
+                                ],
+                                "id": 221,
+                                "name": "FunctionCall",
+                                "src": "720:37:2"
+                              }
+                            ],
+                            "id": 222,
+                            "name": "ExpressionStatement",
+                            "src": "720:37:2"
+                          },
+                          {
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "=",
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": true,
+                                      "member_name": "value",
+                                      "referencedDeclaration": 169,
+                                      "type": "uint256"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": true,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "type": "struct IndexedLoopAntipattern.Payee storage ref"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 173,
+                                              "type": "struct IndexedLoopAntipattern.Payee storage ref[] storage ref",
+                                              "value": "payees"
+                                            },
+                                            "id": 223,
+                                            "name": "Identifier",
+                                            "src": "771:6:2"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 196,
+                                              "type": "uint256",
+                                              "value": "i"
+                                            },
+                                            "id": 224,
+                                            "name": "Identifier",
+                                            "src": "778:1:2"
+                                          }
+                                        ],
+                                        "id": 225,
+                                        "name": "IndexAccess",
+                                        "src": "771:9:2"
+                                      }
+                                    ],
+                                    "id": 226,
+                                    "name": "MemberAccess",
+                                    "src": "771:15:2"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "hexvalue": "30",
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "subdenomination": null,
+                                      "token": "number",
+                                      "type": "int_const 0",
+                                      "value": "0"
+                                    },
+                                    "id": 227,
+                                    "name": "Literal",
+                                    "src": "789:1:2"
+                                  }
+                                ],
+                                "id": 228,
+                                "name": "Assignment",
+                                "src": "771:19:2"
+                              }
+                            ],
+                            "id": 229,
+                            "name": "ExpressionStatement",
+                            "src": "771:19:2"
+                          },
+                          {
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "++",
+                                  "prefix": false,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 196,
+                                      "type": "uint256",
+                                      "value": "i"
+                                    },
+                                    "id": 230,
+                                    "name": "Identifier",
+                                    "src": "804:1:2"
+                                  }
+                                ],
+                                "id": 231,
+                                "name": "UnaryOperation",
+                                "src": "804:3:2"
+                              }
+                            ],
+                            "id": 232,
+                            "name": "ExpressionStatement",
+                            "src": "804:3:2"
+                          }
+                        ],
+                        "id": 233,
+                        "name": "Block",
+                        "src": "536:282:2"
+                      }
+                    ],
+                    "id": 234,
+                    "name": "WhileStatement",
+                    "src": "511:307:2"
+                  }
+                ],
+                "id": 235,
+                "name": "Block",
+                "src": "323:502:2"
+              }
+            ],
+            "id": 236,
+            "name": "FunctionDefinition",
+            "src": "298:527:2"
+          }
+        ],
+        "id": 237,
+        "name": "ContractDefinition",
+        "src": "25:802:2"
+      }
+    ],
+    "id": 238,
+    "name": "SourceUnit",
+    "src": "0:828:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.0+commit.9e61f92b.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.0",
+  "updatedAt": "2021-05-26T11:12:50.847Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
