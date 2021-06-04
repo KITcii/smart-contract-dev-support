@@ -10,36 +10,36 @@ We have created a few tests for our patterns.
 ## Overview of Software Design Patterns
 
 ### Architectural Patterns
-[Architectural Patterns](Architectural%20Patterns/README.md) | Usage | EOSIO | Ethereum | Hyperledger Fabric
+[Architectural Patterns](patterns/Architectural%20Patterns/README.md) | Usage | EOSIO | Ethereum | Hyperledger Fabric
 -------- | -------- | :-: | :-: | :-:
-[Façade Pattern](Architectural%20Patterns/Façade%20Pattern/README.md) | Enable secure orchestration of smart contract systems | &#x2611; | &#x2611; |
-[Name-Service Pattern](Architectural%20Patterns/Name-Service%20Pattern/README.md) | Create registry for smart contracts to assign intuitive names to smart contracts  | | &#x2611;  |
-[Observer Pattern](Architectural%20Patterns/Observer%20Pattern/README.md) |Automate communication of address changes due to updates in smart contracts  | |&#x2611;  |
-[Oracle Pattern](Architectural%20Patterns/Oracle%20Pattern/README.md) |Enable access to external data for smart contracts |&#x2611; |&#x2611;  |&#x2611;
-[Proxy Pattern](Architectural%20Patterns/Proxy%20Pattern/README.md) |Enable code updatability of smart contract | |&#x2611;  |
+[Façade Pattern](patterns/Architectural%20Patterns/Façade%20Pattern/README.md) | Enable secure orchestration of smart contract systems | &#x2611; | &#x2611; |
+[Name-Service Pattern](patterns/Architectural%20Patterns/Name-Service%20Pattern/README.md) | Create registry for smart contracts to assign intuitive names to smart contracts  | | &#x2611;  |
+[Observer Pattern](patterns/Architectural%20Patterns/Observer%20Pattern/README.md) |Automate communication of address changes due to updates in smart contracts  | |&#x2611;  |
+[Oracle Pattern](patterns/Architectural%20Patterns/Oracle%20Pattern/README.md) |Enable access to external data for smart contracts |&#x2611; |&#x2611;  |&#x2611;
+[Proxy Pattern](patterns/Architectural%20Patterns/Proxy%20Pattern/README.md) |Enable code updatability of smart contract | |&#x2611;  |
 
 ### Design Patterns
-[Design Patterns](Design%20Patterns/README.md) | Usage | EOSIO | Ethereum | Hyperledger Fabric
+[Design Patterns](patterns/Design%20Patterns/README.md) | Usage | EOSIO | Ethereum | Hyperledger Fabric
 -------- | -------- | :-: | :-: | :-:
-[Commitment Pattern](Design%20Patterns/Commitment%20Pattern/README.md) |Allow for binding commitment of values, which may remain secret until all values are to be revealed |&#x2611; |&#x2611; |&#x2611;
-[Event-Ordering Pattern](Design%20Patterns/Event-Ordering%20Pattern/README.md) | Ensure a transaction is only executed in a certain smart contract state |&#x2611; |&#x2611; |&#x2611;
-[Factory Pattern](Design%20Patterns/Factory%20Pattern/README.md#context) |Enable automatic redeployment of similar smart contracts  | |&#x2611;  |
-[Identity-Service Pattern](Design%20Patterns/Identity-Service%20Pattern/README.md) |Enable decentralized identity management |&#x2611;  |&#x2611;  |
-[Indexed-Loop Pattern](Design%20Patterns/Indexed-Loop%20Pattern/README.md) |Ensure an unbounded data structure can be interrupted and continued with the next call |&#x2611;  |&#x2611;  |
-[Mutex Pattern](Design%20Patterns/Mutex%20Pattern/README.md) |Prevent reentrancy attacks | | &#x2611;  |
-[Pull Pattern](Design%20Patterns/Pull%20Pattern/README.md) |Prevent abortion of execution caused by unbounded data structure and ensure fair distribution of costs|  | &#x2611;  |
-[Replay-Protection Pattern](Design%20Patterns/Replay-Protection%20Pattern/README.md)|Prevent variable overflow caused by unappropriate data type use | |&#x2611; |
+[Commitment Pattern](patterns/Design%20Patterns/Commitment%20Pattern/README.md) |Allow for binding commitment of values, which may remain secret until all values are to be revealed |&#x2611; |&#x2611; |&#x2611;
+[Event-Ordering Pattern](patterns/Design%20Patterns/Event-Ordering%20Pattern/README.md) | Ensure a transaction is only executed in a certain smart contract state |&#x2611; |&#x2611; |&#x2611;
+[Factory Pattern](patterns/Design%20Patterns/Factory%20Pattern/README.md#context) |Enable automatic redeployment of similar smart contracts  | |&#x2611;  |
+[Identity-Service Pattern](patterns/Design%20Patterns/Identity-Service%20Pattern/README.md) |Enable decentralized identity management |&#x2611;  |&#x2611;  |
+[Indexed-Loop Pattern](patterns/Design%20Patterns/Indexed-Loop%20Pattern/README.md) |Ensure an unbounded data structure can be interrupted and continued with the next call |&#x2611;  |&#x2611;  |
+[Mutex Pattern](patterns/Design%20Patterns/Mutex%20Pattern/README.md) |Prevent reentrancy attacks | | &#x2611;  |
+[Pull Pattern](patterns/Design%20Patterns/Pull%20Pattern/README.md) |Prevent abortion of execution caused by unbounded data structure and ensure fair distribution of costs|  | &#x2611;  |
+[Replay-Protection Pattern](patterns/Design%20Patterns/Replay-Protection%20Pattern/README.md)|Prevent variable overflow caused by unappropriate data type use | |&#x2611; |
 
 ### Idioms
-[Idioms](Idioms/README.md#introduction) | Usage | EOSIO | Ethereum | Hyperledger Fabric
+[Idioms](patterns/Idioms/README.md#introduction) | Usage | EOSIO | Ethereum | Hyperledger Fabric
 -------- | -------- | :-: | :-: | :-:
-[Checks-Effects-Interactions Pattern](Idioms/Checks-Effects-Interactions%20Pattern/README.md) |Prevent a reentrancy attack within the same function of the smart contract | |&#x2611; |
-[Deactivation Pattern](Idioms/Deactivation%20Pattern/README.md) | Disable a smart contract instead of destructing it so that all function calls result in a revert and no assets sent to the contract are lost | |&#x2611; |
-[Error-Handling Pattern](Idioms/Error-Handling%20Pattern/README.md) | Handle errors in smart contracts appropriately | |&#x2611; |
-[External-Call Pattern](Idioms/External-Call%20Pattern/README.md) | Handle failed external calls and prevent unintended side effects | |&#x2611;  |
-[Guarding Pattern](Idioms/Guarding%20Pattern/README.md) |Restrict authorization to execute smart contract functions to particular accounts in defined contexts |&#x2611;  |&#x2611;  | &#x2611;
-[Overflow/Underflow Pattern](Idioms/Overflow%20Pattern/README.md)|Prevent variable overflow and underflow caused by unappropriate data type use | |&#x2611; |
-[Token Pattern](Idioms/Token%20Pattern/README.md) |Mitigate the risks related to the update of smart contracts keeping tokens | |&#x2611; |
+[Checks-Effects-Interactions Pattern](patterns/Idioms/Checks-Effects-Interactions%20Pattern/README.md) |Prevent a reentrancy attack within the same function of the smart contract | |&#x2611; |
+[Deactivation Pattern](patterns/Idioms/Deactivation%20Pattern/README.md) | Disable a smart contract instead of destructing it so that all function calls result in a revert and no assets sent to the contract are lost | |&#x2611; |
+[Error-Handling Pattern](patterns/Idioms/Error-Handling%20Pattern/README.md) | Handle errors in smart contracts appropriately | |&#x2611; |
+[External-Call Pattern](patterns/Idioms/External-Call%20Pattern/README.md) | Handle failed external calls and prevent unintended side effects | |&#x2611;  |
+[Guarding Pattern](patterns/Idioms/Guarding%20Pattern/README.md) |Restrict authorization to execute smart contract functions to particular accounts in defined contexts |&#x2611;  |&#x2611;  | &#x2611;
+[Overflow/Underflow Pattern](patterns/Idioms/Overflow%20Pattern/README.md)|Prevent variable overflow and underflow caused by unappropriate data type use | |&#x2611; |
+[Token Pattern](patterns/Idioms/Token%20Pattern/README.md) |Mitigate the risks related to the update of smart contracts keeping tokens | |&#x2611; |
 
 # Structure of Software Design Patterns
 
