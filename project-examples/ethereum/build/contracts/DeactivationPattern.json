@@ -9,34 +9,34 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"anyFunction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Idioms/Deactivation Pattern/DeactivationPattern.sol\":\"DeactivationPattern\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Idioms/Deactivation Pattern/DeactivationPattern.sol\":{\"keccak256\":\"0x41c7d356ba6855c686bbbafee01c87b668875efd3caa3ada745784c80edd2285\",\"urls\":[\"bzz-raw://560f848c216ae2ac9db186480040cf6433115e14601a070248caf7d5505c9cf5\",\"dweb:/ipfs/QmYBKF58EjcZQcYNcJhFCAf2V97wubESh64XC6UWRKvm4M\"]}},\"version\":1}",
-  "bytecode": "0x608060405260016000806101000a81548160ff021916908315150217905550348015602957600080fd5b506083806100386000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80630e21a23f14602d575b600080fd5b60336035565b005b60008054906101000a900460ff16604b57600080fd5b56fea2646970667358221220509c474bfb2a71b09072077bde580c9101319404501fd9c7b1f52042116e77de64736f6c63430007000033",
-  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c80630e21a23f14602d575b600080fd5b60336035565b005b60008054906101000a900460ff16604b57600080fd5b56fea2646970667358221220509c474bfb2a71b09072077bde580c9101319404501fd9c7b1f52042116e77de64736f6c63430007000033",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"anyFunction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationPattern.sol\":\"DeactivationPattern\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationPattern.sol\":{\"keccak256\":\"0x41c7d356ba6855c686bbbafee01c87b668875efd3caa3ada745784c80edd2285\",\"urls\":[\"bzz-raw://560f848c216ae2ac9db186480040cf6433115e14601a070248caf7d5505c9cf5\",\"dweb:/ipfs/QmYBKF58EjcZQcYNcJhFCAf2V97wubESh64XC6UWRKvm4M\"]}},\"version\":1}",
+  "bytecode": "0x608060405260016000806101000a81548160ff021916908315150217905550348015602957600080fd5b506083806100386000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80630e21a23f14602d575b600080fd5b60336035565b005b60008054906101000a900460ff16604b57600080fd5b56fea2646970667358221220668ec226bd960b14cc0ca92314bcd29abfb87b2a758561a22498c8696580976664736f6c63430007000033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c80630e21a23f14602d575b600080fd5b60336035565b005b60008054906101000a900460ff16604b57600080fd5b56fea2646970667358221220668ec226bd960b14cc0ca92314bcd29abfb87b2a758561a22498c8696580976664736f6c63430007000033",
   "immutableReferences": {},
-  "sourceMap": "24:241:16:-:0;;;77:4;59:22;;;;;;;;;;;;;;;;;;;;24:241;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "24:241:16:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;169:94;;;:::i;:::-;;;132:10;;;;;;;;;;123:20;;;;;;169:94::o",
+  "sourceMap": "24:241:50:-:0;;;77:4;59:22;;;;;;;;;;;;;;;;;;;;24:241;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "24:241:50:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;169:94;;;:::i;:::-;;;132:10;;;;;;;;;;123:20;;;;;;169:94::o",
   "source": "pragma solidity 0.7.0;\n\ncontract DeactivationPattern {\n    bool _activated = true; \n    \n    modifier checkActive(){\n      require (_activated);\n      _;\n    }\n    \n    function anyFunction() checkActive public {\n      //code to be reverted by deactivation \n    }\n}",
-  "sourcePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Idioms/Deactivation Pattern/DeactivationPattern.sol",
+  "sourcePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationPattern.sol",
   "ast": {
-    "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Idioms/Deactivation Pattern/DeactivationPattern.sol",
+    "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationPattern.sol",
     "exportedSymbols": {
       "DeactivationPattern": [
-        1338
+        1437
       ]
     },
-    "id": 1339,
+    "id": 1438,
     "license": null,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1320,
+        "id": 1419,
         "literals": [
           "solidity",
           "0.7",
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:22:16"
+        "src": "0:22:50"
       },
       {
         "abstract": false,
@@ -45,22 +45,22 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1338,
+        "id": 1437,
         "linearizedBaseContracts": [
-          1338
+          1437
         ],
         "name": "DeactivationPattern",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 1323,
+            "id": 1422,
             "mutability": "mutable",
             "name": "_activated",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 1338,
-            "src": "59:22:16",
+            "scope": 1437,
+            "src": "59:22:50",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -68,10 +68,10 @@
               "typeString": "bool"
             },
             "typeName": {
-              "id": 1321,
+              "id": 1420,
               "name": "bool",
               "nodeType": "ElementaryTypeName",
-              "src": "59:4:16",
+              "src": "59:4:50",
               "typeDescriptions": {
                 "typeIdentifier": "t_bool",
                 "typeString": "bool"
@@ -80,14 +80,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "74727565",
-              "id": 1322,
+              "id": 1421,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "bool",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "77:4:16",
+              "src": "77:4:50",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_bool",
@@ -99,9 +99,9 @@
           },
           {
             "body": {
-              "id": 1330,
+              "id": 1429,
               "nodeType": "Block",
-              "src": "115:44:16",
+              "src": "115:44:50",
               "statements": [
                 {
                   "expression": {
@@ -109,12 +109,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1326,
+                        "id": 1425,
                         "name": "_activated",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1323,
-                        "src": "132:10:16",
+                        "referencedDeclaration": 1422,
+                        "src": "132:10:50",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -128,7 +128,7 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 1325,
+                      "id": 1424,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -136,13 +136,13 @@
                         -18
                       ],
                       "referencedDeclaration": -18,
-                      "src": "123:7:16",
+                      "src": "123:7:50",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 1327,
+                    "id": 1426,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -150,106 +150,106 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "123:20:16",
+                    "src": "123:20:50",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1328,
+                  "id": 1427,
                   "nodeType": "ExpressionStatement",
-                  "src": "123:20:16"
+                  "src": "123:20:50"
                 },
                 {
-                  "id": 1329,
+                  "id": 1428,
                   "nodeType": "PlaceholderStatement",
-                  "src": "151:1:16"
+                  "src": "151:1:50"
                 }
               ]
             },
             "documentation": null,
-            "id": 1331,
+            "id": 1430,
             "name": "checkActive",
             "nodeType": "ModifierDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1324,
+              "id": 1423,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "113:2:16"
+              "src": "113:2:50"
             },
-            "src": "93:66:16",
+            "src": "93:66:50",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 1336,
+              "id": 1435,
               "nodeType": "Block",
-              "src": "211:52:16",
+              "src": "211:52:50",
               "statements": []
             },
             "documentation": null,
             "functionSelector": "0e21a23f",
-            "id": 1337,
+            "id": 1436,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 1334,
+                "id": 1433,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 1333,
+                  "id": 1432,
                   "name": "checkActive",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1331,
-                  "src": "192:11:16",
+                  "referencedDeclaration": 1430,
+                  "src": "192:11:50",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
                     "typeString": "modifier ()"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "192:11:16"
+                "src": "192:11:50"
               }
             ],
             "name": "anyFunction",
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1332,
+              "id": 1431,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "189:2:16"
+              "src": "189:2:50"
             },
             "returnParameters": {
-              "id": 1335,
+              "id": 1434,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "211:0:16"
+              "src": "211:0:50"
             },
-            "scope": 1338,
-            "src": "169:94:16",
+            "scope": 1437,
+            "src": "169:94:50",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 1339,
-        "src": "24:241:16"
+        "scope": 1438,
+        "src": "24:241:50"
       }
     ],
-    "src": "0:265:16"
+    "src": "0:265:50"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Idioms/Deactivation Pattern/DeactivationPattern.sol",
+      "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationPattern.sol",
       "exportedSymbols": {
         "DeactivationPattern": [
-          1338
+          1437
         ]
       },
       "license": null
@@ -263,9 +263,9 @@
             ".0"
           ]
         },
-        "id": 1320,
+        "id": 1419,
         "name": "PragmaDirective",
-        "src": "0:22:16"
+        "src": "0:22:50"
       },
       {
         "attributes": {
@@ -280,10 +280,10 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1338
+            1437
           ],
           "name": "DeactivationPattern",
-          "scope": 1339
+          "scope": 1438
         },
         "children": [
           {
@@ -292,7 +292,7 @@
               "mutability": "mutable",
               "name": "_activated",
               "overrides": null,
-              "scope": 1338,
+              "scope": 1437,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "bool",
@@ -304,9 +304,9 @@
                   "name": "bool",
                   "type": "bool"
                 },
-                "id": 1321,
+                "id": 1420,
                 "name": "ElementaryTypeName",
-                "src": "59:4:16"
+                "src": "59:4:50"
               },
               {
                 "attributes": {
@@ -321,14 +321,14 @@
                   "type": "bool",
                   "value": "true"
                 },
-                "id": 1322,
+                "id": 1421,
                 "name": "Literal",
-                "src": "77:4:16"
+                "src": "77:4:50"
               }
             ],
-            "id": 1323,
+            "id": 1422,
             "name": "VariableDeclaration",
-            "src": "59:22:16"
+            "src": "59:22:50"
           },
           {
             "attributes": {
@@ -346,9 +346,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1324,
+                "id": 1423,
                 "name": "ParameterList",
-                "src": "113:2:16"
+                "src": "113:2:50"
               },
               {
                 "children": [
@@ -386,9 +386,9 @@
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 1325,
+                            "id": 1424,
                             "name": "Identifier",
-                            "src": "123:7:16"
+                            "src": "123:7:50"
                           },
                           {
                             "attributes": {
@@ -396,38 +396,38 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1323,
+                              "referencedDeclaration": 1422,
                               "type": "bool",
                               "value": "_activated"
                             },
-                            "id": 1326,
+                            "id": 1425,
                             "name": "Identifier",
-                            "src": "132:10:16"
+                            "src": "132:10:50"
                           }
                         ],
-                        "id": 1327,
+                        "id": 1426,
                         "name": "FunctionCall",
-                        "src": "123:20:16"
+                        "src": "123:20:50"
                       }
                     ],
-                    "id": 1328,
+                    "id": 1427,
                     "name": "ExpressionStatement",
-                    "src": "123:20:16"
+                    "src": "123:20:50"
                   },
                   {
-                    "id": 1329,
+                    "id": 1428,
                     "name": "PlaceholderStatement",
-                    "src": "151:1:16"
+                    "src": "151:1:50"
                   }
                 ],
-                "id": 1330,
+                "id": 1429,
                 "name": "Block",
-                "src": "115:44:16"
+                "src": "115:44:50"
               }
             ],
-            "id": 1331,
+            "id": 1430,
             "name": "ModifierDefinition",
-            "src": "93:66:16"
+            "src": "93:66:50"
           },
           {
             "attributes": {
@@ -438,7 +438,7 @@
               "kind": "function",
               "name": "anyFunction",
               "overrides": null,
-              "scope": 1338,
+              "scope": 1437,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "public"
@@ -451,9 +451,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1332,
+                "id": 1431,
                 "name": "ParameterList",
-                "src": "189:2:16"
+                "src": "189:2:50"
               },
               {
                 "attributes": {
@@ -462,9 +462,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1335,
+                "id": 1434,
                 "name": "ParameterList",
-                "src": "211:0:16"
+                "src": "211:0:50"
               },
               {
                 "attributes": {
@@ -477,18 +477,18 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1331,
+                      "referencedDeclaration": 1430,
                       "type": "modifier ()",
                       "value": "checkActive"
                     },
-                    "id": 1333,
+                    "id": 1432,
                     "name": "Identifier",
-                    "src": "192:11:16"
+                    "src": "192:11:50"
                   }
                 ],
-                "id": 1334,
+                "id": 1433,
                 "name": "ModifierInvocation",
-                "src": "192:11:16"
+                "src": "192:11:50"
               },
               {
                 "attributes": {
@@ -497,24 +497,24 @@
                   ]
                 },
                 "children": [],
-                "id": 1336,
+                "id": 1435,
                 "name": "Block",
-                "src": "211:52:16"
+                "src": "211:52:50"
               }
             ],
-            "id": 1337,
+            "id": 1436,
             "name": "FunctionDefinition",
-            "src": "169:94:16"
+            "src": "169:94:50"
           }
         ],
-        "id": 1338,
+        "id": 1437,
         "name": "ContractDefinition",
-        "src": "24:241:16"
+        "src": "24:241:50"
       }
     ],
-    "id": 1339,
+    "id": 1438,
     "name": "SourceUnit",
-    "src": "0:265:16"
+    "src": "0:265:50"
   },
   "compiler": {
     "name": "solc",
@@ -522,7 +522,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.0",
-  "updatedAt": "2021-05-26T11:12:50.856Z",
+  "updatedAt": "2021-06-10T07:34:01.571Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

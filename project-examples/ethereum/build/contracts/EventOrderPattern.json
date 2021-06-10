@@ -1,30 +1,30 @@
 {
   "contractName": "EventOrderPattern",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Design Patterns/Event-Ordering Pattern/EventOrderPattern.sol\":\"EventOrderPattern\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Design Patterns/Event-Ordering Pattern/EventOrderPattern.sol\":{\"keccak256\":\"0xa9d4ec6c08190d4dd01f5ac4b0c0597cd56b0ee20258b5ea78a97e0fdf37bbea\",\"urls\":[\"bzz-raw://a98f1754fae8b16ccd6197b8ebbb0b1cbd184798880b9190148b25d36db5203e\",\"dweb:/ipfs/QmY9LywCNaF6pgcAhFtHSm3KudWQWCpzsLtqxHKcvuLR7r\"]}},\"version\":1}",
-  "bytecode": "0x608060405260008055348015601357600080fd5b50603f8060216000396000f3fe6080604052600080fdfea264697066735822122011dfbe9931a4ee156a2db8337b20e859c8a4652b45385b62a5a65c7afad0188a64736f6c63430007000033",
-  "deployedBytecode": "0x6080604052600080fdfea264697066735822122011dfbe9931a4ee156a2db8337b20e859c8a4652b45385b62a5a65c7afad0188a64736f6c63430007000033",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Design Patterns/Event-Ordering Pattern/EventOrderPattern.sol\":\"EventOrderPattern\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Design Patterns/Event-Ordering Pattern/EventOrderPattern.sol\":{\"keccak256\":\"0xa9d4ec6c08190d4dd01f5ac4b0c0597cd56b0ee20258b5ea78a97e0fdf37bbea\",\"urls\":[\"bzz-raw://a98f1754fae8b16ccd6197b8ebbb0b1cbd184798880b9190148b25d36db5203e\",\"dweb:/ipfs/QmY9LywCNaF6pgcAhFtHSm3KudWQWCpzsLtqxHKcvuLR7r\"]}},\"version\":1}",
+  "bytecode": "0x608060405260008055348015601357600080fd5b50603f8060216000396000f3fe6080604052600080fdfea2646970667358221220ae00ba61629d7ea840b235c70e3ebf5713e5b4b7f215b79061da0e1e3853093c64736f6c63430007000033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220ae00ba61629d7ea840b235c70e3ebf5713e5b4b7f215b79061da0e1e3853093c64736f6c63430007000033",
   "immutableReferences": {},
-  "sourceMap": "25:291:1:-:0;;;81:1;58:24;;25:291;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "25:291:1:-:0;;;;;",
+  "sourceMap": "25:291:35:-:0;;;81:1;58:24;;25:291;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "25:291:35:-:0;;;;;",
   "source": "pragma solidity ^0.7.0;\n\ncontract EventOrderPattern {\n    uint256 transCounter = 0;\n\n    modifier transitionCounting(uint256 _nextTransNum){\n         require(transCounter == _nextTransNum,\n                \"Current smart contract state does not match targeted state.\");\n         transCounter += 1;\n         _;\n    }\n}\n\ncontract EventOrder is EventOrderPattern {\n\n    function a(uint _nextTransNum) public transitionCounting(_nextTransNum) {\n        // Code to be executed in a certain state\n    }\n}",
-  "sourcePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Design Patterns/Event-Ordering Pattern/EventOrderPattern.sol",
+  "sourcePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Design Patterns/Event-Ordering Pattern/EventOrderPattern.sol",
   "ast": {
-    "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Design Patterns/Event-Ordering Pattern/EventOrderPattern.sol",
+    "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Design Patterns/Event-Ordering Pattern/EventOrderPattern.sol",
     "exportedSymbols": {
       "EventOrder": [
-        163
+        262
       ],
       "EventOrderPattern": [
-        151
+        250
       ]
     },
-    "id": 164,
+    "id": 263,
     "license": null,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 130,
+        "id": 229,
         "literals": [
           "solidity",
           "^",
@@ -32,7 +32,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:1"
+        "src": "0:23:35"
       },
       {
         "abstract": false,
@@ -41,22 +41,22 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 151,
+        "id": 250,
         "linearizedBaseContracts": [
-          151
+          250
         ],
         "name": "EventOrderPattern",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 133,
+            "id": 232,
             "mutability": "mutable",
             "name": "transCounter",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 151,
-            "src": "58:24:1",
+            "scope": 250,
+            "src": "58:24:35",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -64,10 +64,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 131,
+              "id": 230,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "58:7:1",
+              "src": "58:7:35",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -76,14 +76,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "30",
-              "id": 132,
+              "id": 231,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "81:1:1",
+              "src": "81:1:35",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_rational_0_by_1",
@@ -95,9 +95,9 @@
           },
           {
             "body": {
-              "id": 149,
+              "id": 248,
               "nodeType": "Block",
-              "src": "139:175:1",
+              "src": "139:175:35",
               "statements": [
                 {
                   "expression": {
@@ -109,19 +109,19 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 140,
+                        "id": 239,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 138,
+                          "id": 237,
                           "name": "transCounter",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 133,
-                          "src": "158:12:1",
+                          "referencedDeclaration": 232,
+                          "src": "158:12:35",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -131,18 +131,18 @@
                         "operator": "==",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 139,
+                          "id": 238,
                           "name": "_nextTransNum",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 135,
-                          "src": "174:13:1",
+                          "referencedDeclaration": 234,
+                          "src": "174:13:35",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "src": "158:29:1",
+                        "src": "158:29:35",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -151,14 +151,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "43757272656e7420736d61727420636f6e747261637420737461746520646f6573206e6f74206d617463682074617267657465642073746174652e",
-                        "id": 141,
+                        "id": 240,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "205:61:1",
+                        "src": "205:61:35",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_36a78be09c281d4d1be48208b1f0b455e2cc7bf3e011a682419cc60170f146ff",
@@ -178,7 +178,7 @@
                           "typeString": "literal_string \"Current smart contract state does not match targeted state.\""
                         }
                       ],
-                      "id": 137,
+                      "id": 236,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -186,13 +186,13 @@
                         -18
                       ],
                       "referencedDeclaration": -18,
-                      "src": "150:7:1",
+                      "src": "150:7:35",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 142,
+                    "id": 241,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -200,33 +200,33 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "150:117:1",
+                    "src": "150:117:35",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 143,
+                  "id": 242,
                   "nodeType": "ExpressionStatement",
-                  "src": "150:117:1"
+                  "src": "150:117:35"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 146,
+                    "id": 245,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 144,
+                      "id": 243,
                       "name": "transCounter",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 133,
-                      "src": "278:12:1",
+                      "referencedDeclaration": 232,
+                      "src": "278:12:35",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -237,14 +237,14 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "31",
-                      "id": 145,
+                      "id": 244,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "294:1:1",
+                      "src": "294:1:35",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_1_by_1",
@@ -252,41 +252,41 @@
                       },
                       "value": "1"
                     },
-                    "src": "278:17:1",
+                    "src": "278:17:35",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 147,
+                  "id": 246,
                   "nodeType": "ExpressionStatement",
-                  "src": "278:17:1"
+                  "src": "278:17:35"
                 },
                 {
-                  "id": 148,
+                  "id": 247,
                   "nodeType": "PlaceholderStatement",
-                  "src": "306:1:1"
+                  "src": "306:1:35"
                 }
               ]
             },
             "documentation": null,
-            "id": 150,
+            "id": 249,
             "name": "transitionCounting",
             "nodeType": "ModifierDefinition",
             "overrides": null,
             "parameters": {
-              "id": 136,
+              "id": 235,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 135,
+                  "id": 234,
                   "mutability": "mutable",
                   "name": "_nextTransNum",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 150,
-                  "src": "117:21:1",
+                  "scope": 249,
+                  "src": "117:21:35",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -294,10 +294,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 134,
+                    "id": 233,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "117:7:1",
+                    "src": "117:7:35",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -307,15 +307,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "116:23:1"
+              "src": "116:23:35"
             },
-            "src": "89:225:1",
+            "src": "89:225:35",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 164,
-        "src": "25:291:1"
+        "scope": 263,
+        "src": "25:291:35"
       },
       {
         "abstract": false,
@@ -324,45 +324,45 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 152,
+              "id": 251,
               "name": "EventOrderPattern",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 151,
-              "src": "341:17:1",
+              "referencedDeclaration": 250,
+              "src": "341:17:35",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_EventOrderPattern_$151",
+                "typeIdentifier": "t_contract$_EventOrderPattern_$250",
                 "typeString": "contract EventOrderPattern"
               }
             },
-            "id": 153,
+            "id": 252,
             "nodeType": "InheritanceSpecifier",
-            "src": "341:17:1"
+            "src": "341:17:35"
           }
         ],
         "contractDependencies": [
-          151
+          250
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 163,
+        "id": 262,
         "linearizedBaseContracts": [
-          163,
-          151
+          262,
+          250
         ],
         "name": "EventOrder",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 161,
+              "id": 260,
               "nodeType": "Block",
-              "src": "438:57:1",
+              "src": "438:57:35",
               "statements": []
             },
             "documentation": null,
             "functionSelector": "f0fdf834",
-            "id": 162,
+            "id": 261,
             "implemented": true,
             "kind": "function",
             "modifiers": [
@@ -370,52 +370,52 @@
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 158,
+                    "id": 257,
                     "name": "_nextTransNum",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 155,
-                    "src": "423:13:1",
+                    "referencedDeclaration": 254,
+                    "src": "423:13:35",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   }
                 ],
-                "id": 159,
+                "id": 258,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 157,
+                  "id": 256,
                   "name": "transitionCounting",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 150,
-                  "src": "404:18:1",
+                  "referencedDeclaration": 249,
+                  "src": "404:18:35",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$_t_uint256_$",
                     "typeString": "modifier (uint256)"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "404:33:1"
+                "src": "404:33:35"
               }
             ],
             "name": "a",
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 156,
+              "id": 255,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 155,
+                  "id": 254,
                   "mutability": "mutable",
                   "name": "_nextTransNum",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 162,
-                  "src": "377:18:1",
+                  "scope": 261,
+                  "src": "377:18:35",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -423,10 +423,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 154,
+                    "id": 253,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "377:4:1",
+                    "src": "377:4:35",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -436,36 +436,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "376:20:1"
+              "src": "376:20:35"
             },
             "returnParameters": {
-              "id": 160,
+              "id": 259,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "438:0:1"
+              "src": "438:0:35"
             },
-            "scope": 163,
-            "src": "366:129:1",
+            "scope": 262,
+            "src": "366:129:35",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 164,
-        "src": "318:179:1"
+        "scope": 263,
+        "src": "318:179:35"
       }
     ],
-    "src": "0:497:1"
+    "src": "0:497:35"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Design Patterns/Event-Ordering Pattern/EventOrderPattern.sol",
+      "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Design Patterns/Event-Ordering Pattern/EventOrderPattern.sol",
       "exportedSymbols": {
         "EventOrder": [
-          163
+          262
         ],
         "EventOrderPattern": [
-          151
+          250
         ]
       },
       "license": null
@@ -480,9 +480,9 @@
             ".0"
           ]
         },
-        "id": 130,
+        "id": 229,
         "name": "PragmaDirective",
-        "src": "0:23:1"
+        "src": "0:23:35"
       },
       {
         "attributes": {
@@ -497,10 +497,10 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            151
+            250
           ],
           "name": "EventOrderPattern",
-          "scope": 164
+          "scope": 263
         },
         "children": [
           {
@@ -509,7 +509,7 @@
               "mutability": "mutable",
               "name": "transCounter",
               "overrides": null,
-              "scope": 151,
+              "scope": 250,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -521,9 +521,9 @@
                   "name": "uint256",
                   "type": "uint256"
                 },
-                "id": 131,
+                "id": 230,
                 "name": "ElementaryTypeName",
-                "src": "58:7:1"
+                "src": "58:7:35"
               },
               {
                 "attributes": {
@@ -538,14 +538,14 @@
                   "type": "int_const 0",
                   "value": "0"
                 },
-                "id": 132,
+                "id": 231,
                 "name": "Literal",
-                "src": "81:1:1"
+                "src": "81:1:35"
               }
             ],
-            "id": 133,
+            "id": 232,
             "name": "VariableDeclaration",
-            "src": "58:24:1"
+            "src": "58:24:35"
           },
           {
             "attributes": {
@@ -564,7 +564,7 @@
                       "mutability": "mutable",
                       "name": "_nextTransNum",
                       "overrides": null,
-                      "scope": 150,
+                      "scope": 249,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -577,19 +577,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 134,
+                        "id": 233,
                         "name": "ElementaryTypeName",
-                        "src": "117:7:1"
+                        "src": "117:7:35"
                       }
                     ],
-                    "id": 135,
+                    "id": 234,
                     "name": "VariableDeclaration",
-                    "src": "117:21:1"
+                    "src": "117:21:35"
                   }
                 ],
-                "id": 136,
+                "id": 235,
                 "name": "ParameterList",
-                "src": "116:23:1"
+                "src": "116:23:35"
               },
               {
                 "children": [
@@ -631,9 +631,9 @@
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
-                            "id": 137,
+                            "id": 236,
                             "name": "Identifier",
-                            "src": "150:7:1"
+                            "src": "150:7:35"
                           },
                           {
                             "attributes": {
@@ -656,13 +656,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 133,
+                                  "referencedDeclaration": 232,
                                   "type": "uint256",
                                   "value": "transCounter"
                                 },
-                                "id": 138,
+                                "id": 237,
                                 "name": "Identifier",
-                                "src": "158:12:1"
+                                "src": "158:12:35"
                               },
                               {
                                 "attributes": {
@@ -670,18 +670,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 135,
+                                  "referencedDeclaration": 234,
                                   "type": "uint256",
                                   "value": "_nextTransNum"
                                 },
-                                "id": 139,
+                                "id": 238,
                                 "name": "Identifier",
-                                "src": "174:13:1"
+                                "src": "174:13:35"
                               }
                             ],
-                            "id": 140,
+                            "id": 239,
                             "name": "BinaryOperation",
-                            "src": "158:29:1"
+                            "src": "158:29:35"
                           },
                           {
                             "attributes": {
@@ -696,19 +696,19 @@
                               "type": "literal_string \"Current smart contract state does not match targeted state.\"",
                               "value": "Current smart contract state does not match targeted state."
                             },
-                            "id": 141,
+                            "id": 240,
                             "name": "Literal",
-                            "src": "205:61:1"
+                            "src": "205:61:35"
                           }
                         ],
-                        "id": 142,
+                        "id": 241,
                         "name": "FunctionCall",
-                        "src": "150:117:1"
+                        "src": "150:117:35"
                       }
                     ],
-                    "id": 143,
+                    "id": 242,
                     "name": "ExpressionStatement",
-                    "src": "150:117:1"
+                    "src": "150:117:35"
                   },
                   {
                     "children": [
@@ -729,13 +729,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 133,
+                              "referencedDeclaration": 232,
                               "type": "uint256",
                               "value": "transCounter"
                             },
-                            "id": 144,
+                            "id": 243,
                             "name": "Identifier",
-                            "src": "278:12:1"
+                            "src": "278:12:35"
                           },
                           {
                             "attributes": {
@@ -750,55 +750,55 @@
                               "type": "int_const 1",
                               "value": "1"
                             },
-                            "id": 145,
+                            "id": 244,
                             "name": "Literal",
-                            "src": "294:1:1"
+                            "src": "294:1:35"
                           }
                         ],
-                        "id": 146,
+                        "id": 245,
                         "name": "Assignment",
-                        "src": "278:17:1"
+                        "src": "278:17:35"
                       }
                     ],
-                    "id": 147,
+                    "id": 246,
                     "name": "ExpressionStatement",
-                    "src": "278:17:1"
+                    "src": "278:17:35"
                   },
                   {
-                    "id": 148,
+                    "id": 247,
                     "name": "PlaceholderStatement",
-                    "src": "306:1:1"
+                    "src": "306:1:35"
                   }
                 ],
-                "id": 149,
+                "id": 248,
                 "name": "Block",
-                "src": "139:175:1"
+                "src": "139:175:35"
               }
             ],
-            "id": 150,
+            "id": 249,
             "name": "ModifierDefinition",
-            "src": "89:225:1"
+            "src": "89:225:35"
           }
         ],
-        "id": 151,
+        "id": 250,
         "name": "ContractDefinition",
-        "src": "25:291:1"
+        "src": "25:291:35"
       },
       {
         "attributes": {
           "abstract": false,
           "contractDependencies": [
-            151
+            250
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            163,
-            151
+            262,
+            250
           ],
           "name": "EventOrder",
-          "scope": 164
+          "scope": 263
         },
         "children": [
           {
@@ -810,17 +810,17 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "EventOrderPattern",
-                  "referencedDeclaration": 151,
+                  "referencedDeclaration": 250,
                   "type": "contract EventOrderPattern"
                 },
-                "id": 152,
+                "id": 251,
                 "name": "UserDefinedTypeName",
-                "src": "341:17:1"
+                "src": "341:17:35"
               }
             ],
-            "id": 153,
+            "id": 252,
             "name": "InheritanceSpecifier",
-            "src": "341:17:1"
+            "src": "341:17:35"
           },
           {
             "attributes": {
@@ -831,7 +831,7 @@
               "kind": "function",
               "name": "a",
               "overrides": null,
-              "scope": 163,
+              "scope": 262,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "public"
@@ -845,7 +845,7 @@
                       "mutability": "mutable",
                       "name": "_nextTransNum",
                       "overrides": null,
-                      "scope": 162,
+                      "scope": 261,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -858,19 +858,19 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 154,
+                        "id": 253,
                         "name": "ElementaryTypeName",
-                        "src": "377:4:1"
+                        "src": "377:4:35"
                       }
                     ],
-                    "id": 155,
+                    "id": 254,
                     "name": "VariableDeclaration",
-                    "src": "377:18:1"
+                    "src": "377:18:35"
                   }
                 ],
-                "id": 156,
+                "id": 255,
                 "name": "ParameterList",
-                "src": "376:20:1"
+                "src": "376:20:35"
               },
               {
                 "attributes": {
@@ -879,9 +879,9 @@
                   ]
                 },
                 "children": [],
-                "id": 160,
+                "id": 259,
                 "name": "ParameterList",
-                "src": "438:0:1"
+                "src": "438:0:35"
               },
               {
                 "children": [
@@ -891,13 +891,13 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 150,
+                      "referencedDeclaration": 249,
                       "type": "modifier (uint256)",
                       "value": "transitionCounting"
                     },
-                    "id": 157,
+                    "id": 256,
                     "name": "Identifier",
-                    "src": "404:18:1"
+                    "src": "404:18:35"
                   },
                   {
                     "attributes": {
@@ -905,18 +905,18 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 155,
+                      "referencedDeclaration": 254,
                       "type": "uint256",
                       "value": "_nextTransNum"
                     },
-                    "id": 158,
+                    "id": 257,
                     "name": "Identifier",
-                    "src": "423:13:1"
+                    "src": "423:13:35"
                   }
                 ],
-                "id": 159,
+                "id": 258,
                 "name": "ModifierInvocation",
-                "src": "404:33:1"
+                "src": "404:33:35"
               },
               {
                 "attributes": {
@@ -925,24 +925,24 @@
                   ]
                 },
                 "children": [],
-                "id": 161,
+                "id": 260,
                 "name": "Block",
-                "src": "438:57:1"
+                "src": "438:57:35"
               }
             ],
-            "id": 162,
+            "id": 261,
             "name": "FunctionDefinition",
-            "src": "366:129:1"
+            "src": "366:129:35"
           }
         ],
-        "id": 163,
+        "id": 262,
         "name": "ContractDefinition",
-        "src": "318:179:1"
+        "src": "318:179:35"
       }
     ],
-    "id": 164,
+    "id": 263,
     "name": "SourceUnit",
-    "src": "0:497:1"
+    "src": "0:497:35"
   },
   "compiler": {
     "name": "solc",
@@ -950,7 +950,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.0",
-  "updatedAt": "2021-05-26T11:12:50.846Z",
+  "updatedAt": "2021-06-10T07:34:01.550Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
