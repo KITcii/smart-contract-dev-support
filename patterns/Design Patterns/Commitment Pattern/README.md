@@ -1,11 +1,11 @@
 # Commitment Pattern
 ## Context
-Entities must commit to individual values but must not know what values other entities have committed to until the values of all entities are to be revealed at a certain point in time. These requirements often apply for voting schemes, lotteries, or when using zero-knowledge proofs.
+Identities must commit to a certain value without knowing to which values other entities are committed. Identities can only attain the values of other entities once they are all disclosed simultaneously at a certain point in time.
 
 ``Applies to: [X] EOSIO    [X] Ethereum    [X] Hyperledger Fabric``
 
 ## Problem
-The commitments should remain binding once committed, which is why changes of the values after the commitment must be at least recognizable or prevented. At the same time, the data entities committed themselves to must not be visible to other entities, which conflicts with the fact that data stored on distributed ledgers are usually visible to all entities with access to the DLT system. The aim of the Commitment Pattern is to ensure that the values, which have been committed, are not visible to other entities and kept secret until the individual accounts reveal their values, while assuring that these values are binding for the corresponding entities.
+Changes of values after commitment must be at least recognizable or prevented. At the same time, the data entities committed themselves to must not be visible to other entities, which conflicts with the fact that data stored on distributed ledgers are usually visible to all entities with access to the DLT system. The aim of the Commitment Pattern is to ensure that the values, which have been committed, are not visible to other entities and kept secret until the individual accounts reveal their values, while assuring that these values are binding for the corresponding entities.
 
 ## Forces
 The forces involved in the Commitment Pattern are transaction-ordering dependence, semantic soundness, and resource efficiency. The application of the Commitment Pattern allows to treat all commitments of values the same independent of the order in which the transactions have been submitted. Semantic soundness is improved as the intended execution of the smart contract (to not reveal committed values but still ensure they are binding) can be realized using the Commitment Pattern. This comes at the cost of resource efficiency as additional smart contract code needs to be implemented to realize the Commitment Pattern.
@@ -57,7 +57,7 @@ Note: We did not implement events for the sake of simplicity of the example. For
 The smart contract stores the disguised values in a tamper-resistant way and all commits are binding. The disguised values can be revealed by users afterwards. Developers should consider the case that not all users will reveal their secret values.
 
 ## Rationale
-All transactions and their contents stored on the distributed ledger are publicly transparent. Therefore, the secret values to which the users have committed themselves are already stored on the distributed ledger in a tamper-resistant manner. The challenge is to keep the data secret from potentially malicious users who might try to uncover the secret value. Therefore, we recommend adding a salt to the secret value and allowing only the issuer of the secret value to reveal it.
+The hash value of the nonce and the original value to which the users have committed themselves are stored on the distributed ledger in a tamper-resistant manner and cannot be changed retroactively. Thus, once committed data are binding. To protect data from potentially entities who aim to uncover the secret value by guessing, a salt is also stored with the secret value. This way, committed values are kept secret until they are revealed by their issuers.
 
 ## Related Patterns
 \-
