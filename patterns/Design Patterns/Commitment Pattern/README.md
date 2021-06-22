@@ -1,6 +1,6 @@
 # Commitment Pattern
 ## Context
-The Commitment Pattern is applicable whenever entities (e.g., persons or other contracts) must commit to a value but must not know what values other entities have committed to until the values of all entities are to be revealed. This may be the case for voting schemes, lotteries or when using zero-knowledge proofs.
+The Commitment Pattern applies whenever entities (e.g., persons or other contracts) must commit to a value but must not know what values other entities have committed to until the values of all entities are to be revealed at a certain point in time. These requirements often apply for voting schemes, lotteries, or when using zero-knowledge proofs.
 
 ``Applies to: [X] EOSIO    [X] Ethereum    [X] Hyperledger Fabric``
 
