@@ -6,7 +6,7 @@ The Replay-Protection Pattern is applicable whenever the payload of a transactio
 ``Applies to: [X] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
 ## Problem
-The objective of the Replay-Protection Pattern is to secure smart contracts from replay attacks that can, for example, perform unauthorized asset transfers.
+Replay attacks can allow attackers to use authorization data (e.g., digital signatures) of other identities, for example, to manipulate token balances kept by a smart contract. The aim of the Replay-Protection Pattern is to protect smart contracts from replay attacks.
 
 ## Forces
 The forces involved are semantic soundness and resource efficiency. Semantic soundness can be improved by preventing replay attacks and, thus, improving robustness of the smart contract. However, the Replay-Protection Pattern requires additional checks that increase resources consumption.
