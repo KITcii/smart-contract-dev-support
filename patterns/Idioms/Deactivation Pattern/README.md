@@ -5,7 +5,7 @@ The Deactivation Pattern is applicable whenever a smart contract should be remov
 
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 ## Problem
-In Ethereum, smart contracts can be removed from the distributed ledger by calling the `selfdestruct(...)` operation. This operation causes the remaining assets to be sent to a predefined target and both storage and code are removed from the distributed ledger. When assets are transferred to the destroyed smart contract, the assets will be lost. The aim of the Deactivation Pattern is to mitigate risks associated with the removal or deactiva-tion of smart contracts.
+In Ethereum, smart contracts can be removed from the distributed ledger by calling the `selfdestruct(...)` operation. Calling `selfdestruct(...)` initiates the transfer of assets kept by that contract to be sent to a predefined target and both storage and code are removed from the distributed ledger. When assets are transferred to the destroyed smart contract, the assets will be lost. The aim of the Deactivation Pattern is to mitigate risks associated with the removal or deactiva-tion of smart contracts.
 
 ## Forces
 The forces involved in the Deactivation Pattern are regulated executability and semantic soundness. Executability of the smart contract is regulated as all executions of the respective smart contract are prevented. Also, semantic soundness is improved as the possible loss of assets associated with the removal of smart contracts from the distributed ledger are prevented.
