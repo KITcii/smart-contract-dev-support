@@ -1,20 +1,19 @@
 # Event-Ordering Pattern
 
 ## Context
-The Event-Order Pattern is applicable when multiple users interact with a same smart contract in a state _s<sub>t</sub>_ using their individual accounts. 
+The Event-Order Pattern is applicable when nodes determine the order of transaction processing, leading to a kind of concurrency.
 
 ``Applies to: [X] EOSIO    [X] Ethereum    [X] Hyperledger Fabric``
 
 ## Problem
-The objective of the Event-Ordering Pattern is to avoid undesired outcomes due to execution of the smart contract taking place in an unintended state. This problem occurs as the state of a smart contract in which a transaction triggers a smart contract function cannot be foreseen because of concurrency in transaction processing and unpredictable event ordering due to non-deterministic behavior of validating nodes. Concurrency in transaction processing may lead to unintended outcomes of smart contract execution such as transfers of unintended amounts of assets (e.g., Ether), especially in scenarios requiring conditional execution of transactions. Thus, transactions issuers want to have a guarantee that the smart contract function is only executed in the intended state or not at all.
+When a transaction is issued to a DLT network to call a smart contract, while nodes in the network determine the transaction execution order, a kind of concurrency between transactions occurs regarding the execution of the smart contract. Concurrency in transaction processing makes the state unpredictable, in which the target smart contract is eventually executed. Since the smart contract state can change the outcomes of smart contract execution (e.g., regarding fees to be paid), transactions issuers may want to have a guarantee that the smart contract is only executed in a specific state or not at all. To this end, the Event-Ordering Pattern applies.
 
 ## Forces
 The forces involved in the Event-Order Pattern are determinism particularly transaction-order dependence and code efficiency particularly required interactions. Due to the non-determinist behavior of validating nodes to achieve certainty that the transaction will be carried out in the intended state _s_ or not at all requires the implementation of additional mechanisms. These mechanisms ensure that the intended transaction-order is adhered to. This is realized at the cost of deploying additional smart contract code, which increases the required interactions between smart contracts. 
 
 ## Solution
-Developers can implement a state value that indicates the current state of the smart contract (a transition number in the following example). In each function call, a target state value is expected as an argument. If the state value included in the transaction equals the current state value of the smart contract, the function is executed. Otherwise, the transaction is rejected and the function is not executed. After the smart contract state changed, the smart contract’s state value changes accordingly.
-
-The value range of the state value must be large enough to ensure that no transactions can be held in the nodes' mempools until the state value of the smart contract matches the intended state of such old transactions again. In Solidity, for example, overflow should be considered when implementing integer counters as state values.
+Implement a variable whose value indicates the current state of the smart contract (e.g., a transition number in the following example). For each function call, an argument is expected that expresses the desired state for executing the smart contract. If the desired state matches the current state of the smart contract, the function is executed; otherwise, the transaction is rejected. After function execution, the state value of the smart contract is updated.
+The value range of the state value must be large enough to ensure that transactions cannot be held in a node's mempool until the value of the state variable again matches the desired state of those transactions. For example, in Solidity, overflow should be considered when implementing integer counters as state values.
 
 ## Example (based on [10])
 
@@ -40,7 +39,7 @@ contract EventOrderPattern {
 
     modifier transitionCounting(uint256 _nextTransNum){
          require(transCounter == _nextTransNum,
-                "Current smart contract state does not match targeted state.");
+                "Current smart contract state does not match desired state.");
          transCounter += 1;
          _;
     }
@@ -57,10 +56,10 @@ The above example **does only consider the state of the smart contract a transac
 
 
 ## Resulting Context
-Smart contract functions that implement a state value condition are only executed by transactions that carry a matching state value. Otherwise, transactions are rejected. A drawback is that updates for the transition counter must also be paid by users that execute the smart contract.
+Smart contract functions that implement a condition for the smart contract state are only executed by transactions that pass a matching value for the desired state. However, the implementation and updates of transition counters causes computational overhead.
 
 ## Rationale
-Using a variable indicating the state of a smart contract, the execution of smart contract functions in a certain state is assured. If a smart contract function should be executed in a state, in which the transition counter does not equal an intended value, the execution is aborted.
+If a smart contract function should be executed in a specific state in the presence of concurrent transaction ordering, identities can specify the desired state. The smart contract execution is aborted if the desired state does not match the current smart contract state.
 
 ## Related Patterns
 [Mutex Pattern](/Design%20Patterns/Mutex%20Pattern/README.md#context)
