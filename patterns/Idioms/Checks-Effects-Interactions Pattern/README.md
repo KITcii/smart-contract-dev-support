@@ -1,11 +1,12 @@
 # Checks-Effects-Interactions Pattern
 
 ## Context
-The Checks-Effects-Interactions Pattern is applicable when smart contracts interact with other smart contracts to prevent reentrancy attacks. Reentrancy attacks can occur when a smart contract makes function calls in an inconsistent state. An inconsistent state is characterized by inconsistent values in a smart contract. For example, assets of an account are transferred from a smart contract to another address but the variables that keep track of that account's balance are updated after the transfer.
+The Checks-Effects-Interactions Pattern applies to functions of Ethereum smart contracts that make external calls.
 
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
+
 ## Problem
-Updates to local variable values in a Smart Contract after external calls have been executed may allow unintended recursion during the execution of the external call (i.e., reentrancy), for example, to drain tokens kept by a smart contract. The aim of the Checks-Effects-Interactions Pattern is to pro-tect smart contracts from reentrancy. The aim of the Checks-Effects-Interactions Pattern is to protect smart contracts from reentrancy.
+External calls from smart contract functions can allow for unintended recursive calls during the execution of the external call, causing vulnerabilities to reentrancy attacks. Exploiting the possibility for recursive calls, a called smart contract can, for example, drain tokens kept by the callee contracts. The aim of the Checks-Effects-Interactions Pattern is to protect smart contracts from reentrancy.
 
 ## Forces
 The main force involved in the Checks-Effects-Interactions Pattern is implementation soundness particularly semantic soundness as the application of the Checks-Effects-Interactions Pattern prevents unintended program flow in smart contracts caused by reentrancy attacks.
