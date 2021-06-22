@@ -48,7 +48,7 @@ contract PullPattern {
 Unbounded mass operations are avoided and the invoking smart contract or user retains control over the associated gas costs. The smart contract does only execute those functions relevant for a certain element of the iterable data structure. Moreover, the user involvement is increased.
 
 ## Rationale
-By abandoning unbounded iteratable data structures, it is possible to avoid unbounded mass operations and, thus, unintended abortion of the operations (e.g., through an out-of-gas exceptions). Using the Pull Pattern, direct retrieval of required data (e.g., from a mapping in Solidity) is possible and no helper data structures for the iteration are required (e.g., an array that stores all keys of a HashMap).
+By abandoning iterations over unbounded data structures, unbounded mass operations and resulting unintended abortion of the operations (e.g., by out-of-gas conditions) are avoided. Using the Pull Pattern, direct retrieval of required data (e.g., from a mapping in Solidity) is possible and no helper data structures for the iteration are required (e.g., an array that stores all keys of a HashMap).
 
 ## Related Patterns
 [Checks-Effects-Interactions Pattern](/Idioms/Checks-Effects-Interactions%20Pattern/README.md#context), [Indexed-Loop Pattern](/Design%20Patterns/Indexed-Loop%20Pattern/README.md#context)
