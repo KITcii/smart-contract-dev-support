@@ -10,7 +10,7 @@ The objective of the Pull Pattern is to avoid the risks connected to unbounded d
 The forces involved in the Pull Pattern are fairness, complexity, and code efficiency particularly required interactions. The application of the pull pattern reduces complexity of the smart contract as the smart contract itself does not need to iterate over an unbounded data structure. Moreover, the distribution of costs for the execution of the respective smart contract code is done more fairly as each account themselves pays for the execution. This comes at the cost of the number of required interactions because each account needs to invoke the pull mechanism. 
 
 ## Solution
-Instead of implementing a loop to iterate over all elements of the iterable data structure (e.g., to transfer assets to the accounts stored in the iterable data structure), implement a method that allows users to execute the function via a pull mechanism with no iterations. This pull mechanism only executes the function for one element of the iterable data structure. This function must be protected against reentrancy (e.g., by using the Checks-Effects-Interactions Pattern or the Mutex Pattern).
+Instead of implementing a loop to iterate over all elements of the iterable data structure (e.g., to transfer assets to the accounts stored in the iterable data structure), implement a method that allows users to execute the function via a pull mechanism. This pull mechanism executes the function for one element of the iterable data structure (e.g., to transfer the balance associated with the caller address to the caller account). In Ethereum, the pull mechanism must be protected against reentrancy (e.g., by using the Checks-Effects-Interactions Pattern or the Mutex Pattern).
 
 ## Example
 ### Wrong
