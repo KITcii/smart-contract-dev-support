@@ -1,18 +1,18 @@
 # Indexed-Loop Pattern
 
 ## Context
-The Indexed-Loop Pattern can be applied whenever an unbounded data structure (e.g., an array or a list) is used in a smart contract. 
+A data structure (e.g., a linked list) keeps an unlimited number of elements (e.g., accounts for payments). This data structure is to be iterated over to perform operations (e.g., transferring assets to accounts managed in the iterable data structure).
 
 ``Applies to: [X] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
 ## Problem
-The objective of the Indexed-Loop Pattern is to deal with the abortion of smart contract execution and denial of service attacks related to unbounded data structures. The problem is that the consumption of all available computational resources for smart contract execution can interrupt iterations over an unlimited data structure (i.e., unlimited bulk operations). Resulting in e.g., out-of-gas exceptions in Ethereum-like platforms or exceeding the threshold for smart contract execution time in EOSIO. Exceeding the available computational resources can lead to denial of service, because some elements are never processed at the end of the unbounded data structure. In case of an exception thrown during the iteration over an unbounded data structure (e.g., due to an out-of-gas exception or a timeout), the iteration should be interrupted and be continuable with the next call.
+The full consumption of available resources for smart contract execution (e.g., gas in Ethereum-based blockchains) can interrupt iterations over an unlimited data structure (i.e., unlimited bulk operations). A persistent exceed in the available resources during the iteration over a data structure can lead to denial-of-service, because some elements will never be processed. The aim of the Indexed-Loop Pattern is to make iterations over unbounded data structures continuable after abortion.
 
 ## Forces
 The forces involved in the Indexed-Loop Pattern are technical soundness, resource efficiency and code efficiency. Technical soundness can be improved by the application of the Indexed-Loop Pattern as risks associated with unbounded data structures are mitigated by enabling the smart contract to resume with the next iteration with the next call. At the same time code efficiency and resource efficiency are reduced as an additional mechanism to check for sufficient gas for the next iteration needs to be implemented.
 
 ## Solution
-To avoid out-of-gas exceptions and continue an iteration over an unbounded, iterable data structure, developers should implement a mechanism to check if sufficient gas is available for the next iteration and an index variable that stores the index of the last element of the iteratable data structure that was successfully processed. When resuming the iteration over the unbounded data structure through another call of the smart contract function, the loop continues at the value stored in the index variable. If a procedure to be executed within the loop fails multiple times for a certain index, this failure should be marked to prevent denial of service and proceed with subsequent elements of the iterable data structure.
+IImplement a mechanism to check if sufficient gas is available for the next iteration and an index variable that references the last successfully processed element of the iterable data structure. In the subsequent call to the smart contract function, the loop continues at the element referenced by the index variable. If a procedure to be executed within the loop fails multiple times for a certain index, this failure should be marked to prevent denial of ser-vice and proceed with subsequent elements of the iterable data structure.
 
 ## Example
 ### Wrong
@@ -87,10 +87,10 @@ contract IndexedLoopPattern {
 The individual gas costs for _gasPerIteration_ and _gasForPostLoop_ have been manually calculated. The Indexed-Loop Pattern implemented in the above example assumes that all asset transfers succeed and **does not protect from wallet griefing**. To protect from wallet griefing, mechanisms to keep track of failed transactions and the corresponding recipient accounts must be implemented to adjust the index accordingly and prevent denial of service. For such checks, the return value of the asset transfer function in line 24 must be considered.
 
 ## Resulting Context
-Before iterations over an unbounded data structure will exceed the available amount of gas, the iteration is aborted can be resumed in a subsequent invocation of the same function at the index stored in an index variable. To completely iterate over the data structure as intended, more than one call of the function might be necessary. Due to additional operations (e.g., updating the index variable), the use of the Indexed-Loop Pattern increases gas cost for deployment and execution. Furthermore, the user who triggers the iteration must pay for the execution themselves. Such cost may cause an issue regarding the fair distribution of costs (see [Pull Pattern](/Design%20Patterns/Pull%20Pattern/README.md#context)).
+Before iterations over an unbounded data structure will exceed the available resources, the iteration is aborted and can be resumed in a subsequent invocation of the same function at the element referenced by the index variable. To completely iterate over the data structure, more than one call of the function might be necessary. Because of additional operations (e.g., updating the index variable) to be implemented, the use of the Indexed-Loop Pattern increases cost for deployment and execution.
 
 ## Rationale
-By implementing an index variable that points to the last successfully processed element of the iterable data structure, the effects of an out-of-gas exceptions can be mitigated because operations that exceed the gas limit can be continued by the next function call.
+By implementing an index variable that references the last successfully processed element of the iterable data structure, the abortion of iterations over unbounded data structures can be mitigated by continuing the respective iteration in subsequent calls.
 
 ## Related Patterns
 [Pull Pattern](/Design%20Patterns/Pull%20Pattern/README.md#context)
