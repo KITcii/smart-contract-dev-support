@@ -1,12 +1,12 @@
 # Replay-Protection Pattern
 
 ## Context
-The Replay-Protection Pattern is applicable whenever the payload of a transaction can be replayed for repeated function execution, for example, after a hardfork of a distributed ledger.
+Transactions are publicly visible and include payload data that can be reissued by attackers to leverage benefits, for example, to spend assets on differ-ent distributed ledgers after a hard fork.
 
 ``Applies to: [X] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
 ## Problem
-Replay attacks can allow attackers to use authorization data (e.g., digital signatures) of other identities, for example, to manipulate token balances kept by a smart contract. The aim of the Replay-Protection Pattern is to protect smart contracts from replay attacks.
+In replay attacks, attackers use data included in transactions (e.g., digital signatures for authentication) issued by other identities and resend the transaction, for example, to manipulate token balances kept by a smart contract. The aim of the Replay-Protection Pattern is to protect smart con-tracts from replay attacks.
 
 ## Forces
 The forces involved are semantic soundness and resource efficiency. Semantic soundness can be improved by preventing replay attacks and, thus, improving robustness of the smart contract. However, the Replay-Protection Pattern requires additional checks that increase resources consumption.
