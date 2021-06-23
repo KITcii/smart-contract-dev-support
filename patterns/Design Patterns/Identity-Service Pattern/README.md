@@ -5,7 +5,7 @@ The Identity-Service Pattern applies to public DLT systems, where identities hav
 ``Applies to: [X] EOSIO    [X] Ethereum    [ ] Hyperledger Fabric``
 
 ## Problem
-On public distributed ledgers, such as Ethereum or EOS, pseudonyms are a major attribute to reference identities in DLT systems. Still, several applications require additional identity attributes for appropriate functioning (e.g., a vehicle type in smart city applications for data trading). The Identity-Service Pattern enables decentralized identity management on distributed ledgers and allows for the estimation of the credibility of identity attributes based on verifiable credentials.
+On public distributed ledgers, such as Ethereum or EOS, pseudonyms are a major attribute to reference identities in DLT systems. Still, several applications require additional identity attributes for appropriate functioning (e.g., a vehicle type in smart city applications for data trading). The Identity-Service Pattern enables decentralized identity management on distributed ledgers and allows for the estimation of the credibility of identity attributes using verifiable claims.
 
 ## Forces
 The forces involved in the Identity-Service Pattern are confidentiality and transparency. The Identity-Service Pattern enables the decentralized attestation of identity attributes (e.g., the age or address of an individual), increasing transparency of checks regarding the fulfillment of certain application requirements. However, confidentiality of information about identities associated with the DID documents can be reduced.
