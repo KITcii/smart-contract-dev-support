@@ -1,11 +1,11 @@
 # Façade Pattern
 ## Context
-Interactions with a system composed of multiple smart contracts are required.
+Multiple smart contracts have been deployed, each offering individual functions and logic to be executed (e.g., In favor of separation of concerns). Interactions with multiple smart contracts are required in order to execute an application logic composed of the different logic blocks offered by the smart contracts.
 
 ``Applies to: [X] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
 ## Problem
-In favor of separation of concerns, multiple smart contracts with individual logic are often used. Manually orchestrating the connection of the individual logic blocks of this smart contract into a composed logic thus requires multiple invocations of smart contracts. However, manually performing these calls to provision a composed application logic is prone to errors and flaws (e.g., due to misspellings or neglected side effects across smart contracts). In Ethereum-based blockchains, interacting with smart contract systems becomes even more challenging when updated smart contracts are redeployed because their addresses change. The addresses need to be updated in all systems that make calls to the outdated contract. The goal of the facade pattern is to simplify and make more secure interactions with a smart contract system, to implement logic that is composed of functions from different smart contracts, and to make it easier to maintain smart contracts.
+Manually orchestrating the connection of the individual logic blocks of this smart contract into a composed logic thus requires multiple invocations of smart contracts. However, manually performing these calls to provision a composed application logic is prone to errors and flaws (e.g., due to misspellings or neglected side effects across smart contracts). In Ethereum-based blockchains, interacting with smart contract systems becomes even more challenging when updated smart contracts are redeployed because their addresses change. The addresses need to be updated in all systems that make calls to the outdated contract. The goal of the facade pattern is to simplify and make more secure interactions with a smart contract system, to implement logic that is composed of functions from different smart contracts, and to make it easier to maintain smart contracts.
 
 ## Forces
 The forces involved in the Façade Pattern are maintainability, manual effort, and resource efficiency. Maintainability is improved by offering a single point of entry through the Façade Contract while simultaneously reducing manual effort through automation. The application of the Façade Pattern comes at the cost of resource efficiency through the deployment of an additional smart contract, the Façade Contract.
