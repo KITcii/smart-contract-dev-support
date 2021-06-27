@@ -9,34 +9,34 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"close\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Idioms/Deactivation Pattern/DeactivationAntipattern.sol\":\"DeactivationAntipattern\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Idioms/Deactivation Pattern/DeactivationAntipattern.sol\":{\"keccak256\":\"0x47a1611ecb318361232899e39001f512a3e7c2d1580d61f7117ef012afb367b7\",\"urls\":[\"bzz-raw://5bd44a0abf85fce18b4e05ae2b4090a56e53d67d34066073c34b874dccebbd4b\",\"dweb:/ipfs/QmRZfHxzAgB9vQ4tx26Kff5yubvvihSbcjSk6MxpdpUptP\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b5060848061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c806343d726d614602d575b600080fd5b60336035565b005b3373ffffffffffffffffffffffffffffffffffffffff16fffea2646970667358221220bc316633dd50165d51ff8a850e1d44f8319607d92b8aa6680579513a636292db64736f6c63430007000033",
-  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c806343d726d614602d575b600080fd5b60336035565b005b3373ffffffffffffffffffffffffffffffffffffffff16fffea2646970667358221220bc316633dd50165d51ff8a850e1d44f8319607d92b8aa6680579513a636292db64736f6c63430007000033",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"close\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationAntipattern.sol\":\"DeactivationAntipattern\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationAntipattern.sol\":{\"keccak256\":\"0x47a1611ecb318361232899e39001f512a3e7c2d1580d61f7117ef012afb367b7\",\"urls\":[\"bzz-raw://5bd44a0abf85fce18b4e05ae2b4090a56e53d67d34066073c34b874dccebbd4b\",\"dweb:/ipfs/QmRZfHxzAgB9vQ4tx26Kff5yubvvihSbcjSk6MxpdpUptP\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b5060848061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c806343d726d614602d575b600080fd5b60336035565b005b3373ffffffffffffffffffffffffffffffffffffffff16fffea2646970667358221220a91f8788ac51642488f09798ab1a95b3a348fd0c0c882641c8bb7c2865c4bc3764736f6c63430007000033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c806343d726d614602d575b600080fd5b60336035565b005b3373ffffffffffffffffffffffffffffffffffffffff16fffea2646970667358221220a91f8788ac51642488f09798ab1a95b3a348fd0c0c882641c8bb7c2865c4bc3764736f6c63430007000033",
   "immutableReferences": {},
-  "sourceMap": "24:106:15:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "24:106:15:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;63:65;;;:::i;:::-;;;109:10;96:24;;",
+  "sourceMap": "24:106:49:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "24:106:49:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;63:65;;;:::i;:::-;;;109:10;96:24;;",
   "source": "pragma solidity 0.7.0;\n\ncontract DeactivationAntipattern {\n    function close() public { \n      selfdestruct(msg.sender); \n    }\n}",
-  "sourcePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Idioms/Deactivation Pattern/DeactivationAntipattern.sol",
+  "sourcePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationAntipattern.sol",
   "ast": {
-    "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Idioms/Deactivation Pattern/DeactivationAntipattern.sol",
+    "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationAntipattern.sol",
     "exportedSymbols": {
       "DeactivationAntipattern": [
-        1318
+        1417
       ]
     },
-    "id": 1319,
+    "id": 1418,
     "license": null,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1308,
+        "id": 1407,
         "literals": [
           "solidity",
           "0.7",
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:22:15"
+        "src": "0:22:49"
       },
       {
         "abstract": false,
@@ -45,18 +45,18 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1318,
+        "id": 1417,
         "linearizedBaseContracts": [
-          1318
+          1417
         ],
         "name": "DeactivationAntipattern",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 1316,
+              "id": 1415,
               "nodeType": "Block",
-              "src": "87:41:15",
+              "src": "87:41:49",
               "statements": [
                 {
                   "expression": {
@@ -66,18 +66,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1312,
+                          "id": 1411,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": -15,
-                          "src": "109:3:15",
+                          "src": "109:3:49",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 1313,
+                        "id": 1412,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -85,7 +85,7 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "109:10:15",
+                        "src": "109:10:49",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -99,18 +99,18 @@
                           "typeString": "address payable"
                         }
                       ],
-                      "id": 1311,
+                      "id": 1410,
                       "name": "selfdestruct",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": -21,
-                      "src": "96:12:15",
+                      "src": "96:12:49",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_selfdestruct_nonpayable$_t_address_payable_$returns$__$",
                         "typeString": "function (address payable)"
                       }
                     },
-                    "id": 1314,
+                    "id": 1413,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -118,22 +118,22 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "96:24:15",
+                    "src": "96:24:49",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1315,
+                  "id": 1414,
                   "nodeType": "ExpressionStatement",
-                  "src": "96:24:15"
+                  "src": "96:24:49"
                 }
               ]
             },
             "documentation": null,
             "functionSelector": "43d726d6",
-            "id": 1317,
+            "id": 1416,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -141,36 +141,36 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1309,
+              "id": 1408,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "77:2:15"
+              "src": "77:2:49"
             },
             "returnParameters": {
-              "id": 1310,
+              "id": 1409,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "87:0:15"
+              "src": "87:0:49"
             },
-            "scope": 1318,
-            "src": "63:65:15",
+            "scope": 1417,
+            "src": "63:65:49",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 1319,
-        "src": "24:106:15"
+        "scope": 1418,
+        "src": "24:106:49"
       }
     ],
-    "src": "0:130:15"
+    "src": "0:130:49"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/Idioms/Deactivation Pattern/DeactivationAntipattern.sol",
+      "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationAntipattern.sol",
       "exportedSymbols": {
         "DeactivationAntipattern": [
-          1318
+          1417
         ]
       },
       "license": null
@@ -184,9 +184,9 @@
             ".0"
           ]
         },
-        "id": 1308,
+        "id": 1407,
         "name": "PragmaDirective",
-        "src": "0:22:15"
+        "src": "0:22:49"
       },
       {
         "attributes": {
@@ -201,10 +201,10 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1318
+            1417
           ],
           "name": "DeactivationAntipattern",
-          "scope": 1319
+          "scope": 1418
         },
         "children": [
           {
@@ -219,7 +219,7 @@
               ],
               "name": "close",
               "overrides": null,
-              "scope": 1318,
+              "scope": 1417,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "public"
@@ -232,9 +232,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1309,
+                "id": 1408,
                 "name": "ParameterList",
-                "src": "77:2:15"
+                "src": "77:2:49"
               },
               {
                 "attributes": {
@@ -243,9 +243,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1310,
+                "id": 1409,
                 "name": "ParameterList",
-                "src": "87:0:15"
+                "src": "87:0:49"
               },
               {
                 "children": [
@@ -282,9 +282,9 @@
                               "type": "function (address payable)",
                               "value": "selfdestruct"
                             },
-                            "id": 1311,
+                            "id": 1410,
                             "name": "Identifier",
-                            "src": "96:12:15"
+                            "src": "96:12:49"
                           },
                           {
                             "attributes": {
@@ -308,44 +308,44 @@
                                   "type": "msg",
                                   "value": "msg"
                                 },
-                                "id": 1312,
+                                "id": 1411,
                                 "name": "Identifier",
-                                "src": "109:3:15"
+                                "src": "109:3:49"
                               }
                             ],
-                            "id": 1313,
+                            "id": 1412,
                             "name": "MemberAccess",
-                            "src": "109:10:15"
+                            "src": "109:10:49"
                           }
                         ],
-                        "id": 1314,
+                        "id": 1413,
                         "name": "FunctionCall",
-                        "src": "96:24:15"
+                        "src": "96:24:49"
                       }
                     ],
-                    "id": 1315,
+                    "id": 1414,
                     "name": "ExpressionStatement",
-                    "src": "96:24:15"
+                    "src": "96:24:49"
                   }
                 ],
-                "id": 1316,
+                "id": 1415,
                 "name": "Block",
-                "src": "87:41:15"
+                "src": "87:41:49"
               }
             ],
-            "id": 1317,
+            "id": 1416,
             "name": "FunctionDefinition",
-            "src": "63:65:15"
+            "src": "63:65:49"
           }
         ],
-        "id": 1318,
+        "id": 1417,
         "name": "ContractDefinition",
-        "src": "24:106:15"
+        "src": "24:106:49"
       }
     ],
-    "id": 1319,
+    "id": 1418,
     "name": "SourceUnit",
-    "src": "0:130:15"
+    "src": "0:130:49"
   },
   "compiler": {
     "name": "solc",
@@ -353,7 +353,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.0",
-  "updatedAt": "2021-05-26T11:12:50.856Z",
+  "updatedAt": "2021-06-10T07:34:01.570Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

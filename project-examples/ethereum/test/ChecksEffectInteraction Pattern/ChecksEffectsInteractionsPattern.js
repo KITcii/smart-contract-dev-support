@@ -1,11 +1,10 @@
-const tc = artifacts.require("./Idioms/Checks-Effects-Interactions Pattern/ChecksEffectsInteractionsPattern");
-const attacker_contract = artifacts.require('./Idioms/Checks-Effects-Interactions Pattern/Attacker2.sol');
+const tc = artifacts.require('ChecksEffectsInteractionsPattern');
+const attacker_contract = artifacts.require('Attacker2.sol');
 
 contract('ChecksEffectsInteractionsPattern', async (accounts) => {
 
     let victim;
 
-    
     before(async () => {
         victim = await tc.new();
     })
@@ -24,17 +23,20 @@ contract('ChecksEffectsInteractionsPattern', async (accounts) => {
     })
 
     it('Should be safe from Reentrancy', async () => {
+        //create new attacker contract
         attacker = await attacker_contract.new(victim.address);
+        
+        //send 1 ETH to the attacker contract
         let one_eth = web3.utils.toWei("1", "ether");
         await web3.eth.sendTransaction({from: accounts[1], to: attacker.address, value: one_eth});
 
-        console.log(await web3.eth.getBalance(victim.address));
-        console.log(await web3.eth.getBalance(attacker.address));
+        //the attacker needs to have some balance at the exploitet contract
         await attacker.set_balance();
+
+        //we can now try to withdraw more than we initially send to the exploited contract
         result = await attacker.attack();
-        //console.log(result)
-        console.log(await web3.eth.getBalance(victim.address));
-        console.log(await web3.eth.getBalance(attacker.address));
+        
+        //assert that the exploit has not worked
         assert.equal(one_eth, await web3.eth.getBalance(attacker.address));
     })    
 
