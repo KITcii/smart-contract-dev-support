@@ -1,11 +1,13 @@
 # Checks-Effects-Interactions Pattern
 
 ## Context
-The Checks-Effects-Interactions Pattern is applicable when smart contracts interact with other smart contracts to prevent reentrancy attacks. Reentrancy attacks can occur when a smart contract makes function calls in an inconsistent state. An inconsistent state is characterized by inconsistent values in a smart contract. For example, assets of an account are transferred from a smart contract to another address but the variables that keep track of that account's balance are updated after the transfer.
+The Checks-Effects-Interactions Pattern applies to functions of Ethereum smart contracts that make external calls.
 
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
+
 ## Problem
-The objective of the Checks-Effects-Interactions Pattern is to prevent reentrancy attacks from being successful. Reentrancy should not be fully prevented but should be aborted after a certain condition is met. No additional instructions should be implemented in the smart contract. The problem is if a condition in a smart contract (e.g., `if(…)`) the values of the variables used in the condition are updated too late, it may lead to unintended program flow. For example, late updates of such variables could lead to numerous unintended recursions during the execution of smart contract functions (referred to as reentrancy) because a condition cannot be validated as false to interrupt execution. 
+External calls from smart contract functions can allow for unintended recursive calls during the execution of the external call, causing vulnerabilities to reentrancy attacks. Exploiting the possibility for recursive calls, a called smart contract can, for example, drain tokens kept by the callee contracts. The aim of the Checks-Effects-Interactions Pattern is to protect smart contracts from reentrancy.
+
 ## Forces
 The main force involved in the Checks-Effects-Interactions Pattern is implementation soundness particularly semantic soundness as the application of the Checks-Effects-Interactions Pattern prevents unintended program flow in smart contracts caused by reentrancy attacks.
 
@@ -53,9 +55,11 @@ contract ChecksEffectsInteractionsPattern {
 
 ```
 ## Resulting Context
-The Checks-Effects-Interactions Pattern prevents unintended program flow (e.g., due to reentrancy) because all values of variables relevant for a condition are updated as soon as possible. Thus, malicious actions that take advantage of unintended program flow (e.g., in reentrancy attacks) can be avoided.
+The Checks-Effects-Interactions Pattern prevents reentrancy because all values of variables relevant for a condition have been updated when the condition applies.
+
 ## Rationale
-Smart contracts follow the concept of state machines and make a transition from a state st to st+1 after certain variable values changed. Each function invocation is put on the call stack and needs to be processed before the smart contract terminates and the state transitions conclude. Unintended program flows are caused by the validation of conditions before the variable values relevant for the condition are updated. To prevent such unintended program flow, an appropriate order of operations in smart contracts regarding state transitions is crucial. With appropriate error handling updates of the internal value in a smart contract are rolled back if the smart contract has failed.
+In the execution of Ethereum smart contracts, each instruction is put on the call stack and needs to be processed before the smart contract terminates and the state transitions conclude. Unintended program flows are caused by the validation of conditions before the variable values relevant for the condition are updated. In a smart contract A, for example, a condition C ckecks if the balance associated with an address is sufficient for a token transfer and aborts the asset transfer if that balance is not sufficient. After successfully passing the condition, A first transfers tokens to an address and subsequently updates the balance of the target adress in a local data structure. The target adress corresponds to a smart contract B. Upon receiving the tokens from A, B recursively calls the the callee function in A. Because the balance associated with B's address is updated after the token transfer, C does not abort recursive calls from B and B can drain the tokens kept by A. To prevent reentrancy, variables used in conditions (like C) should be updated prior to external calls.
+
 ## Related Patterns
 [External-Call](../../Idioms/External-Call%20Pattern/README.md), [Mutex Pattern](../../Design%20Patterns/Mutex%20Pattern/README.md), [Pull Pattern](../../Design%20Patterns/Pull%20Pattern/README.md)
 ## Known Uses
