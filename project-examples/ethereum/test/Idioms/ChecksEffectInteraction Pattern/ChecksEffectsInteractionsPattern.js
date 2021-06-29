@@ -1,4 +1,4 @@
-const tc = artifacts.require('ChecksEffectsInteractionsPattern');
+const ChecksEffectsInteractionsPattern = artifacts.require('ChecksEffectsInteractionsPattern');
 const attacker_contract = artifacts.require('Attacker2.sol');
 
 contract('ChecksEffectsInteractionsPattern', async (accounts) => {
@@ -6,15 +6,15 @@ contract('ChecksEffectsInteractionsPattern', async (accounts) => {
     let victim;
 
     before(async () => {
-        victim = await tc.new();
+        victim = await ChecksEffectsInteractionsPattern.new();
     })
 
-    it('TestContract balance should starts with 0 ETH', async () => {
+    it('ChecksEffectsInteractionsPattern balance should starts with 0 ETH', async () => {
         let balance = await web3.eth.getBalance(victim.address);
         assert.equal(balance, 0);
     })
 
-    it('TestContract balance should have 11 ETH after deposit', async () => {
+    it('ChecksEffectsInteractionsPattern balance should have 11 ETH after deposit', async () => {
         let eleven_eth = web3.utils.toWei("11", "ether");
         await web3.eth.sendTransaction({from: accounts[1], to: victim.address, value: eleven_eth});
         let balance_wei = await web3.eth.getBalance(victim.address);

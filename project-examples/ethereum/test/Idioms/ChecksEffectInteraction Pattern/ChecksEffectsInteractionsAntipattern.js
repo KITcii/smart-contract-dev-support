@@ -1,4 +1,4 @@
-const tc = artifacts.require('ChecksEffectsInteractionsAntipattern');
+const ChecksEffectsInteractionsAntipattern = artifacts.require('ChecksEffectsInteractionsAntipattern');
 const attacker_contract = artifacts.require('Attacker.sol');
 
 contract('ChecksEffectsInteractionsAntipattern', async (accounts) => {
@@ -6,15 +6,15 @@ contract('ChecksEffectsInteractionsAntipattern', async (accounts) => {
     let victim;
   
     before(async () => {
-        victim = await tc.new();
+        victim = await ChecksEffectsInteractionsAntipattern.new();
     })
 
-    it('TestContract balance should starts with 0 ETH', async () => {
+    it('ChecksEffectsInteractionsAntipattern balance should starts with 0 ETH', async () => {
         let balance = await web3.eth.getBalance(victim.address);
         assert.equal(balance, 0);
     })
 
-    it('TestContract balance should have 11 ETH after deposit', async () => {
+    it('ChecksEffectsInteractionsAntipattern balance should have 11 ETH after deposit', async () => {
         let eleven_eth = web3.utils.toWei("11", "ether");
         await web3.eth.sendTransaction({from: accounts[1], to: victim.address, value: eleven_eth});
         let balance_wei = await web3.eth.getBalance(victim.address);
@@ -22,7 +22,7 @@ contract('ChecksEffectsInteractionsAntipattern', async (accounts) => {
         assert.equal(balance_ether, 11);
     })
 
-    it('Should be safe from Reentrancy', async () => {
+    it('ChecksEffectsInteractionsAntipattern should be safe from Reentrancy', async () => {
         
         //create new attacker contract
         attacker = await attacker_contract.new(victim.address);
