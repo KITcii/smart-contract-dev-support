@@ -5,7 +5,7 @@ contract DeactivationPattern {
     bool _activated = true; 
     
     modifier checkActive(){
-      require (_activated);
+      require (_activated, "Contract is deactivated");
       _;
     }
 

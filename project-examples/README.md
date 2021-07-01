@@ -5,6 +5,8 @@ We have created a few tests for our patterns. There are currently only examples 
 ### Ethereum Setup
 Install Truffle and Ganache
 
+npm install --save-dev @openzeppelin/test-helpers
+
 Launch Ganache:
 
     npx ganache-cli -l 1000000000
