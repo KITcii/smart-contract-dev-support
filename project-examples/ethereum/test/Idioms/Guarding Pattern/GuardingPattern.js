@@ -8,7 +8,7 @@ contract('GuardingPattern', async (accounts) => {
     })
 
     it('Should allow the owner to change the owner ', async () => { 
-        contract.changeOwner(accounts[1], {from: accounts[0]});
+        await contract.changeOwner(accounts[1], {from: accounts[0]});
         let owner = await contract.owner.call();
         assert.equal(accounts[1], owner);
     })

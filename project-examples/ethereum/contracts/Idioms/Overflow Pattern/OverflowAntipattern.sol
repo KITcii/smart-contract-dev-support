@@ -3,7 +3,7 @@ pragma solidity 0.7.0;
 contract OverflowAntipattern {
     uint256 counter = 0;
     
-    event LoopCompleted(uint256 number);
+    event Overflow(uint256 iteration_counter);
     
     function runLoop() public {
        for (uint8 i=0; i < 258 ; i+1){
@@ -14,6 +14,6 @@ contract OverflowAntipattern {
            }
        }
         
-       emit LoopCompleted (counter);
+       emit Overflow (counter);
     }
 }
