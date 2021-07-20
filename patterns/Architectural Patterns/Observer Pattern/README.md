@@ -1,6 +1,6 @@
 # Observer Pattern
 ## Context
-The Observer Pattern applies to smart contracts on Ethereum-based blockchains that are invoked by other smart contracts and are likely to be updated or destroyed in the future.
+The Observer Pattern applies to smart contracts on Ethereum-based blockchains that are invoked by other smart contracts and are likely to be replaced with another smart contract on another address, deactivated, or destroyed in the future.
 
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
