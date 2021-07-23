@@ -26,7 +26,7 @@ contract IndexedLoopAntipattern {
     }
     
     Payee[] payees;
-
+    //...
     receive() external payable {
         Payee memory p = Payee(msg.sender, msg.value);
         payees.push(p);
@@ -56,9 +56,7 @@ contract IndexedLoopPattern {
 
     Payee[] payees;
     uint256 nextPayeeIndex;
-
     //...
-
     function payout() public payable {
         uint256 totalGasConsumed = 0;
         // Estimated amount of gas required for each iteration (must not be smaller than the actually consumed gas)
