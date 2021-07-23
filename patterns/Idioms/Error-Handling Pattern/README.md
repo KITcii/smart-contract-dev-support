@@ -20,6 +20,7 @@ Implementing checks of return values (e.g., of `call(…)` or `delegatecall(…)
 pragma solidity 0.6.10;
 
 contract ErrorHandlingPatternRequireRevert {
+    //...
     function sendAssets(address payable _addr)
         public payable returns (bool) {
             (bool success, ) = _addr.call{value: (msg.value / 2)}("");
@@ -47,7 +48,7 @@ pragma solidity ^0.6.1;
 
 contract ChildContract {
     address private owner;
-
+    //...
     public ChildContract(address _owner) {
         owner = _owner;
     }
@@ -58,7 +59,7 @@ contract ErrorHandlingPatternTryCatch {
     uint public errorCount;
     
     event ErrorHandled(string reason);
-
+    //...
     function createCharitySplitter(address _childOwner) public {
         try new ChildContract(_childOwner)
             returns (ChildContract newChildContract) {
