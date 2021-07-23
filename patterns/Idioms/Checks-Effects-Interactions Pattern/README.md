@@ -1,7 +1,7 @@
 # Checks-Effects-Interactions Pattern
 
 ## Context
-The Checks-Effects-Interactions Pattern applies to functions of Ethereum smart contracts that make external calls.
+The Checks-Effects-Interactions Pattern applies to functions of Ethereum smart contracts that make external calls to (unknown) addresses that are or may be other smart contracts.
 
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
