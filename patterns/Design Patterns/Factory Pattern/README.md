@@ -27,6 +27,7 @@ By creating and issuing Child Contracts from a Factory Smart Contract, the secur
 
 ## Related Patterns
 [Token Pattern](/Idioms/Token%20Pattern/README.md#context)
+[Observer Pattern](/Architectural%20Patterns/Observer%20Pattern/README.md)
 
 ## Known Uses
 [CharitySplitter](https://blog.ethereum.org/2020/01/29/solidity-0.6-try-catch/)
