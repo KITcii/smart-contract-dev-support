@@ -40,7 +40,7 @@ pragma solidity 0.7.0;
 
 contract ChecksEffectsInteractionsPattern {
     mapping (address => uint256) public balances;
-
+    //...
     function withdraw(uint _amount) public{
         // Checks
         if(balances[msg.sender] >= _amount){
