@@ -19,6 +19,7 @@ Instead of using the ``selfdestruct(...)`` operation developers should instead d
 pragma solidity 0.7.0;
 
 contract DeactivationAntipattern {
+    //...
     function close() public { 
       selfdestruct(msg.sender); 
     }
@@ -35,7 +36,7 @@ contract DeactivationPattern {
     modifier checkActive(){
       require (_activated);
     }
-    
+    //...
     function anyFunction() checkActive public {
       //code to be reverted by deactivation 
     }
