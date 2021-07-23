@@ -12,7 +12,7 @@ External calls from smart contract functions can allow for unintended recursive 
 The forces involved in the Mutex Pattern are semantic soundness and code efficiency. Semantic soundness is improved by the Mutex Pattern through preventing unintended program flow caused by reentrancy attacks. The implementation of the Mutex Pattern comes at the cost of code efficiency as additional smart contract code needs to be implemented.
 
 ## Solution
-Implement a mutex variable to protect critical parts of smart contract code from repeated execution through external calls. The mutex variable is a variable used in a condition that must validate as true to execute subsequent smart contract code. Otherwise, the code protected by the mutex variable is not executed. After the execution of the protected smart contract code, the mutex is unlocked to allow for the next execution of the pro-tected code. To protect a whole smart contract from reentrancy, such mutexes should be used in all its functions including external calls.
+Implement a mutex variable to protect critical parts of smart contract code from repeated execution through external calls. The mutex variable is a variable used in a condition that must validate as true to execute subsequent smart contract code. Otherwise, the code protected by the mutex variable is not executed. After the execution of the protected smart contract code, the mutex is unlocked to allow for the next execution of the protected code. To protect a whole smart contract from reentrancy, such mutexes should be used in all its functions including external calls.
 
 ## Example
 ### Wrong
@@ -59,7 +59,7 @@ contract MutexPattern {
 
 ```
 ## Resulting Context
-All state modifications are carried out if the flag is set `true`. Otherwise, function invocations are prevented if they are out of the intended order. There-fore, unintended recursive calls to smart contract functions can be prevented. The smart contract execution can become slightly costlier (e.g., in terms of gas) because of additional conditions to be considered using mutex variables.
+All state modifications are carried out if the flag is set `true`. Otherwise, function invocations are prevented if they are out of the intended order. Therefore, unintended recursive calls to smart contract functions can be prevented. The smart contract execution can become slightly costlier (e.g., in terms of gas) because of additional conditions to be considered using mutex variables.
 
 ## Rationale
 By implementing the Mutex Pattern, a smart contract function cannot be executed if the function execution enters a certain point protected by a mutex variable until the function execution passed another point, where the mutex variable is unlocked again. In case an attacker aims to reenter the smart contract function, the execution will be aborted. By doing so, the smart contract function is protected from reentrancy.
