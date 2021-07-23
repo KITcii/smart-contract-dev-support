@@ -48,7 +48,7 @@ contract ReplayProtectionAntipattern{
 }
 ```
 
-### Right
+### Correct
 ```Solidity
 pragma solidity 0.7.0;
 
