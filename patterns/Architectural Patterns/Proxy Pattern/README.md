@@ -33,4 +33,5 @@ Technically, the Target Contract still cannot be changed. Nevertheless, the inte
 [Façade Pattern](/Architectural%20Patterns/Façade%20Pattern/README.md#context)
 
 ## Known Uses
+[ERC-725](https://github.com/ethereum/EIPs/issues/725)
 [Unknown Contract](https://etherscan.io/bytecode-decompiler?a=0x09cabec1ead1c0ba254b09efb3ee13841712be14)
