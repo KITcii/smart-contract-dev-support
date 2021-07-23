@@ -6,7 +6,7 @@ The Mutex Pattern can be applied to secure external calls from Ethereum smart co
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
 ## Problem
-EExternal calls from smart contract functions can allow for unintended recursive calls during the execution of the external call, causing vulnerabilities to reentrancy attacks. Exploiting the possibility for recursive calls, a called smart contract can, for example, drain tokens kept by the callee contracts. The aim of the Mutex Pattern is to prevent reentrancy attacks.
+External calls from smart contract functions can allow for unintended recursive calls during the execution of the external call, causing vulnerabilities to reentrancy attacks. Exploiting the possibility for recursive calls, a called smart contract can, for example, drain tokens kept by the callee contracts. The aim of the Mutex Pattern is to prevent reentrancy attacks.
 
 ## Forces
 The forces involved in the Mutex Pattern are semantic soundness and code efficiency. Semantic soundness is improved by the Mutex Pattern through preventing unintended program flow caused by reentrancy attacks. The implementation of the Mutex Pattern comes at the cost of code efficiency as additional smart contract code needs to be implemented.
