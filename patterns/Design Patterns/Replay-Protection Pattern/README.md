@@ -62,10 +62,6 @@ contract ReplayProtectionPattern{
     
     modifier replayProtection(address _from, address _to,
         uint256 _amount, uint256 _executionNonce, bytes calldata _signature) {
-        // Limit the number of execution nonces that can be skipped
-        require(_executionNonce >= executionNonce && _executionNonce <= executionNonce + 1e9,
-            "Invalid execution nonce!");
-        
         // Check signature
         address signer = ECDSA.recover(
             keccak256(abi.encodePacked(_from, _to, _amount, address(this), _executionNonce)), _signature
