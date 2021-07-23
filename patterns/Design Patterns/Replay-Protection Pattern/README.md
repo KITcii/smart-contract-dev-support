@@ -60,16 +60,16 @@ contract ReplayProtectionPattern{
     
     address owner;
     
-    modifier replayProtection(address _from, address _to,
-        uint256 _amount, uint256 _executionNonce, bytes calldata _signature) {
+    modifier replayProtection(address _from, address _to, uint256 _amount,
+        uint256 _executionNonce, bytes calldata _signature) { 
+        // Increment the stored nonce
+        executionNonce = _executionNonce + 1;
+        
         // Check signature
         address signer = ECDSA.recover(
             keccak256(abi.encodePacked(_from, _to, _amount, address(this), _executionNonce)), _signature
         );
         require(signer == owner, "invalid signature / wrong signer / wrong nonce.");
-        
-        // Increment the stored nonce
-        executionNonce = _executionNonce + 1;
         _;
     }
 
@@ -100,6 +100,8 @@ contract ReplayProtectionPattern{
 
 ## Resulting Context
 Whenever a function protected by the Replay-Protection Pattern is called, the signature sent with the call must match the signature of the passed parameters and the current nonce. The nonce is changed after each function call, which is why the function call is only successful once. All other calls will be denied.
+
+Consider the number of transactions that can be sent to the smart contract within the same short time frame. If a large number of correct (i.e., not replayed) transactions including a digital signature using the same nonce are likely to be sent to the smart contract, only the first transaction received by the contract will be processed. Only the first transaction would be processed.
 
 ## Rationale
 By using nonce in a digital signature that changes after each function call, the digital signature can be used only once. Subsequent function calls with the same digital signature become invalid.
