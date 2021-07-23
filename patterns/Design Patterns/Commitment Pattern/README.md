@@ -30,6 +30,8 @@ contract CommitmentPattern {
 
     mapping(address => UserCommit) public userCommits;
 
+    //...
+    
     function commit(bytes32 _secretCommit, bytes32 _secretSalt) public {
         require(userCommits[msg.sender].secretCommit == "", "Your commitment cannot be changed anymore.");
 
