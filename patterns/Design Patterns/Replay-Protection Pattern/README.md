@@ -27,7 +27,7 @@ contract ReplayProtectionAntipattern{
     constructor() {
         owner = msg.sender;
     }
-
+    //...
     function transferTokens(address _from, address _to, uint256 _amount) external {
         require(balances[_from] > _amount, "Not enough funds available!");
         require(msg.sender == owner, "You are not the owner!");
@@ -80,7 +80,7 @@ contract ReplayProtectionPattern{
     constructor() {
         owner = msg.sender;
     }
-
+    //...
     function transferTokens(address _from, address _to, uint256 _amount, uint256 _executionNonce, bytes calldata _signature)
         external replayProtection(_from, _to, _amount, _executionNonce, _signature) {
         require(balances[_from] > _amount, "Not enough funds available!");
