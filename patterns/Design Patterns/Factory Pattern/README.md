@@ -26,8 +26,9 @@ Child Contracts are created and issued by a Factory Smart Contract in a automate
 By creating and issuing Child Contracts from a Factory Smart Contract, the security guarantees of smart contract execution (e.g., reliable execution independent from third parties) are inherited to the automated creation of Child Contracts.
 
 ## Related Patterns
-[Token Pattern](/Idioms/Token%20Pattern/README.md#context)
-[Observer Pattern](/Architectural%20Patterns/Observer%20Pattern/README.md)
+[Token Pattern](../../Idioms/Token%20Pattern/README.md#context)
+
+[Observer Pattern](../../Architectural%20Patterns/Observer%20Pattern/README.md)
 
 ## Known Uses
 [CharitySplitter](https://blog.ethereum.org/2020/01/29/solidity-0.6-try-catch/)
