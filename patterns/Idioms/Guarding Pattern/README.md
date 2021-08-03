@@ -33,11 +33,12 @@ contract GuardingAntipattern {
 ### Correct
 ```Solidity 
 pragma solidity 0.7.0;
+
 contract GuardingPattern {
     address public owner;
 
     GuardingPattern() {
-        msg.sender;
+        owner = msg.sender;
     }
     // Modifier to define guarding conditions
     modifier onlyOwner(){
@@ -46,12 +47,13 @@ contract GuardingPattern {
     }
 
     // ...
-    
-    function changeOwner(address newOwner) public
+
+    function changeOwner(address newOwner) public
         onlyOwner (){
         owner = newOwner;
     }
 }
+
 ```
 
 ## Resulting Context
