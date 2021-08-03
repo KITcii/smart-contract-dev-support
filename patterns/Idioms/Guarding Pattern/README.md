@@ -38,13 +38,13 @@ contract GuardingPattern {
     address public owner = msg.sender;
 
     // Use a modifier to define your guarding conditions
-    modifier onlyBy(address account){
-        require(msg.sender == account, "Not authorized!");
+    modifier onlyBy(){
+        require(msg.sender == owner, "Not authorized!");
         _;
     }
 
     function changeOwner(address newOwner) public
-        onlyBy(owner){
+        onlyBy(){
         owner = newOwner;
     }
 }
