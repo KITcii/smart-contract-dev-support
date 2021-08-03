@@ -43,9 +43,9 @@ contract GuardingPattern {
         _;
     }
 
-    function changeOwner(address newOwner) public
+    function changeOwner(address _newOwner) public
         onlyBy(){
-        owner = newOwner;
+        owner = _newOwner;
     }
 }
 ```
