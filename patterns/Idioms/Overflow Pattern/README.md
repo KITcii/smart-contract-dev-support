@@ -16,41 +16,47 @@ When assigning a value to an integer variable, the value range of the variable�
 
 ### Wrong
 ```Solidity 
-pragma solidity 0.7.0;
+pragma solidity 0.7.0;
+contract OverflowAntipattern {
 
-contract OverflowAntipattern {
-    function runLoop() public {
-        for(uint8 i=255; i < 300 ; i+1{
-            //...
-        }
-    }
+    // ...
+
+    function runLoop() public {
+        for(uint8 i=255; i < 300 ; i+1{
+            //...
+        }
+    }
 }
+
 
 ```
 ### Correct
 ```Solidity 
-pragma solidity 0.7.0;
+pragma solidity 0.7.0;
 
-// We integrate only the part of the SafeMath8 library relevant for this pattern 
-library SafeMath8 {
-    // Customized SafeMath for uint8
-    function add(uint8 a, uint8 b) internal pure
-      returns (uint8) {
-        uint8 c = a + b;
-        require(c >= a, "SafeMath: addition overflow");
-        return c;
-    }
+// We integrate only the part of the SafeMath8 library relevant for this pattern 
+library SafeMath8 {
+    // Customized SafeMath for uint8
+    function add(uint8 a, uint8 b) internal pure
+      returns (uint8) {
+        uint8 c = a + b;
+        require(c >= a, "SafeMath: addition overflow");
+        return c;
+    }
 }
 
-contract OverflowPattern {
-    using SafeMath8 for uint8;
-       
-    function runLoop() public {
-        for(uint8 i=255; i < 300 ; i.add(1)){
-            //...
-        }
-    }
+contract OverflowPattern {
+    using SafeMath8 for uint8;
+       
+    // ...
+
+    function runLoop() public {
+        for(uint8 i=255; i < 300 ; i.add(1)){
+            // ...
+        }
+    }
 }
+
 ```
 ## Resulting Context
 Each time a value is assigned to a variable, the value range of the data type of the variable is checked and values that exceed the value range of the data type are not assigned, but an exception is thrown.
