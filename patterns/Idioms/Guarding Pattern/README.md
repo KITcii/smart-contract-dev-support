@@ -32,21 +32,25 @@ contract GuardingAntipattern {
 
 ### Correct
 ```Solidity 
-pragma solidity 0.7.0;
+pragma solidity 0.7.0;
+contract GuardingPattern {
+    address public owner;
 
-contract GuardingPattern {
-    address public owner = msg.sender;
-
-    // Use a modifier to define your guarding conditions
-    modifier onlyBy(){
-        require(msg.sender == owner, "Not authorized!");
-        _;
+    GuardingPattern() {
+        msg.sender;
     }
+    // Modifier to define guarding conditions
+    modifier onlyOwner(){
+        require(owner == msg.sender, "Not authorized!");
+        _;
+    }
 
-    function changeOwner(address _newOwner) public
-        onlyBy(){
-        owner = _newOwner;
-    }
+    // ...
+    
+    function changeOwner(address newOwner) public
+        onlyOwner (){
+        owner = newOwner;
+    }
 }
 ```
 
