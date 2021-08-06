@@ -12,7 +12,7 @@ The full consumption of available resources for smart contract execution (e.g., 
 The forces involved in the Indexed-Loop Pattern are technical soundness, resource efficiency and code efficiency. Technical soundness can be improved by the application of the Indexed-Loop Pattern as risks associated with unbounded data structures are mitigated by enabling the smart contract to resume with the next iteration with the next call. At the same time code efficiency and resource efficiency are reduced as an additional mechanism to check for sufficient gas for the next iteration needs to be implemented.
 
 ## Solution
-IImplement a mechanism to check if sufficient gas is available for the next iteration and an index variable that references the last successfully processed element of the iterable data structure. In the subsequent call to the smart contract function, the loop continues at the element referenced by the index variable. If a procedure to be executed within the loop fails multiple times for a certain index, this failure should be marked to prevent denial of ser-vice and proceed with subsequent elements of the iterable data structure.
+IImplement a mechanism to check if sufficient gas is available for the next iteration and an index variable that references the last successfully processed element of the iterable data structure. In the subsequent call to the smart contract function, the loop continues at the element referenced by the index variable. If a procedure to be executed within the loop fails multiple times for a certain index, this failure should be marked to prevent denial of service and proceed with subsequent elements of the iterable data structure.
 
 ## Example
 ### Wrong
@@ -26,7 +26,9 @@ contract IndexedLoopAntipattern {
     }
     
     Payee[] payees;
+    
     //...
+    
     receive() external payable {
         Payee memory p = Payee(msg.sender, msg.value);
         payees.push(p);
@@ -56,7 +58,9 @@ contract IndexedLoopPattern {
 
     Payee[] payees;
     uint256 nextPayeeIndex;
+    
     //...
+    
     function payout() public payable {
         uint256 totalGasConsumed = 0;
         // Estimated amount of gas required for each iteration (must not be smaller than the actually consumed gas)
