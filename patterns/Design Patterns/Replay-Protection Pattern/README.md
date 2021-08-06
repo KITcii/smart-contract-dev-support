@@ -6,7 +6,7 @@ Transactions are publicly visible and include payload data that can be reissued 
 ``Applies to: [X] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
 ## Problem
-In replay attacks, attackers use data included in transactions (e.g., digital signatures for authentication) issued by other identities and resend the transaction, for example, to manipulate token balances kept by a smart contract. The aim of the Replay-Protection Pattern is to protect smart con-tracts from replay attacks.
+In replay attacks, attackers use data included in transactions (e.g., digital signatures for authentication) issued by other identities and resend the transaction, for example, to manipulate token balances kept by a smart contract. The aim of the Replay-Protection Pattern is to protect smart contracts from replay attacks.
 
 ## Forces
 The forces involved are semantic soundness and resource efficiency. Semantic soundness can be improved by preventing replay attacks and, thus, improving robustness of the smart contract. However, the Replay-Protection Pattern requires additional checks that increase resources consumption.
@@ -27,7 +27,9 @@ contract ReplayProtectionAntipattern{
     constructor() {
         owner = msg.sender;
     }
+    
     //...
+    
     function transferTokens(address _from, address _to, uint256 _amount) external {
         require(balances[_from] > _amount, "Not enough funds available!");
         require(msg.sender == owner, "You are not the owner!");
@@ -76,7 +78,9 @@ contract ReplayProtectionPattern{
     constructor() {
         owner = msg.sender;
     }
+    
     //...
+    
     function transferTokens(address _from, address _to, uint256 _amount, uint256 _executionNonce, bytes calldata _signature)
         external replayProtection(_from, _to, _amount, _executionNonce, _signature) {
         require(balances[_from] > _amount, "Not enough funds available!");
