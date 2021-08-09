@@ -1,46 +1,21 @@
 pragma solidity 0.7.0;
 
+import './Token.sol';
+
 contract TokenPattern {
-    address public minter;
-    mapping (address => uint) public balances;
-    
-    event Sent(address from, address to, uint amount);
-
-    constructor() public {
-        minter = msg.sender;
-    }
-
-    function mint(address receiver, uint amount) public returns(uint256) {
-        require(msg.sender == minter);
-        
-        balances[receiver] += amount;
-        return balances[receiver];
-    }
-
-    function send(address receiver, uint amount) public returns(bool) {
-        require(amount <= balances[msg.sender], "Insufficient balance.");
-        
-        balances[msg.sender] -= amount;
-        balances[receiver] += amount;
-        emit Sent(msg.sender, receiver, amount);
-        return true;
-    }
-
-}
-
-contract LogicContract {
     address owner;
-    TokenPattern t;
+    Token public t;
     address public highest_bidder;
     uint256 highest_bid;
 
-    constructor() public {
+    constructor(Token _address) public {
         owner = msg.sender;
+        t = Token(_address);
     }
     
     function changeToken (address _address) public {
         require(msg.sender == owner);
-        t = TokenPattern(_address);
+        t = Token(_address);
     }
 
     function auction(uint256 bid) public {
