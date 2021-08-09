@@ -2,6 +2,10 @@
   "contractName": "DeactivationAntipattern",
   "abi": [
     {
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
       "inputs": [],
       "name": "close",
       "outputs": [],
@@ -9,34 +13,34 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"close\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationAntipattern.sol\":\"DeactivationAntipattern\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationAntipattern.sol\":{\"keccak256\":\"0x47a1611ecb318361232899e39001f512a3e7c2d1580d61f7117ef012afb367b7\",\"urls\":[\"bzz-raw://5bd44a0abf85fce18b4e05ae2b4090a56e53d67d34066073c34b874dccebbd4b\",\"dweb:/ipfs/QmRZfHxzAgB9vQ4tx26Kff5yubvvihSbcjSk6MxpdpUptP\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b5060848061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c806343d726d614602d575b600080fd5b60336035565b005b3373ffffffffffffffffffffffffffffffffffffffff16fffea2646970667358221220a91f8788ac51642488f09798ab1a95b3a348fd0c0c882641c8bb7c2865c4bc3764736f6c63430007000033",
-  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c806343d726d614602d575b600080fd5b60336035565b005b3373ffffffffffffffffffffffffffffffffffffffff16fffea2646970667358221220a91f8788ac51642488f09798ab1a95b3a348fd0c0c882641c8bb7c2865c4bc3764736f6c63430007000033",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"inputs\":[],\"name\":\"close\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationAntipattern.sol\":\"DeactivationAntipattern\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationAntipattern.sol\":{\"keccak256\":\"0x2c4c97046b136aed204d5f16c043df066442073ef806d369634763cbe96fa439\",\"urls\":[\"bzz-raw://f693e3458e9169623f250d7ff9bf692d6169ab9968dfe3b542d82691a11ce2c0\",\"dweb:/ipfs/QmSwK7ZNg1vcxJrKD8byUPxbjXJxAxJoAJq3W47mzY5q2J\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b5060858061001e6000396000f3fe608060405260043610601f5760003560e01c806343d726d6146022576020565b5b005b348015602d57600080fd5b5060346036565b005b3373ffffffffffffffffffffffffffffffffffffffff16fffea2646970667358221220e4ffe4cac1b34d0d74dbce338e75ff74212964566b9598b5bee92e596020210364736f6c63430007000033",
+  "deployedBytecode": "0x608060405260043610601f5760003560e01c806343d726d6146022576020565b5b005b348015602d57600080fd5b5060346036565b005b3373ffffffffffffffffffffffffffffffffffffffff16fffea2646970667358221220e4ffe4cac1b34d0d74dbce338e75ff74212964566b9598b5bee92e596020210364736f6c63430007000033",
   "immutableReferences": {},
-  "sourceMap": "24:106:49:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "24:106:49:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;63:65;;;:::i;:::-;;;109:10;96:24;;",
-  "source": "pragma solidity 0.7.0;\n\ncontract DeactivationAntipattern {\n    function close() public { \n      selfdestruct(msg.sender); \n    }\n}",
+  "sourceMap": "24:157:33:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "24:157:33:-:0;;;;;;;;;;;;;;;;;;;;;;73:65;;;;;;;;;;;;;:::i;:::-;;;119:10;106:24;;",
+  "source": "pragma solidity 0.7.0;\n\ncontract DeactivationAntipattern {\n    \n    \n    function close() public { \n      selfdestruct(msg.sender); \n    }\n\n    fallback() external payable {\n    }\n}",
   "sourcePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationAntipattern.sol",
   "ast": {
     "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationAntipattern.sol",
     "exportedSymbols": {
       "DeactivationAntipattern": [
-        1417
+        81
       ]
     },
-    "id": 1418,
+    "id": 82,
     "license": null,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1407,
+        "id": 67,
         "literals": [
           "solidity",
           "0.7",
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:22:49"
+        "src": "0:22:33"
       },
       {
         "abstract": false,
@@ -45,18 +49,18 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1417,
+        "id": 81,
         "linearizedBaseContracts": [
-          1417
+          81
         ],
         "name": "DeactivationAntipattern",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 1415,
+              "id": 75,
               "nodeType": "Block",
-              "src": "87:41:49",
+              "src": "97:41:33",
               "statements": [
                 {
                   "expression": {
@@ -66,18 +70,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1411,
+                          "id": 71,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": -15,
-                          "src": "109:3:49",
+                          "src": "119:3:33",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 1412,
+                        "id": 72,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -85,7 +89,7 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "109:10:49",
+                        "src": "119:10:33",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -99,18 +103,18 @@
                           "typeString": "address payable"
                         }
                       ],
-                      "id": 1410,
+                      "id": 70,
                       "name": "selfdestruct",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": -21,
-                      "src": "96:12:49",
+                      "src": "106:12:33",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_selfdestruct_nonpayable$_t_address_payable_$returns$__$",
                         "typeString": "function (address payable)"
                       }
                     },
-                    "id": 1413,
+                    "id": 73,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -118,22 +122,22 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "96:24:49",
+                    "src": "106:24:33",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1414,
+                  "id": 74,
                   "nodeType": "ExpressionStatement",
-                  "src": "96:24:49"
+                  "src": "106:24:33"
                 }
               ]
             },
             "documentation": null,
             "functionSelector": "43d726d6",
-            "id": 1416,
+            "id": 76,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -141,36 +145,69 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 1408,
+              "id": 68,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "77:2:49"
+              "src": "87:2:33"
             },
             "returnParameters": {
-              "id": 1409,
+              "id": 69,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "87:0:49"
+              "src": "97:0:33"
             },
-            "scope": 1417,
-            "src": "63:65:49",
+            "scope": 81,
+            "src": "73:65:33",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 79,
+              "nodeType": "Block",
+              "src": "172:7:33",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 80,
+            "implemented": true,
+            "kind": "fallback",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 77,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "152:2:33"
+            },
+            "returnParameters": {
+              "id": 78,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "172:0:33"
+            },
+            "scope": 81,
+            "src": "144:35:33",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
           }
         ],
-        "scope": 1418,
-        "src": "24:106:49"
+        "scope": 82,
+        "src": "24:157:33"
       }
     ],
-    "src": "0:130:49"
+    "src": "0:181:33"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "/home/niklas/Documents/HIWI PATTERNS/smart-contract-dev-support/project-examples/ethereum/contracts/Idioms/Deactivation Pattern/DeactivationAntipattern.sol",
       "exportedSymbols": {
         "DeactivationAntipattern": [
-          1417
+          81
         ]
       },
       "license": null
@@ -184,9 +221,9 @@
             ".0"
           ]
         },
-        "id": 1407,
+        "id": 67,
         "name": "PragmaDirective",
-        "src": "0:22:49"
+        "src": "0:22:33"
       },
       {
         "attributes": {
@@ -201,10 +238,10 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1417
+            81
           ],
           "name": "DeactivationAntipattern",
-          "scope": 1418
+          "scope": 82
         },
         "children": [
           {
@@ -219,7 +256,7 @@
               ],
               "name": "close",
               "overrides": null,
-              "scope": 1417,
+              "scope": 81,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "public"
@@ -232,9 +269,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1408,
+                "id": 68,
                 "name": "ParameterList",
-                "src": "77:2:49"
+                "src": "87:2:33"
               },
               {
                 "attributes": {
@@ -243,9 +280,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1409,
+                "id": 69,
                 "name": "ParameterList",
-                "src": "87:0:49"
+                "src": "97:0:33"
               },
               {
                 "children": [
@@ -282,9 +319,9 @@
                               "type": "function (address payable)",
                               "value": "selfdestruct"
                             },
-                            "id": 1410,
+                            "id": 70,
                             "name": "Identifier",
-                            "src": "96:12:49"
+                            "src": "106:12:33"
                           },
                           {
                             "attributes": {
@@ -308,44 +345,99 @@
                                   "type": "msg",
                                   "value": "msg"
                                 },
-                                "id": 1411,
+                                "id": 71,
                                 "name": "Identifier",
-                                "src": "109:3:49"
+                                "src": "119:3:33"
                               }
                             ],
-                            "id": 1412,
+                            "id": 72,
                             "name": "MemberAccess",
-                            "src": "109:10:49"
+                            "src": "119:10:33"
                           }
                         ],
-                        "id": 1413,
+                        "id": 73,
                         "name": "FunctionCall",
-                        "src": "96:24:49"
+                        "src": "106:24:33"
                       }
                     ],
-                    "id": 1414,
+                    "id": 74,
                     "name": "ExpressionStatement",
-                    "src": "96:24:49"
+                    "src": "106:24:33"
                   }
                 ],
-                "id": 1415,
+                "id": 75,
                 "name": "Block",
-                "src": "87:41:49"
+                "src": "97:41:33"
               }
             ],
-            "id": 1416,
+            "id": 76,
             "name": "FunctionDefinition",
-            "src": "63:65:49"
+            "src": "73:65:33"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "fallback",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "overrides": null,
+              "scope": 81,
+              "stateMutability": "payable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 77,
+                "name": "ParameterList",
+                "src": "152:2:33"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 78,
+                "name": "ParameterList",
+                "src": "172:0:33"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 79,
+                "name": "Block",
+                "src": "172:7:33"
+              }
+            ],
+            "id": 80,
+            "name": "FunctionDefinition",
+            "src": "144:35:33"
           }
         ],
-        "id": 1417,
+        "id": 81,
         "name": "ContractDefinition",
-        "src": "24:106:49"
+        "src": "24:157:33"
       }
     ],
-    "id": 1418,
+    "id": 82,
     "name": "SourceUnit",
-    "src": "0:130:49"
+    "src": "0:181:33"
   },
   "compiler": {
     "name": "solc",
@@ -353,7 +445,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.0",
-  "updatedAt": "2021-06-10T07:34:01.570Z",
+  "updatedAt": "2021-08-09T14:38:56.612Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
