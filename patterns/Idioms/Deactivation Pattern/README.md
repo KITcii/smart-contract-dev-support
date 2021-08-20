@@ -1,7 +1,7 @@
 # Deactivation Pattern
 
 ## Context
-The Deactivation Pattern is applies when a smart contract should be removed from an Ethereum-based distributed ledger.
+The Deactivation Pattern applies when a smart contract should be removed from an Ethereum-based distributed ledger.
 
 ``Applies to: [] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 ## Problem
@@ -65,7 +65,7 @@ contract DeactivationPattern {
 ```
 
 ## Resulting Context
-The application of the Deactivation Pattern ensures that the contract cannot be used while mitigating the risk associated with using the ``selfdesctruct(...)`` operation to remove the smart contract. 
+The application of the Deactivation Pattern ensures that the smart contract cannot be used while mitigating the risk associated with using the ``selfdesctruct(...)`` operation to remove the smart contract. 
 
 ## Rationale
 Keeping outdated smart contracts executable on the distributed ledger may result in unintended calls of the respective smart contract. The Deactivation Patterns provides a way to regulate the executability so that it is impossible to use the smart contract because assets are immediately returned.
