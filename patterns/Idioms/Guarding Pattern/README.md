@@ -5,10 +5,10 @@ The Guarding Pattern applies to smart contracts that should only be executable b
 ``Applies to: [X] EOSIO    [X] Ethereum    [X] Hyperledger Fabric``
 
 ## Problem
-Smart contract interfaces are exposed to and callable by all users of the distributed ledgers. The public accessibility of deployed smart contracts makes them vulnerable to unauthorized smart contract calls, potentially causing asset los. The Guarding Pattern can ensure that a function is only executable by specific accounts and the authorization checks should be performed prior to the function execution.
+Smart contract interfaces are exposed to and callable by all users of the distributed ledgers. The public accessibility of deployed smart contracts makes them vulnerable to unauthorized smart contract calls, potentially causing asset loss. The Guarding Pattern can ensure that a function is only executable by specific accounts and the authorization checks should be performed prior to the function execution.
 
 ## Forces
-The forces involved in the Guarding Pattern are regulated executability particularly execution restriction, semantic soundness and resource efficiency. Execution restrictions are enabled by implementing authorization checks. This also increases semantic soundness as only the intended accounts can invoke smart contract interfaces. Implementing authorization checks requires additional computational resources, thus, reducing resource efficiency.
+The forces involved in the Guarding Pattern are regulated executability, particularly execution restriction, semantic soundness and resource efficiency. Execution restrictions are enabled by implementing authorization checks. This also increases semantic soundness as only the intended accounts can invoke smart contract interfaces. Implementing authorization checks requires additional computational resources, thus, reducing resource efficiency.
 
 ## Solution
 Developers should implement authorization checks (e.g., modifiers in Solidity) for callable functions, especially for those functions that should transfer assets. In Solidity, the use of a modifier is recommended to implement procedures (e.g., authorization checks) that are executed prior to the execution of the actual function called. Modifiers implement ``_;`` to specify at which position the actual function code should be executed. Modifiers can be implemented in multiple functions.
