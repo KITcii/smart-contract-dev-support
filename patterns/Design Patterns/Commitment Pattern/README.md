@@ -1,6 +1,6 @@
 # Commitment Pattern
 ## Context
-Identities must commit to a certain value without knowing to which values other entities are committed. Identities can only attain the values of other entities once they are all disclosed simultaneously at a certain point in time.
+Entities must commit to a certain value without knowing to which values other entities are committed. Entities can only attain the values of other entities once they are all disclosed simultaneously at a certain point in time.
 
 ``Applies to: [X] EOSIO    [X] Ethereum    [X] Hyperledger Fabric``
 
@@ -59,7 +59,7 @@ Note: We did not implement events for the sake of simplicity of the example. For
 The smart contract stores the disguised values in a tamper-resistant way and all commits are binding. The disguised values can be revealed by users afterwards. Developers should consider the case that not all users will reveal their secret values.
 
 ## Rationale
-The hash value of the nonce and the original value to which the users have committed themselves are stored on the distributed ledger in a tamper-resistant manner and cannot be changed retroactively. Thus, once committed data are binding. To protect data from potentially entities who aim to uncover the secret value by guessing, a salt is also stored with the secret value. This way, committed values are kept secret until they are revealed by their issuers.
+The hash value of the nonce and the original value to which the users have committed themselves are stored on the distributed ledger in a tamper-resistant manner and cannot be changed retroactively. Thus, once committed data are binding. To protect data from entities who aim to uncover the secret value by guessing, a salt is also stored with the secret value. This way, committed values are kept secret until they are revealed by their issuers.
 
 ## Related Patterns
 \-
