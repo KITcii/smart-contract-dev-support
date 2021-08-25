@@ -20,7 +20,7 @@ Wrong | Correct
 ![Wrong](Smart-Contract-Factory%20Pattern%20-%20Manual%20Smart%20Contract%20Creation.png)  | ![Correct](Smart-Contract-Factory%20Pattern%20-%20Automated%20Smart%20Contract%20Creation%20via%20Factory.png)
 
 ## Resulting Context
-Child Contracts are created and issued by a Factory Contract in a automated, yet reliable and transparent manner. The identity that aims to create a Child Contract pays for the computational cost (e.g., proportional to the consumed gas in Ethereum) to deploy the smart contract.
+Child Contracts are created and issued by a Factory Contract in an automated, yet reliable and transparent manner. The identity that aims to create a Child Contract pays for the computational cost (e.g., proportional to the consumed gas in Ethereum) to deploy the smart contract.
 
 ## Rationale
 By creating and issuing Child Contracts from a Factory Contract, the security guarantees of smart contract execution (e.g., reliable execution independent from third parties) are inherited to the automated creation of Child Contracts.
