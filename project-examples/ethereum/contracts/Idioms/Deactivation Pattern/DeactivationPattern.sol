@@ -2,10 +2,10 @@ pragma solidity 0.7.0;
 
 contract DeactivationPattern {
     
-    bool _activated = true; 
+    bool activated = true; 
     
     modifier checkActive(){
-      require (_activated, "Contract is deactivated");
+      require (activated, "Contract is deactivated");
       _;
     }
 
@@ -13,7 +13,7 @@ contract DeactivationPattern {
     // This is only for demonstration purposes.
     // Everyone is able to deactivate your smart contract.
     function deactivate() public{
-      _activated = false;
+      activated = false;
     }
     
     function anyFunction() checkActive public {
