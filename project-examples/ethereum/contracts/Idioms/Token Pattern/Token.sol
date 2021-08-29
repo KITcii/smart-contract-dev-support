@@ -6,7 +6,7 @@ contract Token {
     
     event Sent(address from, address to, uint amount);
 
-    constructor() public {
+    constructor() {
         minter = msg.sender;
     }
 

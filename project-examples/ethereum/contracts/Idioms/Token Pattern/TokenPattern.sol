@@ -8,7 +8,7 @@ contract TokenPattern {
     address public highest_bidder;
     uint256 highest_bid;
 
-    constructor(Token _address) public {
+    constructor(Token _address) {
         owner = msg.sender;
         t = Token(_address);
     }
