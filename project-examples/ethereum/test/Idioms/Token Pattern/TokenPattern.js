@@ -19,4 +19,13 @@ contract('TokenPattern', async (accounts) => {
         assert.equal(new_token_contract.address, result);
     })
 
+    it('Should be possible to mint coins', async () => { 
+        let amount = 5;
+        await new_token_contract.mint(accounts[1], amount)
+
+       let credit_account1 = await new_token_contract.balances(accounts[1]);
+       assert.equal(credit_account1, amount);
+    })
+
+
 })
