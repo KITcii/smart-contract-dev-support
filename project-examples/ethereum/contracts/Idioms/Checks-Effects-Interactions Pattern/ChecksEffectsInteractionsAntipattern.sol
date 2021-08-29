@@ -7,9 +7,7 @@ contract ChecksEffectsInteractionsAntipattern {
         balances[msg.sender] += msg.value;
     }
 
-    function withdraw() public{
-        uint _amount;
-        _amount = 1 ether; 
+    function withdraw(uint _amount) public{
         
         // Checks
 
