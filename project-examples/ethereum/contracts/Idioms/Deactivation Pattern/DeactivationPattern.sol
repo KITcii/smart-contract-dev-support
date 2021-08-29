@@ -1,25 +1,32 @@
 pragma solidity 0.7.0;
 
 contract DeactivationPattern {
-    
+    address payable owner;
     bool activated = true; 
+
+    constructor() {
+      owner = msg.sender;
+    }
     
     modifier checkActive(){
       require (activated, "Contract is deactivated");
       _;
     }
 
-
-    // This is only for demonstration purposes.
-    // Everyone is able to deactivate your smart contract.
-    function deactivate() public{
-      activated = false;
+    modifier onlyOwner(){
+        require (owner == msg.sender, "Not authorized");
+        _;
     }
-    
+
+    receive() external payable checkActive {
+    }
+ 
     function anyFunction() checkActive public {
       //code to be reverted by deactivation 
     }
 
-    fallback() checkActive external payable {
+    function setActive(bool _active) public onlyOwner{
+      activated = _active;
     }
+
 }
