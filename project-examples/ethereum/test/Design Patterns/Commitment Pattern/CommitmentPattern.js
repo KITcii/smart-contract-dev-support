@@ -15,7 +15,7 @@ contract('CommitmentPattern', async (accounts) => {
         secret_salt = web3.utils.keccak256("42");
         console.log(secret_salt);
         tx = await contract.commit(secret_commit, secret_salt);
-        console.log(tx);
+        //console.log(tx);
         
     })
 
