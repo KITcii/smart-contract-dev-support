@@ -1,19 +1,19 @@
 pragma solidity 0.7.0;
 
 // Definition of the interface of ExternalContract for easier integration into ExternalCallPattern
-contract ExternalContract {
-    function externalFunction(string memory _text1, string memory _text2)
-       public pure returns (bool) {
-        return keccak256(bytes(_text1)) == keccak256(bytes(_text2));
-    }
-}
+import './ExternalContract.sol';
 
 contract ExternalCallPattern {
     event Response(string text);
 
-    function isContract(address _externalAddress) view internal returns (bool) {
+    //debugging
+    event CallEvent(string message);
+    event ContractSize(uint contractSize);
+
+    function isContract(address _externalAddress) internal returns (bool) { //view internal
         uint size;
         assembly { size := extcodesize(_externalAddress) }
+        emit ContractSize(size);
         require (size > 0);
         return true;
     }
@@ -23,6 +23,7 @@ contract ExternalCallPattern {
         // Check if a smart contract is available at the given address to avoid, for example, asset loss when sending asset
         require(isContract(_externalAddress), "No smart contract available at given address!");
 
+        emit CallEvent("External Call started");
         // Instantiate ExternalContract to make direct calls with revert(…) in case of failures in the function execution
         ExternalContract c = ExternalContract(_externalAddress);
         bool equal = c.externalFunction(_text1, _text2);    

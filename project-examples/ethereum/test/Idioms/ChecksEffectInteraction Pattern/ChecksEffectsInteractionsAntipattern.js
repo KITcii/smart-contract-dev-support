@@ -1,5 +1,5 @@
 const ChecksEffectsInteractionsAntipattern = artifacts.require('ChecksEffectsInteractionsAntipattern');
-const attacker_contract = artifacts.require('Attacker.sol');
+const attacker_contract = artifacts.require('Attacker');
 
 contract('ChecksEffectsInteractionsAntipattern', async (accounts) => {
 

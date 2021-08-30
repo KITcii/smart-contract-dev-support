@@ -1,5 +1,5 @@
-const TokenPattern = artifacts.require('TokenPattern.sol');
-const Token = artifacts.require('Token.sol')
+const TokenPattern = artifacts.require('TokenPattern');
+const Token = artifacts.require('Token')
 
 contract('TokenPattern', async (accounts) => {
 
