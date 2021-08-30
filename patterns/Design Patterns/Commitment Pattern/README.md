@@ -1,6 +1,6 @@
 # Commitment Pattern
 ## Context
-Entities must commit to a certain value without knowing to which values other entities are committed. Entities can only attain the values of other entities once they are all disclosed simultaneously at a certain point in time.
+Entities must commit to a certain value without knowing to which values other entities are committed. Entities can only attain the values of other entities once they are all disclosed simultaneously at a certain point in time. The Commitment Pattern often applies for voting schemes, lotteries, or when using zero-knowledge proofs.
 
 ``Applies to: [X] EOSIO    [X] Ethereum    [X] Hyperledger Fabric``
 

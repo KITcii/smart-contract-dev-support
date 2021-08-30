@@ -105,7 +105,7 @@ contract ReplayProtectionPattern{
 ## Resulting Context
 Whenever a function protected by the Replay-Protection Pattern is called, the signature sent with the call must match the signature of the passed parameters and the current nonce. The nonce is changed after each function call, which is why the function call is only successful once. All other calls will be denied.
 
-Consider the number of transactions that can be sent to the smart contract within the same short time frame. If a large number of correct (i.e., not replayed) transactions including a digital signature using the same nonce are likely to be sent to the smart contract, only the first transaction received by the contract will be processed.
+Consider the number of transactions that can be processed by the smart contract within a same short time frame. If a large number of transactions that include a digital signature with the same nonce is likely to be sent to the smart contract in a short time frame, only the first transaction received by the contract will be processed. After processing the first transaction with the valid nonce, the nonce changes and all other transactions with signatures using the old nonce will be invalid.
 
 ## Rationale
 By using nonce in a digital signature that changes after each function call, the digital signature can be used only once. Subsequent function calls with the same digital signature become invalid.
