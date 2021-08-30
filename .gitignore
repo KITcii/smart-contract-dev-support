@@ -1,1 +1,3 @@
 project-examples/ethereum/build
+package-lock.json
+node_modules

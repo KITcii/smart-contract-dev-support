@@ -4,7 +4,7 @@ import "./ECDSA.sol";
 
 contract ReplayProtectionPattern{
     uint256 private executionNonce = 0;
-    mapping(address => uint256) private balances;
+    mapping(address => uint256) public balances;
     
     address owner;
     
