@@ -1,4 +1,4 @@
-const DeactivationAntipattern = artifacts.require('DeactivationAntipattern.sol');
+const DeactivationAntipattern = artifacts.require('DeactivationAntipattern');
 const {expectRevert} = require('@openzeppelin/test-helpers');
 
 contract('DeactivationAntipattern', async (accounts) => {

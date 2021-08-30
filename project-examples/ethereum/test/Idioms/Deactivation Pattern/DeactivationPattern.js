@@ -1,4 +1,4 @@
-const DeactivationPattern = artifacts.require('DeactivationPattern.sol');
+const DeactivationPattern = artifacts.require('DeactivationPattern');
 const {expectRevert} = require('@openzeppelin/test-helpers');
 
 

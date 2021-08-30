@@ -1,4 +1,4 @@
-const OverflowPattern = artifacts.require('OverflowPattern.sol');
+const OverflowPattern = artifacts.require('OverflowPattern');
 const {expectRevert} = require('@openzeppelin/test-helpers');
 
 contract('OverflowPattern', async (accounts) => {
