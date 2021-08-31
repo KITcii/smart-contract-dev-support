@@ -41,15 +41,14 @@ contract GuardingPattern {
         owner = msg.sender;
     }
     // Modifier to define guarding conditions
-    modifier onlyOwner(){
+    modifier onlyOwner() {
         require(owner == msg.sender, "Not authorized!");
         _;
     }
 
     // ...
 
-    function changeOwner(address newOwner) public
-        onlyOwner (){
+    function changeOwner(address newOwner) public onlyOwner {
         owner = newOwner;
     }
 }
