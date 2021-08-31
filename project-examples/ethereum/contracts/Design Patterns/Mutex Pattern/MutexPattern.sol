@@ -15,11 +15,14 @@ contract MutexPattern {
         balances[msg.sender] += msg.value;
     }
 
-    function withdraw(uint _amount) public payable noReentrancy returns(bool) {
+    function withdraw(uint _amount) public noReentrancy returns(bool) {
         require(balances[msg.sender] >= _amount, "No balance to withdraw.");
         
-        balances[msg.sender] -= _amount;
+        // This is wrong according to the Checks-Effects-Interaction Pattern.
+        // For demonstration purposes only!
         (bool success, ) = msg.sender.call{value: _amount}("");
+        balances[msg.sender] -= _amount;
+        
         require(success);
 
         return true;
