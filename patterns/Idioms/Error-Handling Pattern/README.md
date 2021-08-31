@@ -46,10 +46,10 @@ contract ErrorHandlingPatternRequireRevert {
 ```Solidity 
 pragma solidity ^0.6.1;
 
-contract ChildContract {
-    address private owner;
-    //...
-    public ChildContract(address _owner) {
+contract CharitySplitter {
+    address public owner;
+    constructor (address _owner) public {
+        require(_owner != address(0), "no-owner-provided");
         owner = _owner;
     }
 }
