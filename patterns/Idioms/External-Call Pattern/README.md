@@ -34,7 +34,14 @@ pragma solidity 0.7.0;
 contract CallerContract {
     event Response(bool success, bytes data);
 
-    function doSomething(address _externalAddress, string memory _text) public {
+    modifier isContract(address _externalAddress) {
+        uint size;
+        assembly { size := extcodesize(_externalAddress) }
+        require (size > 0, 'Address does not point to a smart contract!');
+        _;
+    }
+    
+    function doSomething(address _externalAddress, string memory _text) public isContract(_externalAddress) {
         require(isContract(_externalAddress), "The target address is not a smart contract!");
         
         (bool success, bytes memory data) = _externalAddress.call(
@@ -43,12 +50,6 @@ contract CallerContract {
 
         // Check if function has been executed successfully
         emit Response(success, data);
-    }
-
-    function isContract(address _externalAddress) view internal returns (bool) {
-        uint size;
-        assembly { size := extcodesize(_externalAddress) }
-        return (size > 0);
     }
 }
 ```
@@ -67,10 +68,10 @@ contract ExternalCallPattern {
     event Response(string text);
 
     // Check if a smart contract is available at the given address to avoid, for example, asset loss when sending asset
-    modifier isContract(address _externalAddress) view internal returns (bool) {
+    modifier isContract(address _externalAddress) {
         uint size;
         assembly { size := extcodesize(_externalAddress) }
-        require (size > 0);
+        require (size > 0, 'Address does not point to a smart contract!');
         _;
     }
 
