@@ -38,8 +38,9 @@ contract TokenAntipattern {
 ```Solidity 
 pragma solidity 0.7.0;
 
-contract TokenPattern {
+contract TokenContract {
     //...
+    
     function mint(address receiver, uint amount) public returns(uint256) {
         // Equals function mint(…) of the wrong example lines 17-20
     }
