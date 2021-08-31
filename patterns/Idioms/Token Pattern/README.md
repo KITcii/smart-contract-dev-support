@@ -51,7 +51,7 @@ contract TokenPattern {
 
 contract LogicContract {
     //...
-    function changeToken (address _address) public {
+    function changeTokenContract (address _address) public {
         //...
     }
 
