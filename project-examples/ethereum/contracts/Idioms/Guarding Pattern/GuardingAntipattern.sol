@@ -3,13 +3,14 @@ pragma solidity 0.7.0;
 contract GuardingAntipattern {
     address public owner;
 
-    constructor(){
+    event OwnerChanged(string message);
+
+    constructor() {
         owner = msg.sender;
     }
 
-    function changeOwner(address _newOwner) public
-        returns(bool){
+    function changeOwner(address _newOwner) public {
         owner = _newOwner;
-        return true;    
+        emit OwnerChanged("Change Succsessful");  
     }
 }

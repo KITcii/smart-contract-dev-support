@@ -1,5 +1,6 @@
 const MutexPattern = artifacts.require('MutexPattern');
 const attacker_contract = artifacts.require('AttackerMutex');
+const {expectRevert} = require('@openzeppelin/test-helpers');
 
 contract('MutexPattern', async (accounts) => {
 
@@ -28,21 +29,15 @@ contract('MutexPattern', async (accounts) => {
         attacker = await attacker_contract.new(victim.address);
         
         //send 1 ETH to the attacker contract
-        let one_eth = web3.utils.toWei("1", "ether");
-        await web3.eth.sendTransaction({from: accounts[1], to: attacker.address, value: one_eth});
-        
-
-        console.log(await victim.balances(accounts[1]));
-        //the attacker needs to have some balance at the exploitet contract
-        await attacker.set_balance();
-
-        console.log(await victim.balances(attacker_contract.address));
+        // the attacker needs to have some balance at the exploitet contract
+        const one_eth = web3.utils.toWei("1", "ether");
+        await attacker.setBalance({value: one_eth})
         
         //we can now try to withdraw more than we initially send to the exploited contract
-        result = await attacker.attack();
-        
-        //assert that the exploit has not worked
-        assert.equal(one_eth, await web3.eth.getBalance(attacker.address));
+        await expectRevert(
+            attacker.attack(),
+            "Blocked from reentrancy."
+        );
     })    
 
 })

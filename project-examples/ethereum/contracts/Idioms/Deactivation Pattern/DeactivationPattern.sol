@@ -21,7 +21,7 @@ contract DeactivationPattern {
     receive() external payable checkActive {
     }
  
-    function anyFunction() checkActive public {
+    function anyFunction() public checkActive {
       //code to be reverted by deactivation 
     }
 
