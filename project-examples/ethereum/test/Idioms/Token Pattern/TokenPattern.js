@@ -1,18 +1,18 @@
-const TokenPattern = artifacts.require('TokenPattern');
-const Token = artifacts.require('Token')
+const LogicContract = artifacts.require('LogicContract');
+const TokenContract = artifacts.require('TokenContract')
 
-contract('TokenPattern', async (accounts) => {
+contract('LogicContract', async (accounts) => {
 
     before(async () => {
-        token_contract = await Token.new()
-        logic_contract = await TokenPattern.new(token_contract.address);
+        token_contract = await TokenContract.new()
+        logic_contract = await LogicContract.new(token_contract.address);
     })
 
     it('Should be possible to change the Token contract', async () => { 
         //create new token contract
-        new_token_contract = await Token.new();
+        new_token_contract = await token_contract.new();
         //set new token contract
-        await logic_contract.changeToken(new_token_contract.address);
+        await logic_contract.changeTokenContract(new_token_contract.address);
         //query address of token contract in use
         let result = await logic_contract.t.call()
         //assert that the change has worked
