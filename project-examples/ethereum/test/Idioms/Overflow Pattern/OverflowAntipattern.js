@@ -5,14 +5,12 @@ contract('OverflowAntipattern', async (accounts) => {
 
     beforeEach(async () => {
         contract = await OverflowAntipattern.new();
-    })
+    });
 
     it('Should detect integer overflow', async () => { 
         await expectRevert(
             contract.runLoop(),
             "SafeMath: addition overflow"
         );    
-    })
-
-
+    });
 })

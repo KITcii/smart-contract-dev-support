@@ -2,7 +2,6 @@ const EventOrder = artifacts.require('EventOrder');
 const {expectRevert} = require('@openzeppelin/test-helpers');
 
 contract('EventOrder', async (accounts) => {
-
     before(async () => {
         contract = await EventOrder.new();
     })
