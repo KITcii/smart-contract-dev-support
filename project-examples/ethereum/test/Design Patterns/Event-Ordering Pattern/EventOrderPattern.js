@@ -13,7 +13,7 @@ contract('EventOrder', async (accounts) => {
     it('Should not allow to execute function again in the same transaction number ', async () => { 
         await expectRevert(
             contract.a(0),
-            "Current smart contract state does not match targeted state."
+            "Current smart contract state does not match current transaction number."
         ); 
         
     })
