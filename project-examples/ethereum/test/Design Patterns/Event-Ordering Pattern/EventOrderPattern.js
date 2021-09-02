@@ -2,7 +2,6 @@ const EventOrder = artifacts.require('EventOrder');
 const {expectRevert} = require('@openzeppelin/test-helpers');
 
 contract('EventOrder', async (accounts) => {
-
     before(async () => {
         contract = await EventOrder.new();
     })
@@ -14,7 +13,7 @@ contract('EventOrder', async (accounts) => {
     it('Should not allow to execute function again in the same transaction number ', async () => { 
         await expectRevert(
             contract.a(0),
-            "Current smart contract state does not match current transaction number."
+            "Current smart contract state does not match targeted state."
         ); 
         
     })
