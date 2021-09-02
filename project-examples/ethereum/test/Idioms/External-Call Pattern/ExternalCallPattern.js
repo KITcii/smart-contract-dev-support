@@ -14,10 +14,9 @@ contract('ExternalCallPattern', async (accounts) => {
     });
 
     it('Detect that no contract is at the specified address', async () => { 
-
         await expectRevert(
             contract.doSomething(accounts[5], "Hello World", "Hello World"),
-            "No smart contract available at given address!"
+            "Address does not point to a smart contract!"
         );
     });
 })

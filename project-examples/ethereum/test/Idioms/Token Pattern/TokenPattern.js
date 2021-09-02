@@ -1,7 +1,7 @@
-const TokenPattern = artifacts.require('TokenPattern');
-const Token = artifacts.require('Token')
+const LogicContract = artifacts.require('LogicContract');
+const TokenContract = artifacts.require('TokenContract')
 
-contract('TokenPattern', async (accounts) => {
+contract('LogicContract', async (accounts) => {
 
     before(async () => {
         tokenContract = await Token.new()

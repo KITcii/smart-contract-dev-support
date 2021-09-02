@@ -1,21 +1,21 @@
 pragma solidity 0.7.0;
 
-import './Token.sol';
+import './TokenContract.sol';
 
-contract TokenPattern {
+contract LogicContract {
     address owner;
-    Token public t;
+    TokenContract public t;
     address public highest_bidder;
     uint256 highest_bid;
 
-    constructor(Token _address) {
+    constructor(address payable _address, uint _timeLock) {
         owner = msg.sender;
-        t = Token(_address);
+        t = TokenContract(_address);
     }
     
-    function changeToken (address _address) public {
+    function setTokenContractContract (address payable _address) public {
         require(msg.sender == owner);
-        t = Token(_address);
+        t = TokenContract(_address);
     }
 
     function auction(uint256 bid) public {
@@ -25,4 +25,7 @@ contract TokenPattern {
         highest_bidder=msg.sender;
         highest_bid=bid;
     }
+
+
+
 }    
