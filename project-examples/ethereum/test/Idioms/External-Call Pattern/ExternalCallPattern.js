@@ -10,18 +10,14 @@ contract('ExternalCallPattern', async (accounts) => {
     })
 
     it('Should be able to make an external call', async () => { 
-        await contract.doSomething(external_contract.address, "Hello World", "Hello World");
+        tx = await contract.doSomething(external_contract.address, "Hello World", "Hello World");
     })
 
     it('Detect that no contract is at the specified address', async () => { 
-
         await expectRevert(
             contract.doSomething(accounts[5], "Hello World", "Hello World"),
-            "No smart contract available at given address!"
+            "Address does not point to a smart contract!"
         );
-
-        
-
     })
 
 
