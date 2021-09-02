@@ -2,7 +2,6 @@ const IndexedLoopAntipattern = artifacts.require('IndexedLoopAntipattern');
 const {expectRevert} = require('@openzeppelin/test-helpers');
 
 contract('IndexedLoopAntipattern', async (accounts) => {
-
     before(async () => {
         contract = await IndexedLoopAntipattern.new();
     })
@@ -19,6 +18,4 @@ contract('IndexedLoopAntipattern', async (accounts) => {
        await contract.payout();
         
     })
-
-
 })    
