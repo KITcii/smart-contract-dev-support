@@ -10,7 +10,7 @@ contract('IndexedLoopPattern', async (accounts) => {
 
     it('Should be possible to send money ', async () => { 
         console.log(await web3.eth.getBalance(accounts[0]))
-        let amount = web3.utils.toWei("0.00001", "ether");
+        let amount = web3.utils.toWei("1", "ether");
         for(i = 0; i<=500; i++) {
             await web3.eth.sendTransaction({from: accounts[0], to: contract.address, value: amount});
         }
