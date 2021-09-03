@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 pragma solidity 0.7.0;
 
 // We integrate only the part of the SafeMath8 library relevant for this pattern
