@@ -37,20 +37,22 @@ contract EventOrderAntipattern {
 pragma solidity ^0.7.0;
 
 contract EventOrderPattern {
-    uint256 transCounter = 0;
+    uint256 internal transCounter = 0;
 
     modifier transitionCounting(uint256 _nextTransNum){
-         require(transCounter == _nextTransNum,
-                "Current smart contract state does not match desired state.");
-         transCounter += 1;
-         _;
+        require(
+            transCounter == _nextTransNum,
+            "Current smart contract state does not match desired state"
+            );
+        transCounter += 1;
+        _;
     }
     //...
 }
 
 contract EventOrder is TransitionCounter {
     //...
-    function a(uint _nextTransNum) public transitionCounting(_nextTransNum) {
+    function a(uint256 _nextTransNum) public transitionCounting(_nextTransNum) {
         // Code to be executed in a certain state
     }
 }
