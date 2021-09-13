@@ -1,6 +1,5 @@
 const IndexedLoopPattern = artifacts.require('IndexedLoopPattern');
 const {expectRevert} = require('@openzeppelin/test-helpers');
-const { web3 } = require('@openzeppelin/test-helpers/src/setup');
 
 contract('IndexedLoopPattern', async (accounts) => {
     before(async () => {
@@ -8,20 +7,28 @@ contract('IndexedLoopPattern', async (accounts) => {
     });
 
     it('Should be possible to send money ', async () => { 
-        console.log(await web3.eth.getBalance(accounts[0]))
-        let amount = web3.utils.toWei("1", "ether");
+        const amount = web3.utils.toWei("0.01", "ether");
         for(i = 0; i<=500; i++) {
-            await web3.eth.sendTransaction({from: accounts[0], to: contract.address, value: amount});
+            await web3.eth.sendTransaction({from: accounts[5], to: contract.address, value: amount});
         }
-        console.log(await web3.eth.getBalance(accounts[0]));
     });
 
     it('Payout possible', async () => { 
-        console.log(await web3.eth.getBalance(accounts[0]));
-        await contract.payout();
-        console.log(await web3.eth.getBalance(accounts[0]));
-        await contract.payout();
-        console.log(await web3.eth.getBalance(accounts[0]));
+        const amount = web3.utils.toWei("0.01", "ether");
+
+        await web3.eth.sendTransaction({from: accounts[6], to: contract.address, value: amount});
+
+        balanceBegin = await web3.eth.getBalance(accounts[6]);
+        balanceBegin = Number(balanceBegin);
+
+        // make sure that all payouts have taken place
+        await contract.payout({from: accounts[8]});
+        await contract.payout({from: accounts[8]});
+
+        balanceEnd = await web3.eth.getBalance(accounts[6]);
+        balanceEnd = Number(balanceEnd);
+
+        assert.isBelow(balanceBegin, balanceEnd);
        
     });
 })
