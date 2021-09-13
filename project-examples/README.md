@@ -9,7 +9,7 @@ Install Truffle and Ganache
 
 Launch Ganache:
 
-    npx ganache-cli -l 1000000000
+    npx ganache-cli -l 1000000000 --accounts 600
     
     
 Run the test in a second Terminal window via (make sure you are in the /ethereum subdirectory) :
