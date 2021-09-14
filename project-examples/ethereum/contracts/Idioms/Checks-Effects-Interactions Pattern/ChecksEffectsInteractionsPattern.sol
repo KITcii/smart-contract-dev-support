@@ -3,19 +3,19 @@
 pragma solidity 0.7.0;
 
 contract ChecksEffectsInteractionsPattern {
-    mapping (address => uint256) public balances;
+    mapping(address => uint256) public balances;
 
     receive() external payable {
         balances[msg.sender] += msg.value;
     }
 
-    function withdraw(uint _amount) public{
+    function withdraw(uint256 _amount) public {
         // Checks
-        if(balances[msg.sender] >= _amount){
+        if (balances[msg.sender] >= _amount) {
             // Effects
             balances[msg.sender] -= _amount;
             // Interaction
-            (bool success,) = msg.sender.call{value: _amount}("");
+            (bool success, ) = msg.sender.call{value: _amount}("");
             require(success);
         }
     }

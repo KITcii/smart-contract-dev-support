@@ -20,13 +20,13 @@ pragma solidity 0.7.0;
 
 // This smart contract is vulnerable to reentrancy and DoS
 contract ChecksEffectsInteractionsAntipattern {
-    mapping (address => uint256) public balances;
+    mapping(address => uint256) public balances;
     //...
-    function withdraw(uint _amount) public{
-        // Checks
-        if(balances[msg.sender] >= _amount){
+    function withdraw(uint256 _amount) public {
+        // Poor Checks
+        if (balances[msg.sender] >= _amount) {
             // Interactions
-            (bool success,) = msg.sender.call{value: _amount}("");
+            (bool success, ) = msg.sender.call{value: _amount}("");
             require(success);
             // Effects
             balances[msg.sender] -= _amount;
@@ -41,13 +41,13 @@ pragma solidity 0.7.0;
 contract ChecksEffectsInteractionsPattern {
     mapping (address => uint256) public balances;
     //...
-    function withdraw(uint _amount) public{
+    function withdraw(uint256 _amount) public {
         // Checks
-        if(balances[msg.sender] >= _amount){
+        if (balances[msg.sender] >= _amount) {
             // Effects
             balances[msg.sender] -= _amount;
             // Interaction
-            (bool success,) = msg.sender.call{value: _amount}("");
+            (bool success, ) = msg.sender.call{value: _amount}("");
             require(success);
         }
     }
