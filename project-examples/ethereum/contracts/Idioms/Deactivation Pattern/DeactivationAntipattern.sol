@@ -3,22 +3,20 @@
 pragma solidity 0.7.0;
 
 contract DeactivationAntipattern {
-    address payable owner;
+    address payable internal owner;
 
-    constructor() {
-      owner = msg.sender;
-    }
-
-    modifier onlyOwner(){
-        require (owner == msg.sender, "Not authorized");
+    modifier onlyOwner() {
+        require(owner == msg.sender, "Not authorized");
         _;
     }
 
-    receive() external payable {
-    }
-    
-    function close() public onlyOwner { 
-      selfdestruct(msg.sender); 
+    constructor() {
+        owner = msg.sender;
     }
 
+    receive() external payable {}
+
+    function close() public onlyOwner {
+        selfdestruct(msg.sender);
+    }
 }

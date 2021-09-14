@@ -18,19 +18,19 @@ Instead of using the ``selfdestruct(...)`` operation developers should instead d
 ```Solidity 
 pragma solidity 0.7.0;
 
-contract DeactivationAntipattern {
-    address payable owner;
+contract DeactivationAntipattern {
+    address payable internal owner;
 
-    modifier onlyOwner(){
-        require (owner == msg.sender, ”Not authorized”);
+    modifier onlyOwner() {
+        require(owner == msg.sender, "Not authorized");
         _;
-    }
+    }
 
     // ...
 
-    function close() public onlyOwner { 
-      selfdestruct(owner); 
-    }
+    function close() public onlyOwner {
+        selfdestruct(msg.sender);
+    }
 }
 ```
 
@@ -38,29 +38,29 @@ contract DeactivationAntipattern {
 ```Solidity 
 pragma solidity 0.7.0;
 
-contract DeactivationPattern {
-    address payable owner;
-    bool activated = true; 
-    
-    modifier checkActive(){
-      require (activated);
-      _;
-    }
+contract DeactivationPattern {
+    address payable internal owner;
+    bool internal activated = true;
 
-    modifier onlyOwner(){
-        require (owner == msg.sender, ”Not authorized”);
+    modifier checkActive() {
+        require(activated, "Contract is deactivated");
         _;
-    }
+    }
+
+    modifier onlyOwner() {
+        require(owner == msg.sender, "Not authorized");
+        _;
+    }
     
     // ...
 
-    function anyFunction() checkActive public {
-        // Code will not be executed after deactivation
-    }
+    function anyFunction() public checkActive {
+        // code to be reverted by deactivation
+    }
 
-    function setActive(bool _active) onlyOwner public {
-        activated = _active
-    }
+    function setActive(bool _active) public onlyOwner {
+        activated = _active;
+    }
 }
 ```
 
