@@ -1,5 +1,5 @@
 ## Quickstart Test Setup
-We have created a few tests for our patterns. There are currently only examples available for Ethereum
+We provide a tests for the developed software design patterns. There are currently only examples available for Ethereum
 
 
 ### Ethereum Setup
