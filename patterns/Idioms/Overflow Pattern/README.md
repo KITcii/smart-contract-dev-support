@@ -17,6 +17,7 @@ When assigning a value to an integer variable, the value range of the variable�
 ### Wrong
 ```Solidity 
 pragma solidity 0.7.0;
+
 contract OverflowAntipattern {
 
     // ...
