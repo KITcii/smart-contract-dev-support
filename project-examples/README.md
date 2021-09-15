@@ -5,7 +5,7 @@ We provide a tests for the developed software design patterns. There are current
 ### Ethereum Setup
 Install Truffle and Ganache
 
-    npm install --save-dev @openzeppelin/test-helpers
+    npm install
 
 Launch Ganache:
 
