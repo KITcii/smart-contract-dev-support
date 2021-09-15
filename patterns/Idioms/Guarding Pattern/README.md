@@ -40,7 +40,6 @@ pragma solidity 0.7.0;
 contract GuardingPattern {
     address public owner;
 
-    // Modifier to define guarding conditions
     modifier onlyOwner() {
         require(owner == msg.sender, "Not authorized!");
         _;
@@ -50,8 +49,8 @@ contract GuardingPattern {
         owner = msg.sender;
     }
 
-    function changeOwner(address newOwner) public onlyOwner {
-        owner = newOwner;
+    function changeOwner(address _newOwner) public onlyOwner {
+        owner = _newOwner;
         // ...
     }
 }
