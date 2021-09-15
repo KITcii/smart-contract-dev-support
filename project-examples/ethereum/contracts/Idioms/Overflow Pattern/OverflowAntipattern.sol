@@ -8,7 +8,7 @@ contract OverflowAntipattern {
     event Overflow(uint256 iterationCounter);
 
     function runLoop() public {
-        for (uint8 i = 0; i < 258; i + 1) {
+        for (uint8 i = 255; i < 258; i + 1) {
             counter += 1;
             // The following condition will never validate true
             if (counter == 260) {
