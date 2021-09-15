@@ -51,7 +51,11 @@ contract OverflowPattern {
     // ...
 
     function runLoop() public {
+<<<<<<< HEAD
         for (uint8 i = 255; i < 256; i.add(1)) {
+=======
+        for (uint8 i = 255; i < 300; i.add(1)) {
+>>>>>>> Fix styleguide and state visibility
             // ...
         }
     }
