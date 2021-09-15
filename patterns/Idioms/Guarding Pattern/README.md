@@ -20,13 +20,15 @@ Developers should implement authorization checks (e.g., modifiers in Solidity) f
 pragma solidity 0.7.0;
 
 contract GuardingAntipattern {
-    address public owner = msg.sender;
+    address public owner;
 
-    // ...
+    constructor() {
+        owner = msg.sender;
+    }
 
-    function changeOwner(address _newOwner) public returns(bool) {
+    function changeOwner(address _newOwner) public {
         owner = _newOwner;
-        return true;    
+        // ...   
     }
 }
 ```
@@ -38,22 +40,21 @@ pragma solidity 0.7.0;
 contract GuardingPattern {
     address public owner;
 
-    GuardingPattern() {
-        owner = msg.sender;
-    }
     // Modifier to define guarding conditions
     modifier onlyOwner() {
         require(owner == msg.sender, "Not authorized!");
         _;
     }
 
-    // ...
+    constructor() {
+        owner = msg.sender;
+    }
 
     function changeOwner(address newOwner) public onlyOwner {
         owner = newOwner;
+        // ...
     }
 }
-
 ```
 
 ## Resulting Context

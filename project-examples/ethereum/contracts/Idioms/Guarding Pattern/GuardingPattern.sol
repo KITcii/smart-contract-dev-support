@@ -7,17 +7,17 @@ contract GuardingPattern {
 
     event OwnerChanged(string message);
 
-    constructor(){
-        owner = msg.sender;
-    }
-
     modifier onlyOwner() {
         require(owner == msg.sender, "Not authorized!");
         _;
     }
 
+    constructor() {
+        owner = msg.sender;
+    }
+
     function changeOwner(address _newOwner) public onlyOwner {
         owner = _newOwner;
-        emit OwnerChanged("Change Succsessful");
+        emit OwnerChanged("Change Successful");
     }
 }

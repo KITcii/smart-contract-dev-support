@@ -13,6 +13,6 @@ contract GuardingAntipattern {
 
     function changeOwner(address _newOwner) public {
         owner = _newOwner;
-        emit OwnerChanged("Change Succsessful");  
+        emit OwnerChanged("Change Successful");
     }
 }
