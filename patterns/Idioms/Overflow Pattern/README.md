@@ -23,7 +23,7 @@ contract OverflowAntipattern {
     // ...
 
     function runLoop() public {
-        for (uint8 i = 255; i < 258; i + 1) {
+        for (uint8 i = 255; i < 256; i + 1) {
             //...
         }
     }
@@ -51,7 +51,7 @@ contract OverflowPattern {
     // ...
 
     function runLoop() public {
-        for (uint8 i = 255; i < 300; i.add(1)) {
+        for (uint8 i = 255; i < 256; i.add(1)) {
             // ...
         }
     }

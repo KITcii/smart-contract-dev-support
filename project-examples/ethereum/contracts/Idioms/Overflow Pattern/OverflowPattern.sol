@@ -16,7 +16,7 @@ contract OverflowPattern {
     using SafeMath8 for uint8;
 
     function runLoop() public {
-        for (uint8 i = 255; i < 300; i.add(1)) {
+        for (uint8 i = 255; i < 256; i.add(1)) {
             // Your code
         }
     }
