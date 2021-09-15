@@ -1,0 +1,23 @@
+{
+  "name": "ethereum",
+  "version": "1.0.0",
+  "description": "Example Project for Ethereum Smart Contract Patterns.",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "truffle": "^5.4.10"
+  },
+  "devDependencies": {
+    "@openzeppelin/test-helpers": "^0.5.13"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "Ethereum"
+  ],
+  "author": "CII Research Group",
+  "license": "MIT"
+}
