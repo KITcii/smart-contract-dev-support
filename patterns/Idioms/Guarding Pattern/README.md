@@ -26,6 +26,8 @@ contract GuardingAntipattern {
         owner = msg.sender;
     }
 
+    // ...
+
     function changeOwner(address _newOwner) public {
         owner = _newOwner;
         // ...   
@@ -48,6 +50,8 @@ contract GuardingPattern {
     constructor() {
         owner = msg.sender;
     }
+
+    // ...
 
     function changeOwner(address _newOwner) public onlyOwner {
         owner = _newOwner;
