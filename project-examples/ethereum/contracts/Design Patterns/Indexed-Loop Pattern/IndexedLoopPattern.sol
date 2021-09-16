@@ -8,8 +8,8 @@ contract IndexedLoopPattern {
         uint256 value;
     }
 
-    Payee[] payees;
-    uint256 nextPayeeIndex;
+    Payee[] internal payees;
+    uint256 internal nextPayeeIndex;
 
     event ProgressTracker(uint nextPayeeIndex, uint numOfPayees);
 
@@ -26,18 +26,20 @@ contract IndexedLoopPattern {
         uint256 gasForPostLoopExecution = 1650;
         uint256 gasRequired = gasPerIteration + gasForPostLoopExecution;
 
-        while(nextPayeeIndex < payees.length && gasleft() >= gasRequired
-            && totalGasConsumed + gasRequired < block.gaslimit) {
-
+        while (
+            nextPayeeIndex < payees.length &&
+            gasleft() >= gasRequired &&
+            totalGasConsumed + gasRequired < block.gaslimit
+        ) {
             uint256 val = payees[nextPayeeIndex].value;
             payees[nextPayeeIndex].value = 0;
             payees[nextPayeeIndex].addr.transfer(val);
             totalGasConsumed = totalGasConsumed + gasPerIteration;
             nextPayeeIndex++;
         }
-        
-        if(nextPayeeIndex == payees.length) {
-             nextPayeeIndex = 0;
+
+        if (nextPayeeIndex == payees.length) {
+            nextPayeeIndex = 0;
         }
 
         emit ProgressTracker(nextPayeeIndex, payees.length);
