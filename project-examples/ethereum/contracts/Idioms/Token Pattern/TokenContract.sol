@@ -2,13 +2,13 @@
 
 pragma solidity 0.7.0;
 
-import './LogicContract.sol'; 
+import './LogicContract.sol';
 
 contract TokenContract {
     address public owner;
     LogicContract logicContract;
-    mapping (address => uint) public balances;
-    
+    mapping(address => uint) public balances;
+
     event Sent(address from, address to, uint amount);
 
     constructor() {
@@ -28,19 +28,20 @@ contract TokenContract {
         logicContract = LogicContract(_address);
     }
 
-    function send(address receiver, uint amount) public returns(bool) {
-        require(msg.sender == address(logicContract), "Not authorized");
+    function send(address receiver, uint amount) public returns (bool) {
+        require(msg.sender == address(logicContract), "Not authorized.");
         require(amount <= balances[msg.sender], "Insufficient balance.");
-        
+
         balances[msg.sender] -= amount;
         balances[receiver] += amount;
+
         emit Sent(msg.sender, receiver, amount);
         return true;
     }
 
-    function sendToEOA(address _account, uint amount) public {
-        require(msg.sender == address(logicContract), "Not authorized");
-
+    function sendToEOA(address payable _account) public {
+        require(msg.sender == address(logicContract), "Not authorized.");
+        (bool success, ) = _account.transfer(balances[msg.sender]);
+        require(success, "Transaction failed.");
     }
-
 }

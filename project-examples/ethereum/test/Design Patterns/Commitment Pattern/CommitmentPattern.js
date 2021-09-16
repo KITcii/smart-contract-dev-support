@@ -5,14 +5,18 @@ const {expectRevert} = require('@openzeppelin/test-helpers');
 contract('CommitmentPattern', async (accounts) => {
     let contract;
 
-    const secretValue = "Hello World!";
-    const secretSalt = "random";
+    const secretValue = 'Hello World!';
+    const secretSalt = 'random';
 
     const secretValueHash = web3.utils.soliditySha3({t: 'string', v: secretValue}, {t: 'string', v: secretSalt});
     const secretSaltHash = '0x941151c2c753adb4cc9625e2493d24e9def63095c50811636f3a54a16330149d';
 
     before(async () => {
         contract = await CommitmentPattern.new({from: accounts[0]});
+    });
+
+    it('Test hash', async () => {
+        assert.equal(web3.utils.soliditySha3(secretSalt), secretSaltHash);
     });
 
     it('Should not allow to reveal values without prior commit', async () => {
@@ -31,7 +35,7 @@ contract('CommitmentPattern', async (accounts) => {
     });
 
     it('Should not allow to reveal with incorrect values', async () => {
-        await expectRevert(contract.reveal("Hello", secretSalt,  {from: accounts[0]}), 'Invalid values.');
+        await expectRevert(contract.reveal("Hello", secretSalt, {from: accounts[0]}), 'Invalid values.');
     });
 
     it('Should only allow to reveal as committer', async () => {

@@ -2,13 +2,15 @@ const LogicContract = artifacts.require('LogicContract');
 const TokenContract = artifacts.require('TokenContract')
 
 contract('LogicContract', async (accounts) => {
+    let tokenContract;
+    let logicContract;
 
     before(async () => {
         tokenContract = await Token.new()
         logicContract = await TokenPattern.new(tokenContract.address);
     });
 
-    it('Should be possible to change the Token contract', async () => { 
+    it('Should be possible to change the token contract', async () => {
         // Create new token contract
         newTokenContract = await Token.new();
         // Set new token contract
