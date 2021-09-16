@@ -20,7 +20,8 @@ contract IndexedLoopPattern {
 
     function payout() public payable {
         uint256 totalGasConsumed = 0;
-        // Estimated amount of gas required for each iteration (must not be smaller than the actually consumed gas)
+        // Estimated amount of gas required for each iteration 
+        // (must not be smaller than the actually consumed gas)
         uint256 gasPerIteration = 22000;
         // Minimum amount of gas required to execute the code after the loop
         uint256 gasForPostLoopExecution = 1650;
