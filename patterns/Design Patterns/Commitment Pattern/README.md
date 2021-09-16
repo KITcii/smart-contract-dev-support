@@ -30,10 +30,16 @@ contract CommitmentPattern {
 
     mapping(address => UserCommit) public userCommits;
 
+    event Commit(bytes32 value, bytes32 salt);
+    event Reveal(bytes32 value, bytes32 salt);
+
     //...
     
     function commit(bytes32 _secretCommit, bytes32 _secretSalt) public {
-        require(userCommits[msg.sender].secretCommit == "", "Your commitment cannot be changed anymore.");
+        require(
+            userCommits[msg.sender].secretCommit == "",
+            "Your commitment cannot be changed anymore."
+        );
 
         UserCommit memory uC = userCommits[msg.sender];
         uC.secretCommit = _secretCommit;
@@ -44,11 +50,23 @@ contract CommitmentPattern {
 
     function reveal(string memory _plainSalt, string memory _plainValue) public { 
         require(userCommits[msg.sender].secretCommit != "", "You did not commit to a value"); 
-        require(userCommits[msg.sender].secretSalt == keccak256(abi.encode(_plainSalt)), "Your salt does not match the original one."); 
-        require(userCommits[msg.sender].secretCommit == keccak256(abi.encodePacked(_plainSalt, _plainValue)), "Invalid values.");
+        require(
+            userCommits[msg.sender].secretSalt == keccak256(abi.encode(_plainSalt)),
+            "Your salt does not match the original one."
+        ); 
+        require(
+            userCommits[msg.sender].secretCommit == 
+                keccak256(abi.encodePacked(_plainSalt, _plainValue)),
+            "Invalid values."
+        );
 
         userCommits[msg.sender].plainSalt = _plainSalt;
         userCommits[msg.sender].plainValue = _plainValue;
+
+        emit Reveal(
+            keccak256(abi.encodePacked(_plainValue, _plainSalt)),
+            keccak256(abi.encode(_plainSalt))
+        );
     }
 }
 ```

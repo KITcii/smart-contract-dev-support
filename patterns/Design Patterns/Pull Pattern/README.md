@@ -19,11 +19,13 @@ pragma solidity ^0.7.0;
 
 contract PullAntipattern {
     address payable[] clients;
-    mapping (address => uint256) public balances;
+    mapping(address => uint256) public balances;
+
     //...
+    
     function payout() public {
         for (uint256 i = 0; i < clients.length; i++) {
-            clients[i]. call{value: balances[clients[i]]}("");
+            clients[i].call{value: balances[clients[i]]}("");
         }
     }
 }
@@ -33,14 +35,21 @@ contract PullAntipattern {
 pragma solidity ^0.7.0;
 
 contract PullPattern {
-    mapping (address => uint256) public balances;
+    mapping(address => uint256) public balances;
+    event AccountBalance(uint256 balance);
+
     //...
+
     function payout() public {
         require(balances[msg.sender] > 0, "No balance available.");
 
-        uint256 amount = balances[msg.sender];
-        balances[msg.sender] = 0;
-        msg.sender.call{value: amount}("");
+        uint256 amount = balances[msg.sender];
+        balances[msg.sender] = 0;
+
+        (bool success, ) = msg.sender.call{value: amount}("");
+        require(success, “Transaction failed.");
+
+        emit AccountBalance(balances[msg.sender]);
     }
 }
 ```

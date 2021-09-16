@@ -59,32 +59,51 @@ CallerContract uses the `call(…)` command to execute `externalFunction(…)` b
 ```Solidity 
 pragma solidity 0.7.0;
 
-// Definition of the interface of ExternalContract for easier integration into ExternalCallPattern
-contract ExternalContract {
-    function externalFunction(string memory _text1, string memory _text2) public pure returns (bool);
+contract ExternalContract {
+    function externalFunction(string memory _text1, string memory _text2)
+        public 
+        pure
+        returns (bool)
+    {
+        return keccak256(bytes(_text1)) == keccak256(bytes(_text2));
+    }
 }
+```
+```Solidity 
+pragma solidity 0.7.0;
 
-contract ExternalCallPattern {
-    event Response(string text);
+// Definition of the interface of ExternalContract for easier
+// integration into ExternalCallPattern
+import "/ExternalContract.sol";
 
-    // Check if a smart contract is available at the given address to avoid, for example, asset loss when sending asset
-    modifier isContract(address _externalAddress) {
-        uint size;
-        assembly { size := extcodesize(_externalAddress) }
-        require (size > 0, 'Address does not point to a smart contract!');
-        _;
-    }
+contract ExternalCallPattern {
+    event Response(string text);
 
-    function doSomething(address _externalAddress, string memory _text1, string memory _text2)
-        public isContract(_externalAddress) {
-        // Instantiate ExternalContract to make direct calls with revert(…) in case of failures in the function execution
-        ExternalContract c = ExternalContract(_externalAddress);
-        bool equal = c.externalFunction(_text1, _text2);    
-   
-        // Check return value of c.externalFunction(…)
-        require(equal, "Texts are NOT equal.");
-        emit Response("Texts are equal.");
-    }
+    modifier isContract(address _externalAddress) {
+        uint256 size;
+        assembly { 
+            size := extcodesize(_externalAddress)
+        }
+        require (size > 0, "Address does not point to a smart contract!");
+        _;
+    }
+
+    // ...
+
+    function doSomething(
+        address _externalAddress,
+        string memory _text1,
+        string memory _text2
+    ) public isContract(_externalAddress) {
+        // Instantiate ExternalContract to make direct calls with 
+        // revert(…) in case of failures in the function execution        
+        ExternalContract c = ExternalContract(_externalAddress);
+        bool equal = c.externalFunction(_text1, _text2);    
+   
+        // Check return value of c.externalFunction(…)
+        require(equal, "Texts are NOT equal.");
+        emit Response("Texts are equal.");
+    }
 }
 ```
 CallerContract directly calls `<contract>.externalFunction(…)` of ExternalContract, whose interfaces are known to CallerContract because of the definition of ExternalContract in the same file. In the case an exception is thrown during the execution of `<contract>.externalFunction(…)`, all state changes are reverted. Otherwise, `<contract>.externalFunction(…)` returns its Boolean return value.

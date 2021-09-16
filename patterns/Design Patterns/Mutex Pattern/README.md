@@ -21,12 +21,16 @@ pragma solidity ^0.7.0;
 
 contract MutexAntipattern {
     mapping(address => uint256) public balances;
+
     //...
-    function withdraw(uint _amount) external {
-        require(balances[msg.sender] >= _amount, "No balance to withdraw.");
-        
-        balances[msg.sender] -= _amount;
-        msg.sender.call{value: _amount}("");
+
+    function withdraw(uint256 _amount) external {
+        require(balances[msg.sender] >= _amount, "No balance to withdraw.");
+        // This is wrong according to the Checks-Effects-Interaction Pattern.
+        // For demonstration purposes only!
+        msg.sender.call{value: _amount}("");
+        balances[msg.sender] -= _amount;
+
     }
 }
 
@@ -45,15 +49,16 @@ contract MutexPattern {
         _;
         locked = false;
     }
-    //...
-    function withdraw(uint _amount) public payable noReentrancy returns(bool) {
-        require(balances[msg.sender] >= _amount, "No balance to withdraw.");
-        
-        balances[msg.sender] -= _amount;
-        bool (success, ) = msg.sender.call{value: _amount}("");
-        require(success);
 
-        return true;
+    //...
+
+    function withdraw(uint _amount) public payable noReentrancy {
+        require(balances[tx.origin] >= _amount, "No balance to withdraw.");
+        
+        (bool success, ) = msg.sender.call{value: _amount}("");
+        balances[msg.sender] -= _amount;
+
+        require(success, "Transaction failed.");
     }
 }
 

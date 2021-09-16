@@ -25,24 +25,26 @@ contract IndexedLoopAntipattern {
         uint256 value;
     }
     
-    Payee[] payees;
-    
-    //...
+    Payee[] internal payees;
     
     receive() external payable {
         Payee memory p = Payee(msg.sender, msg.value);
         payees.push(p);
     }
     
-    function payout() public {
-        uint256 i = 0;
-        while(i < payees.length) {
-            // The require statement will block the loop if an asset transfer always fails
-            require(payees[i].addr.{value:payees[i].value}(),
-                       "An error occured.");
+    function payout() public {
+        uint256 i = 0;
+        // If call fails after i iterations due to a gas related issue, there 
+        // is no way to resume the loop if an asset transfer always fails
+        
+        while(i < payees.length) {
+            // The require statement will block the loop if an asset transfer always fails
+            (bool success, ) = payees[i].addr.call{value: payees[i].value}("");
+            require(success, "An error occured.");
+            payees[i].value = 0;
             i++;
-        }
-    }
+        }
+    }
 }
 
 ```
@@ -56,26 +58,30 @@ contract IndexedLoopPattern {
         uint256 value;
     }
 
-    Payee[] payees;
-    uint256 nextPayeeIndex;
+    Payee[] internal payees;
+    uint256 internal nextPayeeIndex;
+
+    event ProgressTracker(uint256 nextPayeeIndex, uint256 numOfPayees);
     
     //...
     
     function payout() public payable {
         uint256 totalGasConsumed = 0;
-        // Estimated amount of gas required for each iteration (must not be smaller than the actually consumed gas)
-        uint256 gasPerIteration = 42000;
+        // Estimated amount of gas required for each iteration 
+        (must not be smaller than the actually consumed gas)
+        uint256 gasPerIteration = 22000;
         // Minimum amount of gas required to execute the code after the loop
         uint256 gasForPostLoopExecution = 1650;
         uint256 gasRequired = gasPerIteration + gasForPostLoopExecution;
 
-        while(nextPayeeIndex < payees.length && gasleft() >= gasRequired
-            && totalGasConsumed + gasRequired < block.gaslimit) {
-
+        while(
+            nextPayeeIndex < payees.length &&
+            gasleft() >= gasRequired &&
+            totalGasConsumed + gasRequired < block.gaslimit
+        ) {
             uint256 val = payees[nextPayeeIndex].value;
             payees[nextPayeeIndex].value = 0;
-            // Avoid transferring assets from within a loop because of untrustful external calls
-            payees[nextPayeeIndex].addr.send(val);
+            payees[nextPayeeIndex].addr.transfer(val);
             totalGasConsumed = totalGasConsumed + gasPerIteration;
             nextPayeeIndex++;
         }
@@ -83,6 +89,8 @@ contract IndexedLoopPattern {
         if(nextPayeeIndex == payees.length) {
              nextPayeeIndex = 0;
         }
+
+        emit ProgressTracker(nextPayeeIndex, payees.length);
     }
 }
 ```
