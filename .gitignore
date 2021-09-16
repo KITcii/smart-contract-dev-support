@@ -1,5 +1,9 @@
 project-examples/ethereum/build
 package-lock.json
 node_modules
+<<<<<<< HEAD
 .idea
 .vscode
+=======
+.vscode
+>>>>>>> Add ignore for visual studio config
