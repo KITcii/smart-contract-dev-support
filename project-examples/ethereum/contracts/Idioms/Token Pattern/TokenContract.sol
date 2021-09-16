@@ -41,7 +41,6 @@ contract TokenContract {
 
     function sendToEOA(address payable _account) public {
         require(msg.sender == address(logicContract), "Not authorized.");
-        (bool success, ) = _account.transfer(balances[msg.sender]);
-        require(success, "Transaction failed.");
+        _account.transfer(balances[msg.sender]);
     }
 }

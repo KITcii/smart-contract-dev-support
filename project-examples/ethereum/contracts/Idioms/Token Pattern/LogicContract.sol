@@ -16,7 +16,7 @@ contract LogicContract {
     }
 
     function receival() payable external {
-        t.transfer(msg.value);
+        address(t).transfer(msg.value);
     }
 
     function setTokenContractContract(address payable _address) public {
@@ -32,7 +32,7 @@ contract LogicContract {
         highest_bid = bid;
     }
 
-    function payout() {
+    function payout() external {
         t.sendToEOA(msg.sender);
     }
 }    
