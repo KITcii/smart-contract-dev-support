@@ -6,17 +6,15 @@ contract('CommitmentPattern', async (accounts) => {
     let contract;
 
     const secretValue = 'Hello World!';
-    const secretSalt = 'random';
+    const secretSalt = 'this is a test salt'; //only string value possible in this example
 
     const secretValueHash = web3.utils.soliditySha3({t: 'string', v: secretValue}, {t: 'string', v: secretSalt});
-    const secretSaltHash = '0x941151c2c753adb4cc9625e2493d24e9def63095c50811636f3a54a16330149d';
+
+    const encodedSalt = web3.eth.abi.encodeParameters(['string'],[secretSalt]);
+    const secretSaltHash = web3.utils.sha3(encodedSalt, {encoding: 'hex'});
 
     before(async () => {
         contract = await CommitmentPattern.new({from: accounts[0]});
-    });
-
-    it('Test hash', async () => {
-        assert.equal(web3.utils.soliditySha3(secretSalt), secretSaltHash);
     });
 
     it('Should not allow to reveal values without prior commit', async () => {
