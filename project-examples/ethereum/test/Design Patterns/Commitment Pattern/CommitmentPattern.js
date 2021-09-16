@@ -6,10 +6,10 @@ contract('CommitmentPattern', async (accounts) => {
     let contract;
 
     const secretValue = "Hello World!";
-    const secretSalt = "42";
+    const secretSalt = "random";
 
-    const secretValueHash = '0xfcd21c4f942938771a1b3c27b33ddd26bb57cc79d3ae164893fd35998044ce10';
-    const secretSaltHash = '0xd67ec9c49eb33d5d2b993016837392e45c1e14e4c66487a6d36c90205ac37e77';
+    const secretValueHash = web3.utils.soliditySha3({t: 'string', v: secretValue}, {t: 'string', v: secretSalt});
+    const secretSaltHash = '0x941151c2c753adb4cc9625e2493d24e9def63095c50811636f3a54a16330149d';
 
     before(async () => {
         contract = await CommitmentPattern.new({from: accounts[0]});
@@ -17,7 +17,7 @@ contract('CommitmentPattern', async (accounts) => {
 
     it('Should not allow to reveal values without prior commit', async () => {
         await expectRevert(
-            contract.reveal("Hello", "42"),
+            contract.reveal("Hello", secretSalt),
             "You did not commit to a value."
         );
     });
