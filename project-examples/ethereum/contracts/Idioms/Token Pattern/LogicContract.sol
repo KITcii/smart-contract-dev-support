@@ -18,8 +18,12 @@ contract LogicContract {
         t = TokenContract(_address);
         auctionEndTime = block.timestamp + _timeLock;
     }
-    
-    function setTokenContractContract (address payable _address) public {
+
+    function receival() payable external {
+        address(t).transfer(msg.value);
+    }
+
+    function setTokenContractContract(address payable _address) public {
         require(msg.sender == owner);
         t = TokenContract(_address);
     }
@@ -34,6 +38,15 @@ contract LogicContract {
         highest_bid=_bid;
     }
 
+    function auction(uint256 bid) public {
+        require(t.balances(msg.sender) >= bid, "Insufficient balance.");
+        require(bid > highest_bid, "Your bid is too low.");
 
+        highest_bidder = msg.sender;
+        highest_bid = bid;
+    }
 
+    function payout() external {
+        t.sendToEOA(msg.sender);
+    }
 }    

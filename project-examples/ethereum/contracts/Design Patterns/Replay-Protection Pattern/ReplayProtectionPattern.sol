@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-
 pragma solidity 0.7.0;
 
 import "./ECDSA.sol";
@@ -20,7 +19,7 @@ contract ReplayProtectionPattern{
         address signer = ECDSA.recover(
             keccak256(abi.encodePacked(_from, _to, _amount, address(this), _executionNonce)), _signature
         );
-        require(signer == owner, "invalid signature / wrong signer / wrong nonce.");
+        require(signer == owner, "Invalid signature.");
         
         // Increment the stored nonce
         executionNonce = _executionNonce + 1;

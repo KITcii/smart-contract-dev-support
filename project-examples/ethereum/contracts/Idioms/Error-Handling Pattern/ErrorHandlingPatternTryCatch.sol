@@ -6,8 +6,8 @@ contract CharitySplitter {
     address public owner;
 
     constructor (address _owner, uint _successParameter) public {
-        require(_owner != address(0), "no-owner-provided");
-        require(_successParameter == 0, "creation not successful");
+        require(_owner != address(0), "No owner provided.");
+        require(_successParameter == 0, "Creation not successful.");
         owner = _owner;
     }
 }
@@ -15,7 +15,7 @@ contract CharitySplitter {
 contract ErrorHandlingPatternTryCatch {
     mapping (address => CharitySplitter) public charitySplitters;
     uint public errorCount;
-    
+
     event ErrorHandled(string reason);
 
     function createCharitySplitter(address _childOwner, uint _successParameter) public {
