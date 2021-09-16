@@ -11,7 +11,7 @@ contract IndexedLoopPattern {
     Payee[] internal payees;
     uint256 internal nextPayeeIndex;
 
-    event ProgressTracker(uint nextPayeeIndex, uint numOfPayees);
+    event ProgressTracker(uint256 nextPayeeIndex, uint256 numOfPayees);
 
     receive() external payable {
         Payee memory p = Payee(msg.sender, msg.value);
