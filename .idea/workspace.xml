@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45ddc11e-7e96-49f1-a3b2-0afd43a209ff" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Mutex Pattern/AttackerMutex.sol" beforeDir="false" afterPath="$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Mutex Pattern/AttackerMutex.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Mutex Pattern/MutexPattern.sol" beforeDir="false" afterPath="$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Mutex Pattern/MutexPattern.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Mutex Pattern/MutexPattern.js" beforeDir="false" afterPath="$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Mutex Pattern/MutexPattern.js" afterDir="false" />
+    <list default="true" id="45ddc11e-7e96-49f1-a3b2-0afd43a209ff" name="Default" comment="Revised Mutex Pattern">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Indexed-Loop Pattern/IndexedLoopPattern.sol" beforeDir="false" afterPath="$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Indexed-Loop Pattern/IndexedLoopPattern.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Commitment Pattern/CommitmentPattern.js" beforeDir="false" afterPath="$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Commitment Pattern/CommitmentPattern.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Event-Ordering Pattern/EventOrderPattern.js" beforeDir="false" afterPath="$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Event-Ordering Pattern/EventOrderPattern.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Indexed-Loop Pattern/IndexedLoopPattern.js" beforeDir="false" afterPath="$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Indexed-Loop Pattern/IndexedLoopPattern.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,43 +17,35 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4527897">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="MutexPattern.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Mutex Pattern/MutexPattern.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AttackerMutex.sol" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Mutex Pattern/AttackerMutex.sol">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="394">
-                  <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="MutexPattern.sol" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Mutex Pattern/MutexPattern.sol">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="94">
-                  <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="MutexPattern.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Mutex Pattern/MutexPattern.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="31" column="8" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexedLoopPattern.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Indexed-Loop Pattern/IndexedLoopPattern.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="29" column="59" lean-forward="true" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexedLoopPattern.sol" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Indexed-Loop Pattern/IndexedLoopPattern.sol">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -59,6 +54,11 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Niclas Kannengießer" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -71,6 +71,11 @@
         <option value="$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Mutex Pattern/MutexPattern.js" />
         <option value="$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Mutex Pattern/MutexPattern.sol" />
         <option value="$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Mutex Pattern/AttackerMutex.sol" />
+        <option value="$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Event-Ordering Pattern/EventOrderPattern.js" />
+        <option value="$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Commitment Pattern/CommitmentPattern.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Indexed-Loop Pattern/IndexedLoopPattern.js" />
+        <option value="$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Indexed-Loop Pattern/IndexedLoopPattern.sol" />
       </list>
     </option>
   </component>
@@ -94,6 +99,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -124,40 +130,6 @@
               <item name="smart-contract-dev-support" type="462c0819:PsiDirectoryNode" />
               <item name="project-examples" type="462c0819:PsiDirectoryNode" />
               <item name="ethereum" type="462c0819:PsiDirectoryNode" />
-              <item name="contracts" type="462c0819:PsiDirectoryNode" />
-              <item name="Design Patterns" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="smart-contract-dev-support" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smart-contract-dev-support" type="462c0819:PsiDirectoryNode" />
-              <item name="project-examples" type="462c0819:PsiDirectoryNode" />
-              <item name="ethereum" type="462c0819:PsiDirectoryNode" />
-              <item name="contracts" type="462c0819:PsiDirectoryNode" />
-              <item name="Design Patterns" type="462c0819:PsiDirectoryNode" />
-              <item name="Mutex Pattern" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="smart-contract-dev-support" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smart-contract-dev-support" type="462c0819:PsiDirectoryNode" />
-              <item name="project-examples" type="462c0819:PsiDirectoryNode" />
-              <item name="ethereum" type="462c0819:PsiDirectoryNode" />
-              <item name="contracts" type="462c0819:PsiDirectoryNode" />
-              <item name="Idioms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="smart-contract-dev-support" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smart-contract-dev-support" type="462c0819:PsiDirectoryNode" />
-              <item name="project-examples" type="462c0819:PsiDirectoryNode" />
-              <item name="ethereum" type="462c0819:PsiDirectoryNode" />
-              <item name="contracts" type="462c0819:PsiDirectoryNode" />
-              <item name="Idioms" type="462c0819:PsiDirectoryNode" />
-              <item name="Checks-Effects-Interactions Pattern" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="smart-contract-dev-support" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smart-contract-dev-support" type="462c0819:PsiDirectoryNode" />
-              <item name="project-examples" type="462c0819:PsiDirectoryNode" />
-              <item name="ethereum" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -167,6 +139,33 @@
               <item name="ethereum" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="Design Patterns" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="smart-contract-dev-support" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smart-contract-dev-support" type="462c0819:PsiDirectoryNode" />
+              <item name="project-examples" type="462c0819:PsiDirectoryNode" />
+              <item name="ethereum" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="Design Patterns" type="462c0819:PsiDirectoryNode" />
+              <item name="Commitment Pattern" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="smart-contract-dev-support" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smart-contract-dev-support" type="462c0819:PsiDirectoryNode" />
+              <item name="project-examples" type="462c0819:PsiDirectoryNode" />
+              <item name="ethereum" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="Design Patterns" type="462c0819:PsiDirectoryNode" />
+              <item name="Event-Ordering Pattern" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="smart-contract-dev-support" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smart-contract-dev-support" type="462c0819:PsiDirectoryNode" />
+              <item name="project-examples" type="462c0819:PsiDirectoryNode" />
+              <item name="ethereum" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="Design Patterns" type="462c0819:PsiDirectoryNode" />
+              <item name="Indexed-Loop Pattern" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="smart-contract-dev-support" type="b2602c69:ProjectViewProjectNode" />
@@ -176,38 +175,11 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="Design Patterns" type="462c0819:PsiDirectoryNode" />
               <item name="Mutex Pattern" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="smart-contract-dev-support" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smart-contract-dev-support" type="462c0819:PsiDirectoryNode" />
-              <item name="project-examples" type="462c0819:PsiDirectoryNode" />
-              <item name="ethereum" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="Idioms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="smart-contract-dev-support" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smart-contract-dev-support" type="462c0819:PsiDirectoryNode" />
-              <item name="project-examples" type="462c0819:PsiDirectoryNode" />
-              <item name="ethereum" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="Idioms" type="462c0819:PsiDirectoryNode" />
-              <item name="ChecksEffectInteraction Pattern" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="smart-contract-dev-support" type="b2602c69:ProjectViewProjectNode" />
-              <item name="smart-contract-dev-support" type="462c0819:PsiDirectoryNode" />
-              <item name="project-examples" type="462c0819:PsiDirectoryNode" />
-              <item name="ethereum" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="Idioms" type="462c0819:PsiDirectoryNode" />
-              <item name="Deactivation Pattern" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -291,12 +263,12 @@
       <workItem from="1631705061870" duration="1691000" />
       <workItem from="1631707673852" duration="7753000" />
       <workItem from="1631724200899" duration="4573000" />
-      <workItem from="1631777291735" duration="1213000" />
+      <workItem from="1631777291735" duration="5560000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15230000" />
+    <option name="totallyTimeSpent" value="19577000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -313,6 +285,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32916668" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -321,10 +294,10 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32820514" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2897436" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.45128205" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.13376252" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2732475" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -339,7 +312,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="7" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,6 +319,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Revised Mutex Pattern" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revised Mutex Pattern" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Mutex Pattern/MutexPattern.js">
@@ -474,24 +450,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Mutex Pattern/MutexAntipattern.sol">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Mutex Pattern/MutexAntipattern.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
           <caret line="40" column="2" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Mutex Pattern/MutexPattern.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -506,6 +468,77 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="394">
           <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Indexed-Loop Pattern/IndexedLoopAntipattern.sol">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Mutex Pattern/MutexAntipattern.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Event-Ordering Pattern/EventOrderPattern.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Commitment Pattern/CommitmentPattern.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project-examples/ethereum/node_modules/@openzeppelin/test-helpers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project-examples/ethereum/node_modules/@openzeppelin/test-helpers/src/expectEvent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-242" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Mutex Pattern/MutexPattern.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="31" column="8" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project-examples/ethereum/node_modules/truffle/build/11.bundled.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="4507" column="2" selection-start-line="4507" selection-start-column="2" selection-end-line="4507" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project-examples/ethereum/test/Design Patterns/Indexed-Loop Pattern/IndexedLoopPattern.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="29" column="59" lean-forward="true" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project-examples/ethereum/contracts/Design Patterns/Indexed-Loop Pattern/IndexedLoopPattern.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
         </state>
       </provider>
     </entry>
