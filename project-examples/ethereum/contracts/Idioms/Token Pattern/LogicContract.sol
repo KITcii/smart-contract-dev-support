@@ -15,6 +15,10 @@ contract LogicContract {
         t = TokenContract(_address);
     }
 
+    function receival() payable external {
+        t.transfer(msg.value);
+    }
+
     function setTokenContractContract(address payable _address) public {
         require(msg.sender == owner);
         t = TokenContract(_address);

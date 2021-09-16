@@ -28,4 +28,4 @@ contract('LogicContract', async (accounts) => {
         const creditAccount1 = await newTokenContract.balances(accounts[1]);
         assert.equal(creditAccount1, amount);
     });
-})
+});
