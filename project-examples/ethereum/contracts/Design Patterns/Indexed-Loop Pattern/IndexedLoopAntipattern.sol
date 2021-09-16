@@ -17,8 +17,8 @@ contract IndexedLoopAntipattern {
 
     function payout() public {
         uint256 i = 0;
-        //If call fails after i iterations due to a gas related issue, there is no way to resume the
-        //loop if calling the function again
+        // If call fails after i iterations due to a gas related issue, there is no way to resume the
+        // loop if calling the function again
 
         while (i < payees.length) {
             // The require statement will block the loop if an asset transfer always fails
