@@ -7,13 +7,20 @@
     "test": "test"
   },
   "dependencies": {
-    "truffle": "^5.4.10"
+    "truffle": "^5.4.10",
+    "solhint": "^3.3.6"
   },
   "devDependencies": {
-    "@openzeppelin/test-helpers": "^0.5.13"
+    "@openzeppelin/test-helpers": "^0.5.13",
+    "prettier": "^2.4.0",
+    "prettier-plugin-solidity": "^1.0.0-beta.18",
+    "solhint": "^3.3.6",
+    "solhint-plugin-prettier": "0.0.5"
   },
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "solhint": "solhint -f table contracts/**/*.sol",
+    "prettier:solidity": "./node_modules/.bin/prettier --check contracts/**/*.sol"
   },
   "keywords": [
     "Ethereum"
