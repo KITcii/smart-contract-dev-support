@@ -3,7 +3,7 @@
 pragma solidity ^0.7.0;
 
 contract MutexPattern {
-    bool locked = false;
+    bool internal locked = false;
     mapping(address => uint256) public balances;
 
     modifier noReentrancy {
@@ -17,7 +17,7 @@ contract MutexPattern {
         balances[tx.origin] += msg.value;
     }
 
-    function withdraw(uint _amount) public noReentrancy {
+    function withdraw(uint256 _amount) public noReentrancy {
         require(balances[tx.origin] >= _amount, "No balance to withdraw.");
 
         // This is wrong according to the Checks-Effects-Interaction Pattern.
