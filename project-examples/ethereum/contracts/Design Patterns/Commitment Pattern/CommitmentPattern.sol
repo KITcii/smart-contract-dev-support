@@ -4,7 +4,7 @@ pragma solidity 0.7.0;
 
 contract CommitmentPattern {
     struct UserCommit {
-        bytes32 secretCommit;
+        bytes32 secretValue;
         bytes32 secretSalt;
         string plainValue;
         string plainSalt;
@@ -15,26 +15,26 @@ contract CommitmentPattern {
     event Commit(bytes32 value, bytes32 salt);
     event Reveal(bytes32 value, bytes32 salt);
 
-    function commit(bytes32 _secretCommit, bytes32 _secretSalt) public {
-        require(userCommits[msg.sender].secretCommit == "", "Your commitment cannot be changed anymore.");
+    function commit(bytes32 _secretValue, bytes32 _secretSalt) public {
+        require(userCommits[msg.sender].secretValue == "", "Your commitment cannot be changed anymore.");
 
         UserCommit memory uC = userCommits[msg.sender];
-        uC.secretCommit = _secretCommit;
+        uC.secretValue = _secretValue;
         uC.secretSalt = _secretSalt;
 
         userCommits[msg.sender] = uC;
 
-        emit Commit(_secretCommit, _secretSalt);
+        emit Commit(_secretValue, _secretSalt);
     }
 
-    function reveal(string memory _plainSalt, string memory _plainValue) public {
-        require(userCommits[msg.sender].secretCommit != "", "You did not commit to a value.");
+    function reveal(string memory _plainValue, string memory _plainSalt) public {
+        require(userCommits[msg.sender].secretValue != "", "You did not commit to a value.");
         require(userCommits[msg.sender].secretSalt == keccak256(abi.encode(_plainSalt)), "Your salt does not match the original one.");
-        require(userCommits[msg.sender].secretCommit == keccak256(abi.encodePacked(_plainValue, _plainSalt)), "Invalid values.");
+        require(userCommits[msg.sender].secretValue == keccak256(abi.encodePacked(_plainValue, _plainSalt)), "Invalid values.");
 
-        userCommits[msg.sender].plainSalt = _plainSalt;
         userCommits[msg.sender].plainValue = _plainValue;
+        userCommits[msg.sender].plainSalt = _plainSalt;
 
-        emit Reveal(keccak256(abi.encode(_plainSalt)), keccak256(abi.encodePacked(_plainValue, _plainSalt)));
+        emit Reveal(keccak256(abi.encodePacked(_plainValue, _plainSalt)), keccak256(abi.encode(_plainSalt)));
     }
 }

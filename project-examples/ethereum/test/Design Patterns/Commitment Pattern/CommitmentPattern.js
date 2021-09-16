@@ -8,11 +8,8 @@ contract('CommitmentPattern', async (accounts) => {
     const secretValue = "Hello World!";
     const secretSalt = "42";
 
-    const secretValueHash = web3.utils.soliditySha3(secretValue + secretSalt);
-    const secretSaltHash = web3.utils.soliditySha3(secretSalt);
-
-    const bytesValue = web3.utils.hexToBytes(secretValueHash);
-    const bytesSalt = web3.utils.hexToBytes(secretSaltHash);
+    const secretValueHash = '0xfcd21c4f942938771a1b3c27b33ddd26bb57cc79d3ae164893fd35998044ce10';
+    const secretSaltHash = '0xd67ec9c49eb33d5d2b993016837392e45c1e14e4c66487a6d36c90205ac37e77';
 
     before(async () => {
         contract = await CommitmentPattern.new({from: accounts[0]});
@@ -26,13 +23,15 @@ contract('CommitmentPattern', async (accounts) => {
     });
 
     it('Should make a commit ', async () => {
-        const c = await contract.commit(secretValueHash, secretSaltHash, {from: accounts[0]});
-        await expectEvent(c, 'Commit', {value: secretValueHash, salt: secretSaltHash});
+        const commit = await contract.commit(secretValueHash, secretSaltHash, {from: accounts[0]});
+        await expectEvent(commit, 'Commit', {value: secretValueHash, salt: secretSaltHash});
+
+        const reveal = await contract.reveal(secretValue, secretSalt);
+        await expectEvent(reveal, 'Reveal', {value: secretValueHash, salt: secretSaltHash});
     });
 
     it('Should not allow to reveal with incorrect values', async () => {
-        const reveal = await debug( contract.reveal("Hello", secretSalt,  {from: accounts[0]}) );
-        await expectRevert(reveal, 'Invalid value.');
+        await expectRevert(contract.reveal("Hello", secretSalt,  {from: accounts[0]}), 'Invalid values.');
     });
 
     it('Should only allow to reveal as committer', async () => {
