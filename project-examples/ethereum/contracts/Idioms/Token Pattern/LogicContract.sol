@@ -6,13 +6,17 @@ import './TokenContract.sol';
 
 contract LogicContract {
     address owner;
-    TokenContract public t;
     address public highest_bidder;
+
+    TokenContract public t;
+
     uint256 highest_bid;
+    uint public auctionEndTime;
 
     constructor(address payable _address, uint _timeLock) {
         owner = msg.sender;
         t = TokenContract(_address);
+        auctionEndTime = block.timestamp + _timeLock;
     }
     
     function setTokenContractContract (address payable _address) public {
@@ -20,12 +24,14 @@ contract LogicContract {
         t = TokenContract(_address);
     }
 
-    function auction(uint256 bid) public {
-        require(t.balances(msg.sender) >= bid, "Insufficient balance.");
-        require(bid>highest_bid, "Your bid is too low.");
+    function bid(uint256 _bid) public {
+        require(block.timestamp <= auctionEndTime, "Auction already ended.");
+        // uint256 balance  = t.balances(msg.sender);
+        // require( balance >= bid, "Insufficient balance.");
+        require(_bid>highest_bid, "Your bid is too low.");
         
         highest_bidder=msg.sender;
-        highest_bid=bid;
+        highest_bid=_bid;
     }
 
 
