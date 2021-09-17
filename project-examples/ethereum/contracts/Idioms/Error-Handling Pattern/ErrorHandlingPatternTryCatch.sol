@@ -5,10 +5,13 @@ pragma solidity 0.7.0;
 contract CharitySplitter {
     address public owner;
 
+    event CreationSuccessful(string message);
+
     constructor (address _owner, uint _successParameter) public {
         require(_owner != address(0), "No owner provided.");
         require(_successParameter == 0, "Creation not successful.");
         owner = _owner;
+        emit CreationSuccessful('Contract created');
     }
 }
 
@@ -24,7 +27,8 @@ contract ErrorHandlingPatternTryCatch {
                 charitySplitters[msg.sender] = newCharitySplitter;
         } catch Error(string memory reason) {
             errorCount++;
-            CharitySplitter newCharitySplitter = new CharitySplitter(msg.sender, _successParameter);
+            // Simulate new succesful creation
+            CharitySplitter newCharitySplitter = new CharitySplitter(msg.sender, 0);
             charitySplitters[msg.sender] = newCharitySplitter;
             // Emit the error event
             emit ErrorHandled(reason);
