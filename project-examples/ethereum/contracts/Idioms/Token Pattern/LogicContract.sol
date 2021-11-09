@@ -6,47 +6,21 @@ import './TokenContract.sol';
 
 contract LogicContract {
     address owner;
-    address public highest_bidder;
-
     TokenContract public t;
+    uint256 price;
 
-    uint256 highest_bid;
-    uint public auctionEndTime;
-
-    constructor(address payable _address, uint _timeLock) {
+    event ItemSold(uint256 value);
+    
+    constructor(address payable _address, uint _price) {
         owner = msg.sender;
         t = TokenContract(_address);
-        auctionEndTime = block.timestamp + _timeLock;
+        price = _price;
     }
 
-    function receival() payable external {
-        address(t).transfer(msg.value);
+    function buy() public {
+        require(t.balances(msg.sender) >= price, "Insufficient Funds");
+        t.send(msg.sender, owner, price);
+        emit ItemSold(price);
     }
 
-    function setTokenContractContract(address payable _address) public {
-        require(msg.sender == owner);
-        t = TokenContract(_address);
-    }
-
-    function bid(uint256 _bid) public {
-        require(block.timestamp <= auctionEndTime, "Auction already ended.");
-        // uint256 balance  = t.balances(msg.sender);
-        // require( balance >= bid, "Insufficient balance.");
-        require(_bid>highest_bid, "Your bid is too low.");
-        
-        highest_bidder=msg.sender;
-        highest_bid=_bid;
-    }
-
-    function auction(uint256 bid) public {
-        require(t.balances(msg.sender) >= bid, "Insufficient balance.");
-        require(bid > highest_bid, "Your bid is too low.");
-
-        highest_bidder = msg.sender;
-        highest_bid = bid;
-    }
-
-    function payout() external {
-        t.sendToEOA(msg.sender);
-    }
 }    
