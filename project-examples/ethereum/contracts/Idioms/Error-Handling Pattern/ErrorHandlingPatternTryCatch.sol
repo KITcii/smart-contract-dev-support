@@ -7,7 +7,7 @@ contract CharitySplitter {
 
     event CreationSuccessful(string message);
 
-    constructor (address _owner, uint _successParameter) public {
+    constructor (address _owner, uint _successParameter) {
         require(_owner != address(0), "No owner provided.");
         require(_successParameter == 0, "Creation not successful.");
         owner = _owner;

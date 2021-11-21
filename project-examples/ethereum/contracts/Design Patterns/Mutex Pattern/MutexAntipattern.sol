@@ -14,7 +14,6 @@ contract MutexAntipattern {
         // This is wrong according to the Checks-Effects-Interaction Pattern.
         // For demonstration purposes only!
         msg.sender.call{value: _amount}("");
-        balances[msg.sender] -= _amount;
-        
+        balances[msg.sender] -= _amount;   
     }
 }

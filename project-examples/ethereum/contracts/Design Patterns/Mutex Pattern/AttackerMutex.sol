@@ -27,7 +27,8 @@ contract AttackerMutex {
     }
 
     function setBalance() public payable {
-         victimAddress.call{value: msg.value}("");
+        (bool success, ) = victimAddress.call{value: msg.value}("");
+        require(success);
     }
 
     function attack() public {

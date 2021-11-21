@@ -15,10 +15,13 @@ library SafeMath8 {
 
 contract OverflowPattern {
     using SafeMath8 for uint8;
-       
+    //Example Code
+    uint8 test;
+
     function runLoop() public {
         for(uint8 i=255; i < 300 ; i.add(1)){
-            // Your code
+            // Example code
+            test = i;
         }
     }
 }
