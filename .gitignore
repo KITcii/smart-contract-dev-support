@@ -1,4 +1,4 @@
-project-examples/ethereum/build
+project-examples/ethereum/build/
 package-lock.json
 node_modules
 .idea
