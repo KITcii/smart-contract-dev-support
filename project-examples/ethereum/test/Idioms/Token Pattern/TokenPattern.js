@@ -3,7 +3,7 @@ const TokenContract = artifacts.require('TokenContract');
 const {expectEvent} = require('@openzeppelin/test-helpers');
 const {expectRevert} = require('@openzeppelin/test-helpers');
 
-contract('LogicContract', async (accounts) => {
+contract('TokenPattern', async (accounts) => {
 
     before(async () => {
         const amount = web3.utils.toWei("0.01", "ether");
