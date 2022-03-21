@@ -10,7 +10,7 @@ contract('ReplayProtectionPattern', async (accounts) => {
 
     });
 
-    it('alice should start with 4 ether', async () => {
+    it('Alice should start with 4 ether', async () => {
         const startAmount = web3.utils.toWei('4', 'ether');
         await web3.eth.sendTransaction({from: alice, to: contract.address, value: startAmount}); 
         assert.equal(startAmount, await contract.balances.call(alice))

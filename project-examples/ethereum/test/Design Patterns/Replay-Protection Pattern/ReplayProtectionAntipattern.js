@@ -3,12 +3,54 @@ const {expectRevert} = require('@openzeppelin/test-helpers');
 
 contract('ReplayProtectionAntipattern', async (accounts) => {
     before(async () => {
-        contract = await ReplayProtectionAntipattern.new();
+        alice = accounts[303];
+        bob = accounts[304];
+        contract = await ReplayProtectionAntipattern.new({from: alice});
+
     });
 
-    it('Should be possible to send money ', async () => { 
-        let amount = web3.utils.toWei("2", "ether");
-        await contract.buyTokens({from: accounts[0], value: amount}); 
-        assert.equal(amount, await contract.balances(accounts[0]));   
+    it('Alice should start with 4 ether', async () => {
+        const startAmount = web3.utils.toWei('4', 'ether');
+        await web3.eth.sendTransaction({from: alice, to: contract.address, value: startAmount}); 
+        assert.equal(startAmount, await contract.balances.call(alice))
     });
-})    
+
+    it('Money Transfer should be possible', async () => {
+        const amount = web3.utils.toWei('1', 'ether');
+        let executionNonce = 0;
+        let messageHash = web3.utils.soliditySha3(alice, bob, amount, contract.address, executionNonce)
+        let signature = await web3.eth.sign(messageHash, alice);    // sign the mesage hash
+
+        // From ECDSA Contract: If your library also generates signatures with 0/1 for v instead 27/28, add 27 to v to accept these malleable signatures as well.
+        signature = signature.substr(0, 130) + (signature.substr(130) == "00" ? "1b" : "1c"); // v: 0,1 => 27,28
+      
+        await contract.transferTokens(alice,
+            bob,
+            amount,
+            executionNonce,
+            signature,
+            {from: alice});
+
+        assert.equal(amount, await contract.balances(bob));
+    });
+
+
+    it('Execution nonce can only be used once', async () => {
+        const amount = web3.utils.toWei('1', 'ether');
+        let executionNonce = 0;
+        let messageHash = web3.utils.soliditySha3(alice, bob, amount, contract.address, executionNonce)
+        let signature = await web3.eth.sign(messageHash, alice);    // sign the mesage hash
+        signature = signature.substr(0, 130) + (signature.substr(130) == "00" ? "1b" : "1c"); // v: 0,1 => 27,28
+
+        await expectRevert(
+            contract.transferTokens(alice,
+                bob,
+                amount,
+                executionNonce,
+                signature,
+                {from: alice}),
+                "Invalid execution nonce!"
+        );
+    });
+
+});
