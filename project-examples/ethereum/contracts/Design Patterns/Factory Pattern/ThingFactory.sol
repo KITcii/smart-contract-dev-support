@@ -1,4 +1,6 @@
 // SPDX-License-Identifier: MIT
+// https://github.com/optionality/clone-factory (Solidity 0.423)
+
 pragma solidity ^0.7.0;
 
 import "./Thing.sol";
