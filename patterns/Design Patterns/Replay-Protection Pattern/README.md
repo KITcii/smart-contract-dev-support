@@ -97,16 +97,7 @@ contract ReplayProtectionPattern{
         balances[_to] = balances[_to] + _amount;
     }
 
-    function buyTokens() external payable {
-        balances[msg.sender] = balances[msg.sender] + msg.value;
-    }
-    
-    function withdrawTokens() external {
-        require(balances[msg.sender] > 0, "No funds available!");
-        uint256 amount = balances[msg.sender];
-        balances[msg.sender] = 0;
-        msg.sender.transfer(amount);
-    }
+   //...
 }
 ```
 
