@@ -12,6 +12,6 @@ Launch Ganache:
     npx ganache-cli -l 1000000000 --accounts 600
     
     
-Run the test in a second Terminal window via (make sure you are in the /ethereum subdirectory) :
+Run the tests in a second Terminal window via (make sure you are in the /ethereum subdirectory) :
 
     truffle test     
