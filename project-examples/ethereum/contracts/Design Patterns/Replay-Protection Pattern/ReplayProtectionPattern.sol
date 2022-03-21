@@ -17,7 +17,10 @@ contract ReplayProtectionPattern{
         
         // Check signature
         address signer = ECDSA.recover(
-            keccak256(abi.encodePacked(_from, _to, _amount, address(this), _executionNonce)), _signature
+            ECDSA.toEthSignedMessageHash(
+                keccak256(abi.encodePacked(_from, _to, _amount, address(this), _executionNonce))
+            )
+            , _signature
         );
         require(signer == owner, "Invalid signature.");
         
@@ -34,11 +37,12 @@ contract ReplayProtectionPattern{
         external replayProtection(_from, _to, _amount, _executionNonce, _signature) {
         require(balances[_from] > _amount, "Not enough funds available!");
         require(msg.sender == owner, "You are not the owner!");
+
         balances[_from] = balances[_from] - _amount;
         balances[_to] = balances[_to] + _amount;
     }
 
-    function buyTokens() external payable {
+    receive() external payable {
         balances[msg.sender] = balances[msg.sender] + msg.value;
     }
     
