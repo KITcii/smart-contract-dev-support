@@ -1,7 +1,7 @@
 # Replay-Protection Pattern
 
 ## Context
-Transactions are publicly visible and include payload data that can be reissued by attackers to leverage benefits, for example, to spend assets on different distributed ledgers after a hard fork.
+Transactions are publicly visible and include payload data that can be reissued by attackers to leverage benefits, for example, to authenticate against a smart contract using a digital signature stored in the payload of a foreign transaction.
 
 ``Applies to: [X] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
