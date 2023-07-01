@@ -1,6 +1,6 @@
 # Façade Pattern
 ## Context
-Multiple smart contracts have been deployed, each offering individual functions and logic to be executed (e.g., in favor of separation of concerns). Interactions with multiple smart contracts are required to execute an application logic composed of the different logic blocks offered by the smart contracts.
+Multiple smart contracts have been deployed, each offering individual functions and logic to be executed (e.g., in favor of separation of concerns). Interactions with multiple smart contracts are required to execute an application logic composed of the different logic blocks offered by the smart contracts. The Façade Pattern can be used to facilitate complex interactions between multiple smart contracts by offering a unified entry point.
 
 ``Applies to: [X] EOSIO    [X] Ethereum    [] Hyperledger Fabric``
 
