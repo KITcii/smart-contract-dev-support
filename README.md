@@ -1,7 +1,7 @@
 # Smart Contract Development Support
-This repository contains software design patterns to address common challenges in the development of smart contracts, which we have identified in close collaboration with [EnBW Energie Baden-Württemberg AG](https://www.enbw.com/). Each directory of a software design pattern includes a `README.md` file with a [pattern description](#structure-of-the-software-design-patterns) and code examples. Feel free to use the code examples for your individual purposes.
+This repository contains software design patterns to address common challenges in the development of smart contracts, which we have identified in close collaboration with [EnBW Energie Baden-Württemberg AG](https://www.enbw.com/). Each directory of a software design pattern includes a `README.md` file with a [pattern description](#structure-of-the-software-design-patterns) and code examples. Feel free to use the code examples for your individual purposes. This repository is part of our publication ["Challenges and Common Solutions in Smart Contract Development"](https://ieeexplore.ieee.org/document/9555611) published in the journal IEEE Transactions on Software Engineering.
 
-We encourage you to support us in maintaining this repository and welcome your questions and comments on the software design patterns. To comment the software design patterns, please open an [issue](https://github.com/KITcii/smart-contract-dev-support/issues) for specific feedback on a software design pattern or post your general comments into the [discussion section](https://github.com/KITcii/smart-contract-dev-support/discussions).
+We encourage you to support us in maintaining this repository and welcome your questions and comments on the software design patterns. To comment on the software design patterns, please open an [issue](https://github.com/KITcii/smart-contract-dev-support/issues) for specific feedback on a software design pattern or post your general comments in the [discussion section](https://github.com/KITcii/smart-contract-dev-support/discussions).
 
 ## Project Structure
 The theoretical pattern descriptions can be found in the [pattern directory](patterns/). Or just follow the links from the tables below. For practical examples and demonstrations take a look at our [project-examples](project-examples/). 
@@ -13,7 +13,7 @@ The theoretical pattern descriptions can be found in the [pattern directory](pat
 [Architectural Patterns](patterns/Architectural%20Patterns/README.md) | Usage | EOSIO | Ethereum | Hyperledger Fabric
 -------- | -------- | :-: | :-: | :-:
 [Façade Pattern](patterns/Architectural%20Patterns/Façade%20Pattern/README.md) | Enable secure orchestration of smart contract systems | &#x2611; | &#x2611; |
-[Name-Service Pattern](patterns/Architectural%20Patterns/Name-Service%20Pattern/README.md) | Create registry for smart contracts to assign intuitive names to smart contracts  | | &#x2611;  |
+[Name-Service Pattern](patterns/Architectural%20Patterns/Name-Service%20Pattern/README.md) | Create a registry for smart contracts to assign intuitive names to smart contracts  | | &#x2611;  |
 [Observer Pattern](patterns/Architectural%20Patterns/Observer%20Pattern/README.md) |Automate communication of address changes due to updates in smart contracts  | |&#x2611;  |
 [Oracle Pattern](patterns/Architectural%20Patterns/Oracle%20Pattern/README.md) |Enable access to external data for smart contracts |&#x2611; |&#x2611;  |&#x2611;
 [Proxy Pattern](patterns/Architectural%20Patterns/Proxy%20Pattern/README.md) |Enable code updatability of smart contract | |&#x2611;  |
@@ -21,7 +21,7 @@ The theoretical pattern descriptions can be found in the [pattern directory](pat
 ### Design Patterns
 [Design Patterns](patterns/Design%20Patterns/README.md) | Usage | EOSIO | Ethereum | Hyperledger Fabric
 -------- | -------- | :-: | :-: | :-:
-[Commitment Pattern](patterns/Design%20Patterns/Commitment%20Pattern/README.md) |Allow for binding commitment of values, which may remain secret until all values are to be revealed |&#x2611; |&#x2611; |&#x2611;
+[Commitment Pattern](patterns/Design%20Patterns/Commitment%20Pattern/README.md) |Allow for binding commitments of values, which may remain secret until all values are to be revealed |&#x2611; |&#x2611; |&#x2611;
 [Event-Ordering Pattern](patterns/Design%20Patterns/Event-Ordering%20Pattern/README.md) | Ensure a transaction is only executed in a certain smart contract state |&#x2611; |&#x2611; |&#x2611;
 [Factory Pattern](patterns/Design%20Patterns/Factory%20Pattern/README.md#context) |Enable automatic redeployment of similar smart contracts  | |&#x2611;  |
 [Identity-Service Pattern](patterns/Design%20Patterns/Identity-Service%20Pattern/README.md) |Enable decentralized identity management |&#x2611;  |&#x2611;  |
@@ -38,7 +38,7 @@ The theoretical pattern descriptions can be found in the [pattern directory](pat
 [Error-Handling Pattern](patterns/Idioms/Error-Handling%20Pattern/README.md) | Handle errors in smart contracts appropriately | |&#x2611; |
 [External-Call Pattern](patterns/Idioms/External-Call%20Pattern/README.md) | Handle failed external calls and prevent unintended side effects | |&#x2611;  |
 [Guarding Pattern](patterns/Idioms/Guarding%20Pattern/README.md) |Restrict authorization to execute smart contract functions to particular accounts in defined contexts |&#x2611;  |&#x2611;  | &#x2611;
-[Overflow/Underflow Pattern](patterns/Idioms/Overflow%20Pattern/README.md)|Prevent variable overflow and underflow caused by unappropriate data type use | |&#x2611; |
+[Overflow/Underflow Pattern](patterns/Idioms/Overflow%20Pattern/README.md)|Prevent variable overflow and underflow caused by inappropriate data type use | |&#x2611; |
 [Token Pattern](patterns/Idioms/Token%20Pattern/README.md) |Mitigate the risks related to the update of smart contracts keeping tokens | |&#x2611; |
 
 # Structure of Software Design Patterns
