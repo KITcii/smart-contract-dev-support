@@ -25,7 +25,7 @@ The theoretical pattern descriptions can be found in the [pattern directory](pat
 [Event-Ordering Pattern](patterns/Design%20Patterns/Event-Ordering%20Pattern/README.md) | Ensure a transaction is only executed in a certain smart contract state |&#x2611; |&#x2611; |&#x2611;
 [Factory Pattern](patterns/Design%20Patterns/Factory%20Pattern/README.md#context) |Enable automatic redeployment of similar smart contracts  | |&#x2611;  |
 [Identity-Service Pattern](patterns/Design%20Patterns/Identity-Service%20Pattern/README.md) |Enable decentralized identity management |&#x2611;  |&#x2611;  |
-[Indexed-Loop Pattern](patterns/Design%20Patterns/Indexed-Loop%20Pattern/README.md) |Ensure an unbounded data structure can be interrupted and continued with the next call |&#x2611;  |&#x2611;  |
+[Indexed-Loop Pattern](patterns/Design%20Patterns/Indexed-Loop%20Pattern/README.md) |Ensure an unbounded data structure can be interrupted and continued with the following call |&#x2611;  |&#x2611;  |
 [Mutex Pattern](patterns/Design%20Patterns/Mutex%20Pattern/README.md) |Prevent reentrancy attacks | | &#x2611;  |
 [Pull Pattern](patterns/Design%20Patterns/Pull%20Pattern/README.md) |Prevent abortion of execution caused by unbounded data structure and ensure fair distribution of costs|  | &#x2611;  |
 [Replay-Protection Pattern](patterns/Design%20Patterns/Replay-Protection%20Pattern/README.md)|Prevent variable overflow caused by unappropriate data type use | |&#x2611; |
@@ -47,11 +47,11 @@ To make smart contract developers aware of the peculiarities of smart contracts 
 
 - _Architectural patterns_ describe “[…] a fundamental structural organization or scheme for software systems and provide a set of predefined subsystems, specify their responsibilities, and include rules and guidelines for organizing the relationships between them” [1, p. 12].
 
-- _Design patterns_ provide “[…] a scheme for refining the subsystems or components of a software system, or the relationships between them” [1, p. 13] to solve a general design problem within a certain context.
+- _Design patterns_ provide “[…] a scheme for refining the subsystems or components of a software system, or the relationships between them” [1, p. 13] to solve a general design problem within a specific context.
 
 - _Idioms_ are patterns on the lowest level of abstraction and “describe[s] how to implement particular aspects of components or the relationships between them using the features of the given language” [1, p. 14].
 
-Each pattern is comprised of components to describe the pattern in a consistent and comprehensive manner. In this repository, we follow the _canonical form_ comprisong the following elements: 
+Each pattern is comprised of components to describe the pattern consistently and comprehensively. In this repository, we follow the _canonical form_ comprising the following elements: 
 
 - _Name:_ the pattern in one word "[…] to use a single word or short phrase to refer to the pattern, and the knowledge and structure it describes" [2, p. 5]. 
 
@@ -63,7 +63,7 @@ Each pattern is comprised of components to describe the pattern in a consistent 
 
 - _Solution:_ the "static relationships and dynamic rules describing how to realize the desired outcome. This is often equivalent to giving instructions which describe how to construct the necessary work products" [2, p. 5].
 
-- _Examples:_ "one or more sample applications of the pattern which illustrate: a specific initial context; how the pattern is applied to, and transforms, that context; and the resulting context left in its wake" [2, p. 6].
+- _Examples:_ "one or more sample applications of the pattern which illustrate: a specific initial context; how the pattern is applied to, and transforms that context; and the resulting context left in its wake" [2, p. 6].
 
 - _Resulting Context:_ "the state or configuration of the system after the pattern has been applied, including the consequences (both good and bad) of applying the pattern, and other problems and patterns that may arise from the new context. It describes the postconditions and side-effects of the pattern" [2, p. 6].
 
