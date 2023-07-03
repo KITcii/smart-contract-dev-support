@@ -5,7 +5,7 @@ Design patterns provide “[…] a scheme for refining the subsystems or compone
 ## Overview of Architectural Patterns
 
 * [Commitment Pattern](Commitment%20Pattern/README.md)
-* [Event-Ordering Pattern](Event-Order%20Pattern/README.md)
+* [Event-Order Pattern](Event-Order%20Pattern/README.md)
 * [Factory Pattern](Factory%20Pattern/README.md)
 * [Indexed-Loop Pattern](Indexed-Loop%20Pattern/README.md)
 * [Mutex Pattern](Mutex%20Pattern/README.md)
