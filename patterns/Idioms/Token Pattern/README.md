@@ -11,7 +11,7 @@ The forces involved in the Token Pattern are maintainability, particularly code 
 increase.
 
 ## Solution
-Logic and data in smart contracts should be separated into a Logic Contract and a Token Contract. The Token Contract provides data on the liquidity of accounts and keeps the tokens. If code functionality needs to be changed, only the Logic Contract is updated. The Token Contract can remain unchanged. When a new version of the Logic Contract is deployed, the deprecated Logic Contract must be destroyed.
+Logic and data in smart contracts should be separated into `LogicContract` and `TokenContract`. `TokenContract` provides data on the liquidity of accounts and keeps the tokens. If code functionality needs to be changed, only the `LogicContract` is updated. `TokenContract` can remain unchanged. When a new version of the `LogicContract` is deployed, the deprecated `LogicContract` must be destroyed.
 
 ## Example
 
@@ -67,7 +67,7 @@ contract LogicContract {
 Developers can maintain logic expressed in smart contract code to manage data or assets without the risk of losing them. The data are always kept by the same smart contract. 
 
 ## Rationale
-A new smart contract that manages the tokens (e.g., token transfers) can be deployed to the distributed ledger and access the Token Contract according to its authorization scheme. By doing so, no fees for token transfers from the Token Contract to another must be paid during an update, and maintenance-related functionality for such transfers does not have to be implemented.
+A new smart contract that manages the tokens (e.g., token transfers) can be deployed to the distributed ledger and access `TokenContract` according to its authorization scheme. By doing so, no fees for token transfers from the `TokenContract` to another must be paid during an update, and maintenance-related functionality for such transfers does not have to be implemented.
 
 ## Related Patterns
 [Factory Pattern](../../Design%20Patterns/Factory%20Pattern/README.md)
