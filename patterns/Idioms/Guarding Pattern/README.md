@@ -5,10 +5,10 @@ The Guarding Pattern applies to smart contracts that should only be executable b
 ``Applies to: [X] EOSIO    [X] Ethereum    [X] Hyperledger Fabric``
 
 ## Problem
-Smart contract interfaces are exposed to and callable by all users of the distributed ledgers. The public accessibility of deployed smart contracts makes them vulnerable to unauthorized smart contract calls, potentially causing asset loss. The Guarding Pattern can ensure that a function is only executable by specific accounts and the authorization checks should be performed prior to the function execution.
+Smart contract interfaces are exposed to and callable by all users of the distributed ledgers. The public accessibility of deployed smart contracts makes them vulnerable to unauthorized smart contract calls, potentially causing asset loss. The Guarding Pattern can ensure that a function is only executable by specific accounts, and the authorization checks should be performed prior to the function execution.
 
 ## Forces
-The forces involved in the Guarding Pattern are regulated executability, particularly execution restriction, semantic soundness and resource efficiency. Execution restrictions are enabled by implementing authorization checks. This also increases semantic soundness as only the intended accounts can invoke smart contract interfaces. Implementing authorization checks requires additional computational resources, thus, reducing resource efficiency.
+The forces involved in the Guarding Pattern are regulated executability, particularly execution restriction, semantic soundness and resource efficiency. Execution restrictions are enabled by implementing authorization checks. This also increases semantic soundness, as only the intended accounts can invoke smart contract interfaces. Implementing authorization checks requires additional computational resources, thus, reducing resource efficiency.
 
 ## Solution
 Developers should implement authorization checks (e.g., modifiers in Solidity) for callable functions, especially for those functions that should transfer assets. In Solidity, the use of a modifier is recommended to implement procedures (e.g., authorization checks) that are executed prior to the execution of the actual function called. Modifiers implement ``_;`` to specify at which position the actual function code should be executed. Modifiers can be implemented in multiple functions.
@@ -57,7 +57,7 @@ contract GuardingPattern {
 ```
 
 ## Resulting Context
-All smart contract functions that handle sensitive logic, check the validity of the request directly at the beginning of the function call and will not execute any code of a function if the authorization check validates as false. Using modifiers supports understandability and allows to recycle code within a smart contract instead of implementing individual checks in each function.
+All smart contract functions that handle sensitive logic, check the validity of the request directly at the beginning of the function call and will not execute any code of a function if the authorization check validates it as false. Using modifiers supports understandability and allows for recycling code within a smart contract instead of implementing individual checks in each function.
 
 ## Rationale
 A lack of authorization checks endangers funds kept in a smart contract because malicious smart contract function calls (e.g., certain accounts or certain smart contract execution contexts) can be successful. Using modifiers allows for an intuitive and reusable way of implementing certain procedures, such as authorization checks, that should be executed when calling a smart contract function.
